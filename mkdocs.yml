@@ -5,3 +5,4 @@ theme:
   language: it
 nav:
   - Home: index.md
+  - C: c/index.md
