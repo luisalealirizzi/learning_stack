@@ -21,7 +21,7 @@
     
     
       
-        <title>Guida pianondirizzamento - Learning_Stack</title>
+        <title>Guida al piano di indirizzamento IP - Learning_Stack</title>
       
     
     
@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#guida-al-piano-di-indirizzamento-ip" class="md-skip">
+          Vai al contenuto
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -93,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Guida pianondirizzamento
+              Guida al piano di indirizzamento IP
             
           </span>
         </div>
@@ -226,6 +231,271 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#passo-1-calcolare-gli-host-necessari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASSO 1: Calcolare gli host necessari
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-2-definire-lindirizzo-di-rete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASSO 2: Definire l’indirizzo di rete
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PASSO 2: Definire l’indirizzo di rete">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scelta-dello-spazio-privato-e-del-prefisso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scelta dello spazio privato e del prefisso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regole-importanti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regole importanti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esempi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esempi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calcolo-del-prefisso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calcolo del prefisso
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-3-scegliere-il-blocco-giusto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASSO 3: Scegliere il blocco giusto
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PASSO 3: Scegliere il blocco giusto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabella-utile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabella utile
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-4-ordinare-le-subnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASSO 4: Ordinare le subnet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-5-capire-il-salto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASSO 5: Capire il salto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-6-assegnare-le-subnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASSO 6: Assegnare le subnet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PASSO 6: Assegnare le subnet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#regole" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regole
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esempio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esempio
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-7-passare-alla-subnet-successiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASSO 7: Passare alla subnet successiva
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-8-ripetere" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASSO 8: Ripetere
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-9-controllo-finale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASSO 9: Controllo finale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#casi-particolari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CASI PARTICOLARI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CASI PARTICOLARI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#una-sola-subnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Una sola subnet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subnet-tutte-uguali" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subnet tutte uguali
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subnet-diverse-caso-piu-comune" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subnet diverse (caso più comune)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategia-antipanico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STRATEGIA ANTIPANICO
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -242,9 +512,226 @@
 
 
 
-  <h1>Guida pianondirizzamento</h1>
-
-
+<h1 id="guida-al-piano-di-indirizzamento-ip">Guida al piano di indirizzamento IP</h1>
+<h2 id="passo-1-calcolare-gli-host-necessari">PASSO 1: Calcolare gli host necessari</h2>
+<p>Per ogni rete:</p>
+<ul>
+<li>Prendi gli host richiesti  </li>
+<li>Aggiungi:</li>
+<li>eventuale riserva (es. +10%)  </li>
+<li>eventuali dispositivi extra (router, stampanti, server…)</li>
+</ul>
+<h2 id="passo-2-definire-lindirizzo-di-rete">PASSO 2: Definire l’indirizzo di rete</h2>
+<p>Devi scegliere la rete iniziale solo se la traccia NON la fornisce.</p>
+<h3 id="scelta-dello-spazio-privato-e-del-prefisso">Scelta dello spazio privato e del prefisso</h3>
+<p>Quando la rete non è specificata, si deve scegliere uno spazio di indirizzamento privato tra:</p>
+<ul>
+<li>192.168.x.x  </li>
+<li>172.16–31.x.x  </li>
+<li>10.x.x.x  </li>
+</ul>
+<p>La scelta dello spazio dipende dal contesto:</p>
+<ul>
+<li>192.168 → reti piccole (scuole, uffici)  </li>
+<li>172 → reti intermedie  </li>
+<li>10 → reti grandi o espandibili  </li>
+</ul>
+<p>⚠️ Il numero di host NON dipende dallo spazio scelto, ma dal prefisso.</p>
+<p>Esempio:</p>
+<ul>
+<li>192.168.0.0/23 → circa 510 host  </li>
+<li>10.0.0.0/23 → circa 510 host  </li>
+</ul>
+<p>cambia il tipo di rete, non la dimensione</p>
+<h3 id="regole-importanti">Regole importanti</h3>
+<ul>
+<li>lo spazio (192 / 172 / 10) è una scelta progettuale  </li>
+<li>il prefisso (/24, /23, /22) determina quanti host può contenere la rete  </li>
+</ul>
+<p>Scegli una rete privata coerente con il contesto.</p>
+<h3 id="esempi">Esempi</h3>
+<p>Rete: 192.168.0.0/25 Host disponibili: 126  (adatta per scuole o uffici con meno di 126 host)
+Rete: 172.16.0.0/25 Host disponibili: 126  (adatta per medie imprese possibilimente in più sedi con meno di 126 host)
+Rete: 10.0.0.0/25 Host disponibili: 126  (adatta per grandi aziende o reti diffuse ma con meno di 126 host)</p>
+<p>Rete: 192.168.0.0/20 Host disponibili: 4094 (adatta per scuole o uffici con meno di 4094 host)
+Rete: 172.16.0.0/20 Host disponibili: 4094  (adatta per medie imprese possibilimente in più sedi con meno di 4094 host)
+Rete: 10.0.0.0/20 Host disponibili: 4094 (adatta per grandi aziende o reti diffuse ma con meno di 4094 host)</p>
+<h3 id="calcolo-del-prefisso">Calcolo del prefisso</h3>
+<p>Trova la prima potenza di 2 ≥ (host + 2)</p>
+<p>Esempio:</p>
+<ul>
+<li>100 host → 100 + 2 = 102  </li>
+<li>2⁶ = 64 no</li>
+<li>2⁷ = 128 ok</li>
+</ul>
+<p>32 - 7 = 25   -&gt; prefisso = /25  </p>
+<h2 id="passo-3-scegliere-il-blocco-giusto">PASSO 3: Scegliere il blocco giusto</h2>
+<p>Per trovare il blocco:</p>
+<ul>
+<li>prendi il numero di host  </li>
+<li>aggiungi 2  </li>
+<li>scegli la prima potenza di 2 ≥  </li>
+</ul>
+<p>Poi:</p>
+<ul>
+<li>sottrai da 32 → ottieni il prefisso  </li>
+</ul>
+<hr />
+<h3 id="tabella-utile">Tabella utile</h3>
+<table>
+<thead>
+<tr>
+<th>Host utili</th>
+<th>Prefisso</th>
+<th>Indirizzi totali</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>/30</td>
+<td>4</td>
+</tr>
+<tr>
+<td>6</td>
+<td>/29</td>
+<td>8</td>
+</tr>
+<tr>
+<td>14</td>
+<td>/28</td>
+<td>16</td>
+</tr>
+<tr>
+<td>30</td>
+<td>/27</td>
+<td>32</td>
+</tr>
+<tr>
+<td>62</td>
+<td>/26</td>
+<td>64</td>
+</tr>
+<tr>
+<td>126</td>
+<td>/25</td>
+<td>128</td>
+</tr>
+<tr>
+<td>254</td>
+<td>/24</td>
+<td>256</td>
+</tr>
+</tbody>
+</table>
+<h2 id="passo-4-ordinare-le-subnet">PASSO 4: Ordinare le subnet</h2>
+<p>Se ci sono più reti: ordina dalla più grande alla più piccola</p>
+<p>Esempio:</p>
+<ul>
+<li>prima /25  </li>
+<li>poi /26  </li>
+<li>poi /27  </li>
+<li>poi /28  </li>
+</ul>
+<h2 id="passo-5-capire-il-salto">PASSO 5: Capire il salto</h2>
+<p>Il salto serve per passare da una subnet alla successiva.</p>
+<table>
+<thead>
+<tr>
+<th>Prefisso</th>
+<th>Salto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/25</td>
+<td>128</td>
+</tr>
+<tr>
+<td>/26</td>
+<td>64</td>
+</tr>
+<tr>
+<td>/27</td>
+<td>32</td>
+</tr>
+<tr>
+<td>/28</td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+<p>Esempio:</p>
+<p>Rete: 192.168.0.0/26  </p>
+<p>salto = 64  </p>
+<p>rete successiva = 192.168.0.64  </p>
+<h2 id="passo-6-assegnare-le-subnet">PASSO 6: Assegnare le subnet</h2>
+<p>Per ogni subnet:</p>
+<ul>
+<li>scrivi la rete  </li>
+<li>trova il broadcast  </li>
+<li>trova gli host  </li>
+</ul>
+<h3 id="regole">Regole</h3>
+<ul>
+<li>rete = primo indirizzo  </li>
+<li>primo host = rete + 1  </li>
+<li>broadcast = indirizzo prima della rete successiva  </li>
+<li>ultimo host = broadcast - 1  </li>
+</ul>
+<h3 id="esempio">Esempio</h3>
+<p>Rete: 192.168.0.0/26  </p>
+<ul>
+<li>rete: 192.168.0.0  </li>
+<li>primo host: 192.168.0.1  </li>
+<li>ultimo host: 192.168.0.62  </li>
+<li>broadcast: 192.168.0.63  </li>
+</ul>
+<h2 id="passo-7-passare-alla-subnet-successiva">PASSO 7: Passare alla subnet successiva</h2>
+<p>Usa il salto.</p>
+<p>Esempio:</p>
+<p>192.168.0.0 + 64 = 192.168.0.64  -&gt; questa è la nuova rete  </p>
+<h2 id="passo-8-ripetere">PASSO 8: Ripetere</h2>
+<p>Ripeti:
+- assegna subnet<br />
+- calcola broadcast<br />
+- vai avanti con il salto  </p>
+<p>fino a completare tutte le subnet  </p>
+<h2 id="passo-9-controllo-finale">PASSO 9: Controllo finale</h2>
+<p>Controlla sempre:</p>
+<ul>
+<li>✔ ogni subnet ha abbastanza host  </li>
+<li>✔ le subnet NON si sovrappongono  </li>
+<li>✔ tutto sta dentro la rete iniziale  </li>
+<li>✔ non hai saltato indirizzi  </li>
+</ul>
+<h2 id="casi-particolari">CASI PARTICOLARI</h2>
+<h3 id="una-sola-subnet">Una sola subnet</h3>
+<p>Fai solo:</p>
+<ul>
+<li>passo 1  </li>
+<li>passo 2  </li>
+<li>calcoli rete, host, broadcast  </li>
+</ul>
+<h3 id="subnet-tutte-uguali">Subnet tutte uguali</h3>
+<ul>
+<li>usa sempre lo stesso prefisso  </li>
+</ul>
+<h3 id="subnet-diverse-caso-piu-comune">Subnet diverse (caso più comune)</h3>
+<ul>
+<li>usa VLSM  </li>
+<li>ogni subnet ha dimensione diversa  </li>
+<li>ordina dalla più grande  </li>
+</ul>
+<h2 id="strategia-antipanico">STRATEGIA ANTIPANICO</h2>
+<p>Se ti blocchi:</p>
+<ul>
+<li>conta gli host  </li>
+<li>trova il numero nella tabella  </li>
+<li>scrivi il prefisso  </li>
+<li>parti dalla rete  </li>
+<li>usa il salto </li>
+</ul>
 
 
 
