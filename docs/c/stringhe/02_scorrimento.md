@@ -144,7 +144,7 @@ while (s[i] != '\0') {
 }
 ```
 
-### Schema generale
+## Schema generale
 
 Quasi tutti gli esercizi sulle stringhe seguono questa idea:
 
