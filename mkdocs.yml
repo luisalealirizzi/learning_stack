@@ -3,3 +3,5 @@ site_description: Materiali, appunti e percorsi di informatica
 theme:
   name: material
   language: it
+nav:
+  - Home: index.md
