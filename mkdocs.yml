@@ -1,0 +1,5 @@
+site_name: Learning_Stack
+site_description: Materiali, appunti e percorsi di informatica
+theme:
+  name: material
+  language: it
