@@ -214,33 +214,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../c/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    C
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -379,10 +352,9 @@
 <h2 id="i-simboli-principali">I simboli principali</h2>
 <h3 id="1-inizio-fine">1. Inizio / Fine</h3>
 <p>Indica il punto di partenza o di arrivo dell’algoritmo. Si rappresenta con una forma arrotondata:</p>
-<div class="highlight"><pre><span></span><code>flowchart TD
+<pre class="mermaid"><code>flowchart TD
     A([INIZIO])
-    B([FINE])
-</code></pre></div>
+    B([FINE])</code></pre>
 <h3 id="2-azione-processo">2. Azione (processo)</h3>
 <p>Rappresenta un’operazione da eseguire.</p>
 <p>Esempi:</p>
@@ -391,9 +363,8 @@ muovi un personaggio
 calcola un valore
 Assegna un punteggio</p>
 <p>Si rappresenta con un rettangolo:</p>
-<div class="highlight"><pre><span></span><code>flowchart TD
-    A[Apri il gioco]
-</code></pre></div>
+<pre class="mermaid"><code>flowchart TD
+    A[Apri il gioco]</code></pre>
 <h3 id="3-decisione">3. Decisione</h3>
 <p>Rappresenta una scelta, cioè una domanda con due possibili risposte.</p>
 <p>Esempi:</p>
@@ -410,14 +381,13 @@ le azioni
 le decisioni
 il flusso</p>
 <h2 id="esempio">Esempio</h2>
-<div class="highlight"><pre><span></span><code>flowchart TD
+<pre class="mermaid"><code>flowchart TD
     A([INIZIO]) --&gt; B[Osserva semaforo]
     B --&gt; C{È verde?}
     C -- Sì --&gt; D[Attraversa]
     C -- No --&gt; E[Aspetta]
     D --&gt; F([FINE])
-    E --&gt; F
-</code></pre></div>
+    E --&gt; F</code></pre>
 
 
 
