@@ -21,7 +21,7 @@
     
     
       
-        <title>I simboli dei diagrammi di flusso - Learning_Stack</title>
+        <title>Esempi di diagrammi di flusso - Learning_Stack</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#i-simboli-dei-diagrammi-di-flusso" class="md-skip">
+        <a href="#esempi-di-diagrammi-di-flusso" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              I simboli dei diagrammi di flusso
+              Esempi di diagrammi di flusso
             
           </span>
         </div>
@@ -241,71 +241,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#i-simboli-principali" class="md-nav__link">
+  <a href="#esempio-1-accesso-con-password" class="md-nav__link">
     <span class="md-ellipsis">
       
-        I simboli principali
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="I simboli principali">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-inizio-fine" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Inizio / Fine
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-azione-processo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Azione (processo)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-decisione" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Decisione
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-frecce-flusso" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Frecce (flusso)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#in-sintesi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        In sintesi
+        Esempio 1 — Accesso con password
       
     </span>
   </a>
@@ -313,10 +252,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#esempio" class="md-nav__link">
+  <a href="#esempio-2-livello-in-un-videogioco" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Esempio
+        Esempio 2 — Livello in un videogioco
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esempio-3-riproduzione-musicale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esempio 3 — Riproduzione musicale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esempio-4-download-di-un-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esempio 4 — Download di un file
       
     </span>
   </a>
@@ -340,47 +301,47 @@
 
 
 
-<h1 id="i-simboli-dei-diagrammi-di-flusso">I simboli dei diagrammi di flusso</h1>
-<p>Introduciamo i <strong>simboli standard</strong> dei diagrammi di flusso.</p>
-<p>Questi simboli servono per rappresentare in modo chiaro e universale:</p>
-<ul>
-<li>l’inizio e la fine</li>
-<li>le azioni</li>
-<li>le decisioni</li>
-<li>il flusso di esecuzione</li>
-</ul>
-<h2 id="i-simboli-principali">I simboli principali</h2>
-<h3 id="1-inizio-fine">1. Inizio / Fine</h3>
-<p>Indica il punto di partenza o di arrivo dell’algoritmo. Si rappresenta con una forma arrotondata:</p>
+<h1 id="esempi-di-diagrammi-di-flusso">Esempi di diagrammi di flusso</h1>
+<p>Vediamo alcuni esempi completi di diagrammi di flusso. L’obiettivo è capire come usare i simboli per rappresentare situazioni diverse.</p>
+<h2 id="esempio-1-accesso-con-password">Esempio 1 — Accesso con password</h2>
+<p>Situazione: inserisci una password. Se è corretta accedi, altrimenti riprova.</p>
 <pre class="mermaid"><code>flowchart TD
-    A([INIZIO])
-    B([FINE])</code></pre>
-<h3 id="2-azione-processo">2. Azione (processo)</h3>
-<p>Rappresenta un’operazione da eseguire.</p>
-<p>Esempi: apri un’app, muovi un personaggio, calcola un valore, assegna un punteggio</p>
-<p>Si rappresenta con un rettangolo:</p>
+A([INIZIO]) --&gt; B[Inserisci password]
+B --&gt; C{Password corretta?}
+C -- Sì --&gt; D[Accesso consentito]
+C -- No --&gt; E[Riprova]
+E --&gt; B
+D --&gt; F([FINE])</code></pre>
+<h2 id="esempio-2-livello-in-un-videogioco">Esempio 2 — Livello in un videogioco</h2>
+<p>Situazione: completa un livello. Se vinci passi al successivo, altrimenti riprovi.</p>
 <pre class="mermaid"><code>flowchart TD
-    A[Calcola punteggio]</code></pre>
-<h3 id="3-decisione">3. Decisione</h3>
-<p>Rappresenta una scelta, cioè una domanda con due sole possibili risposte.</p>
-<p>Esempi: il semaforo è verde? il gioco si avvia? il nemico è presente?</p>
-<p>Si rappresenta con un rombo:</p>
-<h3 id="4-frecce-flusso">4. Frecce (flusso)</h3>
-<p>Le frecce collegano i blocchi e indicano l’ordine delle operazioni.</p>
-<h2 id="in-sintesi">In sintesi</h2>
-<p>I diagrammi di flusso usano simboli standard per rappresentare:</p>
-<p>l’inizio e la fine
-le azioni
-le decisioni
-il flusso</p>
-<h2 id="esempio">Esempio</h2>
+A([INIZIO]) --&gt; B[Gioca livello]
+B --&gt; C{Livello completato?}
+C -- Sì --&gt; D[Passa al livello successivo]
+C -- No --&gt; E[Riprova livello]
+E --&gt; B
+D --&gt; F([FINE])</code></pre>
+<h2 id="esempio-3-riproduzione-musicale">Esempio 3 — Riproduzione musicale</h2>
+<p>Situazione: cerca una canzone. Se la trovi la riproduci, altrimenti mostri un errore.</p>
 <pre class="mermaid"><code>flowchart TD
-    A([INIZIO]) --&gt; B[Osserva semaforo]
-    B --&gt; C{È verde?}
-    C -- Sì --&gt; D[Attraversa]
-    C -- No --&gt; E[Aspetta]
-    D --&gt; F([FINE])
-    E --&gt; F</code></pre>
+A([INIZIO]) --&gt; B[Cerca canzone]
+B --&gt; C{Canzone trovata?}
+C -- Sì --&gt; D[Riproduci]
+C -- No --&gt; E[Mostra errore]
+D --&gt; F([FINE])
+E --&gt; F</code></pre>
+<h2 id="esempio-4-download-di-un-file">Esempio 4 — Download di un file</h2>
+<p>Situazione: avvia un download. Se la connessione è attiva scarichi il file, altrimenti mostri errore.</p>
+<pre class="mermaid"><code>flowchart TD
+A([INIZIO]) --&gt; B[Avvia download]
+B --&gt; C{Connessione attiva?}
+C -- Sì --&gt; D[Scarica file]
+C -- No --&gt; E[Errore di rete]
+D --&gt; F([FINE])
+E --&gt; F</code></pre>
+<p>Cosa osservare:</p>
+<p>In tutti gli esempi c’è un solo punto di inizio, ogni azione è chiara le decisioni hanno due uscite (Sì / No). il flusso è ordinato dall’alto verso il basso
+In sintesi un diagramma di flusso serve a rappresentare un algoritmo in modo visivo, rendere chiari i passaggi ed evidenziare le decisioni.</p>
 
 
 

@@ -21,7 +21,7 @@
     
     
       
-        <title>I simboli dei diagrammi di flusso - Learning_Stack</title>
+        <title>Costruire un diagramma passo passo - Learning_Stack</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#i-simboli-dei-diagrammi-di-flusso" class="md-skip">
+        <a href="#costruire-un-diagramma-passo-passo" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              I simboli dei diagrammi di flusso
+              Costruire un diagramma passo passo
             
           </span>
         </div>
@@ -241,22 +241,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#i-simboli-principali" class="md-nav__link">
+  <a href="#metodo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        I simboli principali
+        Metodo
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="I simboli principali">
+    <nav class="md-nav" aria-label="Metodo">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-inizio-fine" class="md-nav__link">
+  <a href="#caso-1-una-scelta" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Inizio / Fine
+        Caso 1 — Una scelta
       
     </span>
   </a>
@@ -264,10 +264,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-azione-processo" class="md-nav__link">
+  <a href="#caso-2-una-ripetizione" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Azione (processo)
+        Caso 2 — Una ripetizione
       
     </span>
   </a>
@@ -275,21 +275,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-decisione" class="md-nav__link">
+  <a href="#caso-3-solo-sequenza" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Decisione
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-frecce-flusso" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Frecce (flusso)
+        Caso 3 — Solo sequenza
       
     </span>
   </a>
@@ -306,17 +295,6 @@
     <span class="md-ellipsis">
       
         In sintesi
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#esempio" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Esempio
       
     </span>
   </a>
@@ -340,47 +318,79 @@
 
 
 
-<h1 id="i-simboli-dei-diagrammi-di-flusso">I simboli dei diagrammi di flusso</h1>
-<p>Introduciamo i <strong>simboli standard</strong> dei diagrammi di flusso.</p>
-<p>Questi simboli servono per rappresentare in modo chiaro e universale:</p>
-<ul>
-<li>l’inizio e la fine</li>
-<li>le azioni</li>
-<li>le decisioni</li>
-<li>il flusso di esecuzione</li>
-</ul>
-<h2 id="i-simboli-principali">I simboli principali</h2>
-<h3 id="1-inizio-fine">1. Inizio / Fine</h3>
-<p>Indica il punto di partenza o di arrivo dell’algoritmo. Si rappresenta con una forma arrotondata:</p>
+<h1 id="costruire-un-diagramma-passo-passo">Costruire un diagramma passo passo</h1>
+<p>Finora abbiamo visto esempi di diagrammi di flusso. Ma come si costruisce davvero un diagramma?</p>
+<p>Non si parte dai simboli.
+Si parte dal ragionamento.</p>
+<h2 id="metodo">Metodo</h2>
+<p>Quando devi costruire un diagramma:</p>
+<p>leggi il problema
+individua cosa deve succedere
+metti in ordine le azioni
+individua le decisioni
+verifica se qualcosa si ripete</p>
+<p>Solo dopo si disegna il diagramma.</p>
+<h3 id="caso-1-una-scelta">Caso 1 — Una scelta</h3>
+<p>Situazione: inserisci una password. Se è corretta accedi, altrimenti compare un errore.</p>
+<p>Ragionamento
+l’utente inserisce una password
+il sistema controlla se è corretta
+ci sono due possibilità:
+sì → accesso
+no → errore</p>
+<p>qui c’è una decisione</p>
+<p>Schema
 <pre class="mermaid"><code>flowchart TD
-    A([INIZIO])
-    B([FINE])</code></pre>
-<h3 id="2-azione-processo">2. Azione (processo)</h3>
-<p>Rappresenta un’operazione da eseguire.</p>
-<p>Esempi: apri un’app, muovi un personaggio, calcola un valore, assegna un punteggio</p>
-<p>Si rappresenta con un rettangolo:</p>
+A([INIZIO]) --&gt; B[Inserisci password]
+B --&gt; C{Password corretta?}
+C -- Sì --&gt; D[Accesso consentito]
+C -- No --&gt; E[Errore]
+D --&gt; F([FINE])
+E --&gt; F</code></pre></p>
+<h3 id="caso-2-una-ripetizione">Caso 2 — Una ripetizione</h3>
+<p>Situazione: inserisci una password finché è sbagliata.</p>
+<p>Ragionamento: l’utente inserisce la password
+il sistema controlla
+se è sbagliata → si riprova
+se è corretta → si entra</p>
+<p><strong>qui qualcosa si ripete</strong></p>
+<p>Schema
 <pre class="mermaid"><code>flowchart TD
-    A[Calcola punteggio]</code></pre>
-<h3 id="3-decisione">3. Decisione</h3>
-<p>Rappresenta una scelta, cioè una domanda con due sole possibili risposte.</p>
-<p>Esempi: il semaforo è verde? il gioco si avvia? il nemico è presente?</p>
-<p>Si rappresenta con un rombo:</p>
-<h3 id="4-frecce-flusso">4. Frecce (flusso)</h3>
-<p>Le frecce collegano i blocchi e indicano l’ordine delle operazioni.</p>
+A([INIZIO]) --&gt; B[Inserisci password]
+B --&gt; C{Password corretta?}
+C -- No --&gt; B
+C -- Sì --&gt; D[Accesso consentito]
+D --&gt; E([FINE])</code></pre></p>
+<h3 id="caso-3-solo-sequenza">Caso 3 — Solo sequenza</h3>
+<p>Situazione: avvia un videogioco e inizia a giocare.</p>
+<p>Ragionamento
+accendi il dispositivo
+avvia il gioco
+premi start</p>
+<p>non ci sono scelte
+non ci sono ripetizioni</p>
+<p>Schema
+<pre class="mermaid"><code>flowchart TD
+A([INIZIO]) --&gt; B[Accendi dispositivo]
+B --&gt; C[Avvia gioco]
+C --&gt; D[Premi start]
+D --&gt; E([FINE])</code></pre></p>
+<p>Guardando questi esempi emergono tre situazioni diverse:</p>
+<p>azioni in sequenza
+decisioni (scelte)
+ripetizioni</p>
+<p>Queste tre situazioni compaiono in tutti i programmi.</p>
 <h2 id="in-sintesi">In sintesi</h2>
-<p>I diagrammi di flusso usano simboli standard per rappresentare:</p>
-<p>l’inizio e la fine
-le azioni
-le decisioni
-il flusso</p>
-<h2 id="esempio">Esempio</h2>
-<pre class="mermaid"><code>flowchart TD
-    A([INIZIO]) --&gt; B[Osserva semaforo]
-    B --&gt; C{È verde?}
-    C -- Sì --&gt; D[Attraversa]
-    C -- No --&gt; E[Aspetta]
-    D --&gt; F([FINE])
-    E --&gt; F</code></pre>
+<p>Per costruire un diagramma:</p>
+<p>prima pensi
+poi organizzi i passi
+solo alla fine disegni
+Prossimo passo</p>
+<p>Le situazioni che abbiamo visto hanno un nome preciso.</p>
+<p>sequenza
+selezione
+iterazione</p>
+<p>e sono la base di tutti i programmi</p>
 
 
 

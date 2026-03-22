@@ -21,7 +21,7 @@
     
     
       
-        <title>I simboli dei diagrammi di flusso - Learning_Stack</title>
+        <title>Variabili e controlli con Flowgorithm - Learning_Stack</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#i-simboli-dei-diagrammi-di-flusso" class="md-skip">
+        <a href="#variabili-e-controlli-con-flowgorithm" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              I simboli dei diagrammi di flusso
+              Variabili e controlli con Flowgorithm
             
           </span>
         </div>
@@ -241,22 +241,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#i-simboli-principali" class="md-nav__link">
+  <a href="#cose-una-variabile" class="md-nav__link">
     <span class="md-ellipsis">
       
-        I simboli principali
+        Cos’è una variabile
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="I simboli principali">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipi-di-variabili" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipi di variabili
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipi di variabili">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-inizio-fine" class="md-nav__link">
+  <a href="#integer-intero" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Inizio / Fine
+        Integer (intero):
       
     </span>
   </a>
@@ -264,10 +275,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-azione-processo" class="md-nav__link">
+  <a href="#real-decimale" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Azione (processo)
+        Real (decimale)
       
     </span>
   </a>
@@ -275,10 +286,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-decisione" class="md-nav__link">
+  <a href="#string-testo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Decisione
+        String (testo)
       
     </span>
   </a>
@@ -286,10 +297,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-frecce-flusso" class="md-nav__link">
+  <a href="#boolean-verofalso" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Frecce (flusso)
+        Boolean (vero/falso)
       
     </span>
   </a>
@@ -302,10 +313,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#in-sintesi" class="md-nav__link">
+  <a href="#dichiarazione-delle-variabili" class="md-nav__link">
     <span class="md-ellipsis">
       
-        In sintesi
+        Dichiarazione delle variabili
       
     </span>
   </a>
@@ -313,10 +324,65 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#esempio" class="md-nav__link">
+  <a href="#assegnazione-di-valori" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Esempio
+        Assegnazione di valori
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-lettura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input (lettura)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-stampa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output (stampa)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decisioni-if" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisioni (if)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ripetizioni-while" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ripetizioni (while)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-sintesi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In sintesi
       
     </span>
   </a>
@@ -340,47 +406,95 @@
 
 
 
-<h1 id="i-simboli-dei-diagrammi-di-flusso">I simboli dei diagrammi di flusso</h1>
-<p>Introduciamo i <strong>simboli standard</strong> dei diagrammi di flusso.</p>
-<p>Questi simboli servono per rappresentare in modo chiaro e universale:</p>
-<ul>
-<li>l’inizio e la fine</li>
-<li>le azioni</li>
-<li>le decisioni</li>
-<li>il flusso di esecuzione</li>
-</ul>
-<h2 id="i-simboli-principali">I simboli principali</h2>
-<h3 id="1-inizio-fine">1. Inizio / Fine</h3>
-<p>Indica il punto di partenza o di arrivo dell’algoritmo. Si rappresenta con una forma arrotondata:</p>
+<h1 id="variabili-e-controlli-con-flowgorithm">Variabili e controlli con Flowgorithm</h1>
+<p>Finora abbiamo costruito diagrammi di flusso. Ora iniziamo a usarli per lavorare con:</p>
+<p>variabili
+input e output
+controlli</p>
+<p>Questo è il primo passo verso la programmazione.</p>
+<h2 id="cose-una-variabile">Cos’è una variabile</h2>
+<p>Una variabile è uno spazio dove memorizzi un valore.</p>
+<p>Esempi: un numero, un punteggio, una password...
+In Flowgorithm una variabile deve essere: prima dichiarata e poi usata ed eventualmente modificata</p>
+<h2 id="tipi-di-variabili">Tipi di variabili</h2>
+<p>In Flowgorithm (e nei linguaggi di programmazione) le variabili possono contenere tipi diversi di dati. Scegliere il tipo corretto è importante, perché determina che cosa puoi fare con quel valore.</p>
+<p>I tipi principali sono:</p>
+<h3 id="integer-intero">Integer (intero):</h3>
+<p>contiene numeri senza virgola. Esempi: 3, 25, -10
+Si usa per contatori, età, quantità...</p>
+<h3 id="real-decimale">Real (decimale)</h3>
+<p>contiene numeri con la virgola. Esempi: 3.5, 2.75
+Si usa per prezzi, misure, medie...</p>
+<h3 id="string-testo">String (testo)</h3>
+<p>contiene parole o frasi. Esempi: "ciao", "password123"
+Si usa per nomi, messaggi, input dell’utente.</p>
+<h3 id="boolean-verofalso">Boolean (vero/falso)</h3>
+<p>contiene solo due valori: true oppure false.
+Si usa per condizioni e controlli (es. accesso consentito sì/no). </p>
+<h2 id="dichiarazione-delle-variabili">Dichiarazione delle variabili</h2>
+<p>Prima di usare una variabile, bisogna dichiararla.</p>
+<p>Esempi:</p>
+<p>dichiara età come Integer
+dichiara prezzo come Real
+dichiara nome come String
+dichiara accesso come Boolean</p>
+<p>Questo serve per dire al programma che tipo di dato conterrà.</p>
+<h2 id="assegnazione-di-valori">Assegnazione di valori</h2>
+<p>Dopo aver dichiarato una variabile, possiamo assegnarle un valore.</p>
+<p>Esempi:</p>
+<p>età = 18
+prezzo = 9.99
+nome = "Luca"
+accesso = true</p>
+<p>L’assegnazione serve per memorizzare un valore nella variabile.</p>
+<h2 id="input-lettura">Input (lettura)</h2>
+<p>Per leggere un valore dall’utente si usa un’istruzione di input.</p>
+<p>Esempi:</p>
+<p>leggi età
+leggi nome</p>
+<p>Questo significa che il programma chiede un valore all’utente e lo salva nella variabile.</p>
+<h2 id="output-stampa">Output (stampa)</h2>
+<p>Per mostrare un risultato si usa un’istruzione di output.</p>
+<p>Esempi:</p>
+<p>stampa età
+stampa nome</p>
+<p>Attenzione alle virgolette
+stampa nome → mostra il valore della variabile
+stampa "nome" → mostra la parola nome</p>
+<p>Esempio: 
+nome = "Luca" 
+stampa nome → Luca 
+stampa "nome" → nome</p>
+<h2 id="decisioni-if">Decisioni (if)</h2>
+<p>Le decisioni servono per scegliere tra due possibilità.</p>
+<p>Esempio: 
+Se l’età è maggiore o uguale a 18, puoi entrare.</p>
+<p>Schema:
 <pre class="mermaid"><code>flowchart TD
-    A([INIZIO])
-    B([FINE])</code></pre>
-<h3 id="2-azione-processo">2. Azione (processo)</h3>
-<p>Rappresenta un’operazione da eseguire.</p>
-<p>Esempi: apri un’app, muovi un personaggio, calcola un valore, assegna un punteggio</p>
-<p>Si rappresenta con un rettangolo:</p>
+A([INIZIO]) --&gt; B[Leggi età]
+B --&gt; C{età &gt;= 18?}
+C -- Sì --&gt; D[Stampa "Accesso consentito"]
+C -- No --&gt; E[Stampa "Accesso negato"]
+D --&gt; F([FINE])
+E --&gt; F</code></pre></p>
+<h2 id="ripetizioni-while">Ripetizioni (while)</h2>
+<p>Il ciclo while serve per ripetere un’azione finché una condizione è vera.</p>
+<p>Esempio:</p>
+<p>Inserisci una password finché è sbagliata.</p>
+<p>Schema:</p>
 <pre class="mermaid"><code>flowchart TD
-    A[Calcola punteggio]</code></pre>
-<h3 id="3-decisione">3. Decisione</h3>
-<p>Rappresenta una scelta, cioè una domanda con due sole possibili risposte.</p>
-<p>Esempi: il semaforo è verde? il gioco si avvia? il nemico è presente?</p>
-<p>Si rappresenta con un rombo:</p>
-<h3 id="4-frecce-flusso">4. Frecce (flusso)</h3>
-<p>Le frecce collegano i blocchi e indicano l’ordine delle operazioni.</p>
+A([INIZIO]) --&gt; B[Leggi password]
+B --&gt; C{Password corretta?}
+C -- No --&gt; B
+C -- Sì --&gt; D[Stampa "Accesso consentito"]
+D --&gt; E([FINE])</code></pre>
 <h2 id="in-sintesi">In sintesi</h2>
-<p>I diagrammi di flusso usano simboli standard per rappresentare:</p>
-<p>l’inizio e la fine
-le azioni
-le decisioni
-il flusso</p>
-<h2 id="esempio">Esempio</h2>
-<pre class="mermaid"><code>flowchart TD
-    A([INIZIO]) --&gt; B[Osserva semaforo]
-    B --&gt; C{È verde?}
-    C -- Sì --&gt; D[Attraversa]
-    C -- No --&gt; E[Aspetta]
-    D --&gt; F([FINE])
-    E --&gt; F</code></pre>
+<p>Un programma è fatto da:</p>
+<p>dati (variabili)
+operazioni (assegnazioni)
+interazioni (input/output)
+controlli (if, while)</p>
+<p>Questi sono i mattoni fondamentali della programmazione.</p>
 
 
 

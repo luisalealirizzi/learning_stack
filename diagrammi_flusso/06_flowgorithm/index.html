@@ -21,7 +21,7 @@
     
     
       
-        <title>I simboli dei diagrammi di flusso - Learning_Stack</title>
+        <title>Introduzione a Flowgorithm - Learning_Stack</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#i-simboli-dei-diagrammi-di-flusso" class="md-skip">
+        <a href="#introduzione-a-flowgorithm" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              I simboli dei diagrammi di flusso
+              Introduzione a Flowgorithm
             
           </span>
         </div>
@@ -241,63 +241,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#i-simboli-principali" class="md-nav__link">
+  <a href="#cose-flowgorithm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        I simboli principali
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="I simboli principali">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-inizio-fine" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Inizio / Fine
+        Cos'è flowgorithm
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#2-azione-processo" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#un-primo-esempio" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Azione (processo)
+        Un primo esempio
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-decisione" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Decisione
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-frecce-flusso" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Frecce (flusso)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -306,17 +267,6 @@
     <span class="md-ellipsis">
       
         In sintesi
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#esempio" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Esempio
       
     </span>
   </a>
@@ -340,47 +290,55 @@
 
 
 
-<h1 id="i-simboli-dei-diagrammi-di-flusso">I simboli dei diagrammi di flusso</h1>
-<p>Introduciamo i <strong>simboli standard</strong> dei diagrammi di flusso.</p>
-<p>Questi simboli servono per rappresentare in modo chiaro e universale:</p>
-<ul>
-<li>l’inizio e la fine</li>
-<li>le azioni</li>
-<li>le decisioni</li>
-<li>il flusso di esecuzione</li>
-</ul>
-<h2 id="i-simboli-principali">I simboli principali</h2>
-<h3 id="1-inizio-fine">1. Inizio / Fine</h3>
-<p>Indica il punto di partenza o di arrivo dell’algoritmo. Si rappresenta con una forma arrotondata:</p>
-<pre class="mermaid"><code>flowchart TD
-    A([INIZIO])
-    B([FINE])</code></pre>
-<h3 id="2-azione-processo">2. Azione (processo)</h3>
-<p>Rappresenta un’operazione da eseguire.</p>
-<p>Esempi: apri un’app, muovi un personaggio, calcola un valore, assegna un punteggio</p>
-<p>Si rappresenta con un rettangolo:</p>
-<pre class="mermaid"><code>flowchart TD
-    A[Calcola punteggio]</code></pre>
-<h3 id="3-decisione">3. Decisione</h3>
-<p>Rappresenta una scelta, cioè una domanda con due sole possibili risposte.</p>
-<p>Esempi: il semaforo è verde? il gioco si avvia? il nemico è presente?</p>
-<p>Si rappresenta con un rombo:</p>
-<h3 id="4-frecce-flusso">4. Frecce (flusso)</h3>
-<p>Le frecce collegano i blocchi e indicano l’ordine delle operazioni.</p>
+<h1 id="introduzione-a-flowgorithm">Introduzione a Flowgorithm</h1>
+<p>Finora abbiamo costruito algoritmi e diagrammi di flusso usando testo e schemi. Ora vediamo uno strumento che permette di: disegnare diagrammi di flusso, eseguirli passo dopo passo e capire cosa succede durante l’esecuzione</p>
+<p>Questo strumento si chiama <strong>Flowgorithm</strong>.</p>
+<h2 id="cose-flowgorithm">Cos'è flowgorithm</h2>
+<p>Flowgorithm è un programma che permette di creare diagrammi di flusso eseguibili.</p>
+<p>Questo significa che: il diagramma non è solo un disegno e può essere eseguito come un programma</p>
+<p>In altre parole, quello che progetti viene messo in esecuzione.</p>
+<p>Flowgorithm è utile perché:</p>
+<p>ti obbliga a essere preciso 
+mostra errori logici
+permette di seguire passo passo l’algoritmo
+collega i diagrammi alla programmazione</p>
+<h2 id="un-primo-esempio">Un primo esempio</h2>
+<p>Situazione: mostra un messaggio all’utente.</p>
+<p>Passi:</p>
+<p>INIZIO
+scrivi "Ciao"
+FINE</p>
+<p>In Flowgorithm questo diventa:</p>
+<p>un blocco di output
+collegato tra INIZIO e FINE</p>
+<p>Quando esegui il diagramma, vedrai il messaggio comparire.</p>
+<p>Cosa puoi fare con Flowgorithm</p>
+<p>Con Flowgorithm puoi:</p>
+<p>leggere dati (input)
+mostrare risultati (output)
+prendere decisioni (if)
+ripetere azioni (cicli)
+seguire l’esecuzione passo passo
+Come si lavora</p>
+<p>Metodo corretto:</p>
+<p>pensa all’algoritmo
+scrivilo in forma semplice
+trasformalo in diagramma
+eseguilo con Flowgorithm
+controlla se funziona</p>
+<p>Flowgorithm serve per: verificare se un algoritmo funziona, capire dove ci sono errori
+Se il ragionamento è sbagliato, anche il diagramma sarà sbagliato.</p>
+<p>Cosa osservare durante l’esecuzione</p>
+<p>Quando esegui un diagramma, osserva:</p>
+<p>quale blocco viene eseguito
+in che ordine
+cosa succede nelle decisioni
+come cambiano i valori</p>
 <h2 id="in-sintesi">In sintesi</h2>
-<p>I diagrammi di flusso usano simboli standard per rappresentare:</p>
-<p>l’inizio e la fine
-le azioni
-le decisioni
-il flusso</p>
-<h2 id="esempio">Esempio</h2>
-<pre class="mermaid"><code>flowchart TD
-    A([INIZIO]) --&gt; B[Osserva semaforo]
-    B --&gt; C{È verde?}
-    C -- Sì --&gt; D[Attraversa]
-    C -- No --&gt; E[Aspetta]
-    D --&gt; F([FINE])
-    E --&gt; F</code></pre>
+<p>Flowgorithm è uno strumento che permette di: creare diagrammi di flusso, eseguirli e verificare se funzionano</p>
+<p>È il ponte tra:</p>
+<p>il ragionamento (algoritmi)
+e la programmazione</p>
 
 
 
