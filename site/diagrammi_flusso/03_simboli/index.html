@@ -214,33 +214,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../c/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    C
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -290,8 +263,63 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#2-azione-processo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Azione (processo)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-decisione" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Decisione
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-frecce-flusso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Frecce (flusso)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-sintesi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In sintesi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esempio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esempio
+      
+    </span>
+  </a>
   
 </li>
       
@@ -323,61 +351,43 @@
 </ul>
 <h2 id="i-simboli-principali">I simboli principali</h2>
 <h3 id="1-inizio-fine">1. Inizio / Fine</h3>
-<p>Indica il punto di partenza o di arrivo dell’algoritmo.</p>
-<p>In Mermaid si rappresenta con una forma arrotondata:</p>
-<pre><code class="language-mermaid">flowchart TD
+<p>Indica il punto di partenza o di arrivo dell’algoritmo. Si rappresenta con una forma arrotondata:</p>
+<pre class="mermaid"><code>flowchart TD
     A([INIZIO])
-    B([FINE])
-</code></pre>
-<ol>
-<li>Azione (processo)</li>
-</ol>
+    B([FINE])</code></pre>
+<h3 id="2-azione-processo">2. Azione (processo)</h3>
 <p>Rappresenta un’operazione da eseguire.</p>
 <p>Esempi:</p>
 <p>apri un’app
 muovi un personaggio
-calcola un valore</p>
-<p>In Mermaid è un rettangolo:</p>
-<p>flowchart TD
-    A[Apri il gioco]
-3. Decisione</p>
+calcola un valore
+Assegna un punteggio</p>
+<p>Si rappresenta con un rettangolo:</p>
+<pre class="mermaid"><code>flowchart TD
+    A[Apri il gioco]</code></pre>
+<h3 id="3-decisione">3. Decisione</h3>
 <p>Rappresenta una scelta, cioè una domanda con due possibili risposte.</p>
 <p>Esempi:</p>
 <p>il semaforo è verde?
 il gioco si avvia?
 il nemico è presente?</p>
-<p>In Mermaid è un rombo:</p>
-<ol>
-<li>Frecce (flusso)</li>
-</ol>
+<p>Si rappresenta con un rombo:</p>
+<h3 id="4-frecce-flusso">4. Frecce (flusso)</h3>
 <p>Le frecce collegano i blocchi e indicano l’ordine delle operazioni.</p>
-<p>Un esempio completo</p>
-<p>Mettiamo insieme tutti i simboli.</p>
-<p>Situazione:</p>
-<p>Se il semaforo è verde attraversa, altrimenti aspetta.</p>
-<p>Un esempio con videogioco</p>
-<p>Situazione:</p>
-<p>Avvia un gioco. Se parte, premi start. Altrimenti mostra errore.</p>
-<p>Cosa ricordare</p>
-<p>Ogni diagramma deve avere:</p>
-<p>un solo punto di inizio
-almeno un punto di fine
-frecce chiare e ordinate
-decisioni con due uscite (Sì / No)
-Attenzione agli errori</p>
-<p>Errori comuni:</p>
-<p>frecce senza direzione chiara
-decisioni con una sola uscita
-blocchi scollegati
-più inizi senza senso</p>
-<p>Un diagramma deve poter essere “seguito” passo dopo passo senza dubbi.</p>
-<p>In sintesi</p>
+<h2 id="in-sintesi">In sintesi</h2>
 <p>I diagrammi di flusso usano simboli standard per rappresentare:</p>
 <p>l’inizio e la fine
 le azioni
 le decisioni
 il flusso</p>
-<p>Ora che conosci i simboli, possiamo usarli per rappresentare qualsiasi algoritmo in modo chiaro e visivo.</p>
+<h2 id="esempio">Esempio</h2>
+<pre class="mermaid"><code>flowchart TD
+    A([INIZIO]) --&gt; B[Osserva semaforo]
+    B --&gt; C{È verde?}
+    C -- Sì --&gt; D[Attraversa]
+    C -- No --&gt; E[Aspetta]
+    D --&gt; F([FINE])
+    E --&gt; F</code></pre>
 
 
 

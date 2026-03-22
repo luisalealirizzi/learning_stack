@@ -214,33 +214,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    C
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -367,15 +340,15 @@
 <p>Questo è fondamentale per quasi tutti gli esercizi sulle stringhe.</p>
 <h2 id="schema-base">Schema base</h2>
 <p>Durante lo scorrimento della stringa, devi saper scrivere condizioni come queste:</p>
-<pre><code class="language-c">if (s[i] &gt;= 'A' &amp;&amp; s[i] &lt;= 'Z') {
-    // lettera maiuscola
-} else if (s[i] &gt;= 'a' &amp;&amp; s[i] &lt;= 'z') {
-    // lettera minuscola
-} else {
-    // altro carattere
-}
-</code></pre>
-<p>Idea fondamentale</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;Z&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// lettera maiuscola</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;z&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// lettera minuscola</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// altro carattere</span>
+<span class="p">}</span>
+</code></pre></div>
+Idea fondamentale</p>
 <p>Ogni carattere in C è in realtà un numero (codifica ASCII).
 Quindi puoi confrontarlo come se fosse un numero.</p>
 <p>Intervalli importanti
@@ -383,116 +356,116 @@ Tipo    Intervallo
 Maiuscole   'A' → 'Z'
 Minuscole   'a' → 'z'
 Numeri  '0' → '9'</p>
-<p>Esempio: distinguere i caratteri</p>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+<p>Esempio: distinguere i caratteri
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
-int main() {
-    char s[100];
-    int i = 0;
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-    fgets(s, sizeof(s), stdin);
+<span class="w">    </span><span class="n">fgets</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
 
-    while (s[i] != '\0') {
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
-        if (s[i] &gt;= 'A' &amp;&amp; s[i] &lt;= 'Z') {
-            printf(&quot;%c è maiuscola\n&quot;, s[i]);
-        } else if (s[i] &gt;= 'a' &amp;&amp; s[i] &lt;= 'z') {
-            printf(&quot;%c è minuscola\n&quot;, s[i]);
-        } else {
-            printf(&quot;%c non è una lettera\n&quot;, s[i]);
-        }
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;Z&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c è maiuscola</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;z&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c è minuscola</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c non è una lettera</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">        </span><span class="p">}</span>
 
-        i++;
-    }
+<span class="w">        </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    return 0;
-}
-</code></pre>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <h3 id="casi-tipici">Casi tipici</h3>
-<p>✔ Lettere</p>
-<pre><code class="language-c">if ((s[i] &gt;= 'A' &amp;&amp; s[i] &lt;= 'Z') || (s[i] &gt;= 'a' &amp;&amp; s[i] &lt;= 'z')) {
-    // è una lettera
-}
-</code></pre>
-<p>✔ Numeri</p>
-<pre><code class="language-c">if (s[i] &gt;= '0' &amp;&amp; s[i] &lt;= '9') {
-    // è una cifra
-}
-</code></pre>
-<p>✔ Spazio</p>
-<pre><code class="language-c">if (s[i] == ' ') {
-    // è uno spazio
-}
-</code></pre>
-<p>✔ Caratteri speciali</p>
-<p>Tutto ciò che non rientra nei casi precedenti:</p>
-<pre><code class="language-c">else {
-    // carattere speciale
-}
-</code></pre>
+<p>✔ Lettere
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;Z&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;z&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// è una lettera</span>
+<span class="p">}</span>
+</code></pre></div>
+✔ Numeri
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;9&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// è una cifra</span>
+<span class="p">}</span>
+</code></pre></div>
+✔ Spazio
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// è uno spazio</span>
+<span class="p">}</span>
+</code></pre></div>
+✔ Caratteri speciali</p>
+<p>Tutto ciò che non rientra nei casi precedenti:
+<div class="highlight"><pre><span></span><code><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// carattere speciale</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <p>Errori tipici
-Confondere caratteri e numeri</p>
-<pre><code class="language-c">if (s[i] == 5)   // SBAGLIATO
-</code></pre>
-<p>Devi scrivere:</p>
-<pre><code class="language-c">if (s[i] == '5')   // CORRETTO
-</code></pre>
-<p>Dimenticare le virgolette</p>
-<pre><code class="language-c">if (s[i] == a)   // SBAGLIATO
-</code></pre>
-<p>Corretto:</p>
-<pre><code class="language-c">if (s[i] == 'a')
-</code></pre>
+Confondere caratteri e numeri
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w">   </span><span class="c1">// SBAGLIATO</span>
+</code></pre></div>
+Devi scrivere:
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;5&#39;</span><span class="p">)</span><span class="w">   </span><span class="c1">// CORRETTO</span>
+</code></pre></div>
+Dimenticare le virgolette
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w">   </span><span class="c1">// SBAGLIATO</span>
+</code></pre></div>
+Corretto:
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">)</span>
+</code></pre></div></p>
 <h3 id="esempio-contare-le-maiuscole">Esempio: contare le maiuscole</h3>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
-int main() {
-    char s[100];
-    int i = 0;
-    int cont = 0;
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">cont</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-    fgets(s, sizeof(s), stdin);
+<span class="w">    </span><span class="n">fgets</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
 
-    while (s[i] != '\0') {
-        if (s[i] &gt;= 'A' &amp;&amp; s[i] &lt;= 'Z') {
-            cont++;
-        }
-        i++;
-    }
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;Z&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">cont</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    printf(&quot;Numero di maiuscole: %d\n&quot;, cont);
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Numero di maiuscole: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cont</span><span class="p">);</span>
 
-    return 0;
-}
-</code></pre>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="esempio-contare-lettere-e-numeri">Esempio: contare lettere e numeri</h3>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
-int main() {
-    char s[100];
-    int i = 0;
-    int lettere = 0;
-    int numeri = 0;
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">lettere</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numeri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-    fgets(s, sizeof(s), stdin);
+<span class="w">    </span><span class="n">fgets</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
 
-    while (s[i] != '\0') {
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
-        if ((s[i] &gt;= 'A' &amp;&amp; s[i] &lt;= 'Z') || (s[i] &gt;= 'a' &amp;&amp; s[i] &lt;= 'z')) {
-            lettere++;
-        } else if (s[i] &gt;= '0' &amp;&amp; s[i] &lt;= '9') {
-            numeri++;
-        }
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;Z&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;z&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">lettere</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;9&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">numeri</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 
-        i++;
-    }
+<span class="w">        </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    printf(&quot;Lettere: %d\n&quot;, lettere);
-    printf(&quot;Numeri: %d\n&quot;, numeri);
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Lettere: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lettere</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Numeri: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">numeri</span><span class="p">);</span>
 
-    return 0;
-}
-</code></pre>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="schema-mentale">Schema mentale</h2>
 <p>Quando lavori sulle stringhe:</p>
 <p>scorri la stringa

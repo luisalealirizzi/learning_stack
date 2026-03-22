@@ -214,33 +214,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    C
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -391,13 +364,13 @@
 Se non sai fare questo, non puoi risolvere bene esercizi di conteggio, trasformazione, ricerca o crittografia.</p>
 <h2 id="schema-base">Schema base</h2>
 <p>Devi saper fare senza esitazione questo schema:</p>
-<pre><code class="language-c">int i = 0;
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-while (s[i] != '\0') {
-    // lavoro su s[i]
-    i++;
-}
-</code></pre>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// lavoro su s[i]</span>
+<span class="w">    </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>Idea fondamentale</p>
 <p>Una stringa in C è un array di caratteri che termina con il carattere speciale: '\0'</p>
 <p>Quindi, per scorrerla tutta:</p>
@@ -420,81 +393,81 @@ s[i] è il carattere nella posizione i</p>
 3   'a'
 4   '\0'</p>
 <h3 id="esempio-minimo">Esempio minimo</h3>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+<p><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
-int main() {
-    char s[] = &quot;ciao&quot;;
-    int i = 0;
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ciao&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-    while (s[i] != '\0') {
-        printf(&quot;%c\n&quot;, s[i]);
-        i++;
-    }
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    return 0;
-}
-</code></pre>
-<p>Cosa fa questo programma?</p>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+Cosa fa questo programma?</p>
 <p>Stampa un carattere per volta:</p>
 <p>c
 i
 a
 o</p>
 <h3 id="esempio-contare-i-caratteri">Esempio: contare i caratteri</h3>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+<p><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
-int main() {
-    char s[100];
-    int i = 0;
-    int cont = 0;
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">cont</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-    fgets(s, sizeof(s), stdin);
+<span class="w">    </span><span class="n">fgets</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
 
-    while (s[i] != '\0') {
-        cont++;
-        i++;
-    }
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">cont</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    printf(&quot;Numero di caratteri letti: %d\n&quot;, cont);
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Numero di caratteri letti: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cont</span><span class="p">);</span>
 
-    return 0;
-}
-</code></pre>
-<p>Attenzione al newline: se hai letto la stringa con fgets, potrebbe esserci anche \n.
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+Attenzione al newline: se hai letto la stringa con fgets, potrebbe esserci anche \n.
 Quindi questo programma potrebbe contare anche l’invio finale.</p>
 <p>Per questo motivo, quando serve una lunghezza “pulita”, bisogna prima eliminare \n.</p>
 <h3 id="esempio-contare-le-vocali">Esempio: contare le vocali</h3>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+<p><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
-int main() {
-    char s[100];
-    int i = 0;
-    int cont = 0;
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">cont</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-    fgets(s, sizeof(s), stdin);
+<span class="w">    </span><span class="n">fgets</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
 
-    while (s[i] != '\0') {
-        if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u' ||
-            s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U') {
-            cont++;
-        }
-        i++;
-    }
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;e&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;i&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;o&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;u&#39;</span><span class="w"> </span><span class="o">||</span>
+<span class="w">            </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;I&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;O&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;U&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">cont</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    printf(&quot;Numero di vocali: %d\n&quot;, cont);
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Numero di vocali: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cont</span><span class="p">);</span>
 
-    return 0;
-}
-</code></pre>
-<p>Cosa devi riconoscere in tutti questi esercizi: la parte che cambia è la logica dentro il ciclo.</p>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+Cosa devi riconoscere in tutti questi esercizi: la parte che cambia è la logica dentro il ciclo.</p>
 <p>La struttura invece resta sempre questa:</p>
-<pre><code class="language-c">int i = 0;
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-while (s[i] != '\0') {
-    // qui cambia il lavoro da fare
-    i++;
-}
-</code></pre>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// qui cambia il lavoro da fare</span>
+<span class="w">    </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="schema-generale">Schema generale</h2>
 <p>Quasi tutti gli esercizi sulle stringhe seguono questa idea:</p>
 <p>inizializza i = 0
