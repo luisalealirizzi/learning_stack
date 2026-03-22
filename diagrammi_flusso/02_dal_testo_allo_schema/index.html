@@ -16,16 +16,16 @@
         
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Stringhe in input in C - Learning_Stack</title>
+        <title>Dal testo allo schema (prima dei simboli) - Learning_Stack</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
       
 
@@ -44,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#stringhe-in-input-in-c" class="md-skip">
+        <a href="#dal-testo-allo-schema-prima-dei-simboli" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -78,7 +78,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Intestazione">
-    <a href="../../.." title="Learning_Stack" class="md-header__button md-logo" aria-label="Learning_Stack" data-md-component="logo">
+    <a href="../.." title="Learning_Stack" class="md-header__button md-logo" aria-label="Learning_Stack" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Stringhe in input in C
+              Dal testo allo schema (prima dei simboli)
             
           </span>
         </div>
@@ -176,7 +176,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigazione" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Learning_Stack" class="md-nav__button md-logo" aria-label="Learning_Stack" data-md-component="logo">
+    <a href="../.." title="Learning_Stack" class="md-nav__button md-logo" aria-label="Learning_Stack" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -194,7 +194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -221,7 +221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
+      <a href="../../c/" class="md-nav__link">
         
   
   
@@ -268,44 +268,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#obiettivo" class="md-nav__link">
+  <a href="#perche-usare-uno-schema" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Obiettivo
+        Perché usare uno schema
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#schema-base" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Schema base
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cose-da-sapere-bene" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cose da sapere bene
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Cose da sapere bene">
+    <nav class="md-nav" aria-label="Perché usare uno schema">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#quando-non-e-necessario-togliere-n" class="md-nav__link">
+  <a href="#collegare-i-passi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quando NON è necessario togliere \n
+        collegare i passi
       
     </span>
   </a>
@@ -313,10 +291,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#quando-invece-bisogna-togliere-n" class="md-nav__link">
+  <a href="#metodo-da-seguire" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quando invece bisogna togliere \n
+        Metodo da seguire
       
     </span>
   </a>
@@ -329,21 +307,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#schema-mentale" class="md-nav__link">
+  <a href="#in-sintesi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Schema mentale
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mini-esercizio" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mini esercizio
+        In sintesi
       
     </span>
   </a>
@@ -367,76 +334,55 @@
 
 
 
-<h1 id="stringhe-in-input-in-c">Stringhe in input in C</h1>
-<h2 id="obiettivo">Obiettivo</h2>
-<p>Saper leggere correttamente una frase da input e capire quando è necessario gestire il newline.</p>
-<h2 id="schema-base">Schema base</h2>
-<p>Devi saper fare senza esitazione questo schema:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">200</span><span class="p">];</span>
-<span class="n">fgets</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
-
-<span class="c1">// se dobbiamo eliminare l&#39;andata a capo</span>
-<span class="n">s</span><span class="p">[</span><span class="n">strcspn</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+<h1 id="dal-testo-allo-schema-prima-dei-simboli">Dal testo allo schema (prima dei simboli)</h1>
+<p>Finora abbiamo scritto algoritmi come sequenze di istruzioni.</p>
+<p>Esempio:</p>
+<p><div class="highlight"><pre><span></span><code>INIZIO
+osserva il semaforo
+se il semaforo è verde
+    attraversa
+altrimenti
+    aspetta
+FINE
 </code></pre></div>
-<h2 id="cose-da-sapere-bene">Cose da sapere bene</h2>
-<p>fgets legge anche gli spazi
-salva anche \n, che in alcuni casi va eliminato
-la stringa finisce comunque con '\0'</p>
-<h3 id="quando-non-e-necessario-togliere-n">Quando NON è necessario togliere \n</h3>
-<p>Non serve eliminarlo quando scorriamo la stringa carattere per carattere.</p>
-<p>Il \n verrà semplicemente trattato come un carattere qualsiasi.</p>
-<p>Esempio
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-
-<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// lavoro su s[i]</span>
-<span class="w">    </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-Questo approccio va bene negli esercizi in cui:
-si contano caratteri (es: frequenza dei caratteri)
-si analizza il testo (es: conteggio vocali)
-si modificano solo alcune lettere (es: crittografia delle sole lettere)
-si ignorano i caratteri non alfabetici</p>
-<p>In questi casi il \n non crea problemi</p>
-<h3 id="quando-invece-bisogna-togliere-n">Quando invece bisogna togliere \n</h3>
-<p>È necessario eliminarlo quando vogliamo che la stringa rappresenti esattamente il testo inserito, senza l’invio finale.</p>
-<p>🔹Confronto tra stringhe strcmp(s, "ciao");
-    Se la stringa è: "ciao\n" il confronto fallisce</p>
-<p>🔹 Calcolo della lunghezza reale
-    Il newline verrebbe contato come carattere in più.</p>
-<p>🔹 Elaborazioni sensibili alla posizione
-    palindromi
-    parsing preciso del testo
-    confronti esatti tra stringhe</p>
-<p>Esempio completo
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">200</span><span class="p">];</span>
-
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Inserisci una frase: &quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="n">fgets</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
-
-<span class="w">    </span><span class="c1">// rimuovo il newline</span>
-<span class="w">    </span><span class="n">s</span><span class="p">[</span><span class="n">strcspn</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span>
-
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hai scritto: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
-
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<h2 id="schema-mentale">Schema mentale</h2>
-<p>leggo la stringa
-controllo se devo togliere \n
-poi la uso</p>
-<h2 id="mini-esercizio">Mini esercizio</h2>
-<p>Scrivi un programma che:</p>
-<p>legge una frase
-stampa la lunghezza della stringa</p>
-<p>prova prima senza togliere \n
-poi togli il newline. cosa cambia?</p>
+Questo funziona, ma può diventare difficile da leggere quando gli algoritmi diventano più lunghi.</p>
+<p>Per questo motivo si usano i diagrammi di flusso.</p>
+<h2 id="perche-usare-uno-schema">Perché usare uno schema</h2>
+<p>Uno schema aiuta a vedere subito la struttura del problema, capire cosa succede prima e dopo, individuare le scelte (decisioni) ed evitare errori di logica</p>
+<p>In altre parole: trasformiamo un testo in qualcosa di visivo.</p>
+<h3 id="collegare-i-passi">collegare i passi</h3>
+<p>Un diagramma di flusso è, prima di tutto, una serie di passi collegati tra loro. Possiamo iniziare senza simboli, usando solo frecce e parole.</p>
+<p>Esempio</p>
+<p>Testo:</p>
+<p>Se il semaforo è verde attraversa, altrimenti aspetta.</p>
+<p>Schema:</p>
+<p>INIZIO
+  ↓
+osserva semaforo
+  ↓
+se è verde?
+  ↓ sì        ↓ no
+attraversa   aspetta
+  ↓            ↓
+         FINE</p>
+<p>Non abbiamo ancora usato simboli ufficiali, ma si capisce già tutto.</p>
+<p>Nello schema ci sono già gli elementi fondamentali:</p>
+<p>un punto di partenza (INIZIO)
+una sequenza di azioni
+una decisione (una domanda)
+più possibili strade
+una fine (FINE)</p>
+<p>Anche senza simboli, la logica è già completa.</p>
+<p>Uno schema deve essere sempre: leggibile dall’alto verso il basso, chiaro nei collegamenti, senza salti logici</p>
+<h3 id="metodo-da-seguire">Metodo da seguire</h3>
+<p>Quando devi trasformare un testo in schema:</p>
+<p>individua i passi principali
+mettili in ordine
+trova le decisioni (domande)
+disegna i collegamenti (frecce)</p>
+<p>Solo dopo aver fatto questo, ha senso usare i simboli.</p>
+<h2 id="in-sintesi">In sintesi</h2>
+<p>Un diagramma di flusso è: un algoritmo reso visivo, fatto di passi collegati e con possibili scelte</p>
 
 
 
@@ -486,10 +432,10 @@ poi togli il newline. cosa cambia?</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
