@@ -372,12 +372,12 @@
 <p>Saper leggere correttamente una frase da input e capire quando è necessario gestire il newline.</p>
 <h2 id="schema-base">Schema base</h2>
 <p>Devi saper fare senza esitazione questo schema:</p>
-<pre><code class="language-c">char s[200];
-fgets(s, sizeof(s), stdin);
+<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">200</span><span class="p">];</span>
+<span class="n">fgets</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
 
-// se dobbiamo eliminare l'andata a capo
-s[strcspn(s, &quot;\n&quot;)] = '\0';
-</code></pre>
+<span class="c1">// se dobbiamo eliminare l&#39;andata a capo</span>
+<span class="n">s</span><span class="p">[</span><span class="n">strcspn</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="cose-da-sapere-bene">Cose da sapere bene</h2>
 <p>fgets legge anche gli spazi
 salva anche \n, che in alcuni casi va eliminato
@@ -385,15 +385,15 @@ la stringa finisce comunque con '\0'</p>
 <h3 id="quando-non-e-necessario-togliere-n">Quando NON è necessario togliere \n</h3>
 <p>Non serve eliminarlo quando scorriamo la stringa carattere per carattere.</p>
 <p>Il \n verrà semplicemente trattato come un carattere qualsiasi.</p>
-<p>Esempio</p>
-<pre><code class="language-c">int i = 0;
+<p>Esempio
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-while (s[i] != '\0') {
-    // lavoro su s[i]
-    i++;
-}
-</code></pre>
-<p>Questo approccio va bene negli esercizi in cui:
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// lavoro su s[i]</span>
+<span class="w">    </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+Questo approccio va bene negli esercizi in cui:
 si contano caratteri (es: frequenza dei caratteri)
 si analizza il testo (es: conteggio vocali)
 si modificano solo alcune lettere (es: crittografia delle sole lettere)
@@ -409,25 +409,24 @@ si ignorano i caratteri non alfabetici</p>
     palindromi
     parsing preciso del testo
     confronti esatti tra stringhe</p>
-<p>Esempio completo</p>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
+<p>Esempio completo
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
 
-int main() {
-    char s[200];
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">200</span><span class="p">];</span>
 
-    printf(&quot;Inserisci una frase: &quot;);
-    fgets(s, sizeof(s), stdin);
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Inserisci una frase: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">fgets</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
 
-    // rimuovo il newline
-    s[strcspn(s, &quot;\n&quot;)] = '\0';
+<span class="w">    </span><span class="c1">// rimuovo il newline</span>
+<span class="w">    </span><span class="n">s</span><span class="p">[</span><span class="n">strcspn</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span>
 
-    printf(&quot;Hai scritto: %s\n&quot;, s);
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hai scritto: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
 
-    return 0;
-}
-
-</code></pre>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <h2 id="schema-mentale">Schema mentale</h2>
 <p>leggo la stringa
 controllo se devo togliere \n
@@ -491,6 +490,8 @@ poi togli il newline. cosa cambia?</p>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
       
     
   </body>

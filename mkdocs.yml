@@ -2,14 +2,6 @@ site_name: Learning_Stack
 
 site_description: Materiali, appunti e percorsi di informatica
 
-markdown_extensions:
-  - pymdownx.superfences
-  - pymdownx.tabbed
-  - pymdownx.details
-
-extra_javascript:
-  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
-
 theme:
   name: material
   language: it
