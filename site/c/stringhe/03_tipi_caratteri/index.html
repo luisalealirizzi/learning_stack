@@ -21,7 +21,7 @@
     
     
       
-        <title>03 tipi caratteri - Learning_Stack</title>
+        <title>Riconoscere i tipi di carattere in C - Learning_Stack</title>
       
     
     
@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#riconoscere-i-tipi-di-carattere-in-c" class="md-skip">
+          Vai al contenuto
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -93,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              03 tipi caratteri
+              Riconoscere i tipi di carattere in C
             
           </span>
         </div>
@@ -253,6 +258,88 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#obiettivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obiettivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Schema base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#casi-tipici" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Casi tipici
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esempio-contare-le-maiuscole" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esempio: contare le maiuscole
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esempio-contare-lettere-e-numeri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esempio: contare lettere e numeri
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-mentale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema mentale
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -269,9 +356,149 @@
 
 
 
-  <h1>03 tipi caratteri</h1>
+<h1 id="riconoscere-i-tipi-di-carattere-in-c">Riconoscere i tipi di carattere in C</h1>
+<h2 id="obiettivo">Obiettivo</h2>
+<p>Saper distinguere i diversi tipi di caratteri all’interno di una stringa:</p>
+<ul>
+<li>lettere maiuscole  </li>
+<li>lettere minuscole  </li>
+<li>caratteri non alfabetici  </li>
+</ul>
+<p>Questo è fondamentale per quasi tutti gli esercizi sulle stringhe.</p>
+<h2 id="schema-base">Schema base</h2>
+<p>Durante lo scorrimento della stringa, devi saper scrivere condizioni come queste:</p>
+<pre><code class="language-c">if (s[i] &gt;= 'A' &amp;&amp; s[i] &lt;= 'Z') {
+    // lettera maiuscola
+} else if (s[i] &gt;= 'a' &amp;&amp; s[i] &lt;= 'z') {
+    // lettera minuscola
+} else {
+    // altro carattere
+}
+</code></pre>
+<p>Idea fondamentale</p>
+<p>Ogni carattere in C è in realtà un numero (codifica ASCII).
+Quindi puoi confrontarlo come se fosse un numero.</p>
+<p>Intervalli importanti
+Tipo    Intervallo
+Maiuscole   'A' → 'Z'
+Minuscole   'a' → 'z'
+Numeri  '0' → '9'</p>
+<p>Esempio: distinguere i caratteri</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
 
+int main() {
+    char s[100];
+    int i = 0;
 
+    fgets(s, sizeof(s), stdin);
+
+    while (s[i] != '\0') {
+
+        if (s[i] &gt;= 'A' &amp;&amp; s[i] &lt;= 'Z') {
+            printf(&quot;%c è maiuscola\n&quot;, s[i]);
+        } else if (s[i] &gt;= 'a' &amp;&amp; s[i] &lt;= 'z') {
+            printf(&quot;%c è minuscola\n&quot;, s[i]);
+        } else {
+            printf(&quot;%c non è una lettera\n&quot;, s[i]);
+        }
+
+        i++;
+    }
+
+    return 0;
+}
+</code></pre>
+<h3 id="casi-tipici">Casi tipici</h3>
+<p>✔ Lettere</p>
+<pre><code class="language-c">if ((s[i] &gt;= 'A' &amp;&amp; s[i] &lt;= 'Z') || (s[i] &gt;= 'a' &amp;&amp; s[i] &lt;= 'z')) {
+    // è una lettera
+}
+</code></pre>
+<p>✔ Numeri</p>
+<pre><code class="language-c">if (s[i] &gt;= '0' &amp;&amp; s[i] &lt;= '9') {
+    // è una cifra
+}
+</code></pre>
+<p>✔ Spazio</p>
+<pre><code class="language-c">if (s[i] == ' ') {
+    // è uno spazio
+}
+</code></pre>
+<p>✔ Caratteri speciali</p>
+<p>Tutto ciò che non rientra nei casi precedenti:</p>
+<pre><code class="language-c">else {
+    // carattere speciale
+}
+</code></pre>
+<p>Errori tipici
+Confondere caratteri e numeri</p>
+<pre><code class="language-c">if (s[i] == 5)   // SBAGLIATO
+</code></pre>
+<p>Devi scrivere:</p>
+<pre><code class="language-c">if (s[i] == '5')   // CORRETTO
+</code></pre>
+<p>Dimenticare le virgolette</p>
+<pre><code class="language-c">if (s[i] == a)   // SBAGLIATO
+</code></pre>
+<p>Corretto:</p>
+<pre><code class="language-c">if (s[i] == 'a')
+</code></pre>
+<h3 id="esempio-contare-le-maiuscole">Esempio: contare le maiuscole</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    char s[100];
+    int i = 0;
+    int cont = 0;
+
+    fgets(s, sizeof(s), stdin);
+
+    while (s[i] != '\0') {
+        if (s[i] &gt;= 'A' &amp;&amp; s[i] &lt;= 'Z') {
+            cont++;
+        }
+        i++;
+    }
+
+    printf(&quot;Numero di maiuscole: %d\n&quot;, cont);
+
+    return 0;
+}
+</code></pre>
+<h3 id="esempio-contare-lettere-e-numeri">Esempio: contare lettere e numeri</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    char s[100];
+    int i = 0;
+    int lettere = 0;
+    int numeri = 0;
+
+    fgets(s, sizeof(s), stdin);
+
+    while (s[i] != '\0') {
+
+        if ((s[i] &gt;= 'A' &amp;&amp; s[i] &lt;= 'Z') || (s[i] &gt;= 'a' &amp;&amp; s[i] &lt;= 'z')) {
+            lettere++;
+        } else if (s[i] &gt;= '0' &amp;&amp; s[i] &lt;= '9') {
+            numeri++;
+        }
+
+        i++;
+    }
+
+    printf(&quot;Lettere: %d\n&quot;, lettere);
+    printf(&quot;Numeri: %d\n&quot;, numeri);
+
+    return 0;
+}
+</code></pre>
+<h2 id="schema-mentale">Schema mentale</h2>
+<p>Quando lavori sulle stringhe:</p>
+<p>scorri la stringa
+guarda il carattere s[i]
+decidi a quale categoria appartiene
+applica la logica</p>
 
 
 
@@ -325,8 +552,6 @@
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
-      
-        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
       
     
   </body>

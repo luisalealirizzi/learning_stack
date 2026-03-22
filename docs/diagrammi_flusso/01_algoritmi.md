@@ -2,12 +2,7 @@
 
 Quando parliamo tra esseri umani, possiamo permetterci di essere vaghi.
 
-Se dico:
-
-> Attraversa la strada.
-
-quasi tutti capiscono cosa fare.  
-Non serve spiegare ogni singolo passo.
+Se dico: "attraversa la strada." quasi tutti capiscono cosa fare e spesso non serve spiegare ogni singolo passo.
 
 Ma un computer **non è una persona**.  
 Non interpreta, non immagina, non completa le informazioni mancanti.
@@ -20,9 +15,7 @@ Ha bisogno di istruzioni:
 
 ## Uomo e macchina non ragionano allo stesso modo
 
-Una persona può capire una frase come:
-
-> Quando il semaforo è verde, attraversa.
+Una persona può capire una frase come: Quando il semaforo è verde, attraversa.
 
 Per un essere umano il significato è abbastanza chiaro.  
 Per una macchina, invece, questa frase non basta.
@@ -38,9 +31,7 @@ Per eseguire un compito, una macchina ha bisogno di passi più espliciti.
 
 ## Un'istruzione ambigua
 
-Proviamo con un altro esempio:
-
-> Avvia una canzone.
+Proviamo con un altro esempio: "Avvia una canzone."
 
 Per noi è semplice.  
 Per un computer, invece, non lo è affatto.
@@ -56,7 +47,7 @@ Una frase che per una persona è normale, per una macchina può essere troppo va
 
 Ecco la stessa idea scritta in modo più chiaro:
 
-```text
+```plaintext
 INIZIO
 osserva il semaforo
 se il semaforo è verde
@@ -98,16 +89,9 @@ Un algoritmo è una sequenza di istruzioni precise e ordinate per risolvere un p
 
 ## Perché è importante studiarli
 
-Imparare gli algoritmi non serve solo a programmare.
+Imparare gli algoritmi non serve solo a programmare. Serve soprattutto a imparare a: ragionare con ordine, scomporre un problema in passi, descrivere una procedura in modo chiaro ed evitare errori dovuti a istruzioni confuse
 
-
-Serve soprattutto a imparare a:
-
-ragionare con ordine, scomporre un problema in passi, descrivere una procedura in modo chiaro ed evitare errori dovuti a istruzioni confuse
-
-Gli algoritmi stanno dietro a molte situazioni quotidiane e digitali:
-
-un videogioco che reagisce alle azioni del giocatore, un semaforo intelligente, un navigatore che calcola un percorso, un'app musicale che cerca e riproduce un brano
+Gli algoritmi stanno dietro a molte situazioni quotidiane e digitali: un videogioco che reagisce alle azioni del giocatore, un semaforo intelligente, un navigatore che calcola un percorso, un'app musicale che cerca e riproduce un brano
 
 ## Errore tipico
 
@@ -127,15 +111,10 @@ controlla la posizione del personaggio
 se incontri un ostacolo, fermati
 se trovi il brano, riproducilo
 altrimenti segnala che non è disponibile
-In sintesi
 
-Gli algoritmi servono perché i computer non capiscono istruzioni vaghe.
+## In sintesi
 
-Per funzionare correttamente, hanno bisogno di istruzioni:
-
-precise
-ordinate
-non ambigue
+Gli algoritmi servono perché i computer non capiscono istruzioni vaghe. Per funzionare correttamente, hanno bisogno di istruzioni: precise, ordinate e non ambigue
 
 ## Definizione
 

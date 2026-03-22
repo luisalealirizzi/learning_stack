@@ -21,7 +21,7 @@
     
     
       
-        <title>03 simboli - Learning_Stack</title>
+        <title>I simboli dei diagrammi di flusso - Learning_Stack</title>
       
     
     
@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#i-simboli-dei-diagrammi-di-flusso" class="md-skip">
+          Vai al contenuto
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -93,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              03 simboli
+              I simboli dei diagrammi di flusso
             
           </span>
         </div>
@@ -253,6 +258,44 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#i-simboli-principali" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I simboli principali
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="I simboli principali">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-inizio-fine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Inizio / Fine
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -269,9 +312,72 @@
 
 
 
-  <h1>03 simboli</h1>
-
-
+<h1 id="i-simboli-dei-diagrammi-di-flusso">I simboli dei diagrammi di flusso</h1>
+<p>Introduciamo i <strong>simboli standard</strong> dei diagrammi di flusso.</p>
+<p>Questi simboli servono per rappresentare in modo chiaro e universale:</p>
+<ul>
+<li>l’inizio e la fine</li>
+<li>le azioni</li>
+<li>le decisioni</li>
+<li>il flusso di esecuzione</li>
+</ul>
+<h2 id="i-simboli-principali">I simboli principali</h2>
+<h3 id="1-inizio-fine">1. Inizio / Fine</h3>
+<p>Indica il punto di partenza o di arrivo dell’algoritmo.</p>
+<p>In Mermaid si rappresenta con una forma arrotondata:</p>
+<pre><code class="language-mermaid">flowchart TD
+    A([INIZIO])
+    B([FINE])
+</code></pre>
+<ol>
+<li>Azione (processo)</li>
+</ol>
+<p>Rappresenta un’operazione da eseguire.</p>
+<p>Esempi:</p>
+<p>apri un’app
+muovi un personaggio
+calcola un valore</p>
+<p>In Mermaid è un rettangolo:</p>
+<p>flowchart TD
+    A[Apri il gioco]
+3. Decisione</p>
+<p>Rappresenta una scelta, cioè una domanda con due possibili risposte.</p>
+<p>Esempi:</p>
+<p>il semaforo è verde?
+il gioco si avvia?
+il nemico è presente?</p>
+<p>In Mermaid è un rombo:</p>
+<ol>
+<li>Frecce (flusso)</li>
+</ol>
+<p>Le frecce collegano i blocchi e indicano l’ordine delle operazioni.</p>
+<p>Un esempio completo</p>
+<p>Mettiamo insieme tutti i simboli.</p>
+<p>Situazione:</p>
+<p>Se il semaforo è verde attraversa, altrimenti aspetta.</p>
+<p>Un esempio con videogioco</p>
+<p>Situazione:</p>
+<p>Avvia un gioco. Se parte, premi start. Altrimenti mostra errore.</p>
+<p>Cosa ricordare</p>
+<p>Ogni diagramma deve avere:</p>
+<p>un solo punto di inizio
+almeno un punto di fine
+frecce chiare e ordinate
+decisioni con due uscite (Sì / No)
+Attenzione agli errori</p>
+<p>Errori comuni:</p>
+<p>frecce senza direzione chiara
+decisioni con una sola uscita
+blocchi scollegati
+più inizi senza senso</p>
+<p>Un diagramma deve poter essere “seguito” passo dopo passo senza dubbi.</p>
+<p>In sintesi</p>
+<p>I diagrammi di flusso usano simboli standard per rappresentare:</p>
+<p>l’inizio e la fine
+le azioni
+le decisioni
+il flusso</p>
+<p>Ora che conosci i simboli, possiamo usarli per rappresentare qualsiasi algoritmo in modo chiaro e visivo.</p>
 
 
 
@@ -325,8 +431,6 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
-      
-        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
       
     
   </body>
