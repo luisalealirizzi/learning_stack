@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Luisa Leali Rizzi">
 
-<title>Learning Stack</title>
+<title>8&nbsp; Variabili e controlli con Flowgorithm – Learning Stack</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,24 +26,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./docs/java/01_introduzione.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1f9e6d70b8b583c31478a0530d9dad38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../docs/c/stringhe/01_input_stringhe.html" rel="next">
+<link href="../../docs/diagrammi_flusso/07_costruire_un_diagramma.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-1f9e6d70b8b583c31478a0530d9dad38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Learning Stack</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/diagrammi_flusso/01_algoritmi.html">Diagrammi di flusso</a></li><li class="breadcrumb-item"><a href="../../docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Variabili e controlli con Flowgorithm</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -100,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Learning Stack</a> 
+      <a href="../../">Learning Stack</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -112,14 +112,14 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Learning Stack</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Modulo 1 — Introduzione a Java</span></a>
+ <span class="menu-text">Diagrammi di flusso</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -127,14 +127,44 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/java/01_introduzione.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></span></a>
+  <a href="../../docs/diagrammi_flusso/01_algoritmi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Perché servono gli algoritmi?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/java/02_tipi_e_stringhe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tipi, stringhe e input</span></span></a>
+  <a href="../../docs/diagrammi_flusso/02_dal_testo_allo_schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dal testo allo schema (prima dei simboli)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/diagrammi_flusso/03_simboli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">I simboli dei diagrammi di flusso</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/diagrammi_flusso/05_esempi_diagrammi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Esempi di diagrammi di flusso</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/diagrammi_flusso/06_flowgorithm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduzione a Flowgorithm</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/diagrammi_flusso/07_costruire_un_diagramma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Costruire un diagramma passo passo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Variabili e controlli con Flowgorithm</span></span></a>
   </div>
 </li>
       </ul>
@@ -142,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Modulo 2 — OOP</span></a>
+ <span class="menu-text">Linguaggio C</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -150,38 +180,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/java/03_paradigmi_e_oggetti.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Paradigmi e oggetti</span></span></a>
+  <a href="../../docs/c/stringhe/01_input_stringhe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stringhe in input in C</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/java/04_creare_una_classe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Creare una classe</span></span></a>
+  <a href="../../docs/c/stringhe/02_scorrimento.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Scorrimento di una stringa in C</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/java/05_incapsulamento_adt.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Incapsulamento e ADT</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/java/06_ereditarieta.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Ereditarietà</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/java/07_polimorfismo_upcasting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Polimorfismo, upcasting e downcasting</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/java/08_classi_astratte_interfacce.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Classi astratte e interfacce</span></span></a>
+  <a href="../../docs/c/stringhe/03_tipi_caratteri.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Riconoscere i tipi di carattere in C</span></span></a>
   </div>
 </li>
       </ul>
@@ -189,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Modulo 3 — Eccezioni</span></a>
+ <span class="menu-text">Reti</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -197,106 +209,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/java/09_eccezioni.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Eccezioni</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Modulo 4 — Collections e Stream</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/java/10_collections.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Java Collections</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/java/11_list_set_queue.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">List, Set e Queue</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/java/12_stream_pipeline.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Stream e pipeline</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Modulo 5 — Stringhe avanzate</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/java/13_stringhe_avanzate.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Stringhe avanzate</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Modulo 6 — Gestione file</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/java/14_path_files_log.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Path, Files e Log</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/java/15_buffer_scrittura.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Buffer e scrittura</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Modulo 7 — Qualità del codice</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/java/16_testing_junit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Testing con JUnit</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/java/17_solid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">17_solid.html</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/java/18_design_pattern.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">18_design_pattern.html</span></span></a>
+  <a href="../../docs/reti/guida_pianondirizzamento.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Guida al piano di indirizzamento IP</span></span></a>
   </div>
 </li>
       </ul>
@@ -311,28 +225,36 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#learning-stack" id="toc-learning-stack" class="nav-link active" data-scroll-target="#learning-stack"><span class="header-section-number">1</span> Learning Stack</a></li>
+  <li><a href="#cosè-una-variabile" id="toc-cosè-una-variabile" class="nav-link active" data-scroll-target="#cosè-una-variabile"><span class="header-section-number">8.1</span> Cos’è una variabile</a></li>
+  <li><a href="#tipi-di-variabili" id="toc-tipi-di-variabili" class="nav-link" data-scroll-target="#tipi-di-variabili"><span class="header-section-number">8.2</span> Tipi di variabili</a>
+  <ul class="collapse">
+  <li><a href="#integer-intero" id="toc-integer-intero" class="nav-link" data-scroll-target="#integer-intero"><span class="header-section-number">8.2.1</span> Integer (intero):</a></li>
+  <li><a href="#real-decimale" id="toc-real-decimale" class="nav-link" data-scroll-target="#real-decimale"><span class="header-section-number">8.2.2</span> Real (decimale)</a></li>
+  <li><a href="#string-testo" id="toc-string-testo" class="nav-link" data-scroll-target="#string-testo"><span class="header-section-number">8.2.3</span> String (testo)</a></li>
+  <li><a href="#boolean-verofalso" id="toc-boolean-verofalso" class="nav-link" data-scroll-target="#boolean-verofalso"><span class="header-section-number">8.2.4</span> Boolean (vero/falso)</a></li>
+  </ul></li>
+  <li><a href="#dichiarazione-delle-variabili" id="toc-dichiarazione-delle-variabili" class="nav-link" data-scroll-target="#dichiarazione-delle-variabili"><span class="header-section-number">8.3</span> Dichiarazione delle variabili</a></li>
+  <li><a href="#assegnazione-di-valori" id="toc-assegnazione-di-valori" class="nav-link" data-scroll-target="#assegnazione-di-valori"><span class="header-section-number">8.4</span> Assegnazione di valori</a></li>
+  <li><a href="#input-lettura" id="toc-input-lettura" class="nav-link" data-scroll-target="#input-lettura"><span class="header-section-number">8.5</span> Input (lettura)</a></li>
+  <li><a href="#output-stampa" id="toc-output-stampa" class="nav-link" data-scroll-target="#output-stampa"><span class="header-section-number">8.6</span> Output (stampa)</a></li>
+  <li><a href="#decisioni-if" id="toc-decisioni-if" class="nav-link" data-scroll-target="#decisioni-if"><span class="header-section-number">8.7</span> Decisioni (if)</a></li>
+  <li><a href="#ripetizioni-while" id="toc-ripetizioni-while" class="nav-link" data-scroll-target="#ripetizioni-while"><span class="header-section-number">8.8</span> Ripetizioni (while)</a></li>
+  <li><a href="#in-sintesi" id="toc-in-sintesi" class="nav-link" data-scroll-target="#in-sintesi"><span class="header-section-number">8.9</span> In sintesi</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/diagrammi_flusso/01_algoritmi.html">Diagrammi di flusso</a></li><li class="breadcrumb-item"><a href="../../docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Variabili e controlli con Flowgorithm</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Learning Stack</h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Variabili e controlli con Flowgorithm</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Luisa Leali Rizzi </p>
-          </div>
-  </div>
     
   
     
@@ -343,10 +265,95 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="learning-stack" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Learning Stack</h1>
-<p>Materiale didattico per le classi di informatica.</p>
-<p>Usa il menu a sinistra per navigare tra i moduli.</p>
+<p>Finora abbiamo costruito diagrammi di flusso. Ora iniziamo a usarli per lavorare con:</p>
+<p>variabili input e output controlli</p>
+<p>Questo è il primo passo verso la programmazione.</p>
+<section id="cosè-una-variabile" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="cosè-una-variabile"><span class="header-section-number">8.1</span> Cos’è una variabile</h2>
+<p>Una variabile è uno spazio dove memorizzi un valore.</p>
+<p>Esempi: un numero, un punteggio, una password… In Flowgorithm una variabile deve essere: prima dichiarata e poi usata ed eventualmente modificata</p>
+</section>
+<section id="tipi-di-variabili" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="tipi-di-variabili"><span class="header-section-number">8.2</span> Tipi di variabili</h2>
+<p>In Flowgorithm (e nei linguaggi di programmazione) le variabili possono contenere tipi diversi di dati. Scegliere il tipo corretto è importante, perché determina che cosa puoi fare con quel valore.</p>
+<p>I tipi principali sono:</p>
+<section id="integer-intero" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="integer-intero"><span class="header-section-number">8.2.1</span> Integer (intero):</h3>
+<p>contiene numeri senza virgola. Esempi: 3, 25, -10 Si usa per contatori, età, quantità…</p>
+</section>
+<section id="real-decimale" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="real-decimale"><span class="header-section-number">8.2.2</span> Real (decimale)</h3>
+<p>contiene numeri con la virgola. Esempi: 3.5, 2.75 Si usa per prezzi, misure, medie…</p>
+</section>
+<section id="string-testo" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="string-testo"><span class="header-section-number">8.2.3</span> String (testo)</h3>
+<p>contiene parole o frasi. Esempi: “ciao”, “password123” Si usa per nomi, messaggi, input dell’utente.</p>
+</section>
+<section id="boolean-verofalso" class="level3" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="boolean-verofalso"><span class="header-section-number">8.2.4</span> Boolean (vero/falso)</h3>
+<p>contiene solo due valori: true oppure false. Si usa per condizioni e controlli (es. accesso consentito sì/no).</p>
+</section>
+</section>
+<section id="dichiarazione-delle-variabili" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="dichiarazione-delle-variabili"><span class="header-section-number">8.3</span> Dichiarazione delle variabili</h2>
+<p>Prima di usare una variabile, bisogna dichiararla.</p>
+<p>Esempi:</p>
+<p>dichiara età come Integer dichiara prezzo come Real dichiara nome come String dichiara accesso come Boolean</p>
+<p>Questo serve per dire al programma che tipo di dato conterrà.</p>
+</section>
+<section id="assegnazione-di-valori" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="assegnazione-di-valori"><span class="header-section-number">8.4</span> Assegnazione di valori</h2>
+<p>Dopo aver dichiarato una variabile, possiamo assegnarle un valore.</p>
+<p>Esempi:</p>
+<p>età = 18 prezzo = 9.99 nome = “Luca” accesso = true</p>
+<p>L’assegnazione serve per memorizzare un valore nella variabile.</p>
+</section>
+<section id="input-lettura" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="input-lettura"><span class="header-section-number">8.5</span> Input (lettura)</h2>
+<p>Per leggere un valore dall’utente si usa un’istruzione di input.</p>
+<p>Esempi:</p>
+<p>leggi età leggi nome</p>
+<p>Questo significa che il programma chiede un valore all’utente e lo salva nella variabile.</p>
+</section>
+<section id="output-stampa" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="output-stampa"><span class="header-section-number">8.6</span> Output (stampa)</h2>
+<p>Per mostrare un risultato si usa un’istruzione di output.</p>
+<p>Esempi:</p>
+<p>stampa età stampa nome</p>
+<p>Attenzione alle virgolette stampa nome → mostra il valore della variabile stampa “nome” → mostra la parola nome</p>
+<p>Esempio: nome = “Luca” stampa nome → Luca stampa “nome” → nome</p>
+</section>
+<section id="decisioni-if" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="decisioni-if"><span class="header-section-number">8.7</span> Decisioni (if)</h2>
+<p>Le decisioni servono per scegliere tra due possibilità.</p>
+<p>Esempio: Se l’età è maggiore o uguale a 18, puoi entrare.</p>
+<p>Schema:</p>
+<pre class="mermaid"><code>flowchart TD
+A([INIZIO]) --&gt; B[Leggi età]
+B --&gt; C{età &gt;= 18?}
+C -- Sì --&gt; D[Stampa "Accesso consentito"]
+C -- No --&gt; E[Stampa "Accesso negato"]
+D --&gt; F([FINE])
+E --&gt; F</code></pre>
+</section>
+<section id="ripetizioni-while" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="ripetizioni-while"><span class="header-section-number">8.8</span> Ripetizioni (while)</h2>
+<p>Il ciclo while serve per ripetere un’azione finché una condizione è vera.</p>
+<p>Esempio:</p>
+<p>Inserisci una password finché è sbagliata.</p>
+<p>Schema:</p>
+<pre class="mermaid"><code>flowchart TD
+A([INIZIO]) --&gt; B[Leggi password]
+B --&gt; C{Password corretta?}
+C -- No --&gt; B
+C -- Sì --&gt; D[Stampa "Accesso consentito"]
+D --&gt; E([FINE])</code></pre>
+</section>
+<section id="in-sintesi" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="in-sintesi"><span class="header-section-number">8.9</span> In sintesi</h2>
+<p>Un programma è fatto da:</p>
+<p>dati (variabili) operazioni (assegnazioni) interazioni (input/output) controlli (if, while)</p>
+<p>Questi sono i mattoni fondamentali della programmazione.</p>
 
 
 </section>
@@ -754,10 +761,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../../docs/diagrammi_flusso/07_costruire_un_diagramma.html" class="pagination-link" aria-label="Costruire un diagramma passo passo">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Costruire un diagramma passo passo</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./docs/java/01_introduzione.html" class="pagination-link" aria-label="Introduzione a Java">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../docs/c/stringhe/01_input_stringhe.html" class="pagination-link" aria-label="Stringhe in input in C">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stringhe in input in C</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
