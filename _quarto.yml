@@ -1,0 +1,77 @@
+project:
+  type: book
+  output-dir: _site
+
+book:
+  title: "Learning Stack"
+  author: "Luisa Leali Rizzi"
+  language: it
+  chapters:
+    - index.qmd
+    # - part: "Diagrammi di flusso"
+    #   chapters:
+    #     - docs/diagrammi_flusso/01_algoritmi.md
+    #     - docs/diagrammi_flusso/02_dal_testo_allo_schema.md
+    #     - docs/diagrammi_flusso/03_simboli.md
+    #     - docs/diagrammi_flusso/05_esempi_diagrammi.md
+    #     - docs/diagrammi_flusso/06_flowgorithm.md
+    #     - docs/diagrammi_flusso/07_costruire_un_diagramma.md
+    #     - docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.md
+    # - part: "Linguaggio C"
+    #   chapters:
+    #     - docs/c/stringhe/01_input_stringhe.md
+    #     - docs/c/stringhe/02_scorrimento.md
+    #     - docs/c/stringhe/03_tipi_caratteri.md
+    # - part: "Reti"
+    #   chapters:
+    #     - docs/reti/guida_pianondirizzamento.md
+    - part: "Java"
+
+     chapters:
+    - index.qmd
+ 
+    - part: "Introduzione a Java"
+      chapters:
+        - docs/java/01_introduzione.md
+        - docs/java/02_tipi_e_stringhe.md
+ 
+    - part: "OOP"
+      chapters:
+        - docs/java/03_paradigmi_e_oggetti.md
+        - docs/java/04_creare_una_classe.md
+        - docs/java/05_incapsulamento_adt.md
+        - docs/java/06_ereditarieta.md
+        - docs/java/07_polimorfismo_upcasting.md
+        - docs/java/08_classi_astratte_interfacce.md
+ 
+    - part: "Eccezioni"
+      chapters:
+        - docs/java/09_eccezioni.md
+ 
+    - part: "Collections e Stream"
+      chapters:
+        - docs/java/10_collections.md
+        - docs/java/11_list_set_queue.md
+        - docs/java/12_stream_pipeline.md
+ 
+    - part: "Stringhe avanzate"
+      chapters:
+        - docs/java/13_stringhe_avanzate.md
+ 
+    - part: "Gestione file"
+      chapters:
+        - docs/java/14_path_files_log.md
+        - docs/java/15_buffer_scrittura.md
+ 
+    - part: "Qualità del codice"
+      chapters:
+        - docs/java/16_testing_junit.md
+        - docs/java/17_solid.md
+        - docs/java/18_design_pattern.md
+        
+format:
+  html:
+    theme: cosmo
+    highlight-style: github
+    code-copy: true
+    toc: true

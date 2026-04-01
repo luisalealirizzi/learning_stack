@@ -1,0 +1,914 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Learning Stack",
+    "section": "",
+    "text": "1 Learning Stack\nMateriale didattico per le classi di informatica.\nUsa il menu a sinistra per navigare tra i moduli.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Learning Stack</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/01_algoritmi.html",
+    "href": "docs/diagrammi_flusso/01_algoritmi.html",
+    "title": "2  Perché servono gli algoritmi?",
+    "section": "",
+    "text": "2.1 Uomo e macchina non ragionano allo stesso modo\nQuando parliamo tra esseri umani, possiamo permetterci di essere vaghi.\nSe dico: “attraversa la strada.” quasi tutti capiscono cosa fare e spesso non serve spiegare ogni singolo passo.\nMa un computer non è una persona.\nNon interpreta, non immagina, non completa le informazioni mancanti.\nHa bisogno di istruzioni:\nUna persona può capire una frase come: Quando il semaforo è verde, attraversa.\nPer un essere umano il significato è abbastanza chiaro.\nPer una macchina, invece, questa frase non basta.\nMancano molte informazioni:\nPer eseguire un compito, una macchina ha bisogno di passi più espliciti.",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Perché servono gli algoritmi?</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/01_algoritmi.html#uomo-e-macchina-non-ragionano-allo-stesso-modo",
+    "href": "docs/diagrammi_flusso/01_algoritmi.html#uomo-e-macchina-non-ragionano-allo-stesso-modo",
+    "title": "2  Perché servono gli algoritmi?",
+    "section": "",
+    "text": "cosa deve controllare?\nquando deve controllarlo?\ncosa deve fare se il semaforo non è verde?\nquando l’azione può considerarsi conclusa?",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Perché servono gli algoritmi?</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/01_algoritmi.html#unistruzione-ambigua",
+    "href": "docs/diagrammi_flusso/01_algoritmi.html#unistruzione-ambigua",
+    "title": "2  Perché servono gli algoritmi?",
+    "section": "2.2 Un’istruzione ambigua",
+    "text": "2.2 Un’istruzione ambigua\nProviamo con un altro esempio: “Avvia una canzone.”\nPer noi è semplice.\nPer un computer, invece, non lo è affatto.\nQuale canzone?\nDove deve cercarla?\nCosa deve fare se non la trova?\nDeve fermarsi dopo una canzone o continuare?\nUna frase che per una persona è normale, per una macchina può essere troppo vaga.",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Perché servono gli algoritmi?</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/01_algoritmi.html#unistruzione-più-precisa",
+    "href": "docs/diagrammi_flusso/01_algoritmi.html#unistruzione-più-precisa",
+    "title": "2  Perché servono gli algoritmi?",
+    "section": "2.3 Un’istruzione più precisa",
+    "text": "2.3 Un’istruzione più precisa\nEcco la stessa idea scritta in modo più chiaro:\nINIZIO\nosserva il semaforo\nse il semaforo è verde\n    attraversa la strada\naltrimenti\n    aspetta\nFINE\nIn questo caso le istruzioni sono più adatte a essere eseguite, perché ogni passo è:\nchiaro ordinato preciso Un esempio legato alla musica\nAnche una semplice azione come riprodurre un brano può essere descritta come una sequenza di passi:\nINIZIO apri l’app musicale cerca la canzone se la canzone esiste premi play altrimenti mostra un messaggio di errore FINE\nQuesto è molto più vicino al modo in cui ragiona un sistema informatico.",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Perché servono gli algoritmi?</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/01_algoritmi.html#idea-chiave",
+    "href": "docs/diagrammi_flusso/01_algoritmi.html#idea-chiave",
+    "title": "2  Perché servono gli algoritmi?",
+    "section": "2.4 Idea chiave",
+    "text": "2.4 Idea chiave\nUn computer può eseguire bene un compito solo se riceve istruzioni che siano:\nesplicite in ordine logico prive di ambiguità Definizione semplice\nUn algoritmo è una sequenza di istruzioni precise e ordinate per risolvere un problema o svolgere un compito.",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Perché servono gli algoritmi?</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/01_algoritmi.html#perché-è-importante-studiarli",
+    "href": "docs/diagrammi_flusso/01_algoritmi.html#perché-è-importante-studiarli",
+    "title": "2  Perché servono gli algoritmi?",
+    "section": "2.5 Perché è importante studiarli",
+    "text": "2.5 Perché è importante studiarli\nImparare gli algoritmi non serve solo a programmare. Serve soprattutto a imparare a: ragionare con ordine, scomporre un problema in passi, descrivere una procedura in modo chiaro ed evitare errori dovuti a istruzioni confuse\nGli algoritmi stanno dietro a molte situazioni quotidiane e digitali: un videogioco che reagisce alle azioni del giocatore, un semaforo intelligente, un navigatore che calcola un percorso, un’app musicale che cerca e riproduce un brano",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Perché servono gli algoritmi?</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/01_algoritmi.html#errore-tipico",
+    "href": "docs/diagrammi_flusso/01_algoritmi.html#errore-tipico",
+    "title": "2  Perché servono gli algoritmi?",
+    "section": "2.6 Errore tipico",
+    "text": "2.6 Errore tipico\nUno degli errori più comuni è scrivere istruzioni come se chi legge fosse una persona.\nPer esempio:\nGioca e prova a vincere Vai dove devi andare Metti la canzone giusta\nQueste frasi possono avere senso per un essere umano, ma non per una macchina.\nUna macchina ha bisogno di indicazioni più precise, come:\ncontrolla la posizione del personaggio se incontri un ostacolo, fermati se trovi il brano, riproducilo altrimenti segnala che non è disponibile",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Perché servono gli algoritmi?</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/01_algoritmi.html#in-sintesi",
+    "href": "docs/diagrammi_flusso/01_algoritmi.html#in-sintesi",
+    "title": "2  Perché servono gli algoritmi?",
+    "section": "2.7 In sintesi",
+    "text": "2.7 In sintesi\nGli algoritmi servono perché i computer non capiscono istruzioni vaghe. Per funzionare correttamente, hanno bisogno di istruzioni: precise, ordinate e non ambigue",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Perché servono gli algoritmi?</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/01_algoritmi.html#definizione",
+    "href": "docs/diagrammi_flusso/01_algoritmi.html#definizione",
+    "title": "2  Perché servono gli algoritmi?",
+    "section": "2.8 Definizione",
+    "text": "2.8 Definizione\nUn algoritmo è una sequenza di passi che permette di risolvere un problema o svolgere un compito.\n\n2.8.1 Un algoritmo nella vita reale\nUn algoritmo non è qualcosa che riguarda solo i computer. Ogni volta che descrivi un procedimento passo dopo passo, stai costruendo un algoritmo.",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Perché servono gli algoritmi?</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/01_algoritmi.html#le-3-caratteristiche-fondamentali",
+    "href": "docs/diagrammi_flusso/01_algoritmi.html#le-3-caratteristiche-fondamentali",
+    "title": "2  Perché servono gli algoritmi?",
+    "section": "2.9 Le 3 caratteristiche fondamentali",
+    "text": "2.9 Le 3 caratteristiche fondamentali\nUn algoritmo funziona bene solo se ha queste caratteristiche:\n\n2.9.1 1. Finito\nDeve avere una fine. Non può andare avanti per sempre senza fermarsi.\n\n\n2.9.2 2. Non ambiguo\nOgni istruzione deve avere un solo significato possibile. Non devono esserci interpretazioni diverse.\n\n\n2.9.3 3. Ordinato\nI passi devono essere eseguiti in un ordine preciso. Cambiare l’ordine può cambiare il risultato.",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Perché servono gli algoritmi?</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/01_algoritmi.html#come-costruire-un-algoritmo-metodo-semplice",
+    "href": "docs/diagrammi_flusso/01_algoritmi.html#come-costruire-un-algoritmo-metodo-semplice",
+    "title": "2  Perché servono gli algoritmi?",
+    "section": "2.10 Come costruire un algoritmo (metodo semplice)",
+    "text": "2.10 Come costruire un algoritmo (metodo semplice)\nQuando devi scrivere un algoritmo, segui questi passi:\npensa al problema dividi il problema in azioni semplici metti le azioni in ordine controlla che ogni passo sia chiaro",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Perché servono gli algoritmi?</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/02_dal_testo_allo_schema.html",
+    "href": "docs/diagrammi_flusso/02_dal_testo_allo_schema.html",
+    "title": "3  Dal testo allo schema (prima dei simboli)",
+    "section": "",
+    "text": "3.1 Perché usare uno schema\nFinora abbiamo scritto algoritmi come sequenze di istruzioni.\nEsempio:\nQuesto funziona, ma può diventare difficile da leggere quando gli algoritmi diventano più lunghi.\nPer questo motivo si usano i diagrammi di flusso.\nUno schema aiuta a vedere subito la struttura del problema, capire cosa succede prima e dopo, individuare le scelte (decisioni) ed evitare errori di logica\nIn altre parole: trasformiamo un testo in qualcosa di visivo.",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dal testo allo schema (prima dei simboli)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/02_dal_testo_allo_schema.html#perché-usare-uno-schema",
+    "href": "docs/diagrammi_flusso/02_dal_testo_allo_schema.html#perché-usare-uno-schema",
+    "title": "3  Dal testo allo schema (prima dei simboli)",
+    "section": "",
+    "text": "3.1.1 collegare i passi\nUn diagramma di flusso è, prima di tutto, una serie di passi collegati tra loro. Possiamo iniziare senza simboli, usando solo frecce e parole.\nEsempio\nTesto:\nSe il semaforo è verde attraversa, altrimenti aspetta.\nSchema:\nINIZIO ↓ osserva semaforo ↓ se è verde? ↓ sì ↓ no attraversa aspetta ↓ ↓ FINE\nNon abbiamo ancora usato simboli ufficiali, ma si capisce già tutto.\nNello schema ci sono già gli elementi fondamentali:\nun punto di partenza (INIZIO) una sequenza di azioni una decisione (una domanda) più possibili strade una fine (FINE)\nAnche senza simboli, la logica è già completa.\nUno schema deve essere sempre: leggibile dall’alto verso il basso, chiaro nei collegamenti, senza salti logici\n\n\n3.1.2 Metodo da seguire\nQuando devi trasformare un testo in schema:\nindividua i passi principali mettili in ordine trova le decisioni (domande) disegna i collegamenti (frecce)\nSolo dopo aver fatto questo, ha senso usare i simboli.",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dal testo allo schema (prima dei simboli)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/02_dal_testo_allo_schema.html#in-sintesi",
+    "href": "docs/diagrammi_flusso/02_dal_testo_allo_schema.html#in-sintesi",
+    "title": "3  Dal testo allo schema (prima dei simboli)",
+    "section": "3.2 In sintesi",
+    "text": "3.2 In sintesi\nUn diagramma di flusso è: un algoritmo reso visivo, fatto di passi collegati e con possibili scelte",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dal testo allo schema (prima dei simboli)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/03_simboli.html",
+    "href": "docs/diagrammi_flusso/03_simboli.html",
+    "title": "4  I simboli dei diagrammi di flusso",
+    "section": "",
+    "text": "4.1 I simboli principali\nIntroduciamo i simboli standard dei diagrammi di flusso.\nQuesti simboli servono per rappresentare in modo chiaro e universale:",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>I simboli dei diagrammi di flusso</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/03_simboli.html#i-simboli-principali",
+    "href": "docs/diagrammi_flusso/03_simboli.html#i-simboli-principali",
+    "title": "4  I simboli dei diagrammi di flusso",
+    "section": "",
+    "text": "4.1.1 1. Inizio / Fine\nIndica il punto di partenza o di arrivo dell’algoritmo. Si rappresenta con una forma arrotondata:\nflowchart TD\n    A([INIZIO])\n    B([FINE])\n\n\n4.1.2 2. Azione (processo)\nRappresenta un’operazione da eseguire.\nEsempi: apri un’app, muovi un personaggio, calcola un valore, assegna un punteggio\nSi rappresenta con un rettangolo:\nflowchart TD\n    A[Calcola punteggio]\n\n\n4.1.3 3. Decisione\nRappresenta una scelta, cioè una domanda con due sole possibili risposte.\nEsempi: il semaforo è verde? il gioco si avvia? il nemico è presente?\nSi rappresenta con un rombo:\n\n\n4.1.4 4. Frecce (flusso)\nLe frecce collegano i blocchi e indicano l’ordine delle operazioni.",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>I simboli dei diagrammi di flusso</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/03_simboli.html#in-sintesi",
+    "href": "docs/diagrammi_flusso/03_simboli.html#in-sintesi",
+    "title": "4  I simboli dei diagrammi di flusso",
+    "section": "4.2 In sintesi",
+    "text": "4.2 In sintesi\nI diagrammi di flusso usano simboli standard per rappresentare:\nl’inizio e la fine le azioni le decisioni il flusso",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>I simboli dei diagrammi di flusso</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/03_simboli.html#esempio",
+    "href": "docs/diagrammi_flusso/03_simboli.html#esempio",
+    "title": "4  I simboli dei diagrammi di flusso",
+    "section": "4.3 Esempio",
+    "text": "4.3 Esempio\nflowchart TD\n    A([INIZIO]) --&gt; B[Osserva semaforo]\n    B --&gt; C{È verde?}\n    C -- Sì --&gt; D[Attraversa]\n    C -- No --&gt; E[Aspetta]\n    D --&gt; F([FINE])\n    E --&gt; F",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>I simboli dei diagrammi di flusso</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/05_esempi_diagrammi.html",
+    "href": "docs/diagrammi_flusso/05_esempi_diagrammi.html",
+    "title": "5  Esempi di diagrammi di flusso",
+    "section": "",
+    "text": "5.1 Esempio 1 — Accesso con password\nVediamo alcuni esempi completi di diagrammi di flusso. L’obiettivo è capire come usare i simboli per rappresentare situazioni diverse.\nSituazione: inserisci una password. Se è corretta accedi, altrimenti riprova.",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Esempi di diagrammi di flusso</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/05_esempi_diagrammi.html#esempio-1-accesso-con-password",
+    "href": "docs/diagrammi_flusso/05_esempi_diagrammi.html#esempio-1-accesso-con-password",
+    "title": "5  Esempi di diagrammi di flusso",
+    "section": "",
+    "text": "flowchart TD\nA([INIZIO]) --&gt; B[Inserisci password]\nB --&gt; C{Password corretta?}\nC -- Sì --&gt; D[Accesso consentito]\nC -- No --&gt; E[Riprova]\nE --&gt; B\nD --&gt; F([FINE])",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Esempi di diagrammi di flusso</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/05_esempi_diagrammi.html#esempio-2-livello-in-un-videogioco",
+    "href": "docs/diagrammi_flusso/05_esempi_diagrammi.html#esempio-2-livello-in-un-videogioco",
+    "title": "5  Esempi di diagrammi di flusso",
+    "section": "5.2 Esempio 2 — Livello in un videogioco",
+    "text": "5.2 Esempio 2 — Livello in un videogioco\nSituazione: completa un livello. Se vinci passi al successivo, altrimenti riprovi.\nflowchart TD\nA([INIZIO]) --&gt; B[Gioca livello]\nB --&gt; C{Livello completato?}\nC -- Sì --&gt; D[Passa al livello successivo]\nC -- No --&gt; E[Riprova livello]\nE --&gt; B\nD --&gt; F([FINE])",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Esempi di diagrammi di flusso</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/05_esempi_diagrammi.html#esempio-3-riproduzione-musicale",
+    "href": "docs/diagrammi_flusso/05_esempi_diagrammi.html#esempio-3-riproduzione-musicale",
+    "title": "5  Esempi di diagrammi di flusso",
+    "section": "5.3 Esempio 3 — Riproduzione musicale",
+    "text": "5.3 Esempio 3 — Riproduzione musicale\nSituazione: cerca una canzone. Se la trovi la riproduci, altrimenti mostri un errore.\nflowchart TD\nA([INIZIO]) --&gt; B[Cerca canzone]\nB --&gt; C{Canzone trovata?}\nC -- Sì --&gt; D[Riproduci]\nC -- No --&gt; E[Mostra errore]\nD --&gt; F([FINE])\nE --&gt; F",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Esempi di diagrammi di flusso</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/05_esempi_diagrammi.html#esempio-4-download-di-un-file",
+    "href": "docs/diagrammi_flusso/05_esempi_diagrammi.html#esempio-4-download-di-un-file",
+    "title": "5  Esempi di diagrammi di flusso",
+    "section": "5.4 Esempio 4 — Download di un file",
+    "text": "5.4 Esempio 4 — Download di un file\nSituazione: avvia un download. Se la connessione è attiva scarichi il file, altrimenti mostri errore.\nflowchart TD\nA([INIZIO]) --&gt; B[Avvia download]\nB --&gt; C{Connessione attiva?}\nC -- Sì --&gt; D[Scarica file]\nC -- No --&gt; E[Errore di rete]\nD --&gt; F([FINE])\nE --&gt; F\nCosa osservare:\nIn tutti gli esempi c’è un solo punto di inizio, ogni azione è chiara le decisioni hanno due uscite (Sì / No). il flusso è ordinato dall’alto verso il basso In sintesi un diagramma di flusso serve a rappresentare un algoritmo in modo visivo, rendere chiari i passaggi ed evidenziare le decisioni.",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Esempi di diagrammi di flusso</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/06_flowgorithm.html",
+    "href": "docs/diagrammi_flusso/06_flowgorithm.html",
+    "title": "6  Introduzione a Flowgorithm",
+    "section": "",
+    "text": "6.1 Cos’è flowgorithm\nFinora abbiamo costruito algoritmi e diagrammi di flusso usando testo e schemi. Ora vediamo uno strumento che permette di: disegnare diagrammi di flusso, eseguirli passo dopo passo e capire cosa succede durante l’esecuzione\nQuesto strumento si chiama Flowgorithm.\nFlowgorithm è un programma che permette di creare diagrammi di flusso eseguibili.\nQuesto significa che: il diagramma non è solo un disegno e può essere eseguito come un programma\nIn altre parole, quello che progetti viene messo in esecuzione.\nFlowgorithm è utile perché:\nti obbliga a essere preciso mostra errori logici permette di seguire passo passo l’algoritmo collega i diagrammi alla programmazione",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introduzione a Flowgorithm</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/06_flowgorithm.html#un-primo-esempio",
+    "href": "docs/diagrammi_flusso/06_flowgorithm.html#un-primo-esempio",
+    "title": "6  Introduzione a Flowgorithm",
+    "section": "6.2 Un primo esempio",
+    "text": "6.2 Un primo esempio\nSituazione: mostra un messaggio all’utente.\nPassi:\nINIZIO scrivi “Ciao” FINE\nIn Flowgorithm questo diventa:\nun blocco di output collegato tra INIZIO e FINE\nQuando esegui il diagramma, vedrai il messaggio comparire.\nCosa puoi fare con Flowgorithm\nCon Flowgorithm puoi:\nleggere dati (input) mostrare risultati (output) prendere decisioni (if) ripetere azioni (cicli) seguire l’esecuzione passo passo Come si lavora\nMetodo corretto:\npensa all’algoritmo scrivilo in forma semplice trasformalo in diagramma eseguilo con Flowgorithm controlla se funziona\nFlowgorithm serve per: verificare se un algoritmo funziona, capire dove ci sono errori Se il ragionamento è sbagliato, anche il diagramma sarà sbagliato.\nCosa osservare durante l’esecuzione\nQuando esegui un diagramma, osserva:\nquale blocco viene eseguito in che ordine cosa succede nelle decisioni come cambiano i valori",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introduzione a Flowgorithm</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/06_flowgorithm.html#in-sintesi",
+    "href": "docs/diagrammi_flusso/06_flowgorithm.html#in-sintesi",
+    "title": "6  Introduzione a Flowgorithm",
+    "section": "6.3 In sintesi",
+    "text": "6.3 In sintesi\nFlowgorithm è uno strumento che permette di: creare diagrammi di flusso, eseguirli e verificare se funzionano\nÈ il ponte tra:\nil ragionamento (algoritmi) e la programmazione",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introduzione a Flowgorithm</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/07_costruire_un_diagramma.html",
+    "href": "docs/diagrammi_flusso/07_costruire_un_diagramma.html",
+    "title": "7  Costruire un diagramma passo passo",
+    "section": "",
+    "text": "7.1 Metodo\nFinora abbiamo visto esempi di diagrammi di flusso. Ma come si costruisce davvero un diagramma?\nNon si parte dai simboli. Si parte dal ragionamento.\nQuando devi costruire un diagramma:\nleggi il problema individua cosa deve succedere metti in ordine le azioni individua le decisioni verifica se qualcosa si ripete\nSolo dopo si disegna il diagramma.",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Costruire un diagramma passo passo</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/07_costruire_un_diagramma.html#metodo",
+    "href": "docs/diagrammi_flusso/07_costruire_un_diagramma.html#metodo",
+    "title": "7  Costruire un diagramma passo passo",
+    "section": "",
+    "text": "7.1.1 Caso 1 — Una scelta\nSituazione: inserisci una password. Se è corretta accedi, altrimenti compare un errore.\nRagionamento l’utente inserisce una password il sistema controlla se è corretta ci sono due possibilità: sì → accesso no → errore\nqui c’è una decisione\nSchema\nflowchart TD\nA([INIZIO]) --&gt; B[Inserisci password]\nB --&gt; C{Password corretta?}\nC -- Sì --&gt; D[Accesso consentito]\nC -- No --&gt; E[Errore]\nD --&gt; F([FINE])\nE --&gt; F\n\n\n7.1.2 Caso 2 — Una ripetizione\nSituazione: inserisci una password finché è sbagliata.\nRagionamento: l’utente inserisce la password il sistema controlla se è sbagliata → si riprova se è corretta → si entra\nqui qualcosa si ripete\nSchema\nflowchart TD\nA([INIZIO]) --&gt; B[Inserisci password]\nB --&gt; C{Password corretta?}\nC -- No --&gt; B\nC -- Sì --&gt; D[Accesso consentito]\nD --&gt; E([FINE])\n\n\n7.1.3 Caso 3 — Solo sequenza\nSituazione: avvia un videogioco e inizia a giocare.\nRagionamento accendi il dispositivo avvia il gioco premi start\nnon ci sono scelte non ci sono ripetizioni\nSchema\nflowchart TD\nA([INIZIO]) --&gt; B[Accendi dispositivo]\nB --&gt; C[Avvia gioco]\nC --&gt; D[Premi start]\nD --&gt; E([FINE])\nGuardando questi esempi emergono tre situazioni diverse:\nazioni in sequenza decisioni (scelte) ripetizioni\nQueste tre situazioni compaiono in tutti i programmi.",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Costruire un diagramma passo passo</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/07_costruire_un_diagramma.html#in-sintesi",
+    "href": "docs/diagrammi_flusso/07_costruire_un_diagramma.html#in-sintesi",
+    "title": "7  Costruire un diagramma passo passo",
+    "section": "7.2 In sintesi",
+    "text": "7.2 In sintesi\nPer costruire un diagramma:\nprima pensi poi organizzi i passi solo alla fine disegni Prossimo passo\nLe situazioni che abbiamo visto hanno un nome preciso.\nsequenza selezione iterazione\ne sono la base di tutti i programmi",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Costruire un diagramma passo passo</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html",
+    "href": "docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html",
+    "title": "8  Variabili e controlli con Flowgorithm",
+    "section": "",
+    "text": "8.1 Cos’è una variabile\nFinora abbiamo costruito diagrammi di flusso. Ora iniziamo a usarli per lavorare con:\nvariabili input e output controlli\nQuesto è il primo passo verso la programmazione.\nUna variabile è uno spazio dove memorizzi un valore.\nEsempi: un numero, un punteggio, una password… In Flowgorithm una variabile deve essere: prima dichiarata e poi usata ed eventualmente modificata",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Variabili e controlli con Flowgorithm</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html#tipi-di-variabili",
+    "href": "docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html#tipi-di-variabili",
+    "title": "8  Variabili e controlli con Flowgorithm",
+    "section": "8.2 Tipi di variabili",
+    "text": "8.2 Tipi di variabili\nIn Flowgorithm (e nei linguaggi di programmazione) le variabili possono contenere tipi diversi di dati. Scegliere il tipo corretto è importante, perché determina che cosa puoi fare con quel valore.\nI tipi principali sono:\n\n8.2.1 Integer (intero):\ncontiene numeri senza virgola. Esempi: 3, 25, -10 Si usa per contatori, età, quantità…\n\n\n8.2.2 Real (decimale)\ncontiene numeri con la virgola. Esempi: 3.5, 2.75 Si usa per prezzi, misure, medie…\n\n\n8.2.3 String (testo)\ncontiene parole o frasi. Esempi: “ciao”, “password123” Si usa per nomi, messaggi, input dell’utente.\n\n\n8.2.4 Boolean (vero/falso)\ncontiene solo due valori: true oppure false. Si usa per condizioni e controlli (es. accesso consentito sì/no).",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Variabili e controlli con Flowgorithm</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html#dichiarazione-delle-variabili",
+    "href": "docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html#dichiarazione-delle-variabili",
+    "title": "8  Variabili e controlli con Flowgorithm",
+    "section": "8.3 Dichiarazione delle variabili",
+    "text": "8.3 Dichiarazione delle variabili\nPrima di usare una variabile, bisogna dichiararla.\nEsempi:\ndichiara età come Integer dichiara prezzo come Real dichiara nome come String dichiara accesso come Boolean\nQuesto serve per dire al programma che tipo di dato conterrà.",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Variabili e controlli con Flowgorithm</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html#assegnazione-di-valori",
+    "href": "docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html#assegnazione-di-valori",
+    "title": "8  Variabili e controlli con Flowgorithm",
+    "section": "8.4 Assegnazione di valori",
+    "text": "8.4 Assegnazione di valori\nDopo aver dichiarato una variabile, possiamo assegnarle un valore.\nEsempi:\netà = 18 prezzo = 9.99 nome = “Luca” accesso = true\nL’assegnazione serve per memorizzare un valore nella variabile.",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Variabili e controlli con Flowgorithm</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html#input-lettura",
+    "href": "docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html#input-lettura",
+    "title": "8  Variabili e controlli con Flowgorithm",
+    "section": "8.5 Input (lettura)",
+    "text": "8.5 Input (lettura)\nPer leggere un valore dall’utente si usa un’istruzione di input.\nEsempi:\nleggi età leggi nome\nQuesto significa che il programma chiede un valore all’utente e lo salva nella variabile.",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Variabili e controlli con Flowgorithm</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html#output-stampa",
+    "href": "docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html#output-stampa",
+    "title": "8  Variabili e controlli con Flowgorithm",
+    "section": "8.6 Output (stampa)",
+    "text": "8.6 Output (stampa)\nPer mostrare un risultato si usa un’istruzione di output.\nEsempi:\nstampa età stampa nome\nAttenzione alle virgolette stampa nome → mostra il valore della variabile stampa “nome” → mostra la parola nome\nEsempio: nome = “Luca” stampa nome → Luca stampa “nome” → nome",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Variabili e controlli con Flowgorithm</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html#decisioni-if",
+    "href": "docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html#decisioni-if",
+    "title": "8  Variabili e controlli con Flowgorithm",
+    "section": "8.7 Decisioni (if)",
+    "text": "8.7 Decisioni (if)\nLe decisioni servono per scegliere tra due possibilità.\nEsempio: Se l’età è maggiore o uguale a 18, puoi entrare.\nSchema:\nflowchart TD\nA([INIZIO]) --&gt; B[Leggi età]\nB --&gt; C{età &gt;= 18?}\nC -- Sì --&gt; D[Stampa \"Accesso consentito\"]\nC -- No --&gt; E[Stampa \"Accesso negato\"]\nD --&gt; F([FINE])\nE --&gt; F",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Variabili e controlli con Flowgorithm</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html#ripetizioni-while",
+    "href": "docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html#ripetizioni-while",
+    "title": "8  Variabili e controlli con Flowgorithm",
+    "section": "8.8 Ripetizioni (while)",
+    "text": "8.8 Ripetizioni (while)\nIl ciclo while serve per ripetere un’azione finché una condizione è vera.\nEsempio:\nInserisci una password finché è sbagliata.\nSchema:\nflowchart TD\nA([INIZIO]) --&gt; B[Leggi password]\nB --&gt; C{Password corretta?}\nC -- No --&gt; B\nC -- Sì --&gt; D[Stampa \"Accesso consentito\"]\nD --&gt; E([FINE])",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Variabili e controlli con Flowgorithm</span>"
+    ]
+  },
+  {
+    "objectID": "docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html#in-sintesi",
+    "href": "docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html#in-sintesi",
+    "title": "8  Variabili e controlli con Flowgorithm",
+    "section": "8.9 In sintesi",
+    "text": "8.9 In sintesi\nUn programma è fatto da:\ndati (variabili) operazioni (assegnazioni) interazioni (input/output) controlli (if, while)\nQuesti sono i mattoni fondamentali della programmazione.",
+    "crumbs": [
+      "Diagrammi di flusso",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Variabili e controlli con Flowgorithm</span>"
+    ]
+  },
+  {
+    "objectID": "docs/c/stringhe/01_input_stringhe.html",
+    "href": "docs/c/stringhe/01_input_stringhe.html",
+    "title": "9  Stringhe in input in C",
+    "section": "",
+    "text": "9.1 Obiettivo\nSaper leggere correttamente una frase da input e capire quando è necessario gestire il newline.",
+    "crumbs": [
+      "Linguaggio C",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Stringhe in input in C</span>"
+    ]
+  },
+  {
+    "objectID": "docs/c/stringhe/01_input_stringhe.html#schema-base",
+    "href": "docs/c/stringhe/01_input_stringhe.html#schema-base",
+    "title": "9  Stringhe in input in C",
+    "section": "9.2 Schema base",
+    "text": "9.2 Schema base\nDevi saper fare senza esitazione questo schema:\nchar s[200];\nfgets(s, sizeof(s), stdin);\n\n// se dobbiamo eliminare l'andata a capo\ns[strcspn(s, \"\\n\")] = '\\0';",
+    "crumbs": [
+      "Linguaggio C",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Stringhe in input in C</span>"
+    ]
+  },
+  {
+    "objectID": "docs/c/stringhe/01_input_stringhe.html#cose-da-sapere-bene",
+    "href": "docs/c/stringhe/01_input_stringhe.html#cose-da-sapere-bene",
+    "title": "9  Stringhe in input in C",
+    "section": "9.3 Cose da sapere bene",
+    "text": "9.3 Cose da sapere bene\nfgets legge anche gli spazi salva anche , che in alcuni casi va eliminato la stringa finisce comunque con ‘\\0’\n\n9.3.1 Quando NON è necessario togliere \nNon serve eliminarlo quando scorriamo la stringa carattere per carattere.\nIl verrà semplicemente trattato come un carattere qualsiasi.\nEsempio\nint i = 0;\n\nwhile (s[i] != '\\0') {\n    // lavoro su s[i]\n    i++;\n}\nQuesto approccio va bene negli esercizi in cui: si contano caratteri (es: frequenza dei caratteri) si analizza il testo (es: conteggio vocali) si modificano solo alcune lettere (es: crittografia delle sole lettere) si ignorano i caratteri non alfabetici\nIn questi casi il non crea problemi\n\n\n9.3.2 Quando invece bisogna togliere \nÈ necessario eliminarlo quando vogliamo che la stringa rappresenti esattamente il testo inserito, senza l’invio finale.\n🔹Confronto tra stringhe strcmp(s, “ciao”); Se la stringa è: “ciao” il confronto fallisce\n🔹 Calcolo della lunghezza reale Il newline verrebbe contato come carattere in più.\n🔹 Elaborazioni sensibili alla posizione palindromi parsing preciso del testo confronti esatti tra stringhe\nEsempio completo\n#include &lt;stdio.h&gt;\n#include &lt;string.h&gt;\n\nint main() {\n    char s[200];\n\n    printf(\"Inserisci una frase: \");\n    fgets(s, sizeof(s), stdin);\n\n    // rimuovo il newline\n    s[strcspn(s, \"\\n\")] = '\\0';\n\n    printf(\"Hai scritto: %s\\n\", s);\n\n    return 0;\n}",
+    "crumbs": [
+      "Linguaggio C",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Stringhe in input in C</span>"
+    ]
+  },
+  {
+    "objectID": "docs/c/stringhe/01_input_stringhe.html#schema-mentale",
+    "href": "docs/c/stringhe/01_input_stringhe.html#schema-mentale",
+    "title": "9  Stringhe in input in C",
+    "section": "9.4 Schema mentale",
+    "text": "9.4 Schema mentale\nleggo la stringa controllo se devo togliere poi la uso",
+    "crumbs": [
+      "Linguaggio C",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Stringhe in input in C</span>"
+    ]
+  },
+  {
+    "objectID": "docs/c/stringhe/01_input_stringhe.html#mini-esercizio",
+    "href": "docs/c/stringhe/01_input_stringhe.html#mini-esercizio",
+    "title": "9  Stringhe in input in C",
+    "section": "9.5 Mini esercizio",
+    "text": "9.5 Mini esercizio\nScrivi un programma che:\nlegge una frase stampa la lunghezza della stringa\nprova prima senza togliere poi togli il newline. cosa cambia?",
+    "crumbs": [
+      "Linguaggio C",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Stringhe in input in C</span>"
+    ]
+  },
+  {
+    "objectID": "docs/c/stringhe/02_scorrimento.html",
+    "href": "docs/c/stringhe/02_scorrimento.html",
+    "title": "10  Scorrimento di una stringa in C",
+    "section": "",
+    "text": "10.1 Obiettivo\nSaper scorrere una stringa carattere per carattere fino alla fine.\nQuesto è il cuore di quasi tutti gli esercizi sulle stringhe.\nSe non sai fare questo, non puoi risolvere bene esercizi di conteggio, trasformazione, ricerca o crittografia.",
+    "crumbs": [
+      "Linguaggio C",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Scorrimento di una stringa in C</span>"
+    ]
+  },
+  {
+    "objectID": "docs/c/stringhe/02_scorrimento.html#schema-base",
+    "href": "docs/c/stringhe/02_scorrimento.html#schema-base",
+    "title": "10  Scorrimento di una stringa in C",
+    "section": "10.2 Schema base",
+    "text": "10.2 Schema base\nDevi saper fare senza esitazione questo schema:\nint i = 0;\n\nwhile (s[i] != '\\0') {\n    // lavoro su s[i]\n    i++;\n}\nIdea fondamentale\nUna stringa in C è un array di caratteri che termina con il carattere speciale: ‘\\0’\nQuindi, per scorrerla tutta:\nparti da indice 0 guardi un carattere alla volta continui finché non trovi ‘\\0’",
+    "crumbs": [
+      "Linguaggio C",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Scorrimento di una stringa in C</span>"
+    ]
+  },
+  {
+    "objectID": "docs/c/stringhe/02_scorrimento.html#schema-mentale",
+    "href": "docs/c/stringhe/02_scorrimento.html#schema-mentale",
+    "title": "10  Scorrimento di una stringa in C",
+    "section": "10.3 Schema mentale",
+    "text": "10.3 Schema mentale\nDevi pensare così: leggo un carattere alla volta finché trovo ‘\\0’\nCosa rappresenta s[i] s è la stringa i è la posizione s[i] è il carattere nella posizione i\nEsempio:\nSe la stringa è: casa\nallora in memoria hai:\nIndice Contenuto 0 ‘c’ 1 ‘a’ 2 ‘s’ 3 ‘a’ 4 ‘\\0’\n\n10.3.1 Esempio minimo\n#include &lt;stdio.h&gt;\n\nint main() {\n    char s[] = \"ciao\";\n    int i = 0;\n\n    while (s[i] != '\\0') {\n        printf(\"%c\\n\", s[i]);\n        i++;\n    }\n\n    return 0;\n}\nCosa fa questo programma?\nStampa un carattere per volta:\nc i a o\n###Esempio: contare i caratteri\n#include &lt;stdio.h&gt;\n\nint main() {\n    char s[100];\n    int i = 0;\n    int cont = 0;\n\n    fgets(s, sizeof(s), stdin);\n\n    while (s[i] != '\\0') {\n        cont++;\n        i++;\n    }\n\n    printf(\"Numero di caratteri letti: %d\\n\", cont);\n\n    return 0;\n}\nAttenzione al newline: se hai letto la stringa con fgets, potrebbe esserci anche . Quindi questo programma potrebbe contare anche l’invio finale.\nPer questo motivo, quando serve una lunghezza “pulita”, bisogna prima eliminare .\n\n\n10.3.2 Esempio: contare le vocali\n#include &lt;stdio.h&gt;\n\nint main() {\n    char s[100];\n    int i = 0;\n    int cont = 0;\n\n    fgets(s, sizeof(s), stdin);\n\n    while (s[i] != '\\0') {\n        if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u' ||\n            s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U') {\n            cont++;\n        }\n        i++;\n    }\n\n    printf(\"Numero di vocali: %d\\n\", cont);\n\n    return 0;\n}\nCosa devi riconoscere in tutti questi esercizi: la parte che cambia è la logica dentro il ciclo.\nLa struttura invece resta sempre questa:\nint i = 0;\n\nwhile (s[i] != '\\0') {\n    // qui cambia il lavoro da fare\n    i++;\n}",
+    "crumbs": [
+      "Linguaggio C",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Scorrimento di una stringa in C</span>"
+    ]
+  },
+  {
+    "objectID": "docs/c/stringhe/02_scorrimento.html#schema-generale",
+    "href": "docs/c/stringhe/02_scorrimento.html#schema-generale",
+    "title": "10  Scorrimento di una stringa in C",
+    "section": "10.4 Schema generale",
+    "text": "10.4 Schema generale\nQuasi tutti gli esercizi sulle stringhe seguono questa idea:\ninizializza i = 0 scorri la stringa finché non trovi ‘\\0’ fai qualcosa su s[i] incrementa i\n\n10.4.1 Esempi di esercizi che usano questo schema\ncontare le vocali, maiuscole e spazi… cercare un carattere sostituire lettere cifrare una stringa controllare certe condizioni sui caratteri",
+    "crumbs": [
+      "Linguaggio C",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Scorrimento di una stringa in C</span>"
+    ]
+  },
+  {
+    "objectID": "docs/c/stringhe/03_tipi_caratteri.html",
+    "href": "docs/c/stringhe/03_tipi_caratteri.html",
+    "title": "11  Riconoscere i tipi di carattere in C",
+    "section": "",
+    "text": "11.1 Obiettivo\nSaper distinguere i diversi tipi di caratteri all’interno di una stringa:\nQuesto è fondamentale per quasi tutti gli esercizi sulle stringhe.",
+    "crumbs": [
+      "Linguaggio C",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Riconoscere i tipi di carattere in C</span>"
+    ]
+  },
+  {
+    "objectID": "docs/c/stringhe/03_tipi_caratteri.html#obiettivo",
+    "href": "docs/c/stringhe/03_tipi_caratteri.html#obiettivo",
+    "title": "11  Riconoscere i tipi di carattere in C",
+    "section": "",
+    "text": "lettere maiuscole\n\nlettere minuscole\n\ncaratteri non alfabetici",
+    "crumbs": [
+      "Linguaggio C",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Riconoscere i tipi di carattere in C</span>"
+    ]
+  },
+  {
+    "objectID": "docs/c/stringhe/03_tipi_caratteri.html#schema-base",
+    "href": "docs/c/stringhe/03_tipi_caratteri.html#schema-base",
+    "title": "11  Riconoscere i tipi di carattere in C",
+    "section": "11.2 Schema base",
+    "text": "11.2 Schema base\nDurante lo scorrimento della stringa, devi saper scrivere condizioni come queste:\nif (s[i] &gt;= 'A' && s[i] &lt;= 'Z') {\n    // lettera maiuscola\n} else if (s[i] &gt;= 'a' && s[i] &lt;= 'z') {\n    // lettera minuscola\n} else {\n    // altro carattere\n}\nIdea fondamentale\nOgni carattere in C è in realtà un numero (codifica ASCII). Quindi puoi confrontarlo come se fosse un numero.\nIntervalli importanti Tipo Intervallo Maiuscole ‘A’ → ‘Z’ Minuscole ‘a’ → ‘z’ Numeri ‘0’ → ‘9’\nEsempio: distinguere i caratteri\n#include &lt;stdio.h&gt;\n\nint main() {\n    char s[100];\n    int i = 0;\n\n    fgets(s, sizeof(s), stdin);\n\n    while (s[i] != '\\0') {\n\n        if (s[i] &gt;= 'A' && s[i] &lt;= 'Z') {\n            printf(\"%c è maiuscola\\n\", s[i]);\n        } else if (s[i] &gt;= 'a' && s[i] &lt;= 'z') {\n            printf(\"%c è minuscola\\n\", s[i]);\n        } else {\n            printf(\"%c non è una lettera\\n\", s[i]);\n        }\n\n        i++;\n    }\n\n    return 0;\n}\n\n11.2.1 Casi tipici\n✔ Lettere\nif ((s[i] &gt;= 'A' && s[i] &lt;= 'Z') || (s[i] &gt;= 'a' && s[i] &lt;= 'z')) {\n    // è una lettera\n}\n✔ Numeri\nif (s[i] &gt;= '0' && s[i] &lt;= '9') {\n    // è una cifra\n}\n✔ Spazio\nif (s[i] == ' ') {\n    // è uno spazio\n}\n✔ Caratteri speciali\nTutto ciò che non rientra nei casi precedenti:\nelse {\n    // carattere speciale\n}\nErrori tipici Confondere caratteri e numeri\nif (s[i] == 5)   // SBAGLIATO\nDevi scrivere:\nif (s[i] == '5')   // CORRETTO\nDimenticare le virgolette\nif (s[i] == a)   // SBAGLIATO\nCorretto:\nif (s[i] == 'a')\n\n\n11.2.2 Esempio: contare le maiuscole\n#include &lt;stdio.h&gt;\n\nint main() {\n    char s[100];\n    int i = 0;\n    int cont = 0;\n\n    fgets(s, sizeof(s), stdin);\n\n    while (s[i] != '\\0') {\n        if (s[i] &gt;= 'A' && s[i] &lt;= 'Z') {\n            cont++;\n        }\n        i++;\n    }\n\n    printf(\"Numero di maiuscole: %d\\n\", cont);\n\n    return 0;\n}\n\n\n11.2.3 Esempio: contare lettere e numeri\n#include &lt;stdio.h&gt;\n\nint main() {\n    char s[100];\n    int i = 0;\n    int lettere = 0;\n    int numeri = 0;\n\n    fgets(s, sizeof(s), stdin);\n\n    while (s[i] != '\\0') {\n\n        if ((s[i] &gt;= 'A' && s[i] &lt;= 'Z') || (s[i] &gt;= 'a' && s[i] &lt;= 'z')) {\n            lettere++;\n        } else if (s[i] &gt;= '0' && s[i] &lt;= '9') {\n            numeri++;\n        }\n\n        i++;\n    }\n\n    printf(\"Lettere: %d\\n\", lettere);\n    printf(\"Numeri: %d\\n\", numeri);\n\n    return 0;\n}",
+    "crumbs": [
+      "Linguaggio C",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Riconoscere i tipi di carattere in C</span>"
+    ]
+  },
+  {
+    "objectID": "docs/c/stringhe/03_tipi_caratteri.html#schema-mentale",
+    "href": "docs/c/stringhe/03_tipi_caratteri.html#schema-mentale",
+    "title": "11  Riconoscere i tipi di carattere in C",
+    "section": "11.3 Schema mentale",
+    "text": "11.3 Schema mentale\nQuando lavori sulle stringhe:\nscorri la stringa guarda il carattere s[i] decidi a quale categoria appartiene applica la logica",
+    "crumbs": [
+      "Linguaggio C",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Riconoscere i tipi di carattere in C</span>"
+    ]
+  },
+  {
+    "objectID": "docs/reti/guida_pianondirizzamento.html",
+    "href": "docs/reti/guida_pianondirizzamento.html",
+    "title": "12  Guida al piano di indirizzamento IP",
+    "section": "",
+    "text": "12.1 PASSO 1: Calcolare gli host necessari\nPer ogni rete:",
+    "crumbs": [
+      "Reti",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Guida al piano di indirizzamento IP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/reti/guida_pianondirizzamento.html#passo-1-calcolare-gli-host-necessari",
+    "href": "docs/reti/guida_pianondirizzamento.html#passo-1-calcolare-gli-host-necessari",
+    "title": "12  Guida al piano di indirizzamento IP",
+    "section": "",
+    "text": "Prendi gli host richiesti\n\nAggiungi:\n\neventuale riserva (es. +10%)\n\neventuali dispositivi extra (router, stampanti, server…)",
+    "crumbs": [
+      "Reti",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Guida al piano di indirizzamento IP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/reti/guida_pianondirizzamento.html#passo-2-definire-lindirizzo-di-rete",
+    "href": "docs/reti/guida_pianondirizzamento.html#passo-2-definire-lindirizzo-di-rete",
+    "title": "12  Guida al piano di indirizzamento IP",
+    "section": "12.2 PASSO 2: Definire l’indirizzo di rete",
+    "text": "12.2 PASSO 2: Definire l’indirizzo di rete\nDevi scegliere la rete iniziale solo se la traccia NON la fornisce.\n\n12.2.1 Scelta dello spazio privato e del prefisso\nQuando la rete non è specificata, si deve scegliere uno spazio di indirizzamento privato tra:\n\n192.168.x.x\n\n172.16–31.x.x\n\n10.x.x.x\n\nLa scelta dello spazio dipende dal contesto:\n\n192.168 → reti piccole (scuole, uffici)\n\n172 → reti intermedie\n\n10 → reti grandi o espandibili\n\n⚠️ Il numero di host NON dipende dallo spazio scelto, ma dal prefisso.\nEsempio:\n\n192.168.0.0/23 → circa 510 host\n\n10.0.0.0/23 → circa 510 host\n\ncambia il tipo di rete, non la dimensione\n\n\n12.2.2 Regole importanti\n\nlo spazio (192 / 172 / 10) è una scelta progettuale\n\nil prefisso (/24, /23, /22) determina quanti host può contenere la rete\n\nScegli una rete privata coerente con il contesto.\n\n\n12.2.3 Esempi\nRete: 192.168.0.0/25 Host disponibili: 126 (adatta per scuole o uffici con meno di 126 host) Rete: 172.16.0.0/25 Host disponibili: 126 (adatta per medie imprese possibilimente in più sedi con meno di 126 host) Rete: 10.0.0.0/25 Host disponibili: 126 (adatta per grandi aziende o reti diffuse ma con meno di 126 host)\nRete: 192.168.0.0/20 Host disponibili: 4094 (adatta per scuole o uffici con meno di 4094 host) Rete: 172.16.0.0/20 Host disponibili: 4094 (adatta per medie imprese possibilimente in più sedi con meno di 4094 host) Rete: 10.0.0.0/20 Host disponibili: 4094 (adatta per grandi aziende o reti diffuse ma con meno di 4094 host)\n\n\n12.2.4 Calcolo del prefisso\nTrova la prima potenza di 2 ≥ (host + 2)\nEsempio:\n\n100 host → 100 + 2 = 102\n\n2⁶ = 64 no\n2⁷ = 128 ok\n\n32 - 7 = 25 -&gt; prefisso = /25",
+    "crumbs": [
+      "Reti",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Guida al piano di indirizzamento IP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/reti/guida_pianondirizzamento.html#passo-3-scegliere-il-blocco-giusto",
+    "href": "docs/reti/guida_pianondirizzamento.html#passo-3-scegliere-il-blocco-giusto",
+    "title": "12  Guida al piano di indirizzamento IP",
+    "section": "12.3 PASSO 3: Scegliere il blocco giusto",
+    "text": "12.3 PASSO 3: Scegliere il blocco giusto\nPer trovare il blocco:\n\nprendi il numero di host\n\naggiungi 2\n\nscegli la prima potenza di 2 ≥\n\nPoi:\n\nsottrai da 32 → ottieni il prefisso\n\n\n\n12.3.1 Tabella utile\n\n\n\nHost utili\nPrefisso\nIndirizzi totali\n\n\n\n\n2\n/30\n4\n\n\n6\n/29\n8\n\n\n14\n/28\n16\n\n\n30\n/27\n32\n\n\n62\n/26\n64\n\n\n126\n/25\n128\n\n\n254\n/24\n256",
+    "crumbs": [
+      "Reti",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Guida al piano di indirizzamento IP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/reti/guida_pianondirizzamento.html#passo-4-ordinare-le-subnet",
+    "href": "docs/reti/guida_pianondirizzamento.html#passo-4-ordinare-le-subnet",
+    "title": "12  Guida al piano di indirizzamento IP",
+    "section": "12.4 PASSO 4: Ordinare le subnet",
+    "text": "12.4 PASSO 4: Ordinare le subnet\nSe ci sono più reti: ordina dalla più grande alla più piccola\nEsempio:\n\nprima /25\n\npoi /26\n\npoi /27\n\npoi /28",
+    "crumbs": [
+      "Reti",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Guida al piano di indirizzamento IP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/reti/guida_pianondirizzamento.html#passo-5-capire-il-salto",
+    "href": "docs/reti/guida_pianondirizzamento.html#passo-5-capire-il-salto",
+    "title": "12  Guida al piano di indirizzamento IP",
+    "section": "12.5 PASSO 5: Capire il salto",
+    "text": "12.5 PASSO 5: Capire il salto\nIl salto serve per passare da una subnet alla successiva.\n\n\n\nPrefisso\nSalto\n\n\n\n\n/25\n128\n\n\n/26\n64\n\n\n/27\n32\n\n\n/28\n16\n\n\n\nEsempio:\nRete: 192.168.0.0/26\nsalto = 64\nrete successiva = 192.168.0.64",
+    "crumbs": [
+      "Reti",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Guida al piano di indirizzamento IP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/reti/guida_pianondirizzamento.html#passo-6-assegnare-le-subnet",
+    "href": "docs/reti/guida_pianondirizzamento.html#passo-6-assegnare-le-subnet",
+    "title": "12  Guida al piano di indirizzamento IP",
+    "section": "12.6 PASSO 6: Assegnare le subnet",
+    "text": "12.6 PASSO 6: Assegnare le subnet\nPer ogni subnet:\n\nscrivi la rete\n\ntrova il broadcast\n\ntrova gli host\n\n\n12.6.1 Regole\n\nrete = primo indirizzo\n\nprimo host = rete + 1\n\nbroadcast = indirizzo prima della rete successiva\n\nultimo host = broadcast - 1\n\n\n\n12.6.2 Esempio\nRete: 192.168.0.0/26\n\nrete: 192.168.0.0\n\nprimo host: 192.168.0.1\n\nultimo host: 192.168.0.62\n\nbroadcast: 192.168.0.63",
+    "crumbs": [
+      "Reti",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Guida al piano di indirizzamento IP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/reti/guida_pianondirizzamento.html#passo-7-passare-alla-subnet-successiva",
+    "href": "docs/reti/guida_pianondirizzamento.html#passo-7-passare-alla-subnet-successiva",
+    "title": "12  Guida al piano di indirizzamento IP",
+    "section": "12.7 PASSO 7: Passare alla subnet successiva",
+    "text": "12.7 PASSO 7: Passare alla subnet successiva\nUsa il salto.\nEsempio:\n192.168.0.0 + 64 = 192.168.0.64 -&gt; questa è la nuova rete",
+    "crumbs": [
+      "Reti",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Guida al piano di indirizzamento IP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/reti/guida_pianondirizzamento.html#passo-8-ripetere",
+    "href": "docs/reti/guida_pianondirizzamento.html#passo-8-ripetere",
+    "title": "12  Guida al piano di indirizzamento IP",
+    "section": "12.8 PASSO 8: Ripetere",
+    "text": "12.8 PASSO 8: Ripetere\nRipeti: - assegna subnet\n- calcola broadcast\n- vai avanti con il salto\nfino a completare tutte le subnet",
+    "crumbs": [
+      "Reti",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Guida al piano di indirizzamento IP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/reti/guida_pianondirizzamento.html#passo-9-controllo-finale",
+    "href": "docs/reti/guida_pianondirizzamento.html#passo-9-controllo-finale",
+    "title": "12  Guida al piano di indirizzamento IP",
+    "section": "12.9 PASSO 9: Controllo finale",
+    "text": "12.9 PASSO 9: Controllo finale\nControlla sempre:\n\n✔ ogni subnet ha abbastanza host\n\n✔ le subnet NON si sovrappongono\n\n✔ tutto sta dentro la rete iniziale\n\n✔ non hai saltato indirizzi",
+    "crumbs": [
+      "Reti",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Guida al piano di indirizzamento IP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/reti/guida_pianondirizzamento.html#casi-particolari",
+    "href": "docs/reti/guida_pianondirizzamento.html#casi-particolari",
+    "title": "12  Guida al piano di indirizzamento IP",
+    "section": "12.10 CASI PARTICOLARI",
+    "text": "12.10 CASI PARTICOLARI\n\n12.10.1 Una sola subnet\nFai solo:\n\npasso 1\n\npasso 2\n\ncalcoli rete, host, broadcast\n\n\n\n12.10.2 Subnet tutte uguali\n\nusa sempre lo stesso prefisso\n\n\n\n12.10.3 Subnet diverse (caso più comune)\n\nusa VLSM\n\nogni subnet ha dimensione diversa\n\nordina dalla più grande",
+    "crumbs": [
+      "Reti",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Guida al piano di indirizzamento IP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/reti/guida_pianondirizzamento.html#strategia-antipanico",
+    "href": "docs/reti/guida_pianondirizzamento.html#strategia-antipanico",
+    "title": "12  Guida al piano di indirizzamento IP",
+    "section": "12.11 STRATEGIA ANTIPANICO",
+    "text": "12.11 STRATEGIA ANTIPANICO\nSe ti blocchi:\n\nconta gli host\n\ntrova il numero nella tabella\n\nscrivi il prefisso\n\nparti dalla rete\n\nusa il salto",
+    "crumbs": [
+      "Reti",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Guida al piano di indirizzamento IP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/java/01_introduzione.html",
+    "href": "docs/java/01_introduzione.html",
+    "title": "2  Dal paradigma imperativo all’OOP",
+    "section": "",
+    "text": "2.1 Un nuovo modo di pensare\nQuesto modulo non è solo un passaggio da un linguaggio all’altro — dal C a Java — ma un cambio di mentalità.\nNei linguaggi che conosci già, il focus è sulla macchina:\nNella programmazione orientata agli oggetti (OOP), il focus si sposta sul problema:\nUn programma non è più una lista di comandi, ma un modo per modellare la realtà.",
+    "crumbs": [
+      "Java",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dal paradigma imperativo all'OOP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/java/01_introduzione.html#un-nuovo-modo-di-pensare",
+    "href": "docs/java/01_introduzione.html#un-nuovo-modo-di-pensare",
+    "title": "2  Dal paradigma imperativo all’OOP",
+    "section": "",
+    "text": "“Cosa deve fare il computer, passo dopo passo?”\n\n\n\n“Quali entità esistono nel mio problema? Come interagiscono?”",
+    "crumbs": [
+      "Java",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dal paradigma imperativo all'OOP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/java/01_introduzione.html#il-paradigma-imperativo",
+    "href": "docs/java/01_introduzione.html#il-paradigma-imperativo",
+    "title": "2  Dal paradigma imperativo all’OOP",
+    "section": "2.2 Il paradigma imperativo",
+    "text": "2.2 Il paradigma imperativo\nUn programma imperativo è una sequenza di istruzioni che modificano lo stato della memoria. È come seguire una ricetta: leggi gli ingredienti, esegui le azioni nell’ordine, ottieni il risultato.\nIl C che hai usato finora è un linguaggio imperativo. Guarda questo esempio:\n// Calcola la media di tre voti\nint v1 = 7, v2 = 8, v3 = 6;\nint somma = v1 + v2 + v3;\nfloat media = somma / 3.0;\nprintf(\"Media: %.2f\\n\", media);\nIl programma dice alla macchina esattamente cosa fare, in quale ordine, su quali variabili.\n\n\n\n\n\n\nNoteFocus del paradigma imperativo\n\n\n\nIl programmatore pensa in termini di stato (i valori in memoria) e trasformazioni (le operazioni che li modificano). Il computer esegue tutto fedelmente, passo dopo passo.",
+    "crumbs": [
+      "Java",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dal paradigma imperativo all'OOP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/java/01_introduzione.html#i-limiti-del-paradigma-imperativo",
+    "href": "docs/java/01_introduzione.html#i-limiti-del-paradigma-imperativo",
+    "title": "2  Dal paradigma imperativo all’OOP",
+    "section": "2.3 I limiti del paradigma imperativo",
+    "text": "2.3 I limiti del paradigma imperativo\nSu programmi piccoli, l’approccio imperativo funziona benissimo. Ma appena la complessità cresce, emergono problemi seri.\nComplessità difficile da gestire. Con centinaia di variabili e funzioni sparse, capire “chi modifica cosa” diventa un incubo.\nPoco riuso del codice. Le funzioni sono spesso scritte per un caso specifico e difficili da riutilizzare.\nManutenzione complicata. Cambiare una parte del codice può romperne un’altra in modo imprevedibile.\nIl risultato? Lo spaghetti code: un groviglio inestricabile di variabili globali, funzioni sparse, nessuna organizzazione chiara.\n\n\n\n\n\n\nWarningIl problema dello spaghetti code\n\n\n\n// Variabile globale accessibile da tutto il programma\nfloat saldo = 1000.0;\n\nvoid preleva(float importo) {\n    saldo -= importo;  // chiunque può modificare saldo!\n}\n\nvoid accredita(float importo) {\n    saldo += importo;  // nessun controllo, nessuna sicurezza\n}\nNiente impedisce a una funzione qualsiasi di modificare saldo direttamente, senza controlli. Con decine di funzioni e variabili globali, il codice diventa fragile e impossibile da mantenere.",
+    "crumbs": [
+      "Java",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dal paradigma imperativo all'OOP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/java/01_introduzione.html#il-paradigma-orientato-agli-oggetti",
+    "href": "docs/java/01_introduzione.html#il-paradigma-orientato-agli-oggetti",
+    "title": "2  Dal paradigma imperativo all’OOP",
+    "section": "2.4 Il paradigma orientato agli oggetti",
+    "text": "2.4 Il paradigma orientato agli oggetti\nL’OOP propone una soluzione radicalmente diversa: modellare il software come un insieme di oggetti che interagiscono tra loro.\nOgni oggetto:\n\nrappresenta un’entità del problema reale\nha dei dati che lo descrivono (chiamati attributi)\nsa compiere certe azioni (chiamate metodi)\ncomunica con gli altri oggetti scambiandosi messaggi\n\n\n\n\n\n\n\nTipUn’analogia utile\n\n\n\nUn programma OOP è come una piccola società: ci sono persone (oggetti), ognuna con le sue caratteristiche e competenze, che collaborano per raggiungere un obiettivo comune. Nessuno fa tutto da solo, e ognuno è responsabile del proprio pezzo.",
+    "crumbs": [
+      "Java",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dal paradigma imperativo all'OOP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/java/01_introduzione.html#un-primo-esempio-il-conto-bancario",
+    "href": "docs/java/01_introduzione.html#un-primo-esempio-il-conto-bancario",
+    "title": "2  Dal paradigma imperativo all’OOP",
+    "section": "2.5 Un primo esempio: il conto bancario",
+    "text": "2.5 Un primo esempio: il conto bancario\nImmaginiamo di dover gestire un conto bancario. Con l’approccio imperativo avremmo variabili globali e funzioni sparse. Con l’OOP, modelliamo il conto come un oggetto:\n\n\n\n\nDescrizione\n\n\n\n\nEntità\nBankAccount\n\n\nAttributi\nintestatario, numeroConto, saldo\n\n\nMetodi\ndeposit(), withdraw(), getBalance()\n\n\n\nIn Java, questo si traduce così:\nBankAccount conto = new BankAccount(\"Alice\", \"IT001\", 1000.0);\n\nconto.deposit(500.0);      // deposita 500€\nconto.withdraw(200.0);     // preleva 200€\ndouble s = conto.getBalance(); // legge il saldo\nIl saldo non è più una variabile globale accessibile da chiunque. È dentro l’oggetto conto, e si può modificare solo attraverso i suoi metodi. Questo rende il programma più naturale da leggere e più sicuro da mantenere.",
+    "crumbs": [
+      "Java",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dal paradigma imperativo all'OOP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/java/01_introduzione.html#un-secondo-esempio-la-lampada-smart",
+    "href": "docs/java/01_introduzione.html#un-secondo-esempio-la-lampada-smart",
+    "title": "2  Dal paradigma imperativo all’OOP",
+    "section": "2.6 Un secondo esempio: la lampada smart",
+    "text": "2.6 Un secondo esempio: la lampada smart\nUn oggetto non deve per forza rappresentare qualcosa di complesso. Anche una semplice lampada smart è un buon esempio:\n\n\n\n\nDescrizione\n\n\n\n\nEntità\nLampada\n\n\nAttributi\ncolore, luminosità, stato\n\n\nMetodi\naccendi(), spegni(), cambiaColore()\n\n\n\nQuando usi una lampada smart, non ti interessa come funziona il circuito interno. Premi un pulsante (chiami un metodo) e ottieni il risultato. I dettagli tecnici sono nascosti.\nQuesta è l’essenza dell’OOP: interagire con oggetti attraverso la loro interfaccia, senza preoccuparsi di come funzionano dentro.",
+    "crumbs": [
+      "Java",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dal paradigma imperativo all'OOP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/java/01_introduzione.html#oop-in-sintesi-i-tre-pilastri",
+    "href": "docs/java/01_introduzione.html#oop-in-sintesi-i-tre-pilastri",
+    "title": "2  Dal paradigma imperativo all’OOP",
+    "section": "2.7 OOP in sintesi: i tre pilastri",
+    "text": "2.7 OOP in sintesi: i tre pilastri\nL’OOP si regge su tre concetti fondamentali che esploreremo nelle prossime lezioni:\n\n\n\n\n\n\nNote1 — Incapsulamento\n\n\n\nDati e metodi sono racchiusi dentro l’oggetto. I dettagli interni sono nascosti; si interagisce solo attraverso l’interfaccia pubblica.\n\n\n\n\n\n\n\n\nNote2 — Ereditarietà\n\n\n\nUna classe può derivare da un’altra, ereditandone attributi e metodi. Permette di riusare il codice e organizzare le classi in gerarchie.\n\n\n\n\n\n\n\n\nNote3 — Polimorfismo\n\n\n\nLa stessa azione può comportarsi in modo diverso a seconda dell’oggetto che la esegue. Stessa interfaccia, comportamenti differenti.\n\n\nQuesti tre principi rendono l’OOP così potente: riducono la complessità e permettono di scrivere software modulare, riutilizzabile e flessibile.",
+    "crumbs": [
+      "Java",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dal paradigma imperativo all'OOP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/java/01_introduzione.html#confronto-diretto",
+    "href": "docs/java/01_introduzione.html#confronto-diretto",
+    "title": "2  Dal paradigma imperativo all’OOP",
+    "section": "2.8 Confronto diretto",
+    "text": "2.8 Confronto diretto\n\n\n\n\nParadigma imperativo\nParadigma OOP\n\n\n\n\nFocus\nCome fa la macchina\nQuali entità esistono\n\n\nUnità base\nFunzione + variabile\nOggetto (dati + metodi)\n\n\nDati\nSpesso globali\nIncapsulati nell’oggetto\n\n\nRiuso\nDifficile\nTramite ereditarietà\n\n\nScalabilità\nLimitata\nAlta\n\n\nEsempio\nC, Pascal\nJava, Python, C++\n\n\n\n\n\n\n\n\n\nImportantDa ricordare\n\n\n\nIl passaggio al C a Java non è solo imparare una nuova sintassi. È imparare a ragionare in modo diverso: invece di chiederti “cosa deve fare il computer?”, inizia a chiederti “quali oggetti esistono nel mio problema e come interagiscono?”.",
+    "crumbs": [
+      "Java",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Dal paradigma imperativo all'OOP</span>"
+    ]
+  },
+  {
+    "objectID": "docs/java/02_oggetti_classi.html",
+    "href": "docs/java/02_oggetti_classi.html",
+    "title": "3  Oggetti e classi",
+    "section": "",
+    "text": "3.1 Cos’è un oggetto?\nNella vita reale siamo circondati da oggetti: una sedia, un telefono, una persona. Ma anche in un videogioco esistono oggetti: un personaggio, un nemico, un’arma, un livello. Ognuno di questi ha due caratteristiche fondamentali:\nNell’OOP usiamo esattamente questa stessa idea. Un oggetto è un’entità che combina:",
+    "crumbs": [
+      "Java",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Oggetti e classi</span>"
+    ]
+  },
+  {
+    "objectID": "docs/java/02_oggetti_classi.html#cosè-un-oggetto",
+    "href": "docs/java/02_oggetti_classi.html#cosè-un-oggetto",
+    "title": "3  Oggetti e classi",
+    "section": "",
+    "text": "delle proprietà che lo descrivono (nome, vita, danno, livello…)\ndei comportamenti che sa mettere in atto (attaccare, difendersi, raccogliere oggetti…)\n\n\n\nattributi — i dati che descrivono lo stato dell’oggetto\nmetodi — le azioni che l’oggetto sa compiere\n\n\n\n\n\n\n\nNoteDefinizione\n\n\n\nUn oggetto è un’istanza concreta che raggruppa dati (attributi) e comportamenti (metodi) in un’unica entità coerente.",
+    "crumbs": [
+      "Java",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Oggetti e classi</span>"
+    ]
+  },
+  {
+    "objectID": "docs/java/02_oggetti_classi.html#cosè-una-classe",
+    "href": "docs/java/02_oggetti_classi.html#cosè-una-classe",
+    "title": "3  Oggetti e classi",
+    "section": "3.2 Cos’è una classe?",
+    "text": "3.2 Cos’è una classe?\nGli oggetti non nascono dal nulla: vengono creati a partire da uno schema, chiamato classe.\nUna classe è come la scheda di un personaggio in un GDR (gioco di ruolo): descrive quali statistiche ha ogni personaggio di quel tipo e cosa sa fare. Ma la scheda non è il personaggio — dal modello si possono creare tanti personaggi diversi, ognuno con i propri valori.\n\n\n\n\n\n\nTipClasse vs oggetto — l’analogia del GDR\n\n\n\nLa classe Guerriero è la scheda tipo: dice che ogni guerriero ha vita, forza, armatura e sa attaccare() e difendersi().\nGli oggetti guerriero1, guerriero2, boss sono i personaggi reali: creati dallo stesso schema, ma con valori diversi.\n\n\nIn sintesi:\n\n\n\n\nDescrizione\nEsempio\n\n\n\n\nClasse\nIl modello, lo schema generale\nGuerriero\n\n\nOggetto\nLa realizzazione concreta\nguerriero1\n\n\n\nUna classe può generare quanti oggetti si vuole, ognuno con i propri valori.",
+    "crumbs": [
+      "Java",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Oggetti e classi</span>"
+    ]
+  },
+  {
+    "objectID": "docs/java/02_oggetti_classi.html#esempio-1-la-lampada-smart",
+    "href": "docs/java/02_oggetti_classi.html#esempio-1-la-lampada-smart",
+    "title": "3  Oggetti e classi",
+    "section": "3.3 Esempio 1: la lampada smart",
+    "text": "3.3 Esempio 1: la lampada smart\nPartiamo da un esempio semplice. Vogliamo modellare una lampada smart.\nCosa descrive una lampada?\n\ncolore — il colore della luce (es. “bianco”, “giallo”)\nluminosita — l’intensità da 0 a 100\naccesa — se è accesa o spenta\n\nCosa sa fare una lampada?\n\naccendi() — accende la lampada\nspegni() — spegne la lampada\ncambiaColore(String colore) — cambia il colore\n\nIn Java, la classe si scrive così:\npublic class Lampada {\n\n    // Attributi\n    String colore;\n    int luminosita;\n    boolean accesa;\n\n    // Metodi\n    void accendi() {\n        accesa = true;\n        System.out.println(\"Lampada accesa.\");\n    }\n\n    void spegni() {\n        accesa = false;\n        System.out.println(\"Lampada spenta.\");\n    }\n\n    void cambiaColore(String nuovoColore) {\n        colore = nuovoColore;\n        System.out.println(\"Colore cambiato in: \" + nuovoColore);\n    }\n}\nOra possiamo creare oggetti a partire da questa classe:\nLampada lampadaSoggiorno = new Lampada();\nlampadaSoggiorno.colore = \"bianco\";\nlampadaSoggiorno.luminosita = 80;\n\nLampada lampadaCamera = new Lampada();\nlampadaCamera.colore = \"giallo\";\nlampadaCamera.luminosita = 40;\n\n// Usiamo i metodi\nlampadaSoggiorno.accendi();       // \"Lampada accesa.\"\nlampadaCamera.cambiaColore(\"rosa\"); // \"Colore cambiato in: rosa\"\nLe due lampade derivano dalla stessa classe, ma sono oggetti indipendenti: modificare una non influenza l’altra.",
+    "crumbs": [
+      "Java",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Oggetti e classi</span>"
+    ]
+  },
+  {
+    "objectID": "docs/java/02_oggetti_classi.html#esempio-2-il-conto-bancario",
+    "href": "docs/java/02_oggetti_classi.html#esempio-2-il-conto-bancario",
+    "title": "3  Oggetti e classi",
+    "section": "3.4 Esempio 2: il conto bancario",
+    "text": "3.4 Esempio 2: il conto bancario\nUn esempio più ricco: il conto bancario. Questo oggetto ha dati sensibili e azioni più complesse.\nAttributi:\n\nintestatario — il nome del titolare\nnumeroConto — il codice identificativo\nsaldo — il saldo attuale\n\nMetodi:\n\ndeposit(double importo) — deposita una somma\nwithdraw(double importo) — preleva una somma (se il saldo è sufficiente)\ngetBalance() — restituisce il saldo attuale\n\npublic class BankAccount {\n\n    // Attributi\n    String intestatario;\n    String numeroConto;\n    double saldo;\n\n    // Deposita una somma\n    void deposit(double importo) {\n        if (importo &gt; 0) {\n            saldo += importo;\n            System.out.println(\"Deposito: +\" + importo + \"€. Saldo: \" + saldo + \"€\");\n        }\n    }\n\n    // Preleva una somma\n    void withdraw(double importo) {\n        if (importo &gt; 0 && importo &lt;= saldo) {\n            saldo -= importo;\n            System.out.println(\"Prelievo: -\" + importo + \"€. Saldo: \" + saldo + \"€\");\n        } else {\n            System.out.println(\"Saldo insufficiente.\");\n        }\n    }\n\n    // Restituisce il saldo\n    double getBalance() {\n        return saldo;\n    }\n}\nCreiamo due conti e li usiamo:\nBankAccount contoAlice = new BankAccount();\ncontoAlice.intestatario = \"Alice\";\ncontoAlice.saldo = 1000.0;\n\nBankAccount contoBob = new BankAccount();\ncontoBob.intestatario = \"Bob\";\ncontoBob.saldo = 500.0;\n\ncontoAlice.deposit(200.0);   // Deposito: +200.0€. Saldo: 1200.0€\ncontoBob.withdraw(600.0);    // Saldo insufficiente.\ncontoBob.withdraw(300.0);    // Prelievo: -300.0€. Saldo: 200.0€\n\n\n\n\n\n\nImportantOsserva il metodo withdraw()\n\n\n\nPrima di prelevare, il metodo controlla che il saldo sia sufficiente. Questo è impossibile con una variabile globale: chiunque potrebbe modificarla senza controlli. L’oggetto invece gestisce i propri dati in modo responsabile.",
+    "crumbs": [
+      "Java",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Oggetti e classi</span>"
+    ]
+  },
+  {
+    "objectID": "docs/java/02_oggetti_classi.html#la-parola-chiave-new",
+    "href": "docs/java/02_oggetti_classi.html#la-parola-chiave-new",
+    "title": "3  Oggetti e classi",
+    "section": "3.5 La parola chiave new",
+    "text": "3.5 La parola chiave new\nOgni volta che creiamo un oggetto usiamo la parola chiave new:\nPersonaggio eroe = new Personaggio();\nArma spada = new Arma();\nnew fa tre cose:\n\nalloca la memoria necessaria per l’oggetto\ninizializza gli attributi con valori di default\nrestituisce un riferimento all’oggetto appena creato\n\nLa variabile eroe non contiene l’oggetto direttamente, ma un riferimento — un indirizzo che punta a dove l’oggetto è memorizzato. Questo concetto diventerà importante più avanti.",
+    "crumbs": [
+      "Java",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Oggetti e classi</span>"
+    ]
+  },
+  {
+    "objectID": "docs/java/02_oggetti_classi.html#accedere-ad-attributi-e-metodi",
+    "href": "docs/java/02_oggetti_classi.html#accedere-ad-attributi-e-metodi",
+    "title": "3  Oggetti e classi",
+    "section": "3.6 Accedere ad attributi e metodi",
+    "text": "3.6 Accedere ad attributi e metodi\nPer accedere agli attributi e ai metodi di un oggetto si usa il punto .:\n// Accesso a un attributo\neroe.vita = 100;\nint danno = spada.getDanno();\n\n// Chiamata a un metodo\neroe.salaDiLivello();\nspada.usa();\neroe.attacca(nemico);\nLa notazione con il punto si legge come: “sull’oggetto X, esegui l’azione Y” oppure “dell’oggetto X, leggi la proprietà Y”.",
+    "crumbs": [
+      "Java",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Oggetti e classi</span>"
+    ]
+  },
+  {
+    "objectID": "docs/java/02_oggetti_classi.html#riepilogo",
+    "href": "docs/java/02_oggetti_classi.html#riepilogo",
+    "title": "3  Oggetti e classi",
+    "section": "3.7 Riepilogo",
+    "text": "3.7 Riepilogo\n\n\n\n\n\n\nNoteI concetti chiave di questa lezione\n\n\n\n\nUna classe è un modello che descrive attributi e metodi di un tipo di oggetto.\nUn oggetto è una realizzazione concreta di una classe, con i propri valori.\nDa una classe si possono creare quanti oggetti si vuole, ognuno indipendente dagli altri.\nSi accede ad attributi e metodi con la notazione punto: oggetto.attributo, oggetto.metodo().\nLa parola chiave new crea un nuovo oggetto in memoria.\n\n\n\nNella prossima lezione vedremo come proteggere gli attributi di un oggetto e perché è fondamentale farlo — è il cuore dell’incapsulamento.",
+    "crumbs": [
+      "Java",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Oggetti e classi</span>"
+    ]
+  },
+  {
+    "objectID": "docs/java/02_oggetti_classi.html#esempio-1-il-personaggio",
+    "href": "docs/java/02_oggetti_classi.html#esempio-1-il-personaggio",
+    "title": "3  Oggetti e classi",
+    "section": "3.3 Esempio 1: il personaggio",
+    "text": "3.3 Esempio 1: il personaggio\nVogliamo modellare un personaggio di un videogioco.\nCosa descrive un personaggio?\n\nnome — il nome del personaggio\nvita — i punti vita attuali\nattacco — il danno che infligge\nlivello — il livello attuale\n\nCosa sa fare un personaggio?\n\nsubirDanno(int danno) — riduce la vita in modo controllato\nattacca(Personaggio bersaglio) — infligge danno a un altro personaggio\nsalaDiLivello() — aumenta il livello e migliora le statistiche\n\nIn Java, la classe si scrive così:\npublic class Personaggio {\n\n    // Attributi\n    String nome;\n    int vita;\n    int attacco;\n    int livello;\n\n    // Subisce danno (la vita non scende sotto zero)\n    void subirDanno(int danno) {\n        vita -= danno;\n        if (vita &lt; 0) vita = 0;\n        System.out.println(nome + \" subisce \" + danno + \" danni. Vita rimasta: \" + vita);\n    }\n\n    // Attacca un altro personaggio\n    void attacca(Personaggio bersaglio) {\n        System.out.println(nome + \" attacca \" + bersaglio.nome + \"!\");\n        bersaglio.subirDanno(attacco);\n    }\n\n    // Sale di livello\n    void salaDiLivello() {\n        livello++;\n        attacco += 5;\n        vita += 20;\n        System.out.println(nome + \" sale al livello \" + livello + \"!\");\n    }\n}\nOra possiamo creare oggetti a partire da questa classe:\nPersonaggio eroe = new Personaggio();\neroe.nome = \"Kratos\";\neroe.vita = 100;\neroe.attacco = 25;\neroe.livello = 1;\n\nPersonaggio nemico = new Personaggio();\nnemico.nome = \"Drago\";\nnemico.vita = 200;\nnemico.attacco = 40;\nnemico.livello = 5;\n\n// Usiamo i metodi\neroe.attacca(nemico);    // \"Kratos attacca Drago! Drago subisce 25 danni. Vita rimasta: 175\"\nnemico.attacca(eroe);    // \"Drago attacca Kratos! Kratos subisce 40 danni. Vita rimasta: 60\"\neroe.salaDiLivello();    // \"Kratos sale al livello 2!\"\nI due personaggi derivano dalla stessa classe, ma sono oggetti indipendenti: modificare la vita di uno non influenza l’altro.",
+    "crumbs": [
+      "Java",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Oggetti e classi</span>"
+    ]
+  },
+  {
+    "objectID": "docs/java/02_oggetti_classi.html#esempio-2-larma",
+    "href": "docs/java/02_oggetti_classi.html#esempio-2-larma",
+    "title": "3  Oggetti e classi",
+    "section": "3.4 Esempio 2: l’arma",
+    "text": "3.4 Esempio 2: l’arma\nUn esempio più specifico: vogliamo modellare un’arma che si consuma con l’uso, come in molti RPG.\nAttributi:\n\nnome — il nome dell’arma\ndannoBase — il danno che infligge\ndurabilita — i colpi rimasti prima che si rompa\n\nMetodi:\n\nusa() — usa l’arma, riducendo la durabilità\nripara() — ripristina la durabilità\ngetDanno() — restituisce il danno attuale (che cala con la durabilità)\n\npublic class Arma {\n\n    // Attributi\n    String nome;\n    int dannoBase;\n    int durabilita;\n\n    // Usa l'arma: scala la durabilità\n    void usa() {\n        if (durabilita &gt; 0) {\n            durabilita--;\n            System.out.println(nome + \" usata. Durabilità rimasta: \" + durabilita);\n        } else {\n            System.out.println(nome + \" è rotta! Devi ripararla.\");\n        }\n    }\n\n    // Ripara l'arma\n    void ripara() {\n        durabilita = 100;\n        System.out.println(nome + \" riparata!\");\n    }\n\n    // Il danno cala proporzionalmente alla durabilità\n    int getDanno() {\n        return (dannoBase * durabilita) / 100;\n    }\n}\nUsiamo l’arma con un personaggio:\nArma spada = new Arma();\nspada.nome = \"Spada del Caos\";\nspada.dannoBase = 50;\nspada.durabilita = 100;\n\nSystem.out.println(\"Danno: \" + spada.getDanno()); // Danno: 50\nspada.usa();   // Durabilità rimasta: 99\nspada.usa();   // Durabilità rimasta: 98\nSystem.out.println(\"Danno: \" + spada.getDanno()); // Danno: 49\n\n\n\n\n\n\nImportantOsserva il metodo usa()\n\n\n\nPrima di ridurre la durabilità, il metodo controlla che l’arma non sia già rotta. Con una variabile globale durabilita accessibile da tutti, nessuno impedirebbe di portarla sotto zero. L’oggetto invece gestisce i propri dati in modo responsabile.",
+    "crumbs": [
+      "Java",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Oggetti e classi</span>"
+    ]
+  }
+]
