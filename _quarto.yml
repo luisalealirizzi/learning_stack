@@ -50,7 +50,7 @@ book:
 
 format:
   html:
-    theme: darkly
+    theme: cosmo
     highlight-style: github-dark
     code-copy: true
     toc: true
