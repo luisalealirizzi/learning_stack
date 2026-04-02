@@ -1,5 +1,3 @@
 # Learning Stack
 
-Materiale didattico per le classi di informatica.
-
-Usa il menu a sinistra per navigare tra i moduli.
+materiale didattico
