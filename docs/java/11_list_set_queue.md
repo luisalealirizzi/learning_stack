@@ -150,13 +150,13 @@ intersezione.retainAll(squadraB);  // solo i giocatori in entrambe le squadre
 Set<String> differenza = new HashSet<>(squadraA);
 differenza.removeAll(squadraB);  // giocatori in A ma non in B
 
-System.out.println("Unione: " + unione);          // [Arthas, Gandalf, Legolas, Aragorn, Frodo]
+System.out.println("Unione: " + unione);             // [Arthas, Gandalf, Legolas, Aragorn, Frodo]
 System.out.println("Intersezione: " + intersezione); // [Gandalf]
 System.out.println("Differenza: " + differenza);     // [Arthas, Legolas]
 ```
 
 ::: {.callout-tip}
-## HashSet vs TreeSet — quando usare quale
+## HashSet vs TreeSet: quando usare quale
 
 Usa **`HashSet`** quando:
 - non ti interessa l'ordine
@@ -335,5 +335,3 @@ public class SistemaTurni {
 - Preferisci i metodi "safe" (`offer`, `poll`, `peek`) a quelli che lanciano eccezioni (`add`, `remove`, `element`).
 - La scelta della struttura giusta dipende dal **caso d'uso**: ordine, unicità, tipo di accesso.
 :::
-
-Nella prossima lezione vedremo gli **Stream** — un modo moderno e potente per elaborare le collections con un approccio funzionale.

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Introduzione a Java – Learning Stack</title>
+<title>4&nbsp; Paradigmi e oggetti – Learning Stack</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -68,8 +68,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../docs/java/02_tipi_e_stringhe.html" rel="next">
-<link href="../../index.html" rel="prev">
+<link href="../../docs/java/04_creare_una_classe.html" rel="next">
+<link href="../../docs/java/02_tipi_e_stringhe.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/java/01_introduzione.html">Modulo 1 — Introduzione a Java</a></li><li class="breadcrumb-item"><a href="../../docs/java/01_introduzione.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/java/03_paradigmi_e_oggetti.html">Modulo 2 — OOP</a></li><li class="breadcrumb-item"><a href="../../docs/java/03_paradigmi_e_oggetti.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Paradigmi e oggetti</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -162,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/java/01_introduzione.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../docs/java/01_introduzione.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></span></a>
   </div>
 </li>
@@ -185,7 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/java/03_paradigmi_e_oggetti.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/java/03_paradigmi_e_oggetti.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Paradigmi e oggetti</span></span></a>
   </div>
 </li>
@@ -346,25 +346,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#perché-java" id="toc-perché-java" class="nav-link active" data-scroll-target="#perché-java"><span class="header-section-number">2.1</span> Perché Java?</a></li>
-  <li><a href="#compilatori-e-interpreti" id="toc-compilatori-e-interpreti" class="nav-link" data-scroll-target="#compilatori-e-interpreti"><span class="header-section-number">2.2</span> Compilatori e interpreti</a></li>
-  <li><a href="#la-jvm-e-il-bytecode" id="toc-la-jvm-e-il-bytecode" class="nav-link" data-scroll-target="#la-jvm-e-il-bytecode"><span class="header-section-number">2.3</span> La JVM e il bytecode</a></li>
-  <li><a href="#perché-si-chiama-java" id="toc-perché-si-chiama-java" class="nav-link" data-scroll-target="#perché-si-chiama-java"><span class="header-section-number">2.4</span> Perché si chiama Java?</a></li>
-  <li><a href="#file-e-programmi-java-vs-c" id="toc-file-e-programmi-java-vs-c" class="nav-link" data-scroll-target="#file-e-programmi-java-vs-c"><span class="header-section-number">2.5</span> File e programmi: Java vs C</a></li>
-  <li><a href="#il-primo-programma-java" id="toc-il-primo-programma-java" class="nav-link" data-scroll-target="#il-primo-programma-java"><span class="header-section-number">2.6</span> Il primo programma Java</a></li>
-  <li><a href="#il-metodo-main-riga-per-riga" id="toc-il-metodo-main-riga-per-riga" class="nav-link" data-scroll-target="#il-metodo-main-riga-per-riga"><span class="header-section-number">2.7</span> Il metodo main — riga per riga</a></li>
-  <li><a href="#system.out.println-oop-in-azione" id="toc-system.out.println-oop-in-azione" class="nav-link" data-scroll-target="#system.out.println-oop-in-azione"><span class="header-section-number">2.8</span> <code>System.out.println</code> — OOP in azione</a></li>
-  <li><a href="#compilare-ed-eseguire-da-terminale" id="toc-compilare-ed-eseguire-da-terminale" class="nav-link" data-scroll-target="#compilare-ed-eseguire-da-terminale"><span class="header-section-number">2.9</span> Compilare ed eseguire da terminale</a></li>
-  <li><a href="#riepilogo" id="toc-riepilogo" class="nav-link" data-scroll-target="#riepilogo"><span class="header-section-number">2.10</span> Riepilogo</a></li>
+  <li><a href="#un-nuovo-modo-di-pensare" id="toc-un-nuovo-modo-di-pensare" class="nav-link active" data-scroll-target="#un-nuovo-modo-di-pensare"><span class="header-section-number">4.1</span> Un nuovo modo di pensare</a></li>
+  <li><a href="#il-paradigma-imperativo" id="toc-il-paradigma-imperativo" class="nav-link" data-scroll-target="#il-paradigma-imperativo"><span class="header-section-number">4.2</span> Il paradigma imperativo</a></li>
+  <li><a href="#i-limiti-del-paradigma-imperativo" id="toc-i-limiti-del-paradigma-imperativo" class="nav-link" data-scroll-target="#i-limiti-del-paradigma-imperativo"><span class="header-section-number">4.3</span> I limiti del paradigma imperativo</a></li>
+  <li><a href="#il-paradigma-orientato-agli-oggetti" id="toc-il-paradigma-orientato-agli-oggetti" class="nav-link" data-scroll-target="#il-paradigma-orientato-agli-oggetti"><span class="header-section-number">4.4</span> Il paradigma orientato agli oggetti</a></li>
+  <li><a href="#i-tre-pilastri-delloop" id="toc-i-tre-pilastri-delloop" class="nav-link" data-scroll-target="#i-tre-pilastri-delloop"><span class="header-section-number">4.5</span> I tre pilastri dell’OOP</a></li>
+  <li><a href="#classi-e-oggetti" id="toc-classi-e-oggetti" class="nav-link" data-scroll-target="#classi-e-oggetti"><span class="header-section-number">4.6</span> Classi e oggetti</a></li>
+  <li><a href="#il-primo-oggetto-in-java" id="toc-il-primo-oggetto-in-java" class="nav-link" data-scroll-target="#il-primo-oggetto-in-java"><span class="header-section-number">4.7</span> Il primo oggetto in Java</a></li>
+  <li><a href="#creare-e-usare-oggetti" id="toc-creare-e-usare-oggetti" class="nav-link" data-scroll-target="#creare-e-usare-oggetti"><span class="header-section-number">4.8</span> Creare e usare oggetti</a></li>
+  <li><a href="#confronto-diretto-c-vs-java" id="toc-confronto-diretto-c-vs-java" class="nav-link" data-scroll-target="#confronto-diretto-c-vs-java"><span class="header-section-number">4.9</span> Confronto diretto: C vs Java</a></li>
+  <li><a href="#riepilogo" id="toc-riepilogo" class="nav-link" data-scroll-target="#riepilogo"><span class="header-section-number">4.10</span> Riepilogo</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/java/01_introduzione.html">Modulo 1 — Introduzione a Java</a></li><li class="breadcrumb-item"><a href="../../docs/java/01_introduzione.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/java/03_paradigmi_e_oggetti.html">Modulo 2 — OOP</a></li><li class="breadcrumb-item"><a href="../../docs/java/03_paradigmi_e_oggetti.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Paradigmi e oggetti</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Paradigmi e oggetti</span></h1>
 </div>
 
 
@@ -382,252 +382,297 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <hr>
-<section id="perché-java" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="perché-java"><span class="header-section-number">2.1</span> Perché Java?</h2>
-<p>Prima di scrivere una sola riga di codice, vale la pena capire <strong>perché esiste Java</strong> e cosa lo rende diverso dai linguaggi che conosci già.</p>
-<p>Con il C hai imparato a ragionare in modo imperativo: istruzioni, variabili, funzioni. Ma il C ha un limite importante — il codice compilato funziona <strong>solo</strong> sulla macchina per cui è stato compilato. Un programma compilato su Linux non gira su Windows, e viceversa.</p>
-<p>Java nasce negli anni ’90 con un obiettivo preciso:</p>
+<section id="un-nuovo-modo-di-pensare" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="un-nuovo-modo-di-pensare"><span class="header-section-number">4.1</span> Un nuovo modo di pensare</h2>
+<p>Passare dal C a Java non è solo imparare una nuova sintassi. È un <strong>cambio di mentalità</strong>.</p>
+<p>Nel C il focus è sulla macchina:</p>
 <blockquote class="blockquote">
-<p><em>“Write once, run anywhere.”</em> Scrivi il codice una volta, eseguilo ovunque.</p>
+<p><em>“Cosa deve fare il computer, passo dopo passo?”</em></p>
 </blockquote>
+<p>Nella programmazione orientata agli oggetti (OOP) il focus si sposta sul problema:</p>
+<blockquote class="blockquote">
+<p><em>“Quali entità esistono nel mio problema? Come interagiscono?”</em></p>
+</blockquote>
+<p>Un programma non è più una lista di comandi, ma un modo per <strong>modellare la realtà</strong>.</p>
 <hr>
 </section>
-<section id="compilatori-e-interpreti" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="compilatori-e-interpreti"><span class="header-section-number">2.2</span> Compilatori e interpreti</h2>
-<p>Per capire come Java risolve il problema della portabilità, dobbiamo fare un passo indietro.</p>
-<p>Esistono due modi fondamentali per eseguire un programma:</p>
-<p><strong>Il compilatore</strong> traduce l’intero sorgente in codice macchina <em>prima</em> dell’esecuzione. Il risultato è un file eseguibile velocissimo, ma legato a uno specifico sistema operativo e processore. È quello che fa <code>gcc</code> con il C.</p>
-<p><strong>L’interprete</strong> legge ed esegue il sorgente riga per riga, senza compilare prima. È più flessibile — lo stesso file gira su qualsiasi macchina che ha l’interprete installato — ma in genere più lento. Python funziona così.</p>
+<section id="il-paradigma-imperativo" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="il-paradigma-imperativo"><span class="header-section-number">4.2</span> Il paradigma imperativo</h2>
+<p>Un programma imperativo è una <strong>sequenza di istruzioni</strong> che modificano lo stato della memoria. Il C che hai usato finora funziona così:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Gestione di un personaggio — approccio imperativo in C</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> nome<span class="op">[]</span> <span class="op">=</span> <span class="st">"Kratos"</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> vita <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> attacco <span class="op">=</span> <span class="dv">25</span><span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> livello <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>vita <span class="op">-=</span> <span class="dv">30</span><span class="op">;</span>    <span class="co">// subisce danno</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>livello<span class="op">++;</span>     <span class="co">// sale di livello</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>attacco <span class="op">+=</span> <span class="dv">5</span><span class="op">;</span>  <span class="co">// l'attacco aumenta</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%s</span><span class="st"> - Vita: </span><span class="sc">%d</span><span class="st">, Livello: </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> nome<span class="op">,</span> vita<span class="op">,</span> livello<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Il programma dice alla macchina <strong>esattamente cosa fare</strong>, in quale ordine, su quali variabili.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Compilatore vs interprete in sintesi
+<span class="screen-reader-only">Note</span>Focus del paradigma imperativo
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th>Compilatore</th>
-<th>Interprete</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Quando traduce</strong></td>
-<td>Prima dell’esecuzione</td>
-<td>Durante l’esecuzione</td>
-</tr>
-<tr class="even">
-<td><strong>Velocità</strong></td>
-<td>Più veloce</td>
-<td>Più lenta</td>
-</tr>
-<tr class="odd">
-<td><strong>Portabilità</strong></td>
-<td>Limitata</td>
-<td>Alta</td>
-</tr>
-<tr class="even">
-<td><strong>Esempio</strong></td>
-<td>C, C++</td>
-<td>Python, JavaScript</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>Java fa qualcosa di più intelligente: <strong>unisce i vantaggi di entrambi</strong>.</p>
-<hr>
-</section>
-<section id="la-jvm-e-il-bytecode" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="la-jvm-e-il-bytecode"><span class="header-section-number">2.3</span> La JVM e il bytecode</h2>
-<p>Ecco come funziona il ciclo di vita di un programma Java:</p>
-<p><strong>1. Tu scrivi</strong> il codice sorgente in un file <code>.java</code>.</p>
-<p><strong>2. Il compilatore <code>javac</code></strong> traduce il sorgente non in codice macchina, ma in <strong>bytecode</strong> — un linguaggio intermedio, portabile e standardizzato, contenuto in file <code>.class</code>.</p>
-<p><strong>3. La Java Virtual Machine (JVM)</strong> legge il bytecode ed esegue il programma sulla macchina reale. Ogni sistema operativo ha la sua JVM, ma il bytecode è sempre lo stesso.</p>
-<pre><code>Codice sorgente (.java)
-        ↓  javac
-    Bytecode (.class)
-        ↓  JVM
-   Esecuzione sul sistema</code></pre>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Il compilatore JIT
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>La JVM non si limita a interpretare il bytecode riga per riga. Al suo interno c’è anche un compilatore <strong>Just-In-Time (JIT)</strong> che, mentre il programma gira, traduce le parti più usate direttamente in codice macchina nativo. Risultato: la velocità si avvicina a quella del C, mantenendo la portabilità.</p>
-</div>
-</div>
-<p>Il bytecode non è codice macchina — non può girare direttamente sul processore. Ma è uguale su tutte le piattaforme. Basta avere la JVM installata, e il programma gira.</p>
-<hr>
-</section>
-<section id="perché-si-chiama-java" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="perché-si-chiama-java"><span class="header-section-number">2.4</span> Perché si chiama Java?</h2>
-<p>Una curiosità che non trovi sul libro. Il nome originale del linguaggio era <strong>Oak</strong> (“quercia”). Peccato che esistesse già un altro linguaggio con quel nome — serviva un’alternativa.</p>
-<p>Durante una riunione che stava diventando molto lunga, il team di sviluppatori stava bevendo grandi quantità di caffè. Qualcuno propose <strong>Java</strong> — slang americano per “caffè”, che prende il nome dall’isola indonesiana famosa per le sue piantagioni.</p>
-<p>Il nome piacque e rimase. Da qui il logo della tazzina fumante che ancora oggi identifica Java.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>JDK, JRE e JVM — le sigle che vedrai spesso
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><strong>JVM</strong> (Java Virtual Machine) — esegue il bytecode</li>
-<li><strong>JRE</strong> (Java Runtime Environment) — JVM + librerie standard, per chi vuole solo <em>eseguire</em> programmi Java</li>
-<li><strong>JDK</strong> (Java Development Kit) — JRE + compilatore + strumenti di sviluppo, per chi vuole <em>scrivere</em> programmi Java</li>
-</ul>
-<p>Se stai sviluppando, ti serve il JDK.</p>
+<p>Il programmatore pensa in termini di <strong>stato</strong> (i valori in memoria) e <strong>trasformazioni</strong> (le operazioni che li modificano). Il computer esegue tutto fedelmente, passo dopo passo.</p>
 </div>
 </div>
 <hr>
 </section>
-<section id="file-e-programmi-java-vs-c" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="file-e-programmi-java-vs-c"><span class="header-section-number">2.5</span> File e programmi: Java vs C</h2>
-<p>In C i programmi erano divisi in file <code>.h</code> (intestazioni con le dichiarazioni) e file <code>.c</code> (implementazioni). Per collegare tutto si usava <code>#include</code>, che funziona in modo molto meccanico: il compilatore copia letteralmente il contenuto del file incluso dentro al programma.</p>
-<p>Java funziona diversamente:</p>
-<ul>
-<li>Ogni classe sta in un <strong>file separato</strong> chiamato esattamente come la classe: <code>NomeClasse.java</code></li>
-<li>Non esistono file header <code>.h</code></li>
-<li>Per usare classi già pronte si usa <code>import</code></li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Scanner</span><span class="op">;</span>  <span class="co">// importa la classe Scanner</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span><code>import</code> non è <code>#include</code>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Quando scrivi <code>import</code>, non stai copiando del codice nel tuo file. Stai solo dicendo al compilatore <strong>dove trovare</strong> quella classe. È come aggiungere un indirizzo a una rubrica — non come fare una fotocopia del contenuto.</p>
-</div>
-</div>
-<hr>
-</section>
-<section id="il-primo-programma-java" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="il-primo-programma-java"><span class="header-section-number">2.6</span> Il primo programma Java</h2>
-<p>In Java, anche il programma più semplice deve avere almeno una <strong>classe</strong> e un metodo <strong><code>main</code></strong>. Il <code>main</code> è il punto di ingresso: è da lì che la JVM comincia a eseguire le istruzioni.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> PrimoProgramma <span class="op">{</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Ciao, Java!"</span><span class="op">);</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Tre regole fondamentali:</p>
-<ul>
-<li>Tutto il codice sta <strong>dentro una classe</strong></li>
-<li>L’esecuzione parte sempre dal <strong><code>main</code></strong></li>
-<li>Il file deve chiamarsi <strong>esattamente come la classe</strong>: <code>PrimoProgramma.java</code></li>
-</ul>
-<hr>
-</section>
-<section id="il-metodo-main-riga-per-riga" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="il-metodo-main-riga-per-riga"><span class="header-section-number">2.7</span> Il metodo main — riga per riga</h2>
-<p>La firma del main è sempre questa:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Analizziamola pezzo per pezzo:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Parola</th>
-<th>Significato</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>public</code></td>
-<td>Visibile alla JVM — deve poterlo chiamare dall’esterno</td>
-</tr>
-<tr class="even">
-<td><code>static</code></td>
-<td>Non serve creare un oggetto per chiamarlo — la JVM lo chiama direttamente</td>
-</tr>
-<tr class="odd">
-<td><code>void</code></td>
-<td>Non restituisce nessun valore</td>
-</tr>
-<tr class="even">
-<td><code>String[] args</code></td>
-<td>Può ricevere argomenti da riga di comando</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Il main non va in tutte le classi
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Il <code>main</code> serve <strong>solo nella classe da cui parte il programma</strong>. Tutte le altre classi (come <code>Personaggio</code>, <code>Arma</code>, ecc. che hai visto nel modulo OOP) non hanno un <code>main</code> — hanno solo attributi e metodi.</p>
-</div>
-</div>
-<hr>
-</section>
-<section id="system.out.println-oop-in-azione" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="system.out.println-oop-in-azione"><span class="header-section-number">2.8</span> <code>System.out.println</code> — OOP in azione</h2>
-<p>La prima istruzione che scrivi in Java è già un esempio perfetto di programmazione a oggetti:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Ciao, Java!"</span><span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Scomponila così:</p>
-<ul>
-<li><code>System</code> — una <strong>classe</strong> della libreria standard Java</li>
-<li><code>out</code> — un <strong>oggetto</strong> di tipo <code>PrintStream</code> che gestisce l’output</li>
-<li><code>println()</code> — un <strong>metodo</strong> che stampa il testo e va a capo</li>
-</ul>
-<p>In C usavi <code>printf()</code> — una funzione globale. In Java invece stai chiamando un <strong>metodo su un oggetto</strong>. Anche per stampare una riga, Java ragiona in termini di oggetti che collaborano.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Testo con a capo"</span><span class="op">);</span>  <span class="co">// va a capo</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"Testo senza a capo"</span><span class="op">);</span> <span class="co">// non va a capo</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">"Formattato: </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> <span class="dv">42</span><span class="op">);</span> <span class="co">// come printf in C</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
-</section>
-<section id="compilare-ed-eseguire-da-terminale" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="compilare-ed-eseguire-da-terminale"><span class="header-section-number">2.9</span> Compilare ed eseguire da terminale</h2>
-<p>Se vuoi fare tutto da terminale senza IDE:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compila il file sorgente → genera PrimoProgramma.class</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">javac</span> PrimoProgramma.java</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Esegui il bytecode con la JVM</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">java</span> PrimoProgramma</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="i-limiti-del-paradigma-imperativo" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="i-limiti-del-paradigma-imperativo"><span class="header-section-number">4.3</span> I limiti del paradigma imperativo</h2>
+<p>Su programmi piccoli tutto funziona. Ma appena la complessità cresce, emergono problemi seri.</p>
+<p><strong>Complessità difficile da gestire.</strong> Con decine di personaggi, nemici, oggetti e livelli, capire “chi modifica cosa” diventa un incubo.</p>
+<p><strong>Poco riuso del codice.</strong> Le funzioni sono spesso scritte per un caso specifico e difficili da riutilizzare.</p>
+<p><strong>Manutenzione complicata.</strong> Cambiare una parte del codice può romperne un’altra in modo imprevedibile.</p>
+<p>Il risultato è lo <strong>spaghetti code</strong>: variabili globali accessibili da chiunque, funzioni sparse, nessuna organizzazione.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Attenzione al nome
+<span class="screen-reader-only">Warning</span>Il problema dello spaghetti code
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Il comando <code>java</code> vuole il <strong>nome della classe</strong>, non il nome del file. Quindi <code>java PrimoProgramma</code>, non <code>java PrimoProgramma.class</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> vita_giocatore <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> vita_nemico <span class="op">=</span> <span class="dv">80</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> punteggio <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> attacca<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    vita_nemico <span class="op">-=</span> <span class="dv">25</span><span class="op">;</span>    <span class="co">// chiunque può modificare vita_nemico!</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    punteggio <span class="op">+=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> subisci_danno<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    vita_giocatore <span class="op">-=</span> <span class="dv">30</span><span class="op">;</span> <span class="co">// nessun controllo: vita può diventare negativa</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Niente impedisce a una funzione qualsiasi di portare <code>vita_giocatore</code> a -500. Con decine di variabili globali il codice diventa fragile e impossibile da mantenere.</p>
 </div>
 </div>
 <hr>
 </section>
-<section id="riepilogo" class="level2" data-number="2.10">
-<h2 data-number="2.10" class="anchored" data-anchor-id="riepilogo"><span class="header-section-number">2.10</span> Riepilogo</h2>
+<section id="il-paradigma-orientato-agli-oggetti" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="il-paradigma-orientato-agli-oggetti"><span class="header-section-number">4.4</span> Il paradigma orientato agli oggetti</h2>
+<p>L’OOP propone una soluzione diversa: modellare il software come un insieme di <strong>oggetti</strong> che interagiscono tra loro.</p>
+<p>Ogni oggetto:</p>
+<ul>
+<li>rappresenta un’<strong>entità</strong> del problema reale</li>
+<li>ha dei <strong>dati</strong> che lo descrivono — chiamati <em>attributi</em></li>
+<li>sa compiere certe <strong>azioni</strong> — chiamate <em>metodi</em></li>
+<li>comunica con gli altri oggetti scambiandosi <strong>messaggi</strong></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Un’analogia utile
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pensa a un videogioco multiplayer come un <strong>mondo abitato da oggetti</strong>: ogni giocatore, ogni nemico, ogni arma, ogni livello è un oggetto. Ognuno ha le sue caratteristiche e sa fare certe cose. Interagiscono tra loro, ma ognuno gestisce il proprio stato in autonomia.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="i-tre-pilastri-delloop" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="i-tre-pilastri-delloop"><span class="header-section-number">4.5</span> I tre pilastri dell’OOP</h2>
+<p>L’OOP si regge su tre concetti fondamentali che esploreremo nelle prossime lezioni:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>1 — Incapsulamento
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dati e metodi sono racchiusi dentro l’oggetto. I dettagli interni sono nascosti; si interagisce solo attraverso l’interfaccia pubblica.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>2 — Ereditarietà
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una classe può derivare da un’altra, ereditandone attributi e metodi. Permette di riusare il codice e organizzare le classi in gerarchie.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>3 — Polimorfismo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La stessa azione può comportarsi in modo diverso a seconda dell’oggetto che la esegue. Stessa interfaccia, comportamenti differenti.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="classi-e-oggetti" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="classi-e-oggetti"><span class="header-section-number">4.6</span> Classi e oggetti</h2>
+<p>Gli oggetti non nascono dal nulla: vengono creati a partire da uno <strong>schema</strong> chiamato <strong>classe</strong>.</p>
+<p>Una classe è come la <strong>scheda tipo di un personaggio</strong> in un GDR: descrive quali statistiche ha ogni personaggio di quel tipo e cosa sa fare. La scheda non è il personaggio — è il modello da cui si creano tanti personaggi diversi, ognuno con i propri valori.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Descrizione</th>
+<th>Esempio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Classe</strong></td>
+<td>Il modello, lo schema generale</td>
+<td><code>Personaggio</code></td>
+</tr>
+<tr class="even">
+<td><strong>Oggetto</strong></td>
+<td>La realizzazione concreta</td>
+<td><code>eroe</code>, <code>nemico</code>, <code>boss</code></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definizione
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una <strong>classe</strong> è un modello che descrive attributi e metodi di un tipo di oggetto. Un <strong>oggetto</strong> è un’istanza concreta di una classe, con i propri valori.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="il-primo-oggetto-in-java" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="il-primo-oggetto-in-java"><span class="header-section-number">4.7</span> Il primo oggetto in Java</h2>
+<p>Vediamo subito come si traduce tutto questo in codice. Modelliamo un personaggio di un videogioco.</p>
+<p><strong>Cosa descrive un personaggio?</strong> <code>nome</code>, <code>vita</code>, <code>attacco</code>, <code>livello</code></p>
+<p><strong>Cosa sa fare un personaggio?</strong> Subire danno, attaccare, salire di livello.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Personaggio <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Attributi — descrivono lo stato dell'oggetto</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> nome<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> vita<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> attacco<span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> livello<span class="op">;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Metodi — descrivono il comportamento</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">subirDanno</span><span class="op">(</span><span class="dt">int</span> danno<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        vita <span class="op">-=</span> danno<span class="op">;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>vita <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span> vita <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>nome <span class="op">+</span> <span class="st">" subisce "</span> <span class="op">+</span> danno <span class="op">+</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">" danni. Vita rimasta: "</span> <span class="op">+</span> vita<span class="op">);</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">attacca</span><span class="op">(</span>Personaggio bersaglio<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>nome <span class="op">+</span> <span class="st">" attacca "</span> <span class="op">+</span> bersaglio<span class="op">.</span><span class="fu">nome</span> <span class="op">+</span> <span class="st">"!"</span><span class="op">);</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        bersaglio<span class="op">.</span><span class="fu">subirDanno</span><span class="op">(</span>attacco<span class="op">);</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">salaDiLivello</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        livello<span class="op">++;</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        attacco <span class="op">+=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        vita <span class="op">+=</span> <span class="dv">20</span><span class="op">;</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>nome <span class="op">+</span> <span class="st">" sale al livello "</span> <span class="op">+</span> livello <span class="op">+</span> <span class="st">"!"</span><span class="op">);</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="creare-e-usare-oggetti" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="creare-e-usare-oggetti"><span class="header-section-number">4.8</span> Creare e usare oggetti</h2>
+<p>Per creare un oggetto si usa la parola chiave <code>new</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Personaggio eroe <span class="op">=</span> <span class="kw">new</span> <span class="fu">Personaggio</span><span class="op">();</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>eroe<span class="op">.</span><span class="fu">nome</span> <span class="op">=</span> <span class="st">"Kratos"</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>eroe<span class="op">.</span><span class="fu">vita</span> <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>eroe<span class="op">.</span><span class="fu">attacco</span> <span class="op">=</span> <span class="dv">25</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>eroe<span class="op">.</span><span class="fu">livello</span> <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>Personaggio nemico <span class="op">=</span> <span class="kw">new</span> <span class="fu">Personaggio</span><span class="op">();</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>nemico<span class="op">.</span><span class="fu">nome</span> <span class="op">=</span> <span class="st">"Drago"</span><span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>nemico<span class="op">.</span><span class="fu">vita</span> <span class="op">=</span> <span class="dv">200</span><span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>nemico<span class="op">.</span><span class="fu">attacco</span> <span class="op">=</span> <span class="dv">40</span><span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>nemico<span class="op">.</span><span class="fu">livello</span> <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>new</code> fa tre cose: 1. <strong>Alloca</strong> la memoria necessaria per l’oggetto 2. <strong>Inizializza</strong> gli attributi con valori di default 3. <strong>Restituisce</strong> un riferimento all’oggetto appena creato</p>
+<p>Per accedere ad attributi e metodi si usa la <strong>notazione punto</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>eroe<span class="op">.</span><span class="fu">attacca</span><span class="op">(</span>nemico<span class="op">);</span>   <span class="co">// "Kratos attacca Drago! Drago subisce 25 danni."</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>nemico<span class="op">.</span><span class="fu">attacca</span><span class="op">(</span>eroe<span class="op">);</span>   <span class="co">// "Drago attacca Kratos! Kratos subisce 40 danni."</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>eroe<span class="op">.</span><span class="fu">salaDiLivello</span><span class="op">();</span>   <span class="co">// "Kratos sale al livello 2!"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>I due oggetti sono <strong>indipendenti</strong>: modificare la vita di uno non influenza l’altro.</p>
+<hr>
+</section>
+<section id="confronto-diretto-c-vs-java" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="confronto-diretto-c-vs-java"><span class="header-section-number">4.9</span> Confronto diretto: C vs Java</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Paradigma imperativo (C)</th>
+<th>Paradigma OOP (Java)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Focus</strong></td>
+<td>Come fa la macchina</td>
+<td>Quali entità esistono</td>
+</tr>
+<tr class="even">
+<td><strong>Unità base</strong></td>
+<td>Funzione + variabile</td>
+<td>Oggetto (dati + metodi)</td>
+</tr>
+<tr class="odd">
+<td><strong>Dati</strong></td>
+<td>Spesso globali</td>
+<td>Incapsulati nell’oggetto</td>
+</tr>
+<tr class="even">
+<td><strong>Organizzazione</strong></td>
+<td>Funzioni sparse</td>
+<td>Classi e gerarchie</td>
+</tr>
+<tr class="odd">
+<td><strong>Riuso</strong></td>
+<td>Difficile</td>
+<td>Tramite ereditarietà</td>
+</tr>
+<tr class="even">
+<td><strong>Scalabilità</strong></td>
+<td>Limitata</td>
+<td>Alta</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="riepilogo" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="riepilogo"><span class="header-section-number">4.10</span> Riepilogo</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -639,17 +684,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Java compila il sorgente <code>.java</code> in <strong>bytecode</strong> <code>.class</code>, non in codice macchina.</li>
-<li>La <strong>JVM</strong> esegue il bytecode su qualsiasi sistema operativo — <em>write once, run anywhere</em>.</li>
-<li>Il compilatore <strong>JIT</strong> ottimizza l’esecuzione traducendo il bytecode in codice nativo al volo.</li>
-<li>Ogni classe sta in un file <code>.java</code> con lo stesso nome della classe.</li>
-<li><code>import</code> indica dove trovare una classe, non copia il suo codice.</li>
-<li>Ogni programma ha un punto di ingresso: il metodo <strong><code>main</code></strong>.</li>
-<li><code>System.out.println()</code> è già OOP: classe, oggetto e metodo.</li>
+<li>Il paradigma <strong>imperativo</strong> si concentra su <em>come</em> fare le cose passo per passo.</li>
+<li>Il paradigma <strong>OOP</strong> si concentra su <em>quali entità</em> esistono e come interagiscono.</li>
+<li>Una <strong>classe</strong> è il modello; un <strong>oggetto</strong> è la realizzazione concreta.</li>
+<li>Ogni oggetto ha <strong>attributi</strong> (dati) e <strong>metodi</strong> (comportamenti).</li>
+<li><code>new</code> crea un oggetto in memoria e restituisce un riferimento ad esso.</li>
+<li>La <strong>notazione punto</strong> permette di accedere ad attributi e metodi: <code>oggetto.metodo()</code>.</li>
+<li>I tre pilastri dell’OOP sono <strong>incapsulamento</strong>, <strong>ereditarietà</strong> e <strong>polimorfismo</strong>.</li>
 </ul>
 </div>
 </div>
-<p>Nella prossima lezione vedremo i <strong>tipi di dato</strong> di Java — dai tipi primitivi alla classe <code>String</code> — e come leggere input da tastiera.</p>
+<p>Nella prossima lezione vedremo come scrivere una classe completa e ben strutturata, con costruttori, getter e setter.</p>
 
 
 </section>
@@ -1057,13 +1102,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../index.html" class="pagination-link" aria-label="Learning Stack">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Learning Stack</span></span>
+      <a href="../../docs/java/02_tipi_e_stringhe.html" class="pagination-link" aria-label="Tipi, stringhe e input">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tipi, stringhe e input</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../docs/java/02_tipi_e_stringhe.html" class="pagination-link" aria-label="Tipi, stringhe e input">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tipi, stringhe e input</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../docs/java/04_creare_una_classe.html" class="pagination-link" aria-label="Creare una classe">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Creare una classe</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

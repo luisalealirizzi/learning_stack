@@ -12,7 +12,7 @@ int[] punteggi = new int[10];  // esattamente 10 elementi, né più né meno
 
 Nella realtà i dati sono dinamici: una lista di giocatori connessi cresce e diminuisce, un inventario si riempie e si svuota, i risultati di una ricerca variano. Serve qualcosa di più flessibile.
 
-Java risponde con il **Collections Framework** — un insieme di classi e interfacce per gestire collezioni di oggetti in modo dinamico, sicuro ed efficiente.
+Java risponde con il **Collections Framework**: un insieme di classi e interfacce per gestire collezioni di oggetti in modo dinamico, sicuro ed efficiente.
 
 ---
 
@@ -50,16 +50,15 @@ List<String> nomi = new ArrayList<>();  // tipo dichiarato: List; tipo reale: Ar
 
 ## Generics: collezioni tipizzate
 
-Prima di usare le collections, capiamo i **generics** — la sintassi con le parentesi angolari `<>`.
+Prima di usare le collections, capiamo i **generics**: la sintassi con le parentesi angolari `<>`.
 
 I generics permettono di specificare il **tipo degli elementi** che una collezione può contenere. Il compilatore verifica che si inseriscano solo elementi del tipo corretto.
 
 ```java
-List<String> nomi = new ArrayList<>();      // solo String
-List<Integer> punteggi = new ArrayList<>(); // solo Integer
-List<Personaggio> squadra = new ArrayList<>(); // solo Personaggio
+List<String> nomi = new ArrayList<>();           // solo String
+List<Integer> punteggi = new ArrayList<>();      // solo Integer
+List<Personaggio> squadra = new ArrayList<>();   // solo Personaggio
 ```
-
 Senza generics dovresti fare cast manuale ogni volta che estrai un elemento — con generics il compilatore lo fa per te e ti avvisa subito se inserisci il tipo sbagliato.
 
 ::: {.callout-tip}
@@ -137,22 +136,10 @@ for (int i = 0; i < squadra.size(); i++) {
 }
 ```
 
-**Iterator** — utile quando devi rimuovere elementi durante l'iterazione:
-```java
-import java.util.Iterator;
-
-Iterator<String> it = squadra.iterator();
-while (it.hasNext()) {
-    String nome = it.next();
-    if (nome.equals("Gandalf")) {
-        it.remove();  // rimozione sicura durante l'iterazione
-    }
-}
-```
 
 ::: {.callout-warning}
 ## Non rimuovere con for-each
-Non rimuovere elementi da una lista mentre la stai scorrendo con un for-each — lancia `ConcurrentModificationException`. Usa l'`Iterator` oppure accumula gli elementi da rimuovere e cancellali dopo.
+Non rimuovere elementi da una lista mentre la stai scorrendo con un for-each — lancia `ConcurrentModificationException`. Accumula gli elementi da rimuovere e cancellali dopo.
 :::
 
 ---
@@ -255,6 +242,87 @@ for (Personaggio p : squadra) {
 
 ---
 
+## `equals()` e `hashCode()`: il contratto fondamentale
+
+Nella lezione sul polimorfismo hai visto che per confrontare oggetti si usa `equals()` invece di `==`. Ma c'è una regola fondamentale in Java che spesso viene dimenticata:
+
+> **Se ridefinisci `equals()`, devi ridefinire anche `hashCode()`.**
+
+Perché? Perché `HashMap` e `HashSet` usano `hashCode()` per organizzare gli oggetti in "bucket" — celle di memoria indicizzate. Quando cerchi un oggetto, Java prima calcola il suo `hashCode()` per trovare il bucket giusto, poi usa `equals()` per trovare l'oggetto esatto dentro quel bucket.
+
+Se `equals()` dice che due oggetti sono uguali ma `hashCode()` restituisce valori diversi, `HashMap` e `HashSet` li mettono in bucket diversi e non riescono a trovarli correttamente.
+
+```java
+// Senza hashCode ridefinito — comportamento SBAGLIATO
+Map<Personaggio, Integer> punteggi = new HashMap<>();
+Personaggio p1 = new Personaggio("Arthas", 150, 30, 1);
+punteggi.put(p1, 500);
+
+Personaggio p2 = new Personaggio("Arthas", 150, 30, 1);
+// p1.equals(p2) → true (stesso nome e livello)
+// ma hashCode diversi → HashMap non trova p2!
+System.out.println(punteggi.get(p2));  // null — non trovato!
+```
+
+La soluzione è ridefinire entrambi in modo coerente:
+
+```java
+public class Personaggio {
+
+    private String nome;
+    private int livello;
+    // ...
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (!(obj instanceof Personaggio)) return false;
+
+        Personaggio altro = (Personaggio) obj;
+        return this.livello == altro.livello &&
+               this.nome.equals(altro.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        int risultato = nome.hashCode();
+        risultato = 31 * risultato + livello;
+        return risultato;
+    }
+}
+```
+
+Oppure, da Java 7 in poi, puoi usare `Objects.hash()` che fa il lavoro sporco per te:
+
+```java
+import java.util.Objects;
+
+@Override
+public int hashCode() {
+    return Objects.hash(nome, livello);  // usa gli stessi campi di equals()
+}
+```
+
+::: {.callout-important}
+## Il contratto equals/hashCode
+- Se `a.equals(b)` è `true`, allora `a.hashCode()` deve essere uguale a `b.hashCode()`
+- Il contrario non è obbligatorio: due oggetti con lo stesso `hashCode` possono non essere uguali (collisione)
+- Usa **sempre gli stessi campi** in `equals()` e `hashCode()`
+- Se usi `Objects.hash()`, passa gli stessi campi che controlli in `equals()`
+:::
+
+Ora con `hashCode()` ridefinito correttamente:
+
+```java
+Map<Personaggio, Integer> punteggi = new HashMap<>();
+Personaggio p1 = new Personaggio("Arthas", 150, 30, 1);
+punteggi.put(p1, 500);
+
+Personaggio p2 = new Personaggio("Arthas", 150, 30, 1);
+System.out.println(punteggi.get(p2));  // 500 — trovato correttamente!
+```
+
 ## La classe Collections (utility)
 
 `java.util.Collections` è una classe di utilità con metodi statici per operare sulle collezioni:
@@ -275,23 +343,122 @@ int max = Collections.max(numeri); // elemento massimo
 int min = Collections.min(numeri); // elemento minimo
 ```
 
-Per ordinare oggetti personalizzati puoi usare un **lambda** con `Comparator`:
+Per ordinare tipi primitivi e `String`, `Collections.sort()` funziona direttamente perché questi tipi implementano già `Comparable`. Per ordinare oggetti personalizzati come `Personaggio`, devi implementare `Comparable` nella tua classe — lo vediamo nella sezione successiva.
+
+```java
+// Funziona subito — String implementa già Comparable
+List<String> nomi = new ArrayList<>(Arrays.asList("Legolas", "Arthas", "Gandalf"));
+Collections.sort(nomi);  // ordine alfabetico → [Arthas, Gandalf, Legolas]
+
+// Funziona dopo aver implementato Comparable in Personaggio
+List<Personaggio> squadra = new ArrayList<>();
+squadra.add(new Personaggio("Arthas", 150, 30, 5));
+squadra.add(new Personaggio("Gandalf", 100, 20, 7));
+squadra.add(new Personaggio("Legolas", 120, 25, 3));
+
+Collections.sort(squadra);  // ordina per livello crescente (definito in compareTo)
+squadra.forEach(p -> System.out.println(p.getNome() + " Lv." + p.getLivello()));
+```
+
+Output:
+```
+Legolas Lv.3
+Arthas Lv.5
+Gandalf Lv.7
+```
+## Comparable: definire l'ordine naturale
+
+Nella sezione precedente hai visto che `Collections.sort()` ordina una lista. Ma come fa Java a sapere in che ordine mettere i tuoi oggetti personalizzati? Non lo sa — a meno che tu non glielo dica.
+
+Puoi codificare l'ordine "naturale" dei tuoi oggetti direttamente nella classe implementando l'interfaccia **`Comparable`**.
+
+### Implementare Comparable
+
+`Comparable<T>` ha un solo metodo da implementare: `compareTo()`. Deve restituire:
+
+- un numero **negativo** se `this` viene prima di `other`
+- **zero** se sono equivalenti
+- un numero **positivo** se `this` viene dopo di `other`
+
+```java
+public class Personaggio implements Comparable<Personaggio> {
+
+    private String nome;
+    private int vita;
+    private int vitaMax;
+    private int attacco;
+    private int livello;
+
+    // ... costruttori, getter, setter, metodi ...
+
+    // Ordine naturale: per livello crescente
+    @Override
+    public int compareTo(Personaggio altro) {
+        return this.livello - altro.livello;
+        // negativo → this viene prima (livello più basso)
+        // zero     → stesso livello
+        // positivo → this viene dopo (livello più alto)
+    }
+}
+```
+
+Ora `Collections.sort()` sa come ordinare i personaggi senza bisogno di istruzioni aggiuntive:
 
 ```java
 List<Personaggio> squadra = new ArrayList<>();
-// ... aggiunta personaggi ...
+squadra.add(new Personaggio("Arthas", 150, 30, 5));
+squadra.add(new Personaggio("Gandalf", 100, 20, 7));
+squadra.add(new Personaggio("Legolas", 120, 25, 3));
 
-// Ordina per livello crescente
-Collections.sort(squadra, (a, b) -> a.getLivello() - b.getLivello());
+// Funziona perché Personaggio implementa Comparable
+Collections.sort(squadra);
 
-// Ordina per nome alfabetico
-Collections.sort(squadra, (a, b) -> a.getNome().compareTo(b.getNome()));
-
-// Ordina per vita decrescente
-squadra.sort((a, b) -> b.getVita() - a.getVita());
+for (Personaggio p : squadra) {
+    System.out.println(p.getNome() + " (Lv." + p.getLivello() + ")");
+}
 ```
 
----
+Output:
+```
+Legolas (Lv.3)
+Arthas (Lv.5)
+Gandalf (Lv.7)
+```
+
+`TreeSet` e `TreeMap` usano anch'essi `compareTo()` per mantenere gli elementi ordinati automaticamente:
+
+```java
+// Funziona perché Personaggio implementa Comparable
+TreeSet<Personaggio> squadraOrdinata = new TreeSet<>();
+squadraOrdinata.add(new Personaggio("Arthas", 150, 30, 5));
+squadraOrdinata.add(new Personaggio("Gandalf", 100, 20, 7));
+squadraOrdinata.add(new Personaggio("Legolas", 120, 25, 3));
+
+// Già ordinati per livello, senza sort esplicito
+squadraOrdinata.forEach(p ->
+    System.out.println(p.getNome() + " Lv." + p.getLivello()));
+```
+
+::: {.callout-note}
+## La logica di compareTo()
+Un trucco semplice per ricordare il segno:
+
+```java
+// Ordine crescente per un intero:
+return this.livello - altro.livello;
+
+// Ordine decrescente per un intero:
+return altro.livello - this.livello;
+
+// Per le stringhe, usa compareTo() già disponibile:
+return this.nome.compareTo(altro.nome);  // ordine alfabetico
+```
+:::
+
+::: {.callout-important}
+## Comparable e equals() devono essere coerenti
+Se due oggetti sono uguali secondo `equals()`, `compareTo()` dovrebbe restituire 0. E viceversa — se `compareTo()` restituisce 0, in genere ci si aspetta che `equals()` sia `true`. Mantieni i due metodi allineati usando gli stessi campi.
+:::
 
 ## Array vs ArrayList — quando usare cosa
 

@@ -2,221 +2,361 @@
 
 ---
 
-## Perché i buffer?
+## Il principio del buffer
 
-Nella lezione precedente abbiamo usato `Files.writeString()` e `Files.write()` — comode e semplici. Ma hanno un limite: ogni chiamata apre il file, scrive, e lo chiude. Se devi scrivere molte righe una alla volta — come in un log in tempo reale — questo approccio è inefficiente.
+Nella lezione precedente abbiamo usato `Files.writeString()` e `Files.readAllLines()` — comode e leggibili. Ma c'è un principio importante che vale sia per i file che per le stringhe:
 
-Immagina di dover costruire un muro mattone per mattone: ogni volta che posi un mattone, scendi dal ponteggio, vai al magazzino, torni su. È molto più efficiente caricare un carrello di mattoni, salire una volta sola e posarli tutti.
+> **Evitare tante operazioni piccole e costose, accumulando i dati prima di scrivere o elaborare.**
 
-Il **buffer** è quel carrello: raccoglie i dati in memoria e li scrive sul disco in un'unica operazione quando il buffer è pieno o quando lo chiudi esplicitamente.
+Accedere al disco è costoso. Farlo molte volte per piccoli pezzi di dati è lento. Il **buffer** è una zona di memoria RAM usata come zona di appoggio tra il programma e il file: accumula i dati e li scarica sul disco in un'unica operazione, riducendo drasticamente il numero di accessi.
 
-```
-Scrittura senza buffer:          Scrittura con buffer:
-[dato] → disco                   [dato] → buffer
-[dato] → disco        vs         [dato] → buffer
-[dato] → disco                   [dato] → buffer → disco (un'unica scrittura)
-```
+Quello che cambia tra le diverse API è **chi gestisce il buffer** e **quanto è visibile**.
 
 ---
 
-## BufferedWriter: scrivere con buffer
+## Buffer impliciti: le API di alto livello
 
-`BufferedWriter` avvolge uno scrittore base e aggiunge il buffering. Si usa tipicamente con `Files.newBufferedWriter()`:
-
-```java
-import java.nio.file.*;
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-
-Path file = Path.of("output.txt");
-
-try (BufferedWriter writer = Files.newBufferedWriter(file)) {
-
-    writer.write("Prima riga");
-    writer.newLine();  // aggiunge il carattere di a capo corretto per il SO
-    writer.write("Seconda riga");
-    writer.newLine();
-    writer.write("Terza riga");
-
-} catch (IOException e) {
-    System.out.println("Errore: " + e.getMessage());
-}
-// il try-with-resources chiude e svuota il buffer automaticamente
-```
-
-Per aggiungere in append senza sovrascrivere:
+Quando usi metodi come:
 
 ```java
-try (BufferedWriter writer = Files.newBufferedWriter(file,
-        StandardOpenOption.APPEND,
-        StandardOpenOption.CREATE)) {
-
-    writer.write("Riga aggiunta");
-    writer.newLine();
-
-} catch (IOException e) {
-    System.out.println("Errore: " + e.getMessage());
-}
+Files.readString(p);
+Files.readAllLines(p);
+Files.writeString(p, testo);
 ```
+
+il buffering esiste, ma è completamente **nascosto**. Java legge o scrive il file usando buffer interni, poi ti restituisce il risultato finito.
+
+Questi metodi sono comodi, sicuri e leggibili. Ma implicano una scelta precisa: **tutto il contenuto viene caricato in memoria**. Sono indicati per file piccoli — configurazioni, testi brevi, output di report.
 
 ::: {.callout-note}
-## `newLine()` vs `\n`
-Usa sempre `writer.newLine()` invece di `"\n"`. Il metodo scrive il carattere di a capo corretto per il sistema operativo corrente: `\n` su Linux/Mac, `\r\n` su Windows. Così il file funziona correttamente su tutte le piattaforme.
+## L'idea di base in Java moderno
+Non si parte dai buffer. Si parte da API di alto livello, già ottimizzate, e si scende solo quando serve — cioè quando il file è grande, quando si lavora riga per riga con logica complessa, o quando si vuole controllo fine sul flusso dei dati.
 :::
 
 ---
 
-## PrintWriter: scrivere con formattazione
+## Il primo passo verso il buffer: `Files.lines()`
 
-`PrintWriter` aggiunge metodi comodi come `println()` e `printf()` — simili a `System.out`. È ideale quando vuoi scrivere testo formattato su file:
+`Files.lines()` è già un passo verso il buffering: non carica tutto, consuma i dati mentre arrivano.
 
 ```java
-import java.io.*;
-import java.nio.file.*;
-
-Path file = Path.of("report.txt");
-
-try (PrintWriter pw = new PrintWriter(
-        Files.newBufferedWriter(file))) {
-
-    pw.println("=== REPORT SQUADRA ===");
-    pw.println();
-
-    // printf-style formatting
-    pw.printf("%-15s %5s %5s %5s%n", "Nome", "Vita", "Att", "Lv");
-    pw.printf("%-15s %5d %5d %5d%n", "Arthas", 150, 30, 5);
-    pw.printf("%-15s %5d %5d %5d%n", "Gandalf", 100, 25, 7);
-    pw.printf("%-15s %5d %5d %5d%n", "Legolas", 120, 28, 6);
-
-} catch (IOException e) {
-    System.out.println("Errore: " + e.getMessage());
+try (Stream<String> righe = Files.lines(p)) {
+    righe.forEach(System.out::println);
 }
 ```
 
-Output nel file:
-```
-=== REPORT SQUADRA ===
+Questo codice può stampare un file enorme senza mai tenerlo tutto in memoria. Il buffer c'è, ma non lo vediamo.
 
-Nome             Vita   Att    Lv
-Arthas            150    30     5
-Gandalf           100    25     7
-Legolas           120    28     6
+---
+
+## Buffer espliciti su testo: BufferedReader e BufferedWriter
+
+Quando vogliamo controllo esplicito, usiamo `BufferedReader` e `BufferedWriter`. Il buffer non è più un dettaglio tecnico nascosto — diventa parte del nostro modello.
+
+### BufferedReader: leggere riga per riga
+
+```java
+import java.nio.file.*;
+import java.io.*;
+
+Path p = Path.of("nomi.txt");
+
+try (BufferedReader br = Files.newBufferedReader(p)) {
+    String riga;
+    while ((riga = br.readLine()) != null) {
+        System.out.println("Letto: " + riga);
+    }
+}
+```
+
+Dichiarando `BufferedReader` stai dicendo esplicitamente tre cose:
+1. il file viene letto **a righe**, non come blocco unico
+2. il file viene **consumato progressivamente**
+3. c'è un'area di memoria che accumula dati prima di consegnarteli — il buffer è parte del tuo modello
+
+Il `try-with-resources` garantisce che il file venga aperto una sola volta, letto progressivamente, e **chiuso automaticamente** alla fine — anche se scatta un'eccezione nel mezzo.
+
+### Gestione delle eccezioni dentro il try
+
+```java
+Path p = Path.of("numeri.txt");
+
+try (BufferedReader br = Files.newBufferedReader(p)) {
+    String riga;
+    while ((riga = br.readLine()) != null) {
+        int n = Integer.parseInt(riga);  // può lanciare NumberFormatException
+        System.out.println(n * 2);
+    }
+} catch (IOException e) {
+    System.out.println("Errore di lettura file");
+}
+```
+
+Se una riga non è un numero, il programma va in errore. Ma il file viene comunque chiuso. Questo è il punto chiave: **la chiusura della risorsa non dipende dal fatto che il codice finisca bene**. La gestione delle risorse è separata dalla gestione degli errori.
+
+### Due risorse nello stesso try
+
+```java
+Path src = Path.of("input.txt");
+Path dst = Path.of("output.txt");
+
+try (
+    BufferedReader br = Files.newBufferedReader(src);
+    BufferedWriter bw = Files.newBufferedWriter(dst)
+) {
+    String riga;
+    while ((riga = br.readLine()) != null) {
+        bw.write(riga.toUpperCase());
+        bw.newLine();
+    }
+}
+```
+
+Java garantisce che prima venga chiuso il writer (svuotando i buffer di scrittura), poi il reader. Questo ordine è importante — e tu non devi ricordartelo: è parte del contratto del try-with-resources.
+
+### BufferedWriter: scrivere con buffer
+
+```java
+Path file = Path.of("output.txt");
+
+try (BufferedWriter bw = Files.newBufferedWriter(file)) {
+    for (int i = 1; i <= 1000; i++) {
+        bw.write("Riga " + i);
+        bw.newLine();  // usa il separatore corretto per il sistema operativo
+    }
+}
+```
+
+Invece di mille accessi al disco, il buffer accumula le righe in memoria e le scarica in poche operazioni. Molto più efficiente.
+
+::: {.callout-note}
+## `newLine()` vs `"\n"`
+Usa sempre `bw.newLine()` invece di `"\n"`. Il metodo scrive il carattere di a capo corretto per il sistema operativo: `\n` su Linux/Mac, `\r\n` su Windows.
+:::
+
+### Append con BufferedWriter
+
+```java
+try (BufferedWriter bw = Files.newBufferedWriter(file,
+        StandardOpenOption.APPEND,
+        StandardOpenOption.CREATE)) {
+    bw.write("Riga aggiunta");
+    bw.newLine();
+}
+```
+
+### PrintWriter: testo formattato
+
+`PrintWriter` aggiunge `println()` e `printf()` — ideale per report tabellari:
+
+```java
+try (PrintWriter pw = new PrintWriter(Files.newBufferedWriter(file))) {
+    pw.println("=== REPORT ===");
+    pw.printf("%-15s %5s %5s%n", "Nome", "Vita", "Lv");
+    pw.printf("%-15s %5d %5d%n", "Arthas", 150, 5);
+    pw.printf("%-15s %5d %5d%n", "Gandalf", 100, 7);
+}
 ```
 
 ---
 
-## BufferedReader: leggere con buffer
+## L'analogia tra file e stringhe
 
-`BufferedReader` fa il contrario — legge con buffer per efficienza. Il metodo `readLine()` legge una riga alla volta:
+Il principio del buffer vale in entrambi i contesti:
+
+| Situazione | Senza buffer | Con buffer |
+|---|---|---|
+| **File** | scrittura continua byte per byte | `BufferedWriter` |
+| **Stringhe** | concatenazione in ciclo con `+` | `StringBuilder` |
+
+`BufferedWriter` bufferizza il **disco**. `StringBuilder` bufferizza la **memoria**. Stessa idea, contesti diversi.
+
+---
+
+## Buffer su flussi binari
+
+Per i file di testo ha senso parlare di righe e caratteri. Per i **file binari** — immagini, audio, zip, file `.class` — no: sono solo sequenze di byte, senza significato testuale.
+
+In quel caso si usano `BufferedInputStream` e `BufferedOutputStream`:
 
 ```java
 import java.io.*;
 import java.nio.file.*;
 
-Path file = Path.of("squadra.csv");
+Path src = Path.of("immagine.png");
+Path dst = Path.of("copia.png");
 
-try (BufferedReader reader = Files.newBufferedReader(file)) {
-
-    String riga;
-    while ((riga = reader.readLine()) != null) {
-        System.out.println(riga);
+try (
+    BufferedInputStream in  = new BufferedInputStream(Files.newInputStream(src));
+    BufferedOutputStream out = new BufferedOutputStream(Files.newOutputStream(dst))
+) {
+    byte[] buffer = new byte[4096];  // il buffer è concreto e visibile
+    int letti;
+    while ((letti = in.read(buffer)) != -1) {
+        out.write(buffer, 0, letti);
     }
-
-} catch (IOException e) {
-    System.out.println("Errore: " + e.getMessage());
 }
 ```
+
+Qui il buffer non è più astratto: è un array di byte che rappresenta fisicamente quanti dati leggi alla volta. `read()` restituisce il numero di byte effettivamente letti — l'ultima lettura può essere parziale, quindi si scrive solo `letti` byte, non tutti i 4096.
 
 ::: {.callout-tip}
-## `BufferedReader` vs `Files.readAllLines()`
-`Files.readAllLines()` carica **tutto** il file in memoria. Con file piccoli va benissimo. Con file grandi (log di milioni di righe) è un problema.
-
-`BufferedReader` legge una riga alla volta — usa solo la memoria necessaria per una riga. Scegli `BufferedReader` quando il file può essere molto grande.
-
-`Files.lines()` (lo Stream lazy che abbiamo visto) è ancora più elegante di `BufferedReader` per la maggior parte dei casi.
+## Perché 4096?
+4096 byte (4 KB) è una dimensione comune perché corrisponde tipicamente alla dimensione di un blocco del filesystem. Leggere o scrivere blocchi allineati al filesystem è più efficiente.
 :::
 
 ---
 
-## La gerarchia di I/O di Java
+## Buffer specializzati: DataInputStream e DataOutputStream
 
-Java ha due famiglie di classi per l'I/O:
+`DataInputStream` e `DataOutputStream` non introducono un nuovo tipo di buffer — si appoggiano a uno già esistente. La loro specialità è leggere e scrivere **tipi primitivi in formato binario**: `int`, `double`, `boolean`, `long` e così via.
 
-```
-Stream (byte)                    Reader/Writer (caratteri)
-├── InputStream                  ├── Reader
-│   ├── FileInputStream          │   ├── FileReader
-│   └── BufferedInputStream      │   └── BufferedReader
-└── OutputStream                 └── Writer
-    ├── FileOutputStream             ├── FileWriter
-    └── BufferedOutputStream         ├── BufferedWriter
-                                     └── PrintWriter
-```
-
-**Stream** — lavorano con byte grezzi. Utili per file binari (immagini, audio, dati serializzati).
-
-**Reader/Writer** — lavorano con caratteri. Utili per file di testo, gestendo correttamente la codifica (UTF-8, ecc.).
-
-Per i file di testo usa sempre `Reader`/`Writer` — `Files.newBufferedReader()` e `Files.newBufferedWriter()` sono il punto di ingresso consigliato.
-
----
-
-## Codifica dei caratteri
-
-Quando lavori con file di testo, la **codifica** (charset) è importante. La codifica di default dipende dal sistema operativo — può causare problemi quando il file viene aperto su un sistema diverso.
-
-La soluzione: specifica sempre **UTF-8** esplicitamente.
+Senza questi stream, per salvare un intero dovresti convertirlo in stringa, scriverlo, poi rileggerlo e convertirlo di nuovo. Con `DataOutputStream` scrivi direttamente il valore binario — più compatto e più veloce.
 
 ```java
-import java.nio.charset.StandardCharsets;
+import java.io.*;
+import java.nio.file.*;
 
-// Specifica UTF-8 esplicitamente — comportamento identico su tutti i sistemi
-try (BufferedWriter writer = Files.newBufferedWriter(
-        file, StandardCharsets.UTF_8)) {
-    writer.write("Testo con accenti: à è ì ò ù");
-    writer.newLine();
+Path file = Path.of("dati.bin");
+
+// Scrittura — avvolge un BufferedOutputStream
+try (DataOutputStream out = new DataOutputStream(
+        new BufferedOutputStream(Files.newOutputStream(file)))) {
+
+    out.writeInt(42);           // scrive 4 byte
+    out.writeDouble(3.14);      // scrive 8 byte
+    out.writeBoolean(true);     // scrive 1 byte
+    out.writeUTF("Arthas");     // scrive la stringa in formato UTF-8 binario
+
 }
 
-try (BufferedReader reader = Files.newBufferedReader(
-        file, StandardCharsets.UTF_8)) {
-    System.out.println(reader.readLine());
+// Lettura — avvolge un BufferedInputStream
+try (DataInputStream in = new DataInputStream(
+        new BufferedInputStream(Files.newInputStream(file)))) {
+
+    int n       = in.readInt();
+    double d    = in.readDouble();
+    boolean b   = in.readBoolean();
+    String nome = in.readUTF();
+
+    System.out.println(n + " " + d + " " + b + " " + nome);
+    // 42 3.14 true Arthas
 }
 ```
 
 ::: {.callout-important}
-## Usa sempre UTF-8
-Specifica `StandardCharsets.UTF_8` ogni volta che apri un file di testo. Evita problemi con caratteri speciali, accenti e simboli su sistemi diversi.
+## L'ordine di lettura deve essere identico all'ordine di scrittura
+Il file binario non ha metadati — è solo una sequenza di byte. Java non sa cosa rappresenta ogni byte finché non glielo dici tu. Se scrivi `int`, `double`, `boolean` in quest'ordine, devi leggere esattamente nello stesso ordine. Un errore di ordine produce valori senza senso, senza nessun messaggio di errore.
 :::
+
+### Quando usarli
+
+`DataInputStream`/`DataOutputStream` sono utili quando:
+- vuoi salvare dati strutturati in formato **compatto e non leggibile** da un editor di testo
+- stai implementando un **formato di salvataggio binario** (es. file di salvataggio di un gioco)
+- lavori con **protocolli di rete** che trasmettono dati primitivi in formato binario
+
+Non usarli quando i dati devono essere leggibili da un essere umano o da altri programmi — in quel caso usa CSV o JSON in formato testo.
+
+---
+
+## Il quadro completo dei buffer
+
+Ricapitolando tutti i livelli che abbiamo visto:
+
+| Strumento | Gestisce | Visibilità buffer | Quando usarlo |
+|---|---|---|---|
+| `Files.readString()` / `writeString()` | char | Implicito, nascosto | File piccoli, semplicità |
+| `Files.lines()` | char | Implicito, lazy | File grandi con Stream |
+| `BufferedReader` / `BufferedWriter` | char | Esplicito, riga per riga | File di testo grandi |
+| `BufferedInputStream` / `BufferedOutputStream` | byte | Esplicito, array di byte | File binari, copie |
+| `DataInputStream` / `DataOutputStream` | tipi primitivi | Eredita da Buffered* | Salvataggi binari strutturati |
+
+::: {.callout-note}
+## La progressione concettuale
+```
+Files.readString()              → buffer implicito, tutto in RAM
+Files.lines()                   → buffer implicito, lazy
+BufferedReader / Writer         → buffer esplicito, testo (char)
+BufferedInputStream / Output    → buffer esplicito, binario (byte)
+DataInputStream / Output        → buffer ereditato, tipi primitivi
+```
+Si scende di livello solo quando serve.
+:::
+
+## La codifica dei caratteri
+
+Quando lavori con file di testo, specifica sempre **UTF-8** esplicitamente per evitare problemi con caratteri speciali su sistemi diversi:
+
+```java
+import java.nio.charset.StandardCharsets;
+
+try (BufferedWriter bw = Files.newBufferedWriter(
+        file, StandardCharsets.UTF_8)) {
+    bw.write("Testo con accenti: à è ì ò ù");
+    bw.newLine();
+}
+
+try (BufferedReader br = Files.newBufferedReader(
+        file, StandardCharsets.UTF_8)) {
+    System.out.println(br.readLine());
+}
+```
 
 ---
 
 ## Flush: svuotare il buffer manualmente
 
-Normalmente il buffer viene svuotato (flushed) automaticamente quando il writer viene chiuso. Ma in alcuni casi — come un log in tempo reale — vuoi che i dati vengano scritti subito, senza aspettare la chiusura.
+Normalmente il buffer viene svuotato automaticamente alla chiusura. Ma in alcuni casi, come un log in tempo reale, vuoi che i dati vengano scritti subito:
 
 ```java
-try (BufferedWriter writer = Files.newBufferedWriter(
+try (BufferedWriter bw = Files.newBufferedWriter(
         Path.of("live.log"), StandardOpenOption.APPEND)) {
 
     for (int i = 0; i < 5; i++) {
-        writer.write("Evento " + i);
-        writer.newLine();
-        writer.flush();  // scrive immediatamente sul disco
+        bw.write("Evento " + i);
+        bw.newLine();
+        bw.flush();  // scrive immediatamente sul disco
 
-        Thread.sleep(1000); // aspetta 1 secondo
+        Thread.sleep(1000);
     }
 } catch (IOException | InterruptedException e) {
     System.out.println("Errore: " + e.getMessage());
 }
 ```
 
-Senza `flush()`, gli eventi rimarrebbero nel buffer e verrebbero scritti tutti insieme alla chiusura. Con `flush()` ogni evento è immediatamente visibile nel file.
+Senza `flush()`, gli eventi rimarrebbero nel buffer e verrebbero scritti tutti insieme alla chiusura.
 
 ---
 
-## Esempio completo: logger con buffer
+## Il quadro completo: quando usare cosa
 
-Riscriviamo il logger della lezione precedente usando `BufferedWriter` per maggiore efficienza, e aggiungiamo la rotazione del log (un file per giorno):
+| Strumento | Tipo | Quando usarlo |
+|---|---|---|
+| `Files.readString()` | testo, implicito | file piccoli, lettura rapida |
+| `Files.readAllLines()` | testo, implicito | file piccoli, serve una List |
+| `Files.writeString()` | testo, implicito | scrittura semplice |
+| `Files.lines()` | testo, lazy | file grandi con Stream |
+| `BufferedReader` | testo, esplicito | lettura riga per riga, file grandi |
+| `BufferedWriter` | testo, esplicito | scrittura incrementale, molte righe |
+| `PrintWriter` | testo, formattato | report con `printf` |
+| `BufferedInputStream` | binario | copia file, immagini, audio |
+| `BufferedOutputStream` | binario | scrittura file binari |
+
+::: {.callout-note}
+## La progressione concettuale
+```
+Files.readString()         → buffer implicito, tutto in RAM
+Files.lines()              → buffer implicito, lazy (primo passo)
+BufferedReader/Writer      → buffer esplicito su testo
+BufferedInputStream/Output → buffer esplicito su byte
+```
+Si scende di livello solo quando serve: file grandi, prestazioni, dati binari.
+:::
+
+---
+
+## Esempio completo: logger con buffer e rotazione giornaliera
 
 ```java
 import java.nio.file.*;
@@ -230,7 +370,7 @@ public class Logger {
     private final Path cartella;
     private final DateTimeFormatter fmtData =
         DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    private final DateTimeFormatter fmtTimestamp =
+    private final DateTimeFormatter fmtOra =
         DateTimeFormatter.ofPattern("HH:mm:ss");
 
     public Logger(String cartella) {
@@ -242,24 +382,23 @@ public class Logger {
         }
     }
 
-    // Il file di log cambia ogni giorno: gioco-2025-11-13.log
+    // Un file di log diverso per ogni giorno
     private Path fileOggi() {
-        String nomeFile = "gioco-" + LocalDate.now().format(fmtData) + ".log";
-        return cartella.resolve(nomeFile);
+        return cartella.resolve("gioco-" + LocalDate.now().format(fmtData) + ".log");
     }
 
     private void scrivi(String livello, String messaggio) {
-        String riga = "[" + LocalTime.now().format(fmtTimestamp) + "] " +
-                      "[" + livello + "] " + messaggio;
+        String riga = "[" + LocalTime.now().format(fmtOra) + "] "
+                    + "[" + livello + "] " + messaggio;
 
-        try (BufferedWriter writer = Files.newBufferedWriter(
+        try (BufferedWriter bw = Files.newBufferedWriter(
                 fileOggi(),
                 StandardCharsets.UTF_8,
                 StandardOpenOption.CREATE,
                 StandardOpenOption.APPEND)) {
 
-            writer.write(riga);
-            writer.newLine();
+            bw.write(riga);
+            bw.newLine();
 
         } catch (IOException e) {
             System.err.println("Errore log: " + e.getMessage());
@@ -270,7 +409,6 @@ public class Logger {
     public void warn(String msg)  { scrivi("WARN ", msg); }
     public void error(String msg) { scrivi("ERROR", msg); }
 
-    // Legge e stampa il log di oggi
     public void stampaLog() {
         Path file = fileOggi();
         if (!Files.exists(file)) {
@@ -279,14 +417,11 @@ public class Logger {
         }
 
         System.out.println("=== LOG " + LocalDate.now() + " ===");
-        try (BufferedReader reader = Files.newBufferedReader(
-                file, StandardCharsets.UTF_8)) {
-
+        try (BufferedReader br = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
             String riga;
-            while ((riga = reader.readLine()) != null) {
+            while ((riga = br.readLine()) != null) {
                 System.out.println(riga);
             }
-
         } catch (IOException e) {
             System.out.println("Errore lettura: " + e.getMessage());
         }
@@ -294,60 +429,20 @@ public class Logger {
 }
 ```
 
-Uso:
-
-```java
-public class Main {
-    public static void main(String[] args) {
-
-        Logger logger = new Logger("logs");
-
-        logger.info("Partita iniziata");
-        logger.info("Arthas ha raggiunto il livello 5");
-        logger.warn("Vita di Gandalf sotto il 20%");
-        logger.error("File di salvataggio corrotto");
-        logger.info("Partita terminata");
-
-        logger.stampaLog();
-    }
-}
-```
-
-Output del log `logs/gioco-2025-11-13.log`:
-```
-[10:05:32] [INFO ] Partita iniziata
-[10:05:32] [INFO ] Arthas ha raggiunto il livello 5
-[10:05:32] [WARN ] Vita di Gandalf sotto il 20%
-[10:05:32] [ERROR] File di salvataggio corrotto
-[10:05:32] [INFO ] Partita terminata
-```
-
----
-
-## Confronto finale: quando usare cosa
-
-| Strumento | Caso d'uso |
-|---|---|
-| `Files.writeString()` | Scrittura semplice di una stringa |
-| `Files.write()` | Scrittura di una lista di righe |
-| `Files.readAllLines()` | Lettura di file piccoli/medi |
-| `Files.lines()` | Lettura lazy con Stream (file grandi) |
-| `BufferedWriter` | Scrittura incrementale efficiente |
-| `BufferedReader` | Lettura riga per riga (file grandi) |
-| `PrintWriter` | Testo formattato con `printf` |
-
 ---
 
 ## Riepilogo
 
 ::: {.callout-note}
-## I concetti chiave di questa lezione
+## I concetti chiave
 
-- Il **buffer** raccoglie i dati in memoria e li scrive sul disco in un'unica operazione — molto più efficiente di scrivere un byte alla volta.
-- **`BufferedWriter`** scrive con buffer; usa `newLine()` per l'a capo multipiattaforma.
-- **`PrintWriter`** aggiunge `println()` e `printf()` per testo formattato.
-- **`BufferedReader`** legge riga per riga con `readLine()` — ideale per file grandi.
+- Il **buffer** è una zona di RAM usata come appoggio tra il programma e il disco — riduce il numero di accessi.
+- Le API di alto livello (`Files.readString`, `Files.writeString`) usano buffer **impliciti** — tutto in memoria, adatte per file piccoli.
+- `Files.lines()` è **lazy** — primo passo verso il buffer, non carica tutto.
+- **`BufferedReader`** e **`BufferedWriter`** rendono il buffer **esplicito** — per testo, riga per riga.
+- Il **try-with-resources** chiude le risorse automaticamente, nell'ordine corretto, anche in caso di eccezione.
+- **`BufferedInputStream`** e **`BufferedOutputStream`** per file **binari** — il buffer diventa un array di byte concreto e misurabile.
 - Specifica sempre **`StandardCharsets.UTF_8`** per evitare problemi con caratteri speciali.
-- Usa `flush()` per scrivere immediatamente sul disco senza aspettare la chiusura.
-- Il **try-with-resources** garantisce che il buffer venga svuotato e il file chiuso correttamente.
+- Usa `flush()` per scrivere immediatamente senza aspettare la chiusura.
+- Si parte dall'**alto livello** e si scende solo quando serve.
 :::

@@ -4,17 +4,17 @@
 
 ## Cosa succede quando qualcosa va storto?
 
-Fino ad ora abbiamo scritto codice che funziona — assumendo che i dati in ingresso siano sempre validi, che i file esistano, che la rete sia disponibile. Ma nella realtà non è così.
+Fino ad ora abbiamo scritto codice che funziona, assumendo che i dati in ingresso siano sempre validi, che i file esistano, che la rete sia disponibile. Ma nella realtà non è così.
 
 Un utente inserisce una lettera dove si aspetta un numero. Un file non esiste. La memoria finisce. La connessione cade.
 
-Questi sono **errori a runtime** — situazioni anomale che si verificano durante l'esecuzione del programma, non durante la compilazione. Java gestisce queste situazioni con un meccanismo chiamato **gestione delle eccezioni**.
+Questi sono **errori a runtime**, situazioni anomale che si verificano durante l'esecuzione del programma, non durante la compilazione. Java gestisce queste situazioni con un meccanismo chiamato **gestione delle eccezioni**.
 
 ---
 
 ## Cos'è un'eccezione
 
-Un'**eccezione** è un oggetto che rappresenta una situazione anomala verificatasi durante l'esecuzione. Quando si verifica un errore, Java **lancia** (throws) un'eccezione — interrompe il flusso normale e cerca qualcuno che la gestisca.
+Un'**eccezione** è un oggetto che rappresenta una situazione anomala verificatasi durante l'esecuzione. Quando si verifica un errore, Java **lancia** (throws) un'eccezione e interrompe il flusso normale e cerca qualcuno che la gestisca.
 
 Se nessuno la gestisce, il programma termina stampando un messaggio di errore chiamato **stack trace**:
 
@@ -30,7 +30,7 @@ Lo stack trace dice: cosa è successo (`ArithmeticException: / by zero`), dove �
 
 ## La gerarchia delle eccezioni
 
-In Java le eccezioni sono classi organizzate in una gerarchia:
+In Java le eccezioni sono classi organizzate in una gerarchia, Error ed Exception derivano entrambe dalla classe Throwable
 
 ```
 Throwable
@@ -51,7 +51,7 @@ Throwable
 
 ::: {.callout-note}
 ## Checked vs Unchecked
-**Unchecked** (RuntimeException e sottoclassi) — il compilatore non ti obbliga a gestirle. Spesso indicano bug nel codice: accesso a un indice fuori range, divisione per zero, cast errato.
+**Unchecked** (RuntimeException e sottoclassi): il compilatore non ti obbliga a gestirle. Spesso indicano bug nel codice: accesso a un indice fuori range, divisione per zero, cast errato.
 
 **Checked** (tutto il resto di Exception) — il compilatore ti **obbliga** a gestirle o a dichiararle. Tipicamente sono situazioni esterne al controllo del programma: file non trovato, errore di rete.
 :::
@@ -208,7 +208,7 @@ try (Scanner sc = new Scanner(System.in)) {
 
 ## Lanciare eccezioni con throw
 
-Non solo puoi gestire le eccezioni — puoi anche **lanciarle** tu stesso con `throw`. Questo è utile nei setter e nei costruttori quando ricevi valori non validi:
+Non solo puoi gestire le eccezioni, puoi anche **lanciarle** tu stesso con `throw`. Questo è utile nei setter e nei costruttori quando ricevi valori non validi:
 
 ```java
 public void setVita(int vita) {
@@ -274,9 +274,9 @@ Crea eccezioni personalizzate quando vuoi dare un nome significativo a un errore
 
 ---
 
-## Dichiarare eccezioni con throws
+## Propagare eccezioni con throws
 
-Se un metodo può lanciare una **checked exception** ma non la gestisce internamente, deve dichiararla nella firma con `throws`:
+Se un metodo può lanciare una **checked exception** ma non la gestisce internamente, deve propagarla nella firma con `throws`:
 
 ```java
 public void caricaDaFile(String percorso) throws IOException {
@@ -297,15 +297,15 @@ try {
 
 ::: {.callout-note}
 ## `throw` vs `throws`
-- **`throw`** (senza s) — lancia effettivamente un'eccezione all'interno del codice
-- **`throws`** (con s) — dichiara nella firma del metodo che potrebbe lanciare quell'eccezione
+- **`throw`**  lancia effettivamente un'eccezione all'interno del codice
+- **`throws`** dichiara nella firma del metodo che potrebbe lanciare quell'eccezione
 :::
 
 ---
 
 ## Esempio completo: input robusto
 
-Mettiamo tutto insieme con un esempio realistico — un programma che chiede la vita del personaggio e non si blocca su input errati:
+Mettiamo tutto insieme con un esempio realistico: un programma che chiede la vita del personaggio e non si blocca su input errati:
 
 ```java
 import java.util.Scanner;
@@ -355,7 +355,7 @@ public class InputRobusto {
 ## Riepilogo
 
 ::: {.callout-note}
-## I concetti chiave di questa lezione
+## I concetti chiave 
 
 - Un'**eccezione** è un oggetto che rappresenta una situazione anomala a runtime.
 - Le eccezioni **unchecked** (`RuntimeException`) indicano spesso bug nel codice — il compilatore non obbliga a gestirle.

@@ -4,7 +4,7 @@
 
 ## Il problema della duplicazione
 
-Immagina di dover modellare i personaggi di un videogioco RPG. Hai diversi tipi: guerriero, mago, arciere. Ognuno ha caratteristiche proprie, ma tutti condividono alcune cose di base: un nome, dei punti vita, un livello, la capacità di subire danno e di salire di livello.
+Immagina di dover modellare i personaggi di un videogioco. Hai diversi tipi: guerriero, mago, arciere. Ognuno ha caratteristiche proprie, ma tutti condividono alcune cose di base: un nome, dei punti vita, un livello, la capacità di subire danno e di salire di livello.
 
 Senza ereditarietà, dovresti riscrivere queste cose **in ogni classe**:
 
@@ -278,7 +278,4 @@ Personaggio
 - `super` permette di chiamare i metodi della classe madre dalla figlia.
 - Il test **"è un"** aiuta a capire se l'ereditarietà è appropriata.
 - Non confondere ereditarietà ("è un") con composizione ("ha un").
-:::
-
-Nella prossima lezione vedremo il **polimorfismo**: come oggetti di classi diverse possono rispondere alla stessa chiamata in modi differenti.
 :::

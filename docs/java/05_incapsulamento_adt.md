@@ -4,11 +4,11 @@
 
 ## Riprendiamo da dove eravamo
 
-Nella lezione precedente hai imparato a scrivere una classe con attributi privati, costruttori, getter e setter. Hai visto che dichiarare gli attributi `private` impedisce accessi non controllati dall'esterno.
+Abbiamo visto che dichiarare gli attributi `private` impedisce accessi non controllati dall'esterno.
 
 Ma perché è così importante? E c'è un nome per questo principio?
 
-Sì — si chiama **incapsulamento**, ed è uno dei tre pilastri dell'OOP.
+Sì: si chiama **incapsulamento**, ed è uno dei tre pilastri dell'OOP.
 
 ---
 
@@ -71,7 +71,7 @@ Ora è impossibile portare la vita sotto zero o il livello a un valore negativo 
 ## L'analogia del controller
 Pensa a un controller di una console: hai dei pulsanti (l'interfaccia pubblica) e non ti interessa cosa succede dentro i circuiti quando li premi. Sai solo che premendo X salti, premendo B attacchi.
 
-Allo stesso modo, chi usa un oggetto `Personaggio` non deve sapere come sono gestiti vita e livello internamente — usa i metodi pubblici e ottiene i risultati.
+Allo stesso modo, chi usa un oggetto `Personaggio` non deve sapere come sono gestiti vita e livello internamente, usa i metodi pubblici e ottiene i risultati.
 :::
 
 ---
@@ -135,18 +135,18 @@ eroe.salaDiLivello();
 int v = eroe.getVita();
 ```
 
-I dettagli interni — come viene calcolata la vita, come funziona il setter — sono irrilevanti per chi usa la classe.
+I dettagli interni ad esempio come viene calcolata la vita o come funziona il setter, sono irrilevanti per chi usa la classe.
 
 ::: {.callout-tip}
 ## ADT e cambiamento
-Possiamo cambiare completamente il modo in cui calcoliamo il danno o gestiamo la vita, senza che il resto del programma se ne accorga — purché l'interfaccia pubblica rimanga la stessa. Questa è la potenza dell'astrazione.
+Possiamo cambiare completamente il modo in cui calcoliamo il danno o gestiamo la vita, senza che il resto del programma se ne accorga, purché l'interfaccia pubblica rimanga la stessa. Questa è la potenza dell'astrazione.
 :::
 
 ---
 
 ## Un secondo esempio: l'arma come ADT
 
-Modelliamo un'arma che si consuma con l'uso, come in molti RPG.
+Modelliamo un'arma che si consuma con l'uso.
 
 **Valori possibili:** nome non vuoto, danno positivo, durabilità tra 0 e 100.
 
@@ -193,7 +193,7 @@ public class Arma {
 }
 ```
 
-Chi usa `Arma` non sa come viene calcolato `getDanno()`. Sa solo che il danno dipende dalla durabilità — questo è tutto ciò che gli serve.
+Chi usa `Arma` non sa come viene calcolato `getDanno()`. Sa solo che il danno dipende dalla durabilità e questo è tutto ciò che gli serve.
 
 ---
 
@@ -244,7 +244,7 @@ public class Main {
 
 ::: {.callout-important}
 ## Osserva cosa non vedi
-Nel `main` non c'è nessun accesso diretto agli attributi. Tutto passa attraverso i metodi pubblici. L'implementazione interna di `Personaggio` e `Arma` è completamente nascosta — questo è l'incapsulamento in azione.
+Nel `main` non c'è nessun accesso diretto agli attributi. Tutto passa attraverso i metodi pubblici. L'implementazione interna di `Personaggio` e `Arma` è completamente nascosta: questo è l'incapsulamento in azione.
 :::
 
 ---
@@ -252,14 +252,12 @@ Nel `main` non c'è nessun accesso diretto agli attributi. Tutto passa attravers
 ## Riepilogo
 
 ::: {.callout-note}
-## I concetti chiave di questa lezione
+## I concetti chiave
 
 - L'**incapsulamento** nasconde gli attributi (`private`) e li espone solo tramite metodi controllati (`public`).
-- L'**information hiding** garantisce che i dettagli implementativi restino nascosti — si espone solo l'interfaccia necessaria.
-- Uno **stato inconsistente** è quando un oggetto contiene valori non validi — l'incapsulamento lo previene.
+- L'**information hiding** garantisce che i dettagli implementativi restino nascosti: si espone solo l'interfaccia necessaria.
+- Uno **stato inconsistente** è quando un oggetto contiene valori non validi, l'incapsulamento lo previene.
 - Un **ADT** definisce un tipo tramite i suoi valori possibili e le sue operazioni, senza specificare l'implementazione.
 - La separazione tra **interfaccia** e **implementazione** permette di cambiare il codice interno senza impatto su chi usa la classe.
-- La regola d'oro rimane: **attributi `private`, metodi `public`**.
+- La regola rimane: **attributi `private`, metodi `public`**.
 :::
-
-Nella prossima lezione vedremo l'**ereditarietà**: come creare nuove classi a partire da quelle esistenti, riutilizzando il codice già scritto.

@@ -4,7 +4,7 @@
 
 ## Riprendiamo dal polimorfismo
 
-Nella lezione sull'ereditarietà abbiamo costruito la gerarchia `Personaggio` → `Guerriero`, `Mago`, `Arciere`. Ogni sottoclasse ridefinisce `attacca()` con il proprio comportamento.
+Con l'ereditarietà abbiamo costruito la gerarchia `Personaggio` → `Guerriero`, `Mago`, `Arciere`. Ogni sottoclasse ridefinisce `attacca()` con il proprio comportamento.
 
 Il **polimorfismo** è la capacità di oggetti di classi diverse di rispondere alla stessa chiamata in modo diverso, ognuno secondo la propria natura.
 
@@ -157,7 +157,7 @@ Personaggio p = new Mago("Gandalf", 100, 20, 3, 120);
 Guerriero g = (Guerriero) p;  // ERRORE a runtime: ClassCastException!
 ```
 
-Il compilatore non si accorge dell'errore — `p` è di tipo `Personaggio` e un `Guerriero` è un `Personaggio`, quindi la sintassi è valida. Ma a runtime Java controlla il tipo reale dell'oggetto e lancia un'eccezione.
+Il compilatore non si accorge dell'errore: `p` è di tipo `Personaggio` e un `Guerriero` è un `Personaggio`, quindi la sintassi è valida. Ma a runtime Java controlla il tipo reale dell'oggetto e lancia un'eccezione.
 
 ::: {.callout-warning}
 ## Il downcasting è rischioso
@@ -182,24 +182,14 @@ if (p instanceof Mago) {
 }
 ```
 
-Da Java 16 in poi esiste anche il **pattern matching** per `instanceof`, che rende il codice più compatto:
-
-```java
-if (p instanceof Mago m) {
-    // m è già di tipo Mago, nessun cast esplicito!
-    System.out.println("Mana: " + m.getMana());
-}
-```
-
----
 
 ## `==` vs `equals()`
 
 Già visto per le stringhe, ma vale per tutti gli oggetti. È un errore classico che vale la pena approfondire.
 
-`==` confronta i **riferimenti** — controlla se due variabili puntano allo stesso oggetto in memoria.
+`==` confronta i **riferimenti**, controlla se due variabili puntano allo stesso oggetto in memoria 
 
-`equals()` confronta il **contenuto** — controlla se due oggetti sono logicamente equivalenti.
+`equals()` confronta il **contenuto**, controlla se due oggetti sono logicamente equivalenti.
 
 ```java
 String a = new String("ciao");
@@ -218,7 +208,7 @@ System.out.println(x == y);  // true — confronto di valori, non riferimenti
 ```
 
 ::: {.callout-important}
-## Regola d'oro
+## Regola
 - Per i **tipi primitivi** (`int`, `double`, `boolean`...) usa sempre `==`
 - Per gli **oggetti** (`String`, `Personaggio`, qualsiasi classe) usa sempre `equals()`
 - L'unica eccezione accettabile con `==` sugli oggetti è il confronto con `null`: `if (oggetto == null)`
@@ -271,5 +261,3 @@ System.out.println(p1.equals(p2));   // true  — stesso nome e livello
 - Usa sempre **`instanceof`** prima di fare un downcasting.
 - `==` confronta i **riferimenti**; `equals()` confronta il **contenuto** — per gli oggetti usa sempre `equals()`.
 :::
-
-Nella prossima lezione vedremo le **classi astratte e le interfacce** — strumenti potenti per definire contratti e comportamenti condivisi tra classi non necessariamente imparentate.

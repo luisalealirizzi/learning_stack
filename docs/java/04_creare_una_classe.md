@@ -196,10 +196,22 @@ public Personaggio(Personaggio altro) {
 Uso dei tre costruttori:
 
 ```java
-Personaggio p1 = new Personaggio();                        // vuoto
+Personaggio p1 = new Personaggio();                       // vuoto
 Personaggio p2 = new Personaggio("Arthas", 150, 35, 3);   // con parametri
-Personaggio p3 = new Personaggio(p2);                      // copia di p2
+Personaggio p3 = new Personaggio(p2);                     // copia di p2
 ```
+### Overloading
+Hai appena visto tre costruttori con lo stesso nome Personaggio ma parametri diversi. Questo meccanismo si chiama overloading — e non vale solo per i costruttori, ma per qualsiasi metodo.
+L'overloading permette di definire più metodi con lo stesso nome nella stessa classe, a patto che abbiano firme diverse — cioè numero o tipo di parametri diversi. Il compilatore sceglie quale versione chiamare in base agli argomenti passati.
+
+::: {.callout-note}
+Le regole dell'overloading
+
+I metodi devono avere lo stesso nome
+Devono differire per numero e/o tipo di parametri
+Il tipo di ritorno da solo non basta — due metodi con stessa firma e tipi di ritorno diversi danno errore di compilazione
+L'overloading è risolto a compile time — il compilatore sa già quale versione chiamare
+:::
 
 ---
 
@@ -424,7 +436,7 @@ Stato:    in vita
 ## Riepilogo
 
 ::: {.callout-note}
-## I concetti chiave di questa lezione
+## I concetti chiave 
 
 - In Java la **classe** raccoglie insieme dati (attributi) e comportamenti (metodi) — a differenza della `struct` del C.
 - Gli attributi si dichiarano **`private`** per proteggerli da accessi non controllati.
@@ -434,5 +446,3 @@ Stato:    in vita
 - I **getter** leggono gli attributi; i **setter** li modificano con eventuali controlli.
 - La regola d'oro: **attributi `private`, metodi `public`**.
 :::
-
-Nella prossima lezione approfondiremo l'incapsulamento e i tipi di dato astratti — il cuore teorico di tutto quello che abbiamo fatto fin qui.

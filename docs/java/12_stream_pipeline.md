@@ -8,13 +8,14 @@ Nelle lezioni precedenti abbiamo visto come gestire le collections con cicli `fo
 
 ```java
 // Approccio tradizionale
+// Approccio tradizionale
 List<Personaggio> risultato = new ArrayList<>();
 for (Personaggio p : squadra) {
     if (p.getLivello() > 3) {
         risultato.add(p);
     }
 }
-Collections.sort(risultato, (a, b) -> a.getNome().compareTo(b.getNome()));
+Collections.sort(risultato);  // usa l'ordine naturale definito in compareTo()
 
 List<String> nomi = new ArrayList<>();
 for (Personaggio p : risultato) {
@@ -28,7 +29,7 @@ Con gli **Stream** lo stesso risultato si scrive così:
 // Approccio con Stream
 List<String> nomi = squadra.stream()
     .filter(p -> p.getLivello() > 3)
-    .sorted((a, b) -> a.getNome().compareTo(b.getNome()))
+    .sorted()
     .map(Personaggio::getNome)
     .collect(Collectors.toList());
 ```
@@ -39,9 +40,9 @@ Stesso risultato, meno codice, più leggibile. Vediamo come funziona.
 
 ## Cos'è uno Stream
 
-Uno **Stream** è una sequenza di elementi su cui si applicano operazioni in **pipeline** — una catena di trasformazioni che si eseguono una dopo l'altra.
+Uno **Stream** è una sequenza di elementi su cui si applicano operazioni in **pipeline**, una catena di trasformazioni che si eseguono una dopo l'altra.
 
-Uno Stream non è una struttura dati — non memorizza elementi. È un flusso di dati che viene elaborato e trasformato.
+Uno Stream non è una struttura dati, non memorizza elementi ma è un flusso di dati che viene elaborato e trasformato.
 
 ::: {.callout-note}
 ## Le tre fasi di uno Stream
@@ -92,7 +93,6 @@ Prima di vedere le operazioni, capiamo la sintassi che si usa con gli Stream.
 // Sintassi: (parametri) -> espressione
 p -> p.getLivello() > 3           // predicate: prende un Personaggio, restituisce boolean
 p -> p.getNome()                   // function: prende un Personaggio, restituisce String
-(a, b) -> a.getNome().compareTo(b.getNome())  // comparator
 ```
 
 **Method reference** — abbreviazione quando il lambda chiama solo un metodo:
@@ -112,7 +112,7 @@ String::toUpperCase    // method reference su istanza
 
 ## Operazioni intermedie
 
-Le operazioni intermedie trasformano lo Stream in un altro Stream. Sono **lazy** — non vengono eseguite finché non arriva un'operazione terminale.
+Le operazioni intermedie trasformano lo Stream in un altro Stream. Sono **lazy** cioè non vengono eseguite finché non arriva un'operazione terminale.
 
 ### filter()
 
@@ -171,14 +171,9 @@ numeri.stream()
     .sorted()
     ...
 
-// Con Comparator
+// per oggetti che non implementano Comparable possiamo usare Comparator
 squadra.stream()
     .sorted((a, b) -> a.getNome().compareTo(b.getNome()))
-    ...
-
-// Con Comparator.comparing (più leggibile)
-squadra.stream()
-    .sorted(Comparator.comparing(Personaggio::getNome))
     ...
 
 // Ordine inverso
@@ -397,7 +392,7 @@ System.out.println("Personaggi:   " + stats.getCount());
 
 ### Dal file al report
 
-Uno stream può elaborare dati da qualsiasi sorgente — anche righe di testo che rappresentano dati:
+Uno stream può elaborare dati da qualsiasi sorgente, anche righe di testo che rappresentano dati:
 
 ```java
 import java.util.stream.*;
@@ -434,33 +429,10 @@ Personaggi di alto livello:
 
 ---
 
-## Stream paralleli
-
-Per collezioni molto grandi puoi usare `parallelStream()` al posto di `stream()` — Java distribuisce automaticamente il lavoro su più thread:
-
-```java
-// Stream sequenziale
-long count = squadra.stream()
-    .filter(p -> p.getLivello() > 3)
-    .count();
-
-// Stream parallelo — più veloce su grandi collezioni
-long countParallelo = squadra.parallelStream()
-    .filter(p -> p.getLivello() > 3)
-    .count();
-```
-
-::: {.callout-warning}
-## Quando usare parallelStream
-Il parallelismo ha un overhead — per collezioni piccole è spesso più lento. Usalo solo con collezioni di migliaia di elementi e operazioni computazionalmente costose. E mai con operazioni che hanno effetti collaterali (come modificare una lista condivisa).
-:::
-
----
-
 ## Riepilogo
 
 ::: {.callout-note}
-## I concetti chiave di questa lezione
+## I concetti chiave 
 
 - Uno **Stream** è un flusso di dati che si elabora in pipeline — non memorizza dati.
 - Le tre fasi: **sorgente** → **operazioni intermedie** → **operazione terminale**.
@@ -469,5 +441,4 @@ Il parallelismo ha un overhead — per collezioni piccole è spesso più lento. 
 - **`collect()`** raccoglie in una struttura, **`forEach()`** itera, **`count()`** conta.
 - **`Optional`** gestisce l'assenza di valore in modo sicuro, senza `null`.
 - I **lambda** e i **method reference** rendono il codice compatto e leggibile.
-- **`parallelStream()`** per collezioni grandi — con cautela.
 :::

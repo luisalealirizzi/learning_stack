@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>14&nbsp; Stringhe avanzate – Learning Stack</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../docs/java/14_path_files_log.html" rel="next">
+<link href="../../docs/java/12_stream_pipeline.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-1f9e6d70b8b583c31478a0530d9dad38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/java/13_stringhe_avanzate.html">Modulo 5 — Stringhe avanzate</a></li><li class="breadcrumb-item"><a href="../../docs/java/13_stringhe_avanzate.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Stringhe avanzate</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Learning Stack</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Learning Stack</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Modulo 1 — Introduzione a Java</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/01_introduzione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/02_tipi_e_stringhe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tipi, stringhe e input</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Modulo 2 — OOP</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/03_paradigmi_e_oggetti.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Paradigmi e oggetti</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/04_creare_una_classe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Creare una classe</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/05_incapsulamento_adt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Incapsulamento e ADT</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/06_ereditarieta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Ereditarietà</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/07_polimorfismo_upcasting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Polimorfismo, upcasting e downcasting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/08_classi_astratte_interfacce.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Classi astratte e interfacce</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Modulo 3 — Eccezioni</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/09_eccezioni.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Eccezioni</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Modulo 4 — Collections e Stream</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/10_collections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Java Collections</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/11_list_set_queue.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">List, Set e Queue</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/12_stream_pipeline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Stream e pipeline</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Modulo 5 — Stringhe avanzate</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/13_stringhe_avanzate.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Stringhe avanzate</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Modulo 6 — Gestione file</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/14_path_files_log.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Path, Files e Log</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/15_buffer_scrittura.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Buffer e scrittura</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Modulo 7 — Qualità del codice</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/16_testing_junit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Testing con JUnit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/17_solid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">17_solid.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/18_design_pattern.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">18_design_pattern.html</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#string-è-immutabile" id="toc-string-è-immutabile" class="nav-link active" data-scroll-target="#string-è-immutabile"><span class="header-section-number">14.1</span> String è immutabile</a></li>
+  <li><a href="#il-problema-della-concatenazione-in-loop" id="toc-il-problema-della-concatenazione-in-loop" class="nav-link" data-scroll-target="#il-problema-della-concatenazione-in-loop"><span class="header-section-number">14.2</span> Il problema della concatenazione in loop</a></li>
+  <li><a href="#stringbuilder-concatenazione-efficiente" id="toc-stringbuilder-concatenazione-efficiente" class="nav-link" data-scroll-target="#stringbuilder-concatenazione-efficiente"><span class="header-section-number">14.3</span> StringBuilder: concatenazione efficiente</a>
+  <ul class="collapse">
+  <li><a href="#metodi-principali-di-stringbuilder" id="toc-metodi-principali-di-stringbuilder" class="nav-link" data-scroll-target="#metodi-principali-di-stringbuilder"><span class="header-section-number">14.3.1</span> Metodi principali di StringBuilder</a></li>
+  <li><a href="#concatenare-con-join-e-formatted" id="toc-concatenare-con-join-e-formatted" class="nav-link" data-scroll-target="#concatenare-con-join-e-formatted"><span class="header-section-number">14.3.2</span> Concatenare con join e formatted</a></li>
+  </ul></li>
+  <li><a href="#metodi-avanzati-di-string" id="toc-metodi-avanzati-di-string" class="nav-link" data-scroll-target="#metodi-avanzati-di-string"><span class="header-section-number">14.4</span> Metodi avanzati di String</a></li>
+  <li><a href="#espressioni-regolari" id="toc-espressioni-regolari" class="nav-link" data-scroll-target="#espressioni-regolari"><span class="header-section-number">14.5</span> Espressioni regolari</a>
+  <ul class="collapse">
+  <li><a href="#i-caratteri-speciali-principali" id="toc-i-caratteri-speciali-principali" class="nav-link" data-scroll-target="#i-caratteri-speciali-principali"><span class="header-section-number">14.5.1</span> I caratteri speciali principali</a></li>
+  <li><a href="#matches-validare-una-stringa" id="toc-matches-validare-una-stringa" class="nav-link" data-scroll-target="#matches-validare-una-stringa"><span class="header-section-number">14.5.2</span> matches(): validare una stringa</a></li>
+  <li><a href="#replaceall-e-replacefirst" id="toc-replaceall-e-replacefirst" class="nav-link" data-scroll-target="#replaceall-e-replacefirst"><span class="header-section-number">14.5.3</span> replaceAll() e replaceFirst()</a></li>
+  <li><a href="#split-con-regex" id="toc-split-con-regex" class="nav-link" data-scroll-target="#split-con-regex"><span class="header-section-number">14.5.4</span> split() con regex</a></li>
+  <li><a href="#pattern-e-matcher-ricerca-avanzata" id="toc-pattern-e-matcher-ricerca-avanzata" class="nav-link" data-scroll-target="#pattern-e-matcher-ricerca-avanzata"><span class="header-section-number">14.5.5</span> Pattern e Matcher: ricerca avanzata</a></li>
+  </ul></li>
+  <li><a href="#esempio-completo-parser-di-un-log-di-gioco" id="toc-esempio-completo-parser-di-un-log-di-gioco" class="nav-link" data-scroll-target="#esempio-completo-parser-di-un-log-di-gioco"><span class="header-section-number">14.6</span> Esempio completo: parser di un log di gioco</a></li>
+  <li><a href="#riepilogo" id="toc-riepilogo" class="nav-link" data-scroll-target="#riepilogo"><span class="header-section-number">14.7</span> Riepilogo</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/java/13_stringhe_avanzate.html">Modulo 5 — Stringhe avanzate</a></li><li class="breadcrumb-item"><a href="../../docs/java/13_stringhe_avanzate.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Stringhe avanzate</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Stringhe avanzate</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<hr>
+<section id="string-è-immutabile" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="string-è-immutabile"><span class="header-section-number">14.1</span> String è immutabile</h2>
+<p>Nella lezione sui tipi abbiamo visto che <code>String</code> è una classe. Ma ha una caratteristica fondamentale che spesso sorprende: le stringhe in Java sono <strong>immutabili</strong> — una volta create, non possono essere modificate.</p>
+<p>Quando sembra che stai modificando una stringa, in realtà stai creando un nuovo oggetto:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> s <span class="op">=</span> <span class="st">"ciao"</span><span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> s<span class="op">.</span><span class="fu">toUpperCase</span><span class="op">();</span>  <span class="co">// NON modifica "ciao" — crea un nuovo oggetto "CIAO"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                      <span class="co">// "ciao" rimane in memoria finché il garbage collector non lo elimina</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ogni operazione su una <code>String</code> — concatenazione, <code>replace</code>, <code>substring</code> — crea un nuovo oggetto. L’originale non viene mai toccato.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Perché immutabile?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>L’immutabilità porta vantaggi concreti: - <strong>Thread safety</strong> — più thread possono leggere la stessa stringa senza problemi - <strong>Cache</strong> — Java può riusare stringhe identiche in memoria (String pool) - <strong>Sicurezza</strong> — una stringa passata come parametro non può essere modificata dal chiamato</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="il-problema-della-concatenazione-in-loop" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="il-problema-della-concatenazione-in-loop"><span class="header-section-number">14.2</span> Il problema della concatenazione in loop</h2>
+<p>L’immutabilità diventa un problema quando concateni stringhe in un ciclo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Approccio SBAGLIATO per grandi quantità di dati</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> risultato <span class="op">=</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10000</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    risultato <span class="op">+=</span> <span class="st">"elemento"</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span>  <span class="co">// crea un nuovo oggetto ad ogni iterazione!</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Con 10.000 iterazioni, questo codice crea 10.000 oggetti <code>String</code> intermedi — quasi tutti subito scartati. È lento e spreca memoria.</p>
+<hr>
+</section>
+<section id="stringbuilder-concatenazione-efficiente" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="stringbuilder-concatenazione-efficiente"><span class="header-section-number">14.3</span> StringBuilder: concatenazione efficiente</h2>
+<p><code>StringBuilder</code> è una stringa <strong>mutabile</strong> — puoi modificarla senza creare nuovi oggetti. È la soluzione per concatenazioni intensive.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">StringBuilder</span> sb <span class="op">=</span> <span class="kw">new</span> <span class="bu">StringBuilder</span><span class="op">();</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10000</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    sb<span class="op">.</span><span class="fu">append</span><span class="op">(</span><span class="st">"elemento"</span><span class="op">).</span><span class="fu">append</span><span class="op">(</span>i<span class="op">).</span><span class="fu">append</span><span class="op">(</span><span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> risultato <span class="op">=</span> sb<span class="op">.</span><span class="fu">toString</span><span class="op">();</span>  <span class="co">// converte in String solo alla fine</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Un solo oggetto, nessuno spreco. Molto più veloce.</p>
+<section id="metodi-principali-di-stringbuilder" class="level3" data-number="14.3.1">
+<h3 data-number="14.3.1" class="anchored" data-anchor-id="metodi-principali-di-stringbuilder"><span class="header-section-number">14.3.1</span> Metodi principali di StringBuilder</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">StringBuilder</span> sb <span class="op">=</span> <span class="kw">new</span> <span class="bu">StringBuilder</span><span class="op">(</span><span class="st">"Arthas"</span><span class="op">);</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Aggiungere in fondo</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>sb<span class="op">.</span><span class="fu">append</span><span class="op">(</span><span class="st">" il Re dei Lich"</span><span class="op">);</span>           <span class="co">// "Arthas il Re dei Lich"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Inserire in una posizione</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>sb<span class="op">.</span><span class="fu">insert</span><span class="op">(</span><span class="dv">6</span><span class="op">,</span> <span class="st">" Menethil"</span><span class="op">);</span>              <span class="co">// "Arthas Menethil il Re dei Lich"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Sostituire una porzione</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>sb<span class="op">.</span><span class="fu">replace</span><span class="op">(</span><span class="dv">7</span><span class="op">,</span> <span class="dv">15</span><span class="op">,</span> <span class="st">""</span><span class="op">);</span>                  <span class="co">// rimuove "Menethil"</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">// Eliminare una porzione</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>sb<span class="op">.</span><span class="fu">delete</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">7</span><span class="op">);</span>                        <span class="co">// rimuove "Arthas "</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">// Invertire</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>sb<span class="op">.</span><span class="fu">reverse</span><span class="op">();</span>                           <span class="co">// inverte tutta la stringa</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">// Lunghezza e carattere singolo</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> len <span class="op">=</span> sb<span class="op">.</span><span class="fu">length</span><span class="op">();</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> c <span class="op">=</span> sb<span class="op">.</span><span class="fu">charAt</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co">// Modificare un carattere</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>sb<span class="op">.</span><span class="fu">setCharAt</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="ch">'A'</span><span class="op">);</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co">// Convertire in String</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> s <span class="op">=</span> sb<span class="op">.</span><span class="fu">toString</span><span class="op">();</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="concatenare-con-join-e-formatted" class="level3" data-number="14.3.2">
+<h3 data-number="14.3.2" class="anchored" data-anchor-id="concatenare-con-join-e-formatted"><span class="header-section-number">14.3.2</span> Concatenare con join e formatted</h3>
+<p>Per casi semplici, Java offre alternative moderne:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// String.join — unisce elementi con un separatore</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> nomi <span class="op">=</span> <span class="bu">String</span><span class="op">.</span><span class="fu">join</span><span class="op">(</span><span class="st">", "</span><span class="op">,</span> <span class="st">"Arthas"</span><span class="op">,</span> <span class="st">"Gandalf"</span><span class="op">,</span> <span class="st">"Legolas"</span><span class="op">);</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">// "Arthas, Gandalf, Legolas"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Con una lista</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> lista <span class="op">=</span> <span class="bu">List</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"Arthas"</span><span class="op">,</span> <span class="st">"Gandalf"</span><span class="op">,</span> <span class="st">"Legolas"</span><span class="op">);</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> uniti <span class="op">=</span> <span class="bu">String</span><span class="op">.</span><span class="fu">join</span><span class="op">(</span><span class="st">" | "</span><span class="op">,</span> lista<span class="op">);</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">// "Arthas | Gandalf | Legolas"</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">// String.formatted — alternativa moderna a String.format</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> scheda <span class="op">=</span> <span class="st">"Nome: %s | Livello: %d | Vita: %d"</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">formatted</span><span class="op">(</span><span class="st">"Arthas"</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">150</span><span class="op">);</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">// "Nome: Arthas | Livello: 5 | Vita: 150"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Quando usare cosa
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong><code>+</code></strong> — per concatenazioni semplici e occasionali (1-2 operazioni)</li>
+<li><strong><code>StringBuilder</code></strong> — per cicli e costruzione incrementale di stringhe</li>
+<li><strong><code>String.join()</code></strong> — per unire elementi di una collezione con un separatore</li>
+<li><strong><code>String.formatted()</code></strong> / <strong><code>String.format()</code></strong> — per stringhe con valori formattati</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="metodi-avanzati-di-string" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="metodi-avanzati-di-string"><span class="header-section-number">14.4</span> Metodi avanzati di String</h2>
+<p>Alcuni metodi utili che non abbiamo ancora visto:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> s <span class="op">=</span> <span class="st">"  Arthas il Re dei Lich  "</span><span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Pulizia</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>s<span class="op">.</span><span class="fu">trim</span><span class="op">();</span>                    <span class="co">// rimuove spazi iniziali e finali</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>s<span class="op">.</span><span class="fu">strip</span><span class="op">();</span>                   <span class="co">// come trim ma gestisce anche spazi Unicode</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>s<span class="op">.</span><span class="fu">stripLeading</span><span class="op">();</span>            <span class="co">// solo spazi iniziali</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>s<span class="op">.</span><span class="fu">stripTrailing</span><span class="op">();</span>           <span class="co">// solo spazi finali</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Controllo</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>s<span class="op">.</span><span class="fu">isBlank</span><span class="op">();</span>                 <span class="co">// true se vuota o solo spazi</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>s<span class="op">.</span><span class="fu">isEmpty</span><span class="op">();</span>                 <span class="co">// true solo se lunghezza zero</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="st">"abc"</span><span class="op">.</span><span class="fu">repeat</span><span class="op">(</span><span class="dv">3</span><span class="op">);</span>             <span class="co">// "abcabcabc"</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">// Split</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> csv <span class="op">=</span> <span class="st">"Arthas,150,5"</span><span class="op">;</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span><span class="op">[]</span> parti <span class="op">=</span> csv<span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">","</span><span class="op">);</span>  <span class="co">// ["Arthas", "150", "5"]</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">// Split con limite</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span><span class="op">[]</span> prime <span class="op">=</span> csv<span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">","</span><span class="op">,</span> <span class="dv">2</span><span class="op">);</span> <span class="co">// ["Arthas", "150,5"] — max 2 parti</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co">// Confronto</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="st">"abc"</span><span class="op">.</span><span class="fu">compareTo</span><span class="op">(</span><span class="st">"abd"</span><span class="op">);</span>      <span class="co">// negativo — "abc" viene prima</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="st">"abc"</span><span class="op">.</span><span class="fu">compareToIgnoreCase</span><span class="op">(</span><span class="st">"ABC"</span><span class="op">);</span> <span class="co">// 0 — uguali ignorando maiuscole</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co">// chars() come IntStream</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="st">"Arthas"</span><span class="op">.</span><span class="fu">chars</span><span class="op">()</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>c <span class="op">-&gt;</span> c <span class="op">==</span> <span class="ch">'a'</span><span class="op">)</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">count</span><span class="op">();</span>  <span class="co">// conta le 'a' minuscole → 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="espressioni-regolari" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="espressioni-regolari"><span class="header-section-number">14.5</span> Espressioni regolari</h2>
+<p>Le <strong>espressioni regolari</strong> (regex) sono un linguaggio per descrivere pattern di testo. Permettono di cercare, validare e trasformare stringhe in modo potente.</p>
+<section id="i-caratteri-speciali-principali" class="level3" data-number="14.5.1">
+<h3 data-number="14.5.1" class="anchored" data-anchor-id="i-caratteri-speciali-principali"><span class="header-section-number">14.5.1</span> I caratteri speciali principali</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Pattern</th>
+<th>Significato</th>
+<th>Esempio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>.</code></td>
+<td>Qualsiasi carattere</td>
+<td><code>a.c</code> → “abc”, “a1c”, “a-c”</td>
+</tr>
+<tr class="even">
+<td><code>*</code></td>
+<td>Zero o più del precedente</td>
+<td><code>ab*c</code> → “ac”, “abc”, “abbc”</td>
+</tr>
+<tr class="odd">
+<td><code>+</code></td>
+<td>Uno o più del precedente</td>
+<td><code>ab+c</code> → “abc”, “abbc” (non “ac”)</td>
+</tr>
+<tr class="even">
+<td><code>?</code></td>
+<td>Zero o uno del precedente</td>
+<td><code>ab?c</code> → “ac”, “abc”</td>
+</tr>
+<tr class="odd">
+<td><code>^</code></td>
+<td>Inizio della stringa</td>
+<td><code>^Arthas</code> → inizia con “Arthas”</td>
+</tr>
+<tr class="even">
+<td><code>$</code></td>
+<td>Fine della stringa</td>
+<td><code>Lich$</code> → finisce con “Lich”</td>
+</tr>
+<tr class="odd">
+<td><code>\d</code></td>
+<td>Cifra (0-9)</td>
+<td><code>\d+</code> → uno o più cifre</td>
+</tr>
+<tr class="even">
+<td><code>\w</code></td>
+<td>Carattere word (lettere, cifre, _)</td>
+<td><code>\w+</code> → una parola</td>
+</tr>
+<tr class="odd">
+<td><code>\s</code></td>
+<td>Spazio bianco</td>
+<td><code>\s+</code> → uno o più spazi</td>
+</tr>
+<tr class="even">
+<td><code>[abc]</code></td>
+<td>Uno tra a, b, c</td>
+<td><code>[aeiou]</code> → una vocale</td>
+</tr>
+<tr class="odd">
+<td><code>[^abc]</code></td>
+<td>Nessuno tra a, b, c</td>
+<td><code>[^0-9]</code> → non una cifra</td>
+</tr>
+<tr class="even">
+<td><code>[a-z]</code></td>
+<td>Range</td>
+<td><code>[a-zA-Z]</code> → qualsiasi lettera</td>
+</tr>
+<tr class="odd">
+<td><code>{n}</code></td>
+<td>Esattamente n volte</td>
+<td><code>\d{3}</code> → esattamente 3 cifre</td>
+</tr>
+<tr class="even">
+<td><code>{n,m}</code></td>
+<td>Da n a m volte</td>
+<td><code>\d{2,4}</code> → da 2 a 4 cifre</td>
+</tr>
+<tr class="odd">
+<td><code>(abc)</code></td>
+<td>Gruppo</td>
+<td><code>(ab)+</code> → “ab”, “abab”</td>
+</tr>
+<tr class="even">
+<td><code>a\|b</code></td>
+<td>a oppure b</td>
+<td><code>gatto\|cane</code> → “gatto” o “cane”</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Escape in Java
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In Java i caratteri speciali delle regex vanno scritti con doppio backslash perché il backslash è già un carattere speciale nelle stringhe Java: - <code>\d</code> in regex → <code>"\\d"</code> in Java - <code>\w+</code> in regex → <code>"\\w+"</code> in Java</p>
+</div>
+</div>
+</section>
+<section id="matches-validare-una-stringa" class="level3" data-number="14.5.2">
+<h3 data-number="14.5.2" class="anchored" data-anchor-id="matches-validare-una-stringa"><span class="header-section-number">14.5.2</span> matches(): validare una stringa</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Verifica se tutta la stringa corrisponde al pattern</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="st">"Arthas123"</span><span class="op">.</span><span class="fu">matches</span><span class="op">(</span><span class="st">"[A-Za-z]+</span><span class="sc">\\</span><span class="st">d+"</span><span class="op">);</span>  <span class="co">// true — lettere seguite da cifre</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="st">"12345"</span><span class="op">.</span><span class="fu">matches</span><span class="op">(</span><span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span><span class="op">);</span>               <span class="co">// true — solo cifre</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="st">"abc"</span><span class="op">.</span><span class="fu">matches</span><span class="op">(</span><span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span><span class="op">);</span>                 <span class="co">// false — non sono cifre</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Validazione numero di telefono (semplificata)</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> tel <span class="op">=</span> <span class="st">"333-1234567"</span><span class="op">;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="dt">boolean</span> valido <span class="op">=</span> tel<span class="op">.</span><span class="fu">matches</span><span class="op">(</span><span class="st">"</span><span class="sc">\\</span><span class="st">d{3}-</span><span class="sc">\\</span><span class="st">d{7}"</span><span class="op">);</span>  <span class="co">// true</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">// Validazione email (semplificata)</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> email <span class="op">=</span> <span class="st">"utente@esempio.it"</span><span class="op">;</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="dt">boolean</span> emailValida <span class="op">=</span> email<span class="op">.</span><span class="fu">matches</span><span class="op">(</span><span class="st">"[</span><span class="sc">\\</span><span class="st">w.]+@[</span><span class="sc">\\</span><span class="st">w.]+</span><span class="sc">\\</span><span class="st">.[a-z]{2,}"</span><span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="replaceall-e-replacefirst" class="level3" data-number="14.5.3">
+<h3 data-number="14.5.3" class="anchored" data-anchor-id="replaceall-e-replacefirst"><span class="header-section-number">14.5.3</span> replaceAll() e replaceFirst()</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> testo <span class="op">=</span> <span class="st">"Arthas ha 100 punti e Gandalf ha 250 punti"</span><span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Sostituisce tutte le occorrenze del pattern</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> senzaNumeri <span class="op">=</span> testo<span class="op">.</span><span class="fu">replaceAll</span><span class="op">(</span><span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span><span class="op">,</span> <span class="st">"###"</span><span class="op">);</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">// "Arthas ha </span><span class="al">###</span><span class="co"> punti e Gandalf ha </span><span class="al">###</span><span class="co"> punti"</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Sostituisce solo la prima occorrenza</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> primoSostituito <span class="op">=</span> testo<span class="op">.</span><span class="fu">replaceFirst</span><span class="op">(</span><span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span><span class="op">,</span> <span class="st">"###"</span><span class="op">);</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">// "Arthas ha </span><span class="al">###</span><span class="co"> punti e Gandalf ha 250 punti"</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">// Rimuove tutti gli spazi multipli</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> pulita <span class="op">=</span> <span class="st">"Arthas   il    Re"</span><span class="op">.</span><span class="fu">replaceAll</span><span class="op">(</span><span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span><span class="op">,</span> <span class="st">" "</span><span class="op">);</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">// "Arthas il Re"</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">// Rimuove tutti i caratteri non alfanumerici</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> soloAlpha <span class="op">=</span> <span class="st">"Art#has-123!"</span><span class="op">.</span><span class="fu">replaceAll</span><span class="op">(</span><span class="st">"[^</span><span class="sc">\\</span><span class="st">w]"</span><span class="op">,</span> <span class="st">""</span><span class="op">);</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">// "Arthas123"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="split-con-regex" class="level3" data-number="14.5.4">
+<h3 data-number="14.5.4" class="anchored" data-anchor-id="split-con-regex"><span class="header-section-number">14.5.4</span> split() con regex</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Split su qualsiasi spazio bianco</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span><span class="op">[]</span> parole <span class="op">=</span> <span class="st">"Arthas   il Re"</span><span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span><span class="op">);</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">// ["Arthas", "il", "Re"]</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Split su virgola con spazi opzionali</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span><span class="op">[]</span> nomi <span class="op">=</span> <span class="st">"Arthas, Gandalf ,Legolas"</span><span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">"</span><span class="sc">\\</span><span class="st">s*,</span><span class="sc">\\</span><span class="st">s*"</span><span class="op">);</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">// ["Arthas", "Gandalf", "Legolas"]</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Split su più separatori</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span><span class="op">[]</span> parti <span class="op">=</span> <span class="st">"uno:due;tre,quattro"</span><span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">"[;:,]"</span><span class="op">);</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">// ["uno", "due", "tre", "quattro"]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="pattern-e-matcher-ricerca-avanzata" class="level3" data-number="14.5.5">
+<h3 data-number="14.5.5" class="anchored" data-anchor-id="pattern-e-matcher-ricerca-avanzata"><span class="header-section-number">14.5.5</span> Pattern e Matcher: ricerca avanzata</h3>
+<p>Per ricerche più sofisticate si usano le classi <code>Pattern</code> e <code>Matcher</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">regex</span><span class="op">.*;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> testo <span class="op">=</span> <span class="st">"Arthas ha 150 vita e 30 di attacco"</span><span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="bu">Pattern</span> pattern <span class="op">=</span> <span class="bu">Pattern</span><span class="op">.</span><span class="fu">compile</span><span class="op">(</span><span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span><span class="op">);</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="bu">Matcher</span> matcher <span class="op">=</span> pattern<span class="op">.</span><span class="fu">matcher</span><span class="op">(</span>testo<span class="op">);</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Trova tutte le occorrenze</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>matcher<span class="op">.</span><span class="fu">find</span><span class="op">())</span> <span class="op">{</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Trovato: "</span> <span class="op">+</span> matcher<span class="op">.</span><span class="fu">group</span><span class="op">()</span> <span class="op">+</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">" alla posizione "</span> <span class="op">+</span> matcher<span class="op">.</span><span class="fu">start</span><span class="op">());</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Trovato: 150 alla posizione 10</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">// Trovato: 30 alla posizione 22</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Con i <strong>gruppi</strong> puoi estrarre parti specifiche del match:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> dati <span class="op">=</span> <span class="st">"Arthas:livello=5,vita=150"</span><span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Pattern</span> p <span class="op">=</span> <span class="bu">Pattern</span><span class="op">.</span><span class="fu">compile</span><span class="op">(</span><span class="st">"(</span><span class="sc">\\</span><span class="st">w+):livello=(</span><span class="sc">\\</span><span class="st">d+),vita=(</span><span class="sc">\\</span><span class="st">d+)"</span><span class="op">);</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">Matcher</span> m <span class="op">=</span> p<span class="op">.</span><span class="fu">matcher</span><span class="op">(</span>dati<span class="op">);</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>m<span class="op">.</span><span class="fu">matches</span><span class="op">())</span> <span class="op">{</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Nome:    "</span> <span class="op">+</span> m<span class="op">.</span><span class="fu">group</span><span class="op">(</span><span class="dv">1</span><span class="op">));</span>  <span class="co">// Arthas</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Livello: "</span> <span class="op">+</span> m<span class="op">.</span><span class="fu">group</span><span class="op">(</span><span class="dv">2</span><span class="op">));</span>  <span class="co">// 5</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Vita:    "</span> <span class="op">+</span> m<span class="op">.</span><span class="fu">group</span><span class="op">(</span><span class="dv">3</span><span class="op">));</span>  <span class="co">// 150</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="esempio-completo-parser-di-un-log-di-gioco" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="esempio-completo-parser-di-un-log-di-gioco"><span class="header-section-number">14.6</span> Esempio completo: parser di un log di gioco</h2>
+<p>Mettiamo tutto insieme — leggiamo e analizziamo righe di log di un gioco:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">regex</span><span class="op">.*;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">stream</span><span class="op">.*;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> AnalisiLog <span class="op">{</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Righe di log simulate</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> log <span class="op">=</span> <span class="bu">List</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">"[10:05] Arthas ha sconfitto Zombie (+50 punti)"</span><span class="op">,</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">"[10:07] Gandalf ha lanciato Fireball (-25 mana)"</span><span class="op">,</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">"[10:09] Arthas ha sconfitto Scheletro (+30 punti)"</span><span class="op">,</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">"[10:12] Legolas ha mancato il bersaglio"</span><span class="op">,</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">"[10:15] Gandalf ha sconfitto Drago (+200 punti)"</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">);</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Pattern per estrarre: timestamp, nome, punti</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Pattern</span> punteggio <span class="op">=</span> <span class="bu">Pattern</span><span class="op">.</span><span class="fu">compile</span><span class="op">(</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">"</span><span class="sc">\\</span><span class="st">[(</span><span class="sc">\\</span><span class="st">d+:</span><span class="sc">\\</span><span class="st">d+)</span><span class="sc">\\</span><span class="st">] (</span><span class="sc">\\</span><span class="st">w+) ha sconfitto .+ </span><span class="sc">\\</span><span class="st">(</span><span class="sc">\\</span><span class="st">+(</span><span class="sc">\\</span><span class="st">d+) punti</span><span class="sc">\\</span><span class="st">)"</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">);</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Costruisci mappa nome → punti totali</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Integer</span><span class="op">&gt;</span> totali <span class="op">=</span> <span class="kw">new</span> <span class="bu">HashMap</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="bu">String</span> riga <span class="op">:</span> log<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>            <span class="bu">Matcher</span> m <span class="op">=</span> punteggio<span class="op">.</span><span class="fu">matcher</span><span class="op">(</span>riga<span class="op">);</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(</span>m<span class="op">.</span><span class="fu">matches</span><span class="op">())</span> <span class="op">{</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>                <span class="bu">String</span> nome <span class="op">=</span> m<span class="op">.</span><span class="fu">group</span><span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>                <span class="dt">int</span> punti <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>m<span class="op">.</span><span class="fu">group</span><span class="op">(</span><span class="dv">3</span><span class="op">));</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>                totali<span class="op">.</span><span class="fu">merge</span><span class="op">(</span>nome<span class="op">,</span> punti<span class="op">,</span> <span class="bu">Integer</span><span class="op">::</span>sum<span class="op">);</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Report finale con StringBuilder</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>        <span class="bu">StringBuilder</span> report <span class="op">=</span> <span class="kw">new</span> <span class="bu">StringBuilder</span><span class="op">();</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>        report<span class="op">.</span><span class="fu">append</span><span class="op">(</span><span class="st">"=== REPORT FINALE ===</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>        totali<span class="op">.</span><span class="fu">entrySet</span><span class="op">().</span><span class="fu">stream</span><span class="op">()</span></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">sorted</span><span class="op">(</span><span class="bu">Map</span><span class="op">.</span><span class="fu">Entry</span><span class="op">.&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Integer</span><span class="op">&gt;</span><span class="fu">comparingByValue</span><span class="op">().</span><span class="fu">reversed</span><span class="op">())</span></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">forEach</span><span class="op">(</span>e <span class="op">-&gt;</span> report</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">append</span><span class="op">(</span>e<span class="op">.</span><span class="fu">getKey</span><span class="op">())</span></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">append</span><span class="op">(</span><span class="st">": "</span><span class="op">)</span></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">append</span><span class="op">(</span>e<span class="op">.</span><span class="fu">getValue</span><span class="op">())</span></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">append</span><span class="op">(</span><span class="st">" punti</span><span class="sc">\n</span><span class="st">"</span><span class="op">));</span></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>report<span class="op">.</span><span class="fu">toString</span><span class="op">());</span></span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Output:</p>
+<pre><code>=== REPORT FINALE ===
+Gandalf: 200 punti
+Arthas: 80 punti</code></pre>
+<hr>
+</section>
+<section id="riepilogo" class="level2" data-number="14.7">
+<h2 data-number="14.7" class="anchored" data-anchor-id="riepilogo"><span class="header-section-number">14.7</span> Riepilogo</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>I concetti chiave di questa lezione
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>String</code> è <strong>immutabile</strong> — ogni operazione crea un nuovo oggetto.</li>
+<li><code>StringBuilder</code> è <strong>mutabile</strong> — usalo per concatenazioni in cicli o costruzioni incrementali.</li>
+<li>Usa <code>String.join()</code> per unire elementi e <code>String.formatted()</code> per stringhe con valori.</li>
+<li>Le <strong>espressioni regolari</strong> descrivono pattern di testo: <code>.</code>, <code>*</code>, <code>+</code>, <code>\d</code>, <code>\w</code>, <code>[]</code>, <code>{}</code>.</li>
+<li><code>matches()</code> valida, <code>replaceAll()</code> sostituisce, <code>split()</code> divide — tutti accettano regex.</li>
+<li><code>Pattern</code> e <code>Matcher</code> permettono ricerche avanzate con estrazione di gruppi.</li>
+<li>In Java i backslash nelle regex vanno raddoppiati: <code>\d</code> → <code>"\\d"</code>.</li>
+</ul>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../docs/java/12_stream_pipeline.html" class="pagination-link" aria-label="Stream e pipeline">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Stream e pipeline</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../docs/java/14_path_files_log.html" class="pagination-link" aria-label="Path, Files e Log">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Path, Files e Log</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

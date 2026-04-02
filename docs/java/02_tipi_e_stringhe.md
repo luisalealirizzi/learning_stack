@@ -26,7 +26,7 @@ Personaggio eroe = ...;  // eroe contiene un indirizzo, non l'oggetto
 
 ## Gli 8 tipi primitivi
 
-Java ha esattamente **8 tipi primitivi**, divisi in quattro categorie:
+Java ha **8 tipi primitivi**, divisi in quattro categorie:
 
 | Categoria | Tipo | Dimensione | Intervallo / Note |
 |---|---|---|---|
@@ -83,14 +83,14 @@ System.out.println(x); // ERRORE: variable x might not have been initialized
 
 A volte devi convertire un tipo in un altro. Java distingue due casi:
 
-**Widening casting** (implicito) — da un tipo "piccolo" a uno "grande", senza perdita di dati. Java lo fa automaticamente:
+**Casting implicito**  da un tipo "piccolo" a uno "grande", senza perdita di dati. Java lo fa automaticamente:
 
 ```java
 int n = 42;
 double d = n;  // automatico: int → double, nessun problema
 ```
 
-**Narrowing casting** (esplicito) — da un tipo "grande" a uno "piccolo", con possibile perdita di dati. Devi dirlo esplicitamente con le parentesi:
+**Casting esplicito**  da un tipo "grande" a uno "piccolo", con possibile perdita di dati. Devi dirlo esplicitamente con le parentesi:
 
 ```java
 double punteggio = 97.8;
@@ -335,7 +335,7 @@ public class Scheda {
 ## Riepilogo
 
 ::: {.callout-note}
-## I concetti chiave di questa lezione
+## I concetti chiave
 
 - Java ha **8 tipi primitivi**: `byte`, `short`, `int`, `long`, `float`, `double`, `char`, `boolean`.
 - I tipi primitivi contengono direttamente il valore; gli oggetti contengono un **riferimento**.

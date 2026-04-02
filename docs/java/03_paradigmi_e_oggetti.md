@@ -119,9 +119,9 @@ La stessa azione può comportarsi in modo diverso a seconda dell'oggetto che la 
 
 ## Classi e oggetti
 
-Gli oggetti non nascono dal nulla: vengono creati a partire da uno **schema** chiamato **classe**.
+Gli oggetti vengono creati a partire da uno **schema** chiamato **classe**.
 
-Una classe è come la **scheda tipo di un personaggio** in un GDR: descrive quali statistiche ha ogni personaggio di quel tipo e cosa sa fare. La scheda non è il personaggio — è il modello da cui si creano tanti personaggi diversi, ognuno con i propri valori.
+Una classe è come la **scheda tipo di un oggetto**. Nell'esempio del gioco la scheda di un personaggio descrive quali statistiche ha ogni personaggio di quel tipo e cosa sa fare. La scheda non è il personaggio — è il modello da cui si creano tanti personaggi diversi, ognuno con i propri valori.
 
 | | Descrizione | Esempio |
 |---|---|---|
@@ -138,7 +138,7 @@ Un **oggetto** è un'istanza concreta di una classe, con i propri valori.
 
 ## Il primo oggetto in Java
 
-Vediamo subito come si traduce tutto questo in codice. Modelliamo un personaggio di un videogioco.
+Vediamo come si traduce tutto questo in codice. Modelliamo un personaggio di un videogioco.
 
 **Cosa descrive un personaggio?**
 `nome`, `vita`, `attacco`, `livello`
@@ -240,5 +240,3 @@ I due oggetti sono **indipendenti**: modificare la vita di uno non influenza l'a
 - La **notazione punto** permette di accedere ad attributi e metodi: `oggetto.metodo()`.
 - I tre pilastri dell'OOP sono **incapsulamento**, **ereditarietà** e **polimorfismo**.
 :::
-
-Nella prossima lezione vedremo come scrivere una classe completa e ben strutturata, con costruttori, getter e setter.

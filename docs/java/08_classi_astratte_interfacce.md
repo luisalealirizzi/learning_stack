@@ -13,7 +13,7 @@ Personaggio
 └── Arciere
 ```
 
-Ogni sottoclasse ridefinisce `attacca()` con il proprio comportamento. Ma la versione di `attacca()` in `Personaggio` — quella base — non ha molto senso da sola:
+Ogni sottoclasse ridefinisce `attacca()` con il proprio comportamento. Ma la versione di `attacca()` in `Personaggio` (quella base) non ha molto senso da sola:
 
 ```java
 public void attacca(Personaggio bersaglio) {
@@ -32,7 +32,7 @@ La risposta è la **classe astratta**.
 
 ## Classi astratte
 
-Una **classe astratta** è una classe che non può essere istanziata direttamente — esiste solo per essere estesa. Si dichiara con la parola chiave `abstract`.
+Una **classe astratta** è una classe che non può essere istanziata direttamente, esiste solo per essere estesa. Si dichiara con la parola chiave `abstract`.
 
 ```java
 public abstract class Personaggio {
@@ -96,7 +96,7 @@ public abstract class Personaggio {
 ::: {.callout-note}
 ## Regole delle classi astratte
 - Si dichiarano con `abstract class`
-- **Non possono essere istanziate** direttamente — `new Personaggio()` dà errore
+- **Non possono essere istanziate** direttamente: `new Personaggio()` dà errore
 - Possono avere sia metodi **concreti** (con implementazione) sia metodi **astratti** (senza)
 - Ogni classe figlia **deve** implementare tutti i metodi astratti, altrimenti deve essere astratta anche lei
 :::
@@ -105,10 +105,10 @@ public abstract class Personaggio {
 
 ## Metodi astratti
 
-Un **metodo astratto** è un metodo senza corpo — solo la firma, seguita da `;`. Dice alle sottoclassi: *"questo metodo deve esistere, ma tocca a te decidere come funziona"*.
+Un **metodo astratto** è un metodo senza corpo con solo la firma, seguita da `;`. Dice alle sottoclassi: *"questo metodo deve esistere, ma tocca a te decidere come funziona"*.
 
 ```java
-public abstract void attacca(Personaggio bersaglio);  // nessun corpo!
+public abstract void attacca(Personaggio bersaglio);  // nessun corpo
 ```
 
 Se una sottoclasse non implementa tutti i metodi astratti, il compilatore dà errore. È un modo per **forzare un contratto**: ogni tipo concreto di personaggio deve saper attaccare.
@@ -117,7 +117,7 @@ Se una sottoclasse non implementa tutti i metodi astratti, il compilatore dà er
 
 ## Le sottoclassi concrete
 
-Ora le sottoclassi non possono più ignorare `attacca()` — devono implementarlo:
+Ora le sottoclassi non possono più ignorare `attacca()`,  devono implementarlo:
 
 ```java
 public class Guerriero extends Personaggio {
@@ -185,7 +185,7 @@ Le classi astratte risolvono il problema dell'astrazione nella gerarchia. Ma Jav
 
 E se volessimo aggiungere capacità trasversali? Ad esempio, alcune entità del gioco possono essere **curate**, altre possono essere **salvate** su file, altre ancora possono essere **osservate** da altri oggetti.
 
-Queste capacità non appartengono alla gerarchia `Personaggio` — sono comportamenti che classi diverse possono condividere indipendentemente.
+Queste capacità non appartengono alla gerarchia `Personaggio`, sono comportamenti che classi diverse possono condividere indipendentemente.
 
 Per questo esistono le **interfacce**.
 
@@ -213,7 +213,7 @@ public interface Salvabile {
 }
 ```
 
-Un'interfaccia può anche avere **metodi default** — metodi con un'implementazione di base che le classi possono sovrascrivere o usare così com'è:
+Un'interfaccia può anche avere **metodi default**: metodi con un'implementazione di base che le classi possono sovrascrivere o usare così com'è:
 
 ```java
 public interface Curabile {
@@ -286,7 +286,7 @@ Questo è il modo in cui Java simula l'ereditarietà multipla in modo sicuro.
 
 ## Classe astratta vs interfaccia
 
-È una domanda frequente. Ecco le differenze principali:
+Ecco le differenze principali:
 
 | | Classe astratta | Interfaccia |
 |---|---|---|
@@ -340,17 +340,17 @@ public class Main {
 }
 ```
 
-Nota come `eroe` può essere trattato come `Guerriero`, come `Curabile` e come `Salvabile` — è lo stesso oggetto visto attraverso interfacce diverse. Questo è il polimorfismo applicato alle interfacce.
+Nota come `eroe` può essere trattato come `Guerriero`, come `Curabile` e come `Salvabile: è lo stesso oggetto visto attraverso interfacce diverse. Questo è il polimorfismo applicato alle interfacce.
 
 ---
 
 ## Riepilogo
 
 ::: {.callout-note}
-## I concetti chiave di questa lezione
+## I concetti chiave
 
-- Una **classe astratta** non può essere istanziata — esiste solo per essere estesa.
-- Un **metodo astratto** non ha corpo — ogni sottoclasse concreta deve implementarlo.
+- Una **classe astratta** non può essere istanziata, esiste solo per essere estesa.
+- Un **metodo astratto** non ha corpo: ogni sottoclasse concreta deve implementarlo.
 - Una **interfaccia** è un contratto puro: dichiara metodi senza implementazione (salvo i `default`).
 - Una classe può estendere **una sola** classe madre ma implementare **quante interfacce vuole**.
 - Usa la classe astratta per **gerarchie con codice condiviso**; usa l'interfaccia per **capacità trasversali**.

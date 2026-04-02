@@ -6,7 +6,7 @@
 
 Prima di scrivere una sola riga di codice, vale la pena capire **perché esiste Java** e cosa lo rende diverso dai linguaggi che conosci già.
 
-Con il C hai imparato a ragionare in modo imperativo: istruzioni, variabili, funzioni. Ma il C ha un limite importante — il codice compilato funziona **solo** sulla macchina per cui è stato compilato. Un programma compilato su Linux non gira su Windows, e viceversa.
+Con il C hai imparato a ragionare in modo imperativo: istruzioni, variabili, funzioni. Con il c il codice compilato funziona **solo** sulla macchina per cui è stato compilato. Un programma compilato su Linux non gira su Windows, e viceversa.
 
 Java nasce negli anni '90 con un obiettivo preciso:
 
@@ -63,20 +63,20 @@ Codice sorgente (.java)
 La JVM non si limita a interpretare il bytecode riga per riga. Al suo interno c'è anche un compilatore **Just-In-Time (JIT)** che, mentre il programma gira, traduce le parti più usate direttamente in codice macchina nativo. Risultato: la velocità si avvicina a quella del C, mantenendo la portabilità.
 :::
 
-Il bytecode non è codice macchina — non può girare direttamente sul processore. Ma è uguale su tutte le piattaforme. Basta avere la JVM installata, e il programma gira.
+Il bytecode non è codice macchina e non può girare direttamente sul processore. Ma è uguale su tutte le piattaforme. Basta avere la JVM installata, e il programma gira.
 
 ---
 
 ## Perché si chiama Java?
 
-Una curiosità che non trovi sul libro. Il nome originale del linguaggio era **Oak** ("quercia"). Peccato che esistesse già un altro linguaggio con quel nome — serviva un'alternativa.
+Il nome originale del linguaggio era **Oak** ("quercia") ma esisteva già un altro linguaggio con quel nome e serviva un'alternativa.
 
 Durante una riunione che stava diventando molto lunga, il team di sviluppatori stava bevendo grandi quantità di caffè. Qualcuno propose **Java** — slang americano per "caffè", che prende il nome dall'isola indonesiana famosa per le sue piantagioni.
 
 Il nome piacque e rimase. Da qui il logo della tazzina fumante che ancora oggi identifica Java.
 
 ::: {.callout-note}
-## JDK, JRE e JVM — le sigle che vedrai spesso
+## JDK, JRE e JVM — le sigle ricorrenti
 
 - **JVM** (Java Virtual Machine) — esegue il bytecode
 - **JRE** (Java Runtime Environment) — JVM + librerie standard, per chi vuole solo *eseguire* programmi Java
@@ -89,7 +89,7 @@ Se stai sviluppando, ti serve il JDK.
 
 ## File e programmi: Java vs C
 
-In C i programmi erano divisi in file `.h` (intestazioni con le dichiarazioni) e file `.c` (implementazioni). Per collegare tutto si usava `#include`, che funziona in modo molto meccanico: il compilatore copia letteralmente il contenuto del file incluso dentro al programma.
+In C i programmi erano divisi in file `.h` (intestazioni con le dichiarazioni) e file `.c` (implementazioni). Per collegare tutto si usava `#include`, che funziona in modo molto meccanico: il compilatore copia il contenuto del file incluso dentro al programma.
 
 Java funziona diversamente:
 
@@ -103,7 +103,7 @@ import java.util.Scanner;  // importa la classe Scanner
 
 ::: {.callout-important}
 ## `import` non è `#include`
-Quando scrivi `import`, non stai copiando del codice nel tuo file. Stai solo dicendo al compilatore **dove trovare** quella classe. È come aggiungere un indirizzo a una rubrica — non come fare una fotocopia del contenuto.
+Quando scrivi `import`, non stai copiando del codice nel tuo file. Stai solo dicendo al compilatore **dove trovare** quella classe.
 :::
 
 ---
@@ -147,7 +147,7 @@ Analizziamola pezzo per pezzo:
 
 ::: {.callout-note}
 ## Il main non va in tutte le classi
-Il `main` serve **solo nella classe da cui parte il programma**. Tutte le altre classi (come `Personaggio`, `Arma`, ecc. che hai visto nel modulo OOP) non hanno un `main` — hanno solo attributi e metodi.
+Il `main` serve **solo nella classe da cui parte il programma**. Tutte le altre classi non hanno un `main` — hanno solo attributi e metodi.
 :::
 
 ---
@@ -198,7 +198,7 @@ Il comando `java` vuole il **nome della classe**, non il nome del file. Quindi `
 ## Riepilogo
 
 ::: {.callout-note}
-## I concetti chiave di questa lezione
+## I concetti chiave 
 
 - Java compila il sorgente `.java` in **bytecode** `.class`, non in codice macchina.
 - La **JVM** esegue il bytecode su qualsiasi sistema operativo — *write once, run anywhere*.
@@ -208,5 +208,3 @@ Il comando `java` vuole il **nome della classe**, non il nome del file. Quindi `
 - Ogni programma ha un punto di ingresso: il metodo **`main`**.
 - `System.out.println()` è già OOP: classe, oggetto e metodo.
 :::
-
-Nella prossima lezione vedremo i **tipi di dato** di Java — dai tipi primitivi alla classe `String` — e come leggere input da tastiera.
