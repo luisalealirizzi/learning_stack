@@ -51,6 +51,6 @@ book:
 format:
   html:
     theme: cosmo
-    highlight-style: github-dark
+    highlight-style: github
     code-copy: true
     toc: true
