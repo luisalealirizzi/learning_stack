@@ -9,12 +9,12 @@ book:
   chapters:
     - index.qmd
 
-    - part: "Modulo 1 — Introduzione a Java"
+    - part: "Introduzione a Java"
       chapters:
         - docs/java/01_introduzione.md
         - docs/java/02_tipi_e_stringhe.md
 
-    - part: "Modulo 2 — OOP"
+    - part: "OOP"
       chapters:
         - docs/java/03_paradigmi_e_oggetti.md
         - docs/java/04_creare_una_classe.md
@@ -23,26 +23,26 @@ book:
         - docs/java/07_polimorfismo_upcasting.md
         - docs/java/08_classi_astratte_interfacce.md
 
-    - part: "Modulo 3 — Eccezioni"
+    - part: "Eccezioni"
       chapters:
         - docs/java/09_eccezioni.md
 
-    - part: "Modulo 4 — Collections e Stream"
+    - part: "Collections e Stream"
       chapters:
         - docs/java/10_collections.md
         - docs/java/11_list_set_queue.md
         - docs/java/12_stream_pipeline.md
 
-    - part: "Modulo 5 — Stringhe avanzate"
+    - part: "Stringhe e applicazioni"
       chapters:
         - docs/java/13_stringhe_avanzate.md
 
-    - part: "Modulo 6 — Gestione file"
+    - part: "Gestione file"
       chapters:
         - docs/java/14_path_files_log.md
         - docs/java/15_buffer_scrittura.md
 
-    - part: "Modulo 7 — Qualità del codice"
+    - part: "Qualità del codice"
       chapters:
         - docs/java/16_testing_junit.md
         - docs/java/17_solid.md

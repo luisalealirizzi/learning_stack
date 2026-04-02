@@ -351,7 +351,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#attributi-e-incapsulamento" id="toc-attributi-e-incapsulamento" class="nav-link" data-scroll-target="#attributi-e-incapsulamento"><span class="header-section-number">5.3</span> Attributi e incapsulamento</a></li>
   <li><a href="#il-costruttore" id="toc-il-costruttore" class="nav-link" data-scroll-target="#il-costruttore"><span class="header-section-number">5.4</span> Il costruttore</a></li>
   <li><a href="#la-parola-chiave-this" id="toc-la-parola-chiave-this" class="nav-link" data-scroll-target="#la-parola-chiave-this"><span class="header-section-number">5.5</span> La parola chiave <code>this</code></a></li>
-  <li><a href="#tipi-di-costruttori" id="toc-tipi-di-costruttori" class="nav-link" data-scroll-target="#tipi-di-costruttori"><span class="header-section-number">5.6</span> Tipi di costruttori</a></li>
+  <li><a href="#tipi-di-costruttori" id="toc-tipi-di-costruttori" class="nav-link" data-scroll-target="#tipi-di-costruttori"><span class="header-section-number">5.6</span> Tipi di costruttori</a>
+  <ul class="collapse">
+  <li><a href="#overloading" id="toc-overloading" class="nav-link" data-scroll-target="#overloading"><span class="header-section-number">5.6.1</span> Overloading</a></li>
+  </ul></li>
   <li><a href="#getter-e-setter" id="toc-getter-e-setter" class="nav-link" data-scroll-target="#getter-e-setter"><span class="header-section-number">5.7</span> Getter e setter</a></li>
   <li><a href="#la-classe-completa" id="toc-la-classe-completa" class="nav-link" data-scroll-target="#la-classe-completa"><span class="header-section-number">5.8</span> La classe completa</a></li>
   <li><a href="#usare-la-classe" id="toc-usare-la-classe" class="nav-link" data-scroll-target="#usare-la-classe"><span class="header-section-number">5.9</span> Usare la classe</a></li>
@@ -563,10 +566,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="fu">livello</span> <span class="op">=</span> altro<span class="op">.</span><span class="fu">livello</span><span class="op">;</span></span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Uso dei tre costruttori:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Personaggio p1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Personaggio</span><span class="op">();</span>                        <span class="co">// vuoto</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Personaggio p1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Personaggio</span><span class="op">();</span>                       <span class="co">// vuoto</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>Personaggio p2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Personaggio</span><span class="op">(</span><span class="st">"Arthas"</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">35</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span>   <span class="co">// con parametri</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>Personaggio p3 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Personaggio</span><span class="op">(</span>p2<span class="op">);</span>                      <span class="co">// copia di p2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>Personaggio p3 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Personaggio</span><span class="op">(</span>p2<span class="op">);</span>                     <span class="co">// copia di p2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="overloading" class="level3" data-number="5.6.1">
+<h3 data-number="5.6.1" class="anchored" data-anchor-id="overloading"><span class="header-section-number">5.6.1</span> Overloading</h3>
+<p>Hai appena visto tre costruttori con lo stesso nome Personaggio ma parametri diversi. Questo meccanismo si chiama overloading — e non vale solo per i costruttori, ma per qualsiasi metodo. L’overloading permette di definire più metodi con lo stesso nome nella stessa classe, a patto che abbiano firme diverse — cioè numero o tipo di parametri diversi. Il compilatore sceglie quale versione chiamare in base agli argomenti passati.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le regole dell’overloading</p>
+<p>I metodi devono avere lo stesso nome Devono differire per numero e/o tipo di parametri Il tipo di ritorno da solo non basta — due metodi con stessa firma e tipi di ritorno diversi danno errore di compilazione L’overloading è risolto a compile time — il compilatore sa già quale versione chiamare</p>
+</div>
+</div>
 <hr>
+</section>
 </section>
 <section id="getter-e-setter" class="level2" data-number="5.7">
 <h2 data-number="5.7" class="anchored" data-anchor-id="getter-e-setter"><span class="header-section-number">5.7</span> Getter e setter</h2>
@@ -788,7 +809,7 @@ Stato:    in vita</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>I concetti chiave di questa lezione
+<span class="screen-reader-only">Note</span>I concetti chiave
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -803,7 +824,6 @@ Stato:    in vita</code></pre>
 </ul>
 </div>
 </div>
-<p>Nella prossima lezione approfondiremo l’incapsulamento e i tipi di dato astratti — il cuore teorico di tutto quello che abbiamo fatto fin qui.</p>
 
 
 </section>

@@ -346,23 +346,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#lavorare-con-il-filesystem" id="toc-lavorare-con-il-filesystem" class="nav-link active" data-scroll-target="#lavorare-con-il-filesystem"><span class="header-section-number">15.1</span> Lavorare con il filesystem</a></li>
-  <li><a href="#path-rappresentare-un-percorso" id="toc-path-rappresentare-un-percorso" class="nav-link" data-scroll-target="#path-rappresentare-un-percorso"><span class="header-section-number">15.2</span> Path: rappresentare un percorso</a></li>
-  <li><a href="#files-operare-sui-file" id="toc-files-operare-sui-file" class="nav-link" data-scroll-target="#files-operare-sui-file"><span class="header-section-number">15.3</span> Files: operare sui file</a>
+  <li><a href="#lavorare-con-i-file-una-premessa" id="toc-lavorare-con-i-file-una-premessa" class="nav-link active" data-scroll-target="#lavorare-con-i-file-una-premessa"><span class="header-section-number">15.1</span> Lavorare con i file: una premessa</a></li>
+  <li><a href="#path-non-è-una-stringa" id="toc-path-non-è-una-stringa" class="nav-link" data-scroll-target="#path-non-è-una-stringa"><span class="header-section-number">15.2</span> Path: non è una stringa</a></li>
+  <li><a href="#percorsi-relativi-e-assoluti" id="toc-percorsi-relativi-e-assoluti" class="nav-link" data-scroll-target="#percorsi-relativi-e-assoluti"><span class="header-section-number">15.3</span> Percorsi relativi e assoluti</a></li>
+  <li><a href="#path-vs-files-separazione-delle-responsabilità" id="toc-path-vs-files-separazione-delle-responsabilità" class="nav-link" data-scroll-target="#path-vs-files-separazione-delle-responsabilità"><span class="header-section-number">15.4</span> Path vs Files: separazione delle responsabilità</a></li>
+  <li><a href="#operazioni-di-base-su-path" id="toc-operazioni-di-base-su-path" class="nav-link" data-scroll-target="#operazioni-di-base-su-path"><span class="header-section-number">15.5</span> Operazioni di base su Path</a></li>
+  <li><a href="#verificare-esistenza-e-tipo" id="toc-verificare-esistenza-e-tipo" class="nav-link" data-scroll-target="#verificare-esistenza-e-tipo"><span class="header-section-number">15.6</span> Verificare esistenza e tipo</a></li>
+  <li><a href="#leggere-un-file-tre-approcci" id="toc-leggere-un-file-tre-approcci" class="nav-link" data-scroll-target="#leggere-un-file-tre-approcci"><span class="header-section-number">15.7</span> Leggere un file: tre approcci</a>
   <ul class="collapse">
-  <li><a href="#verificare-esistenza-e-tipo" id="toc-verificare-esistenza-e-tipo" class="nav-link" data-scroll-target="#verificare-esistenza-e-tipo"><span class="header-section-number">15.3.1</span> Verificare esistenza e tipo</a></li>
-  <li><a href="#leggere-un-file" id="toc-leggere-un-file" class="nav-link" data-scroll-target="#leggere-un-file"><span class="header-section-number">15.3.2</span> Leggere un file</a></li>
-  <li><a href="#scrivere-un-file" id="toc-scrivere-un-file" class="nav-link" data-scroll-target="#scrivere-un-file"><span class="header-section-number">15.3.3</span> Scrivere un file</a></li>
-  <li><a href="#operazioni-su-file-e-directory" id="toc-operazioni-su-file-e-directory" class="nav-link" data-scroll-target="#operazioni-su-file-e-directory"><span class="header-section-number">15.3.4</span> Operazioni su file e directory</a></li>
+  <li><a href="#readalllines-tutto-in-memoria" id="toc-readalllines-tutto-in-memoria" class="nav-link" data-scroll-target="#readalllines-tutto-in-memoria"><span class="header-section-number">15.7.1</span> <code>readAllLines()</code> — tutto in memoria</a></li>
+  <li><a href="#readstring-come-unica-stringa" id="toc-readstring-come-unica-stringa" class="nav-link" data-scroll-target="#readstring-come-unica-stringa"><span class="header-section-number">15.7.2</span> <code>readString()</code> — come unica stringa</a></li>
+  <li><a href="#files.lines-stream-lazy" id="toc-files.lines-stream-lazy" class="nav-link" data-scroll-target="#files.lines-stream-lazy"><span class="header-section-number">15.7.3</span> <code>Files.lines()</code> — stream lazy</a></li>
   </ul></li>
-  <li><a href="#salvataggio-e-caricamento-di-dati" id="toc-salvataggio-e-caricamento-di-dati" class="nav-link" data-scroll-target="#salvataggio-e-caricamento-di-dati"><span class="header-section-number">15.4</span> Salvataggio e caricamento di dati</a></li>
-  <li><a href="#log-registrare-gli-eventi" id="toc-log-registrare-gli-eventi" class="nav-link" data-scroll-target="#log-registrare-gli-eventi"><span class="header-section-number">15.5</span> Log: registrare gli eventi</a>
-  <ul class="collapse">
-  <li><a href="#log-semplice-con-files" id="toc-log-semplice-con-files" class="nav-link" data-scroll-target="#log-semplice-con-files"><span class="header-section-number">15.5.1</span> Log semplice con Files</a></li>
-  <li><a href="#leggere-e-analizzare-i-log" id="toc-leggere-e-analizzare-i-log" class="nav-link" data-scroll-target="#leggere-e-analizzare-i-log"><span class="header-section-number">15.5.2</span> Leggere e analizzare i log</a></li>
-  </ul></li>
-  <li><a href="#gestione-delle-date-e-ore" id="toc-gestione-delle-date-e-ore" class="nav-link" data-scroll-target="#gestione-delle-date-e-ore"><span class="header-section-number">15.6</span> Gestione delle date e ore</a></li>
-  <li><a href="#riepilogo" id="toc-riepilogo" class="nav-link" data-scroll-target="#riepilogo"><span class="header-section-number">15.7</span> Riepilogo</a></li>
+  <li><a href="#scrivere-un-file" id="toc-scrivere-un-file" class="nav-link" data-scroll-target="#scrivere-un-file"><span class="header-section-number">15.8</span> Scrivere un file</a></li>
+  <li><a href="#cartelle-di-output-buona-pratica" id="toc-cartelle-di-output-buona-pratica" class="nav-link" data-scroll-target="#cartelle-di-output-buona-pratica"><span class="header-section-number">15.9</span> Cartelle di output: buona pratica</a></li>
+  <li><a href="#esempio-completo-analisi-log-di-accessi" id="toc-esempio-completo-analisi-log-di-accessi" class="nav-link" data-scroll-target="#esempio-completo-analisi-log-di-accessi"><span class="header-section-number">15.10</span> Esempio completo: analisi log di accessi</a></li>
+  <li><a href="#log-registrare-gli-eventi" id="toc-log-registrare-gli-eventi" class="nav-link" data-scroll-target="#log-registrare-gli-eventi"><span class="header-section-number">15.11</span> Log: registrare gli eventi</a></li>
+  <li><a href="#gestione-delle-date-con-java.time" id="toc-gestione-delle-date-con-java.time" class="nav-link" data-scroll-target="#gestione-delle-date-con-java.time"><span class="header-section-number">15.12</span> Gestione delle date con <code>java.time</code></a></li>
+  <li><a href="#riepilogo" id="toc-riepilogo" class="nav-link" data-scroll-target="#riepilogo"><span class="header-section-number">15.13</span> Riepilogo</a></li>
   </ul>
 </nav>
     </div>
@@ -389,368 +390,377 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <hr>
-<section id="lavorare-con-il-filesystem" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="lavorare-con-il-filesystem"><span class="header-section-number">15.1</span> Lavorare con il filesystem</h2>
-<p>Fino ad ora i nostri programmi leggono dati da tastiera e scrivono sull’output. Ma nella realtà i dati vivono su file: configurazioni, salvataggi, log, report. Java offre un’API moderna e potente per gestire il filesystem — il package <code>java.nio.file</code>.</p>
-<p>Le due classi principali sono:</p>
+<section id="lavorare-con-i-file-una-premessa" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="lavorare-con-i-file-una-premessa"><span class="header-section-number">15.1</span> Lavorare con i file: una premessa</h2>
+<p>Finora i nostri programmi hanno lavorato con dati scritti direttamente nel codice. Quei dati sono sempre disponibili e sotto il nostro controllo.</p>
+<p>Nel mondo reale le applicazioni lavorano quasi sempre con dati esterni: file di testo, log, configurazioni, CSV, dati prodotti da altri programmi. Un file non è mai garantito: può non esistere, può essere vuoto, può essere stato spostato, può non essere leggibile.</p>
+<p>Per questo lavorare con i file significa accettare l’idea che qualcosa possa andare storto anche se il codice è corretto. Ed è qui che le <strong>eccezioni checked</strong> smettono di essere teoria e diventano necessarie.</p>
+<hr>
+</section>
+<section id="path-non-è-una-stringa" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="path-non-è-una-stringa"><span class="header-section-number">15.2</span> Path: non è una stringa</h2>
+<p>In Java un file non si rappresenta con una semplice stringa, ma con un oggetto di tipo <strong><code>Path</code></strong>.</p>
+<p><code>Path</code> non è il file in sé — è il percorso che indica <strong>dove si trova</strong>. Possiamo pensarlo come un indirizzo o un puntatore a una posizione sul disco.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Path p <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"input.txt"</span><span class="op">);</span>  <span class="co">// descrive una posizione, non legge nulla</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Creare un <code>Path</code> non genera errori — anche se il file non esiste. L’errore arriva solo quando proviamo davvero ad accedere al file tramite <code>Files</code>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Path NON è una stringa
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>Path</code> è un oggetto che rappresenta la posizione di una risorsa in modo <strong>astratto e portabile</strong>. A differenza di una stringa:</p>
 <ul>
-<li><strong><code>Path</code></strong> — rappresenta un percorso nel filesystem (file o directory)</li>
-<li><strong><code>Files</code></strong> — classe di utilità con metodi statici per operare sui file</li>
+<li>conosce i separatori corretti per ogni sistema operativo</li>
+<li>permette di costruire percorsi in modo sicuro</li>
+<li>evita errori di concatenazione manuale</li>
+<li>non dipende da Windows, Linux o macOS</li>
 </ul>
+</div>
+</div>
 <hr>
 </section>
-<section id="path-rappresentare-un-percorso" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="path-rappresentare-un-percorso"><span class="header-section-number">15.2</span> Path: rappresentare un percorso</h2>
-<p><code>Path</code> rappresenta un percorso nel filesystem, ma <strong>non</strong> implica che il file esista davvero — è solo una rappresentazione del percorso.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">file</span><span class="op">.*;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Creare un Path</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Path p1 <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"dati/salvataggio.txt"</span><span class="op">);</span>           <span class="co">// relativo</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Path p2 <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"/home/utente/gioco/log.txt"</span><span class="op">);</span>     <span class="co">// assoluto (Linux/Mac)</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>Path p3 <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"C:</span><span class="sc">\\</span><span class="st">Gioco</span><span class="sc">\\</span><span class="st">salvataggio.txt"</span><span class="op">);</span>     <span class="co">// assoluto (Windows)</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Operazioni sul percorso (senza toccare il filesystem)</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Path file <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"dati/livello/mappa.json"</span><span class="op">);</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>file<span class="op">.</span><span class="fu">getFileName</span><span class="op">());</span>   <span class="co">// mappa.json</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>file<span class="op">.</span><span class="fu">getParent</span><span class="op">());</span>     <span class="co">// dati/livello</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>file<span class="op">.</span><span class="fu">getRoot</span><span class="op">());</span>       <span class="co">// null (percorso relativo)</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>file<span class="op">.</span><span class="fu">isAbsolute</span><span class="op">());</span>    <span class="co">// false</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">// Percorso assoluto (risolve rispetto alla directory corrente)</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>file<span class="op">.</span><span class="fu">toAbsolutePath</span><span class="op">());</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">// Combinare percorsi</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>Path base <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"dati"</span><span class="op">);</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>Path completo <span class="op">=</span> base<span class="op">.</span><span class="fu">resolve</span><span class="op">(</span><span class="st">"livello/mappa.json"</span><span class="op">);</span>  <span class="co">// dati/livello/mappa.json</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">// Normalizzare (rimuove . e ..)</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Path norm <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"dati/../dati/./mappa.json"</span><span class="op">).</span><span class="fu">normalize</span><span class="op">();</span> <span class="co">// dati/mappa.json</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
-</section>
-<section id="files-operare-sui-file" class="level2" data-number="15.3">
-<h2 data-number="15.3" class="anchored" data-anchor-id="files-operare-sui-file"><span class="header-section-number">15.3</span> Files: operare sui file</h2>
-<p>La classe <code>Files</code> offre metodi statici per leggere, scrivere, copiare, spostare e cancellare file.</p>
-<section id="verificare-esistenza-e-tipo" class="level3" data-number="15.3.1">
-<h3 data-number="15.3.1" class="anchored" data-anchor-id="verificare-esistenza-e-tipo"><span class="header-section-number">15.3.1</span> Verificare esistenza e tipo</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Path file <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"salvataggio.txt"</span><span class="op">);</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Path dir  <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"dati"</span><span class="op">);</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">exists</span><span class="op">(</span>file<span class="op">);</span>        <span class="co">// il file esiste?</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">notExists</span><span class="op">(</span>file<span class="op">);</span>     <span class="co">// il file NON esiste?</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">isRegularFile</span><span class="op">(</span>file<span class="op">);</span> <span class="co">// è un file normale?</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">isDirectory</span><span class="op">(</span>dir<span class="op">);</span>    <span class="co">// è una directory?</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">isReadable</span><span class="op">(</span>file<span class="op">);</span>    <span class="co">// è leggibile?</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">isWritable</span><span class="op">(</span>file<span class="op">);</span>    <span class="co">// è scrivibile?</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">size</span><span class="op">(</span>file<span class="op">);</span>          <span class="co">// dimensione in byte</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="leggere-un-file" class="level3" data-number="15.3.2">
-<h3 data-number="15.3.2" class="anchored" data-anchor-id="leggere-un-file"><span class="header-section-number">15.3.2</span> Leggere un file</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">file</span><span class="op">.*;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">IOException</span><span class="op">;</span></span>
+<section id="percorsi-relativi-e-assoluti" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="percorsi-relativi-e-assoluti"><span class="header-section-number">15.3</span> Percorsi relativi e assoluti</h2>
+<p>Un <strong>percorso relativo</strong> indica dove si trova un file a partire dalla cartella di lavoro del programma — non dal disco. Il programma non dipende dalla macchina e funziona anche se sposti il progetto.</p>
+<p>Un <strong>percorso assoluto</strong> parte dalla radice del disco — è fragile e dipende dalla macchina.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Percorso relativo — preferibile</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Path p1 <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"dati.txt"</span><span class="op">);</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Path p2 <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"Resources"</span><span class="op">,</span> <span class="st">"dati.txt"</span><span class="op">);</span>  <span class="co">// cartella + file separati</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Percorso assoluto — da evitare nei progetti</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Path p3 <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"/home/utente/gioco/dati.txt"</span><span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Quando usi <code>Path.of("Resources", "dati.txt")</code> stai passando cartella e file come argomenti separati — Java costruisce il percorso corretto per il sistema operativo.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Quale sintassi preferire?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Preferibile — Java gestisce i separatori</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Path p <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"Resources"</span><span class="op">,</span> <span class="st">"dati.txt"</span><span class="op">);</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>Path file <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"squadra.txt"</span><span class="op">);</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Leggi tutte le righe in una List&lt;String&gt;</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">{</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> righe <span class="op">=</span> Files<span class="op">.</span><span class="fu">readAllLines</span><span class="op">(</span>file<span class="op">);</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="bu">String</span> riga <span class="op">:</span> righe<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>riga<span class="op">);</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore lettura: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">// Leggi come unica stringa</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">{</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> contenuto <span class="op">=</span> Files<span class="op">.</span><span class="fu">readString</span><span class="op">(</span>file<span class="op">);</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>contenuto<span class="op">);</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co">// Leggi come Stream di righe (lazy — utile per file grandi)</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span>Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> righe <span class="op">=</span> Files<span class="op">.</span><span class="fu">lines</span><span class="op">(</span>file<span class="op">))</span> <span class="op">{</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    righe</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>r <span class="op">-&gt;</span> <span class="op">!</span>r<span class="op">.</span><span class="fu">isBlank</span><span class="op">())</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">forEach</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">::</span>println<span class="op">);</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Funziona ma è meno portabile</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>Path p <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"Resources/dati.txt"</span><span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Entrambe funzionano, ma la prima è più robusta se il programma gira su sistemi diversi.</p>
+</div>
+</div>
+<hr>
 </section>
-<section id="scrivere-un-file" class="level3" data-number="15.3.3">
-<h3 data-number="15.3.3" class="anchored" data-anchor-id="scrivere-un-file"><span class="header-section-number">15.3.3</span> Scrivere un file</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Path file <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"output.txt"</span><span class="op">);</span></span>
+<section id="path-vs-files-separazione-delle-responsabilità" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="path-vs-files-separazione-delle-responsabilità"><span class="header-section-number">15.4</span> Path vs Files: separazione delle responsabilità</h2>
+<p>Java separa nettamente due concetti:</p>
+<ul>
+<li><strong><code>Path</code></strong> — descrive <strong>dove</strong> si trova una risorsa</li>
+<li><strong><code>Files</code></strong> — descrive <strong>cosa</strong> vogliamo fare con quella risorsa</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">file</span><span class="op">.*;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Scrivi una stringa (crea o sovrascrive il file)</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">{</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    Files<span class="op">.</span><span class="fu">writeString</span><span class="op">(</span>file<span class="op">,</span> <span class="st">"Contenuto del file</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore scrittura: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">// Scrivi più righe</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> righe <span class="op">=</span> <span class="bu">List</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"riga 1"</span><span class="op">,</span> <span class="st">"riga 2"</span><span class="op">,</span> <span class="st">"riga 3"</span><span class="op">);</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">{</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    Files<span class="op">.</span><span class="fu">write</span><span class="op">(</span>file<span class="op">,</span> righe<span class="op">);</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">// Aggiungi senza sovrascrivere (append)</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">{</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    Files<span class="op">.</span><span class="fu">writeString</span><span class="op">(</span>file<span class="op">,</span> <span class="st">"Nuova riga</span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> StandardOpenOption<span class="op">.</span><span class="fu">APPEND</span><span class="op">);</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>Path file <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"dati.txt"</span><span class="op">);</span>   <span class="co">// posizione</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">readAllLines</span><span class="op">(</span>file<span class="op">);</span>          <span class="co">// operazione</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>Files</code> è una classe di soli metodi statici — non si creano oggetti <code>Files</code>, si usano i suoi metodi passando un <code>Path</code>. Questo rende il codice molto leggibile: prima dichiari dove si trova il file, poi dici cosa vuoi farci.</p>
+<p>Poiché <code>Files</code> lavora davvero con il filesystem, i suoi metodi possono fallire — e Java ci obbliga a gestire la <code>IOException</code>.</p>
+<hr>
+</section>
+<section id="operazioni-di-base-su-path" class="level2" data-number="15.5">
+<h2 data-number="15.5" class="anchored" data-anchor-id="operazioni-di-base-su-path"><span class="header-section-number">15.5</span> Operazioni di base su Path</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Path file <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"dati"</span><span class="op">,</span> <span class="st">"livello"</span><span class="op">,</span> <span class="st">"mappa.json"</span><span class="op">);</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>file<span class="op">.</span><span class="fu">getFileName</span><span class="op">();</span>       <span class="co">// mappa.json</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>file<span class="op">.</span><span class="fu">getParent</span><span class="op">();</span>         <span class="co">// dati/livello</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>file<span class="op">.</span><span class="fu">toAbsolutePath</span><span class="op">();</span>    <span class="co">// percorso assoluto completo</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Combinare percorsi</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>Path base <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"dati"</span><span class="op">);</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>Path completo <span class="op">=</span> base<span class="op">.</span><span class="fu">resolve</span><span class="op">(</span><span class="st">"livello/mappa.json"</span><span class="op">);</span>  <span class="co">// dati/livello/mappa.json</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">// Normalizzare (rimuove . e ..)</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"dati/../dati/./mappa.json"</span><span class="op">).</span><span class="fu">normalize</span><span class="op">();</span>    <span class="co">// dati/mappa.json</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="verificare-esistenza-e-tipo" class="level2" data-number="15.6">
+<h2 data-number="15.6" class="anchored" data-anchor-id="verificare-esistenza-e-tipo"><span class="header-section-number">15.6</span> Verificare esistenza e tipo</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Path file <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"salvataggio.txt"</span><span class="op">);</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">exists</span><span class="op">(</span>file<span class="op">);</span>         <span class="co">// il file esiste?</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">notExists</span><span class="op">(</span>file<span class="op">);</span>      <span class="co">// il file NON esiste?</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">isRegularFile</span><span class="op">(</span>file<span class="op">);</span>  <span class="co">// è un file normale?</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">isDirectory</span><span class="op">(</span>file<span class="op">);</span>    <span class="co">// è una directory?</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">isReadable</span><span class="op">(</span>file<span class="op">);</span>     <span class="co">// è leggibile?</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">isWritable</span><span class="op">(</span>file<span class="op">);</span>     <span class="co">// è scrivibile?</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">size</span><span class="op">(</span>file<span class="op">);</span>           <span class="co">// dimensione in byte</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="leggere-un-file-tre-approcci" class="level2" data-number="15.7">
+<h2 data-number="15.7" class="anchored" data-anchor-id="leggere-un-file-tre-approcci"><span class="header-section-number">15.7</span> Leggere un file: tre approcci</h2>
+<section id="readalllines-tutto-in-memoria" class="level3" data-number="15.7.1">
+<h3 data-number="15.7.1" class="anchored" data-anchor-id="readalllines-tutto-in-memoria"><span class="header-section-number">15.7.1</span> <code>readAllLines()</code> — tutto in memoria</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> righe <span class="op">=</span> Files<span class="op">.</span><span class="fu">readAllLines</span><span class="op">(</span>Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"squadra.txt"</span><span class="op">));</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="bu">String</span> riga <span class="op">:</span> righe<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>riga<span class="op">);</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Comodo e leggibile. Ma carica tutto il file in RAM — adatto solo per file piccoli.</p>
+</section>
+<section id="readstring-come-unica-stringa" class="level3" data-number="15.7.2">
+<h3 data-number="15.7.2" class="anchored" data-anchor-id="readstring-come-unica-stringa"><span class="header-section-number">15.7.2</span> <code>readString()</code> — come unica stringa</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> contenuto <span class="op">=</span> Files<span class="op">.</span><span class="fu">readString</span><span class="op">(</span>Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"config.txt"</span><span class="op">));</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>contenuto<span class="op">);</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="files.lines-stream-lazy" class="level3" data-number="15.7.3">
+<h3 data-number="15.7.3" class="anchored" data-anchor-id="files.lines-stream-lazy"><span class="header-section-number">15.7.3</span> <code>Files.lines()</code> — stream lazy</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span>Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> righe <span class="op">=</span> Files<span class="op">.</span><span class="fu">lines</span><span class="op">(</span>Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"log.txt"</span><span class="op">)))</span> <span class="op">{</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    righe</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>r <span class="op">-&gt;</span> <span class="op">!</span>r<span class="op">.</span><span class="fu">isBlank</span><span class="op">())</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">forEach</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">::</span>println<span class="op">);</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Qui non stiamo dicendo “leggimi tutto” — stiamo dicendo “forniscimi una sequenza di righe”. Il file viene letto un po’ alla volta, man mano che lo stream avanza. Può elaborare un file enorme senza mai tenerlo tutto in memoria. È il primo ponte verso il concetto di buffer.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Lo stream collegato a un file è una risorsa
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>Files.lines()</code> restituisce uno stream che tiene aperto il file. Va chiuso quando hai finito. Per questo lo mettiamo tra le parentesi del <code>try-with-resources</code> — Java lo chiude automaticamente all’uscita dal blocco, anche in caso di errore.</p>
+<p>Inoltre: <strong>uno stream si può usare una sola volta</strong>. Se vuoi fare più analisi sullo stesso file, devi riaprirlo ogni volta.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="scrivere-un-file" class="level2" data-number="15.8">
+<h2 data-number="15.8" class="anchored" data-anchor-id="scrivere-un-file"><span class="header-section-number">15.8</span> Scrivere un file</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Scrittura semplice (crea o sovrascrive)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    Files<span class="op">.</span><span class="fu">writeString</span><span class="op">(</span>Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"output.txt"</span><span class="op">),</span> <span class="st">"Contenuto</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Scrittura di più righe</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    Files<span class="op">.</span><span class="fu">write</span><span class="op">(</span>Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"output.txt"</span><span class="op">),</span> <span class="bu">List</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"riga 1"</span><span class="op">,</span> <span class="st">"riga 2"</span><span class="op">,</span> <span class="st">"riga 3"</span><span class="op">));</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">// Aggiunta in fondo (append)</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    Files<span class="op">.</span><span class="fu">writeString</span><span class="op">(</span>Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"log.txt"</span><span class="op">),</span> <span class="st">"Nuova riga</span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>        StandardOpenOption<span class="op">.</span><span class="fu">APPEND</span><span class="op">,</span> StandardOpenOption<span class="op">.</span><span class="fu">CREATE</span><span class="op">);</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>StandardOpenOption
+<span class="screen-reader-only">Note</span>Sovrascrittura vs append
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Le opzioni di apertura del file si specificano con <code>StandardOpenOption</code>: - <code>CREATE</code> — crea il file se non esiste (default) - <code>CREATE_NEW</code> — crea solo se non esiste, errore se esiste già - <code>APPEND</code> — aggiunge in fondo senza sovrascrivere - <code>TRUNCATE_EXISTING</code> — svuota il file prima di scrivere (default)</p>
+<p>Quando scrivi su file, poniti sempre questa domanda: sto sostituendo il contenuto o lo sto aggiungendo?</p>
+<ul>
+<li><strong>Sovrascrittura</strong> — il file viene ricreato ad ogni esecuzione. Tipico dei <strong>report</strong> (voglio l’ultimo risultato).</li>
+<li><strong>Append</strong> — il nuovo testo si aggiunge al contenuto esistente. Tipico dei <strong>log</strong> (voglio una cronologia).</li>
+</ul>
+<p>Questa scelta è importante perché cambia il significato del file prodotto.</p>
 </div>
 </div>
-</section>
-<section id="operazioni-su-file-e-directory" class="level3" data-number="15.3.4">
-<h3 data-number="15.3.4" class="anchored" data-anchor-id="operazioni-su-file-e-directory"><span class="header-section-number">15.3.4</span> Operazioni su file e directory</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Path origine <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"dati/mappa.json"</span><span class="op">);</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Path dest    <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"backup/mappa.json"</span><span class="op">);</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>Path dir     <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"nuova_cartella"</span><span class="op">);</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Creare directory</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">createDirectory</span><span class="op">(</span>dir<span class="op">);</span>          <span class="co">// crea una directory</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">createDirectories</span><span class="op">(</span>dir<span class="op">);</span>        <span class="co">// crea anche le parent mancanti</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Copiare</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">copy</span><span class="op">(</span>origine<span class="op">,</span> dest<span class="op">);</span>           <span class="co">// errore se dest esiste già</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">copy</span><span class="op">(</span>origine<span class="op">,</span> dest<span class="op">,</span> StandardCopyOption<span class="op">.</span><span class="fu">REPLACE_EXISTING</span><span class="op">);</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Spostare / rinominare</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">move</span><span class="op">(</span>origine<span class="op">,</span> dest<span class="op">);</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">move</span><span class="op">(</span>origine<span class="op">,</span> dest<span class="op">,</span> StandardCopyOption<span class="op">.</span><span class="fu">REPLACE_EXISTING</span><span class="op">);</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">// Cancellare</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">delete</span><span class="op">(</span>file<span class="op">);</span>                  <span class="co">// lancia eccezione se non esiste</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">deleteIfExists</span><span class="op">(</span>file<span class="op">);</span>          <span class="co">// non lancia eccezione</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">// Listare contenuto di una directory</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span>Stream<span class="op">&lt;</span>Path<span class="op">&gt;</span> contenuto <span class="op">=</span> Files<span class="op">.</span><span class="fu">list</span><span class="op">(</span>dir<span class="op">))</span> <span class="op">{</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    contenuto<span class="op">.</span><span class="fu">forEach</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">::</span>println<span class="op">);</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">// Listare ricorsivamente</span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span>Stream<span class="op">&lt;</span>Path<span class="op">&gt;</span> tutti <span class="op">=</span> Files<span class="op">.</span><span class="fu">walk</span><span class="op">(</span>dir<span class="op">))</span> <span class="op">{</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    tutti</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>Files<span class="op">::</span>isRegularFile<span class="op">)</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">forEach</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">::</span>println<span class="op">);</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-</section>
-<section id="salvataggio-e-caricamento-di-dati" class="level2" data-number="15.4">
-<h2 data-number="15.4" class="anchored" data-anchor-id="salvataggio-e-caricamento-di-dati"><span class="header-section-number">15.4</span> Salvataggio e caricamento di dati</h2>
-<p>Vediamo un esempio pratico — salvare e caricare i dati di una squadra:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">file</span><span class="op">.*;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">IOException</span><span class="op">;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GestioneSalvataggio <span class="op">{</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Salva la squadra in formato CSV</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">salva</span><span class="op">(</span><span class="bu">List</span><span class="op">&lt;</span>Personaggio<span class="op">&gt;</span> squadra<span class="op">,</span> Path file<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> righe <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        righe<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="st">"nome,vita,vitaMax,attacco,livello"</span><span class="op">);</span>  <span class="co">// header</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span>Personaggio p <span class="op">:</span> squadra<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>            righe<span class="op">.</span><span class="fu">add</span><span class="op">(</span>p<span class="op">.</span><span class="fu">getNome</span><span class="op">()</span> <span class="op">+</span> <span class="st">","</span> <span class="op">+</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>                      p<span class="op">.</span><span class="fu">getVita</span><span class="op">()</span> <span class="op">+</span> <span class="st">","</span> <span class="op">+</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>                      p<span class="op">.</span><span class="fu">getVitaMax</span><span class="op">()</span> <span class="op">+</span> <span class="st">","</span> <span class="op">+</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>                      p<span class="op">.</span><span class="fu">getAttacco</span><span class="op">()</span> <span class="op">+</span> <span class="st">","</span> <span class="op">+</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>                      p<span class="op">.</span><span class="fu">getLivello</span><span class="op">());</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">{</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>            Files<span class="op">.</span><span class="fu">createDirectories</span><span class="op">(</span>file<span class="op">.</span><span class="fu">getParent</span><span class="op">());</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>            Files<span class="op">.</span><span class="fu">write</span><span class="op">(</span>file<span class="op">,</span> righe<span class="op">);</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Squadra salvata in "</span> <span class="op">+</span> file<span class="op">);</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore nel salvataggio: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Carica la squadra da CSV</span></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="bu">List</span><span class="op">&lt;</span>Personaggio<span class="op">&gt;</span> <span class="fu">carica</span><span class="op">(</span>Path file<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>        <span class="bu">List</span><span class="op">&lt;</span>Personaggio<span class="op">&gt;</span> squadra <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">{</span></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>            <span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> righe <span class="op">=</span> Files<span class="op">.</span><span class="fu">readAllLines</span><span class="op">(</span>file<span class="op">);</span></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>            <span class="co">// salta la prima riga (header)</span></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> righe<span class="op">.</span><span class="fu">size</span><span class="op">();</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>                <span class="bu">String</span><span class="op">[]</span> parti <span class="op">=</span> righe<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">).</span><span class="fu">split</span><span class="op">(</span><span class="st">","</span><span class="op">);</span></span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>                <span class="bu">String</span> nome   <span class="op">=</span> parti<span class="op">[</span><span class="dv">0</span><span class="op">];</span></span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>                <span class="dt">int</span> vita      <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>parti<span class="op">[</span><span class="dv">1</span><span class="op">]);</span></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>                <span class="dt">int</span> vitaMax   <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>parti<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>                <span class="dt">int</span> attacco   <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>parti<span class="op">[</span><span class="dv">3</span><span class="op">]);</span></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>                <span class="dt">int</span> livello   <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>parti<span class="op">[</span><span class="dv">4</span><span class="op">]);</span></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>                Personaggio p <span class="op">=</span> <span class="kw">new</span> <span class="fu">Personaggio</span><span class="op">(</span>nome<span class="op">,</span> vitaMax<span class="op">,</span> attacco<span class="op">,</span> livello<span class="op">);</span></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>                p<span class="op">.</span><span class="fu">setVita</span><span class="op">(</span>vita<span class="op">);</span></span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>                squadra<span class="op">.</span><span class="fu">add</span><span class="op">(</span>p<span class="op">);</span></span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Caricati "</span> <span class="op">+</span> squadra<span class="op">.</span><span class="fu">size</span><span class="op">()</span> <span class="op">+</span> <span class="st">" personaggi."</span><span class="op">);</span></span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"File non trovato: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">NumberFormatException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"File corrotto: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> squadra<span class="op">;</span></span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>        Path fileSalvataggio <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"salvataggi/squadra.csv"</span><span class="op">);</span></span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Crea e salva una squadra</span></span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>        <span class="bu">List</span><span class="op">&lt;</span>Personaggio<span class="op">&gt;</span> squadra <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>        squadra<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Personaggio</span><span class="op">(</span><span class="st">"Arthas"</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">5</span><span class="op">));</span></span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>        squadra<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Personaggio</span><span class="op">(</span><span class="st">"Gandalf"</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">25</span><span class="op">,</span> <span class="dv">7</span><span class="op">));</span></span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>        squadra<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Personaggio</span><span class="op">(</span><span class="st">"Legolas"</span><span class="op">,</span> <span class="dv">120</span><span class="op">,</span> <span class="dv">28</span><span class="op">,</span> <span class="dv">6</span><span class="op">));</span></span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>        <span class="fu">salva</span><span class="op">(</span>squadra<span class="op">,</span> fileSalvataggio<span class="op">);</span></span>
-<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Ricarica dal file</span></span>
-<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>        <span class="bu">List</span><span class="op">&lt;</span>Personaggio<span class="op">&gt;</span> caricata <span class="op">=</span> <span class="fu">carica</span><span class="op">(</span>fileSalvataggio<span class="op">);</span></span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>        caricata<span class="op">.</span><span class="fu">forEach</span><span class="op">(</span>Personaggio<span class="op">::</span>stampaScheda<span class="op">);</span></span>
-<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="cartelle-di-output-buona-pratica" class="level2" data-number="15.9">
+<h2 data-number="15.9" class="anchored" data-anchor-id="cartelle-di-output-buona-pratica"><span class="header-section-number">15.9</span> Cartelle di output: buona pratica</h2>
+<p>È buona pratica separare i file di input da quelli di output usando cartelle dedicate (<code>Reports/</code>, <code>Output/</code>, <code>Logs/</code>). Un programma robusto controlla che la cartella esista e la crea se non c’è:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> Path INPUT       <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"accessi.txt"</span><span class="op">);</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> Path REPORTS_DIR <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"Reports"</span><span class="op">);</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> Path REPORT_FILE <span class="op">=</span> REPORTS_DIR<span class="op">.</span><span class="fu">resolve</span><span class="op">(</span><span class="st">"report.txt"</span><span class="op">);</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Prima creo la cartella, poi scrivo</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">createDirectories</span><span class="op">(</span>REPORTS_DIR<span class="op">);</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">writeString</span><span class="op">(</span>REPORT_FILE<span class="op">,</span> contenuto<span class="op">,</span> StandardCharsets<span class="op">.</span><span class="fu">UTF_8</span><span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="log-registrare-gli-eventi" class="level2" data-number="15.5">
-<h2 data-number="15.5" class="anchored" data-anchor-id="log-registrare-gli-eventi"><span class="header-section-number">15.5</span> Log: registrare gli eventi</h2>
-<p>Un <strong>log</strong> è un registro cronologico di eventi — fondamentale per il debug, il monitoraggio e l’analisi post-mortem. Ogni riga di log ha tipicamente: timestamp, livello di gravità e messaggio.</p>
-<section id="log-semplice-con-files" class="level3" data-number="15.5.1">
-<h3 data-number="15.5.1" class="anchored" data-anchor-id="log-semplice-con-files"><span class="header-section-number">15.5.1</span> Log semplice con Files</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">file</span><span class="op">.*;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">LocalDateTime</span><span class="op">;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">format</span><span class="op">.</span><span class="im">DateTimeFormatter</span><span class="op">;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">IOException</span><span class="op">;</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> <span class="bu">Logger</span> <span class="op">{</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> Path fileLog<span class="op">;</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> DateTimeFormatter formatter <span class="op">=</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        DateTimeFormatter<span class="op">.</span><span class="fu">ofPattern</span><span class="op">(</span><span class="st">"yyyy-MM-dd HH:mm:ss"</span><span class="op">);</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Logger</span><span class="op">(</span><span class="bu">String</span> percorso<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">fileLog</span> <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span>percorso<span class="op">);</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">{</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>            Files<span class="op">.</span><span class="fu">createDirectories</span><span class="op">(</span>fileLog<span class="op">.</span><span class="fu">getParent</span><span class="op">());</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(!</span>Files<span class="op">.</span><span class="fu">exists</span><span class="op">(</span>fileLog<span class="op">))</span> <span class="op">{</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>                Files<span class="op">.</span><span class="fu">createFile</span><span class="op">(</span>fileLog<span class="op">);</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Impossibile creare il file di log: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">log</span><span class="op">(</span><span class="bu">String</span> livello<span class="op">,</span> <span class="bu">String</span> messaggio<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> riga <span class="op">=</span> <span class="st">"["</span> <span class="op">+</span> LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">().</span><span class="fu">format</span><span class="op">(</span>formatter<span class="op">)</span> <span class="op">+</span> <span class="st">"] "</span> <span class="op">+</span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"["</span> <span class="op">+</span> livello <span class="op">+</span> <span class="st">"] "</span> <span class="op">+</span> messaggio <span class="op">+</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">{</span></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>            Files<span class="op">.</span><span class="fu">writeString</span><span class="op">(</span>fileLog<span class="op">,</span> riga<span class="op">,</span> StandardOpenOption<span class="op">.</span><span class="fu">APPEND</span><span class="op">);</span></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore scrittura log: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">info</span><span class="op">(</span><span class="bu">String</span> msg<span class="op">)</span>    <span class="op">{</span> <span class="fu">log</span><span class="op">(</span><span class="st">"INFO "</span><span class="op">,</span> msg<span class="op">);</span> <span class="op">}</span></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">warn</span><span class="op">(</span><span class="bu">String</span> msg<span class="op">)</span>    <span class="op">{</span> <span class="fu">log</span><span class="op">(</span><span class="st">"WARN "</span><span class="op">,</span> msg<span class="op">);</span> <span class="op">}</span></span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">error</span><span class="op">(</span><span class="bu">String</span> msg<span class="op">)</span>   <span class="op">{</span> <span class="fu">log</span><span class="op">(</span><span class="st">"ERROR"</span><span class="op">,</span> msg<span class="op">);</span> <span class="op">}</span></span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Uso del logger:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Logger</span> logger <span class="op">=</span> <span class="kw">new</span> <span class="bu">Logger</span><span class="op">(</span><span class="st">"logs/gioco.log"</span><span class="op">);</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>logger<span class="op">.</span><span class="fu">info</span><span class="op">(</span><span class="st">"Partita iniziata"</span><span class="op">);</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>logger<span class="op">.</span><span class="fu">info</span><span class="op">(</span><span class="st">"Arthas ha raggiunto il livello 5"</span><span class="op">);</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>logger<span class="op">.</span><span class="fu">warn</span><span class="op">(</span><span class="st">"Vita di Gandalf sotto il 20%"</span><span class="op">);</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>logger<span class="op">.</span><span class="fu">error</span><span class="op">(</span><span class="st">"File di salvataggio corrotto"</span><span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Il file <code>logs/gioco.log</code> conterrà:</p>
-<pre><code>[2025-11-13 10:05:32] [INFO ] Partita iniziata
-[2025-11-13 10:07:18] [INFO ] Arthas ha raggiunto il livello 5
-[2025-11-13 10:09:45] [WARN ] Vita di Gandalf sotto il 20%
-[2025-11-13 10:12:03] [ERROR] File di salvataggio corrotto</code></pre>
-</section>
-<section id="leggere-e-analizzare-i-log" class="level3" data-number="15.5.2">
-<h3 data-number="15.5.2" class="anchored" data-anchor-id="leggere-e-analizzare-i-log"><span class="header-section-number">15.5.2</span> Leggere e analizzare i log</h3>
-<p>Con gli Stream possiamo analizzare i log in modo elegante:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">analizza</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span> <span class="op">{</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> righe <span class="op">=</span> Files<span class="op">.</span><span class="fu">readAllLines</span><span class="op">(</span>fileLog<span class="op">);</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Totale eventi: "</span> <span class="op">+</span> righe<span class="op">.</span><span class="fu">size</span><span class="op">());</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">long</span> errori <span class="op">=</span> righe<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>r <span class="op">-&gt;</span> r<span class="op">.</span><span class="fu">contains</span><span class="op">(</span><span class="st">"[ERROR]"</span><span class="op">))</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">count</span><span class="op">();</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errori: "</span> <span class="op">+</span> errori<span class="op">);</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        <span class="dt">long</span> warning <span class="op">=</span> righe<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>r <span class="op">-&gt;</span> r<span class="op">.</span><span class="fu">contains</span><span class="op">(</span><span class="st">"[WARN ]"</span><span class="op">))</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">count</span><span class="op">();</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Warning: "</span> <span class="op">+</span> warning<span class="op">);</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"</span><span class="sc">\n</span><span class="st">Ultimi 5 eventi:"</span><span class="op">);</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>        righe<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">skip</span><span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">max</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> righe<span class="op">.</span><span class="fu">size</span><span class="op">()</span> <span class="op">-</span> <span class="dv">5</span><span class="op">))</span></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">forEach</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">::</span>println<span class="op">);</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore lettura log: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="esempio-completo-analisi-log-di-accessi" class="level2" data-number="15.10">
+<h2 data-number="15.10" class="anchored" data-anchor-id="esempio-completo-analisi-log-di-accessi"><span class="header-section-number">15.10</span> Esempio completo: analisi log di accessi</h2>
+<p>Un programma che legge un file di log, calcola statistiche e genera un report.</p>
+<p>Il file <code>accessi.txt</code>:</p>
+<pre><code>2025-12-18 08:01;alice;LOGIN
+2025-12-18 08:05;bob;LOGIN
+2025-12-18 08:20;alice;LOGOUT
+2025-12-18 08:45;carla;LOGIN
+2025-12-18 09:10;bob;LOGOUT
+2025-12-18 09:30;alice;LOGIN</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">IOException</span><span class="op">;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">charset</span><span class="op">.</span><span class="im">StandardCharsets</span><span class="op">;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">file</span><span class="op">.*;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">LocalDateTime</span><span class="op">;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">stream</span><span class="op">.</span><span class="im">Stream</span><span class="op">;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> AnalisiAccessi <span class="op">{</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> Path INPUT       <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"accessi.txt"</span><span class="op">);</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> Path REPORTS_DIR <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"Reports"</span><span class="op">);</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> Path REPORT_FILE <span class="op">=</span> REPORTS_DIR<span class="op">.</span><span class="fu">resolve</span><span class="op">(</span><span class="st">"report.txt"</span><span class="op">);</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(!</span>Files<span class="op">.</span><span class="fu">exists</span><span class="op">(</span>INPUT<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore: file non trovato → "</span> <span class="op">+</span> INPUT<span class="op">);</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Ogni calcolo riapre il file — uno stream non si riusa</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>        <span class="dt">long</span> righeTotali    <span class="op">=</span> <span class="fu">contaRighe</span><span class="op">(</span>INPUT<span class="op">);</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>        <span class="dt">long</span> righeValide    <span class="op">=</span> <span class="fu">contaRigheValide</span><span class="op">(</span>INPUT<span class="op">);</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>        <span class="dt">long</span> login          <span class="op">=</span> <span class="fu">contaEvento</span><span class="op">(</span>INPUT<span class="op">,</span> <span class="st">"LOGIN"</span><span class="op">);</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>        <span class="dt">long</span> logout         <span class="op">=</span> <span class="fu">contaEvento</span><span class="op">(</span>INPUT<span class="op">,</span> <span class="st">"LOGOUT"</span><span class="op">);</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>        <span class="dt">long</span> utenti         <span class="op">=</span> <span class="fu">contaUtentiDistinti</span><span class="op">(</span>INPUT<span class="op">);</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>        <span class="dt">long</span> malformate     <span class="op">=</span> righeTotali <span class="op">-</span> righeValide<span class="op">;</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Prima costruisco il report in memoria, poi lo scrivo su file</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> report <span class="op">=</span> <span class="fu">buildReport</span><span class="op">(</span>righeTotali<span class="op">,</span> righeValide<span class="op">,</span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>            malformate<span class="op">,</span> login<span class="op">,</span> logout<span class="op">,</span> utenti<span class="op">);</span></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>            Files<span class="op">.</span><span class="fu">createDirectories</span><span class="op">(</span>REPORTS_DIR<span class="op">);</span></span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>            Files<span class="op">.</span><span class="fu">writeString</span><span class="op">(</span>REPORT_FILE<span class="op">,</span> report<span class="op">,</span> StandardCharsets<span class="op">.</span><span class="fu">UTF_8</span><span class="op">);</span></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Report salvato in: "</span> <span class="op">+</span> REPORT_FILE<span class="op">);</span></span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore scrittura: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">long</span> <span class="fu">contaRighe</span><span class="op">(</span>Path p<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">(</span>Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> righe <span class="op">=</span> Files<span class="op">.</span><span class="fu">lines</span><span class="op">(</span>p<span class="op">,</span> StandardCharsets<span class="op">.</span><span class="fu">UTF_8</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> righe<span class="op">.</span><span class="fu">count</span><span class="op">();</span></span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span> <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">long</span> <span class="fu">contaRigheValide</span><span class="op">(</span>Path p<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">(</span>Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> righe <span class="op">=</span> Files<span class="op">.</span><span class="fu">lines</span><span class="op">(</span>p<span class="op">,</span> StandardCharsets<span class="op">.</span><span class="fu">UTF_8</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> righe<span class="op">.</span><span class="fu">map</span><span class="op">(</span>r <span class="op">-&gt;</span> r<span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">";"</span><span class="op">))</span></span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a>                        <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>c <span class="op">-&gt;</span> c<span class="op">.</span><span class="fu">length</span> <span class="op">==</span> <span class="dv">3</span><span class="op">).</span><span class="fu">count</span><span class="op">();</span></span>
+<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span> <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">long</span> <span class="fu">contaEvento</span><span class="op">(</span>Path p<span class="op">,</span> <span class="bu">String</span> evento<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">(</span>Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> righe <span class="op">=</span> Files<span class="op">.</span><span class="fu">lines</span><span class="op">(</span>p<span class="op">,</span> StandardCharsets<span class="op">.</span><span class="fu">UTF_8</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> righe<span class="op">.</span><span class="fu">map</span><span class="op">(</span>r <span class="op">-&gt;</span> r<span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">";"</span><span class="op">))</span></span>
+<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a>                        <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>c <span class="op">-&gt;</span> c<span class="op">.</span><span class="fu">length</span> <span class="op">==</span> <span class="dv">3</span><span class="op">)</span></span>
+<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a>                        <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>c <span class="op">-&gt;</span> c<span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="fu">equals</span><span class="op">(</span>evento<span class="op">)).</span><span class="fu">count</span><span class="op">();</span></span>
+<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span> <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">long</span> <span class="fu">contaUtentiDistinti</span><span class="op">(</span>Path p<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">(</span>Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> righe <span class="op">=</span> Files<span class="op">.</span><span class="fu">lines</span><span class="op">(</span>p<span class="op">,</span> StandardCharsets<span class="op">.</span><span class="fu">UTF_8</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> righe<span class="op">.</span><span class="fu">map</span><span class="op">(</span>r <span class="op">-&gt;</span> r<span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">";"</span><span class="op">))</span></span>
+<span id="cb13-65"><a href="#cb13-65" aria-hidden="true" tabindex="-1"></a>                        <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>c <span class="op">-&gt;</span> c<span class="op">.</span><span class="fu">length</span> <span class="op">==</span> <span class="dv">3</span><span class="op">)</span></span>
+<span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a>                        <span class="op">.</span><span class="fu">map</span><span class="op">(</span>c <span class="op">-&gt;</span> c<span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="fu">trim</span><span class="op">())</span></span>
+<span id="cb13-67"><a href="#cb13-67" aria-hidden="true" tabindex="-1"></a>                        <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>s <span class="op">-&gt;</span> <span class="op">!</span>s<span class="op">.</span><span class="fu">isEmpty</span><span class="op">())</span></span>
+<span id="cb13-68"><a href="#cb13-68" aria-hidden="true" tabindex="-1"></a>                        <span class="op">.</span><span class="fu">distinct</span><span class="op">().</span><span class="fu">count</span><span class="op">();</span></span>
+<span id="cb13-69"><a href="#cb13-69" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span> <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb13-70"><a href="#cb13-70" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-71"><a href="#cb13-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-72"><a href="#cb13-72" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="bu">String</span> <span class="fu">buildReport</span><span class="op">(</span><span class="dt">long</span> tot<span class="op">,</span> <span class="dt">long</span> valid<span class="op">,</span> <span class="dt">long</span> bad<span class="op">,</span></span>
+<span id="cb13-73"><a href="#cb13-73" aria-hidden="true" tabindex="-1"></a>                                      <span class="dt">long</span> login<span class="op">,</span> <span class="dt">long</span> logout<span class="op">,</span> <span class="dt">long</span> utenti<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-74"><a href="#cb13-74" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"REPORT ACCESSI</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb13-75"><a href="#cb13-75" aria-hidden="true" tabindex="-1"></a>             <span class="op">+</span> <span class="st">"==============</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb13-76"><a href="#cb13-76" aria-hidden="true" tabindex="-1"></a>             <span class="op">+</span> <span class="st">"Generato: "</span> <span class="op">+</span> LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">()</span> <span class="op">+</span> <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span></span>
+<span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a>             <span class="op">+</span> <span class="st">"Righe totali:     "</span> <span class="op">+</span> tot    <span class="op">+</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb13-78"><a href="#cb13-78" aria-hidden="true" tabindex="-1"></a>             <span class="op">+</span> <span class="st">"Righe valide:     "</span> <span class="op">+</span> valid  <span class="op">+</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a>             <span class="op">+</span> <span class="st">"Righe malformate: "</span> <span class="op">+</span> bad    <span class="op">+</span> <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span></span>
+<span id="cb13-80"><a href="#cb13-80" aria-hidden="true" tabindex="-1"></a>             <span class="op">+</span> <span class="st">"LOGIN:            "</span> <span class="op">+</span> login  <span class="op">+</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb13-81"><a href="#cb13-81" aria-hidden="true" tabindex="-1"></a>             <span class="op">+</span> <span class="st">"LOGOUT:           "</span> <span class="op">+</span> logout <span class="op">+</span> <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span></span>
+<span id="cb13-82"><a href="#cb13-82" aria-hidden="true" tabindex="-1"></a>             <span class="op">+</span> <span class="st">"Utenti distinti:  "</span> <span class="op">+</span> utenti <span class="op">+</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb13-83"><a href="#cb13-83" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-84"><a href="#cb13-84" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
+<section id="log-registrare-gli-eventi" class="level2" data-number="15.11">
+<h2 data-number="15.11" class="anchored" data-anchor-id="log-registrare-gli-eventi"><span class="header-section-number">15.11</span> Log: registrare gli eventi</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">file</span><span class="op">.*;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">charset</span><span class="op">.</span><span class="im">StandardCharsets</span><span class="op">;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.*;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">format</span><span class="op">.*;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">IOException</span><span class="op">;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> <span class="bu">Logger</span> <span class="op">{</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> Path fileLog<span class="op">;</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> DateTimeFormatter formatter <span class="op">=</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>        DateTimeFormatter<span class="op">.</span><span class="fu">ofPattern</span><span class="op">(</span><span class="st">"yyyy-MM-dd HH:mm:ss"</span><span class="op">);</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Logger</span><span class="op">(</span><span class="bu">String</span> percorso<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">fileLog</span> <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span>percorso<span class="op">);</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>            Files<span class="op">.</span><span class="fu">createDirectories</span><span class="op">(</span>fileLog<span class="op">.</span><span class="fu">getParent</span><span class="op">());</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Impossibile creare cartella log: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">log</span><span class="op">(</span><span class="bu">String</span> livello<span class="op">,</span> <span class="bu">String</span> messaggio<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> riga <span class="op">=</span> <span class="st">"["</span> <span class="op">+</span> LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">().</span><span class="fu">format</span><span class="op">(</span>formatter<span class="op">)</span> <span class="op">+</span> <span class="st">"] "</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>                    <span class="op">+</span> <span class="st">"["</span> <span class="op">+</span> livello <span class="op">+</span> <span class="st">"] "</span> <span class="op">+</span> messaggio <span class="op">+</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>            Files<span class="op">.</span><span class="fu">writeString</span><span class="op">(</span>fileLog<span class="op">,</span> riga<span class="op">,</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>                StandardCharsets<span class="op">.</span><span class="fu">UTF_8</span><span class="op">,</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>                StandardOpenOption<span class="op">.</span><span class="fu">CREATE</span><span class="op">,</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>                StandardOpenOption<span class="op">.</span><span class="fu">APPEND</span><span class="op">);</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore log: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">info</span><span class="op">(</span><span class="bu">String</span> msg<span class="op">)</span>  <span class="op">{</span> <span class="fu">log</span><span class="op">(</span><span class="st">"INFO "</span><span class="op">,</span> msg<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">warn</span><span class="op">(</span><span class="bu">String</span> msg<span class="op">)</span>  <span class="op">{</span> <span class="fu">log</span><span class="op">(</span><span class="st">"WARN "</span><span class="op">,</span> msg<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">error</span><span class="op">(</span><span class="bu">String</span> msg<span class="op">)</span> <span class="op">{</span> <span class="fu">log</span><span class="op">(</span><span class="st">"ERROR"</span><span class="op">,</span> msg<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
 </section>
-<section id="gestione-delle-date-e-ore" class="level2" data-number="15.6">
-<h2 data-number="15.6" class="anchored" data-anchor-id="gestione-delle-date-e-ore"><span class="header-section-number">15.6</span> Gestione delle date e ore</h2>
-<p>Per i timestamp nei log e nei salvataggi, Java offre il package <code>java.time</code> — moderno, immutabile e chiaro.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.*;</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">format</span><span class="op">.*;</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Data e ora corrente</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>LocalDate oggi <span class="op">=</span> LocalDate<span class="op">.</span><span class="fu">now</span><span class="op">();</span>           <span class="co">// solo data: 2025-11-13</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>LocalTime ora  <span class="op">=</span> LocalTime<span class="op">.</span><span class="fu">now</span><span class="op">();</span>           <span class="co">// solo ora: 10:05:32</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>LocalDateTime adesso <span class="op">=</span> LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">();</span> <span class="co">// data + ora</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Creare date specifiche</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>LocalDate natale <span class="op">=</span> LocalDate<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">2025</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">25</span><span class="op">);</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>LocalTime mezzanotte <span class="op">=</span> LocalTime<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Operazioni sulle date</span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>LocalDate domani <span class="op">=</span> oggi<span class="op">.</span><span class="fu">plusDays</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>LocalDate mesiPrecedente <span class="op">=</span> oggi<span class="op">.</span><span class="fu">minusMonths</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="dt">boolean</span> ePassato <span class="op">=</span> natale<span class="op">.</span><span class="fu">isBefore</span><span class="op">(</span>oggi<span class="op">);</span></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co">// Formattare</span></span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>DateTimeFormatter fmt <span class="op">=</span> DateTimeFormatter<span class="op">.</span><span class="fu">ofPattern</span><span class="op">(</span><span class="st">"dd/MM/yyyy HH:mm"</span><span class="op">);</span></span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> formattata <span class="op">=</span> adesso<span class="op">.</span><span class="fu">format</span><span class="op">(</span>fmt<span class="op">);</span>  <span class="co">// "13/11/2025 10:05"</span></span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="co">// Parsare</span></span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>LocalDateTime parsed <span class="op">=</span> LocalDateTime<span class="op">.</span><span class="fu">parse</span><span class="op">(</span><span class="st">"13/11/2025 10:05"</span><span class="op">,</span> fmt<span class="op">);</span></span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="co">// Differenza tra date</span></span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="dt">long</span> giorni <span class="op">=</span> ChronoUnit<span class="op">.</span><span class="fu">DAYS</span><span class="op">.</span><span class="fu">between</span><span class="op">(</span>oggi<span class="op">,</span> natale<span class="op">);</span></span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Giorni a Natale: "</span> <span class="op">+</span> giorni<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="gestione-delle-date-con-java.time" class="level2" data-number="15.12">
+<h2 data-number="15.12" class="anchored" data-anchor-id="gestione-delle-date-con-java.time"><span class="header-section-number">15.12</span> Gestione delle date con <code>java.time</code></h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.*;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">format</span><span class="op">.*;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">temporal</span><span class="op">.</span><span class="im">ChronoUnit</span><span class="op">;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>LocalDate oggi       <span class="op">=</span> LocalDate<span class="op">.</span><span class="fu">now</span><span class="op">();</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>LocalTime ora        <span class="op">=</span> LocalTime<span class="op">.</span><span class="fu">now</span><span class="op">();</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>LocalDateTime adesso <span class="op">=</span> LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">();</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>LocalDate natale <span class="op">=</span> LocalDate<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">2025</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">25</span><span class="op">);</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>LocalDate domani <span class="op">=</span> oggi<span class="op">.</span><span class="fu">plusDays</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="dt">boolean</span> passato  <span class="op">=</span> natale<span class="op">.</span><span class="fu">isBefore</span><span class="op">(</span>oggi<span class="op">);</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>DateTimeFormatter fmt <span class="op">=</span> DateTimeFormatter<span class="op">.</span><span class="fu">ofPattern</span><span class="op">(</span><span class="st">"dd/MM/yyyy HH:mm"</span><span class="op">);</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> formattata <span class="op">=</span> adesso<span class="op">.</span><span class="fu">format</span><span class="op">(</span>fmt<span class="op">);</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="dt">long</span> giorni <span class="op">=</span> ChronoUnit<span class="op">.</span><span class="fu">DAYS</span><span class="op">.</span><span class="fu">between</span><span class="op">(</span>oggi<span class="op">,</span> natale<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -761,35 +771,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La vecchia classe <code>java.util.Date</code> è piena di problemi: mutabile, con mesi che partono da 0, con gestione del fuso orario confusa. <code>java.time</code> (introdotto in Java 8) è la sostituzione moderna — immutabile, chiara e corretta. Usa sempre <code>java.time</code>.</p>
+<p>La vecchia classe <code>java.util.Date</code> è mutabile, con mesi che partono da 0 e gestione del fuso orario confusa. <code>java.time</code> (Java 8+) è immutabile, chiara e corretta. Usa sempre <code>java.time</code>.</p>
 </div>
 </div>
 <hr>
 </section>
-<section id="riepilogo" class="level2" data-number="15.7">
-<h2 data-number="15.7" class="anchored" data-anchor-id="riepilogo"><span class="header-section-number">15.7</span> Riepilogo</h2>
+<section id="riepilogo" class="level2" data-number="15.13">
+<h2 data-number="15.13" class="anchored" data-anchor-id="riepilogo"><span class="header-section-number">15.13</span> Riepilogo</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>I concetti chiave di questa lezione
+<span class="screen-reader-only">Note</span>I concetti chiave
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><strong><code>Path</code></strong> rappresenta un percorso nel filesystem — non implica che il file esista.</li>
-<li><strong><code>Files</code></strong> è la classe di utilità per operare sui file: leggere, scrivere, copiare, spostare, cancellare.</li>
-<li><code>Files.readAllLines()</code> e <code>Files.readString()</code> per lettura; <code>Files.writeString()</code> e <code>Files.write()</code> per scrittura.</li>
-<li><code>StandardOpenOption.APPEND</code> per aggiungere senza sovrascrivere.</li>
-<li>Un <strong>log</strong> è un registro cronologico di eventi — scritto in append con timestamp e livello.</li>
-<li><strong><code>java.time</code></strong> (<code>LocalDate</code>, <code>LocalTime</code>, <code>LocalDateTime</code>) per gestire date e ore — mai <code>java.util.Date</code>.</li>
-<li>Combina <code>Files.lines()</code> con gli <strong>Stream</strong> per analizzare file di grandi dimensioni in modo efficiente.</li>
+<li><strong><code>Path</code></strong> rappresenta <strong>dove</strong> si trova una risorsa — non verifica nulla, non legge nulla.</li>
+<li><strong><code>Files</code></strong> rappresenta <strong>cosa</strong> fare con quella risorsa — può fallire con <code>IOException</code>.</li>
+<li>Usa <code>Path.of("cartella", "file.txt")</code> — Java gestisce i separatori in modo portabile.</li>
+<li>I percorsi <strong>relativi</strong> sono preferibili — il codice funziona su qualsiasi macchina.</li>
+<li><code>Files.readAllLines()</code> carica tutto in RAM — adatto per file piccoli.</li>
+<li><code>Files.lines()</code> è <strong>lazy</strong> — legge man mano, adatto per file grandi. Va chiuso con try-with-resources.</li>
+<li>Uno stream collegato a un file si usa <strong>una sola volta</strong> — riaprilo per ogni analisi.</li>
+<li>Separa la <strong>costruzione dei dati</strong> dalla loro <strong>scrittura su file</strong>.</li>
+<li>Usa <strong><code>java.time</code></strong> per gestire date e ore — mai <code>java.util.Date</code>.</li>
 </ul>
 </div>
 </div>
-<p>Nella prossima lezione vedremo come gestire la scrittura con i <strong>buffer</strong> — strumento essenziale per scrivere file in modo efficiente.</p>
 
 
 </section>

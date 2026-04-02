@@ -383,9 +383,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="riprendiamo-da-dove-eravamo" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="riprendiamo-da-dove-eravamo"><span class="header-section-number">6.1</span> Riprendiamo da dove eravamo</h2>
-<p>Nella lezione precedente hai imparato a scrivere una classe con attributi privati, costruttori, getter e setter. Hai visto che dichiarare gli attributi <code>private</code> impedisce accessi non controllati dall’esterno.</p>
+<p>Abbiamo visto che dichiarare gli attributi <code>private</code> impedisce accessi non controllati dall’esterno.</p>
 <p>Ma perché è così importante? E c’è un nome per questo principio?</p>
-<p>Sì — si chiama <strong>incapsulamento</strong>, ed è uno dei tre pilastri dell’OOP.</p>
+<p>Sì: si chiama <strong>incapsulamento</strong>, ed è uno dei tre pilastri dell’OOP.</p>
 <hr>
 </section>
 <section id="il-problema-degli-attributi-pubblici" class="level2" data-number="6.2">
@@ -444,7 +444,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <p>Pensa a un controller di una console: hai dei pulsanti (l’interfaccia pubblica) e non ti interessa cosa succede dentro i circuiti quando li premi. Sai solo che premendo X salti, premendo B attacchi.</p>
-<p>Allo stesso modo, chi usa un oggetto <code>Personaggio</code> non deve sapere come sono gestiti vita e livello internamente — usa i metodi pubblici e ottiene i risultati.</p>
+<p>Allo stesso modo, chi usa un oggetto <code>Personaggio</code> non deve sapere come sono gestiti vita e livello internamente, usa i metodi pubblici e ottiene i risultati.</p>
 </div>
 </div>
 <hr>
@@ -495,7 +495,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>eroe<span class="op">.</span><span class="fu">attacca</span><span class="op">(</span>nemico<span class="op">);</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>eroe<span class="op">.</span><span class="fu">salaDiLivello</span><span class="op">();</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> v <span class="op">=</span> eroe<span class="op">.</span><span class="fu">getVita</span><span class="op">();</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>I dettagli interni — come viene calcolata la vita, come funziona il setter — sono irrilevanti per chi usa la classe.</p>
+<p>I dettagli interni ad esempio come viene calcolata la vita o come funziona il setter, sono irrilevanti per chi usa la classe.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -506,14 +506,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Possiamo cambiare completamente il modo in cui calcoliamo il danno o gestiamo la vita, senza che il resto del programma se ne accorga — purché l’interfaccia pubblica rimanga la stessa. Questa è la potenza dell’astrazione.</p>
+<p>Possiamo cambiare completamente il modo in cui calcoliamo il danno o gestiamo la vita, senza che il resto del programma se ne accorga, purché l’interfaccia pubblica rimanga la stessa. Questa è la potenza dell’astrazione.</p>
 </div>
 </div>
 <hr>
 </section>
 <section id="un-secondo-esempio-larma-come-adt" class="level2" data-number="6.7">
 <h2 data-number="6.7" class="anchored" data-anchor-id="un-secondo-esempio-larma-come-adt"><span class="header-section-number">6.7</span> Un secondo esempio: l’arma come ADT</h2>
-<p>Modelliamo un’arma che si consuma con l’uso, come in molti RPG.</p>
+<p>Modelliamo un’arma che si consuma con l’uso.</p>
 <p><strong>Valori possibili:</strong> nome non vuoto, danno positivo, durabilità tra 0 e 100.</p>
 <p><strong>Operazioni:</strong> usare l’arma, ripararla, leggere il danno attuale.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Arma <span class="op">{</span></span>
@@ -554,7 +554,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> durabilita <span class="op">==</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Chi usa <code>Arma</code> non sa come viene calcolato <code>getDanno()</code>. Sa solo che il danno dipende dalla durabilità — questo è tutto ciò che gli serve.</p>
+<p>Chi usa <code>Arma</code> non sa come viene calcolato <code>getDanno()</code>. Sa solo che il danno dipende dalla durabilità e questo è tutto ciò che gli serve.</p>
 <hr>
 </section>
 <section id="incapsulamento-in-azione-simulazione-completa" class="level2" data-number="6.8">
@@ -608,7 +608,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Nel <code>main</code> non c’è nessun accesso diretto agli attributi. Tutto passa attraverso i metodi pubblici. L’implementazione interna di <code>Personaggio</code> e <code>Arma</code> è completamente nascosta — questo è l’incapsulamento in azione.</p>
+<p>Nel <code>main</code> non c’è nessun accesso diretto agli attributi. Tutto passa attraverso i metodi pubblici. L’implementazione interna di <code>Personaggio</code> e <code>Arma</code> è completamente nascosta: questo è l’incapsulamento in azione.</p>
 </div>
 </div>
 <hr>
@@ -621,21 +621,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>I concetti chiave di questa lezione
+<span class="screen-reader-only">Note</span>I concetti chiave
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
 <li>L’<strong>incapsulamento</strong> nasconde gli attributi (<code>private</code>) e li espone solo tramite metodi controllati (<code>public</code>).</li>
-<li>L’<strong>information hiding</strong> garantisce che i dettagli implementativi restino nascosti — si espone solo l’interfaccia necessaria.</li>
-<li>Uno <strong>stato inconsistente</strong> è quando un oggetto contiene valori non validi — l’incapsulamento lo previene.</li>
+<li>L’<strong>information hiding</strong> garantisce che i dettagli implementativi restino nascosti: si espone solo l’interfaccia necessaria.</li>
+<li>Uno <strong>stato inconsistente</strong> è quando un oggetto contiene valori non validi, l’incapsulamento lo previene.</li>
 <li>Un <strong>ADT</strong> definisce un tipo tramite i suoi valori possibili e le sue operazioni, senza specificare l’implementazione.</li>
 <li>La separazione tra <strong>interfaccia</strong> e <strong>implementazione</strong> permette di cambiare il codice interno senza impatto su chi usa la classe.</li>
-<li>La regola d’oro rimane: <strong>attributi <code>private</code>, metodi <code>public</code></strong>.</li>
+<li>La regola rimane: <strong>attributi <code>private</code>, metodi <code>public</code></strong>.</li>
 </ul>
 </div>
 </div>
-<p>Nella prossima lezione vedremo l’<strong>ereditarietà</strong>: come creare nuove classi a partire da quelle esistenti, riutilizzando il codice già scritto.</p>
 
 
 </section>

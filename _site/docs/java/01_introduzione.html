@@ -385,7 +385,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="perché-java" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="perché-java"><span class="header-section-number">2.1</span> Perché Java?</h2>
 <p>Prima di scrivere una sola riga di codice, vale la pena capire <strong>perché esiste Java</strong> e cosa lo rende diverso dai linguaggi che conosci già.</p>
-<p>Con il C hai imparato a ragionare in modo imperativo: istruzioni, variabili, funzioni. Ma il C ha un limite importante — il codice compilato funziona <strong>solo</strong> sulla macchina per cui è stato compilato. Un programma compilato su Linux non gira su Windows, e viceversa.</p>
+<p>Con il C hai imparato a ragionare in modo imperativo: istruzioni, variabili, funzioni. Con il c il codice compilato funziona <strong>solo</strong> sulla macchina per cui è stato compilato. Un programma compilato su Linux non gira su Windows, e viceversa.</p>
 <p>Java nasce negli anni ’90 con un obiettivo preciso:</p>
 <blockquote class="blockquote">
 <p><em>“Write once, run anywhere.”</em> Scrivi il codice una volta, eseguilo ovunque.</p>
@@ -468,12 +468,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>La JVM non si limita a interpretare il bytecode riga per riga. Al suo interno c’è anche un compilatore <strong>Just-In-Time (JIT)</strong> che, mentre il programma gira, traduce le parti più usate direttamente in codice macchina nativo. Risultato: la velocità si avvicina a quella del C, mantenendo la portabilità.</p>
 </div>
 </div>
-<p>Il bytecode non è codice macchina — non può girare direttamente sul processore. Ma è uguale su tutte le piattaforme. Basta avere la JVM installata, e il programma gira.</p>
+<p>Il bytecode non è codice macchina e non può girare direttamente sul processore. Ma è uguale su tutte le piattaforme. Basta avere la JVM installata, e il programma gira.</p>
 <hr>
 </section>
 <section id="perché-si-chiama-java" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="perché-si-chiama-java"><span class="header-section-number">2.4</span> Perché si chiama Java?</h2>
-<p>Una curiosità che non trovi sul libro. Il nome originale del linguaggio era <strong>Oak</strong> (“quercia”). Peccato che esistesse già un altro linguaggio con quel nome — serviva un’alternativa.</p>
+<p>Il nome originale del linguaggio era <strong>Oak</strong> (“quercia”) ma esisteva già un altro linguaggio con quel nome e serviva un’alternativa.</p>
 <p>Durante una riunione che stava diventando molto lunga, il team di sviluppatori stava bevendo grandi quantità di caffè. Qualcuno propose <strong>Java</strong> — slang americano per “caffè”, che prende il nome dall’isola indonesiana famosa per le sue piantagioni.</p>
 <p>Il nome piacque e rimase. Da qui il logo della tazzina fumante che ancora oggi identifica Java.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -482,7 +482,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>JDK, JRE e JVM — le sigle che vedrai spesso
+<span class="screen-reader-only">Note</span>JDK, JRE e JVM — le sigle ricorrenti
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -498,7 +498,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="file-e-programmi-java-vs-c" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="file-e-programmi-java-vs-c"><span class="header-section-number">2.5</span> File e programmi: Java vs C</h2>
-<p>In C i programmi erano divisi in file <code>.h</code> (intestazioni con le dichiarazioni) e file <code>.c</code> (implementazioni). Per collegare tutto si usava <code>#include</code>, che funziona in modo molto meccanico: il compilatore copia letteralmente il contenuto del file incluso dentro al programma.</p>
+<p>In C i programmi erano divisi in file <code>.h</code> (intestazioni con le dichiarazioni) e file <code>.c</code> (implementazioni). Per collegare tutto si usava <code>#include</code>, che funziona in modo molto meccanico: il compilatore copia il contenuto del file incluso dentro al programma.</p>
 <p>Java funziona diversamente:</p>
 <ul>
 <li>Ogni classe sta in un <strong>file separato</strong> chiamato esattamente come la classe: <code>NomeClasse.java</code></li>
@@ -516,7 +516,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Quando scrivi <code>import</code>, non stai copiando del codice nel tuo file. Stai solo dicendo al compilatore <strong>dove trovare</strong> quella classe. È come aggiungere un indirizzo a una rubrica — non come fare una fotocopia del contenuto.</p>
+<p>Quando scrivi <code>import</code>, non stai copiando del codice nel tuo file. Stai solo dicendo al compilatore <strong>dove trovare</strong> quella classe.</p>
 </div>
 </div>
 <hr>
@@ -582,7 +582,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Il <code>main</code> serve <strong>solo nella classe da cui parte il programma</strong>. Tutte le altre classi (come <code>Personaggio</code>, <code>Arma</code>, ecc. che hai visto nel modulo OOP) non hanno un <code>main</code> — hanno solo attributi e metodi.</p>
+<p>Il <code>main</code> serve <strong>solo nella classe da cui parte il programma</strong>. Tutte le altre classi non hanno un <code>main</code> — hanno solo attributi e metodi.</p>
 </div>
 </div>
 <hr>
@@ -634,7 +634,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>I concetti chiave di questa lezione
+<span class="screen-reader-only">Note</span>I concetti chiave
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -649,7 +649,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </div>
 </div>
-<p>Nella prossima lezione vedremo i <strong>tipi di dato</strong> di Java — dai tipi primitivi alla classe <code>String</code> — e come leggere input da tastiera.</p>
 
 
 </section>
