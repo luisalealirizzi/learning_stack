@@ -389,7 +389,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ├── Guerriero
 ├── Mago
 └── Arciere</code></pre>
-<p>Ogni sottoclasse ridefinisce <code>attacca()</code> con il proprio comportamento. Ma la versione di <code>attacca()</code> in <code>Personaggio</code> — quella base — non ha molto senso da sola:</p>
+<p>Ogni sottoclasse ridefinisce <code>attacca()</code> con il proprio comportamento. Ma la versione di <code>attacca()</code> in <code>Personaggio</code> (quella base) non ha molto senso da sola:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">attacca</span><span class="op">(</span>Personaggio bersaglio<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fu">getNome</span><span class="op">()</span> <span class="op">+</span> <span class="st">" attacca con un colpo generico."</span><span class="op">);</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    bersaglio<span class="op">.</span><span class="fu">subirDanno</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
@@ -401,7 +401,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="classi-astratte" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="classi-astratte"><span class="header-section-number">9.2</span> Classi astratte</h2>
-<p>Una <strong>classe astratta</strong> è una classe che non può essere istanziata direttamente — esiste solo per essere estesa. Si dichiara con la parola chiave <code>abstract</code>.</p>
+<p>Una <strong>classe astratta</strong> è una classe che non può essere istanziata direttamente, esiste solo per essere estesa. Si dichiara con la parola chiave <code>abstract</code>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">abstract</span> <span class="kw">class</span> Personaggio <span class="op">{</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> nome<span class="op">;</span></span>
@@ -470,7 +470,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container callout-body">
 <ul>
 <li>Si dichiarano con <code>abstract class</code></li>
-<li><strong>Non possono essere istanziate</strong> direttamente — <code>new Personaggio()</code> dà errore</li>
+<li><strong>Non possono essere istanziate</strong> direttamente: <code>new Personaggio()</code> dà errore</li>
 <li>Possono avere sia metodi <strong>concreti</strong> (con implementazione) sia metodi <strong>astratti</strong> (senza)</li>
 <li>Ogni classe figlia <strong>deve</strong> implementare tutti i metodi astratti, altrimenti deve essere astratta anche lei</li>
 </ul>
@@ -480,14 +480,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="metodi-astratti" class="level2" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="metodi-astratti"><span class="header-section-number">9.3</span> Metodi astratti</h2>
-<p>Un <strong>metodo astratto</strong> è un metodo senza corpo — solo la firma, seguita da <code>;</code>. Dice alle sottoclassi: <em>“questo metodo deve esistere, ma tocca a te decidere come funziona”</em>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">abstract</span> <span class="dt">void</span> <span class="fu">attacca</span><span class="op">(</span>Personaggio bersaglio<span class="op">);</span>  <span class="co">// nessun corpo!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Un <strong>metodo astratto</strong> è un metodo senza corpo con solo la firma, seguita da <code>;</code>. Dice alle sottoclassi: <em>“questo metodo deve esistere, ma tocca a te decidere come funziona”</em>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">abstract</span> <span class="dt">void</span> <span class="fu">attacca</span><span class="op">(</span>Personaggio bersaglio<span class="op">);</span>  <span class="co">// nessun corpo</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Se una sottoclasse non implementa tutti i metodi astratti, il compilatore dà errore. È un modo per <strong>forzare un contratto</strong>: ogni tipo concreto di personaggio deve saper attaccare.</p>
 <hr>
 </section>
 <section id="le-sottoclassi-concrete" class="level2" data-number="9.4">
 <h2 data-number="9.4" class="anchored" data-anchor-id="le-sottoclassi-concrete"><span class="header-section-number">9.4</span> Le sottoclassi concrete</h2>
-<p>Ora le sottoclassi non possono più ignorare <code>attacca()</code> — devono implementarlo:</p>
+<p>Ora le sottoclassi non possono più ignorare <code>attacca()</code>, devono implementarlo:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Guerriero <span class="kw">extends</span> Personaggio <span class="op">{</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> armatura<span class="op">;</span></span>
@@ -546,7 +546,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="9.5" class="anchored" data-anchor-id="interfacce"><span class="header-section-number">9.5</span> Interfacce</h2>
 <p>Le classi astratte risolvono il problema dell’astrazione nella gerarchia. Ma Java non supporta l’<strong>ereditarietà multipla</strong> — una classe può estendere una sola classe madre.</p>
 <p>E se volessimo aggiungere capacità trasversali? Ad esempio, alcune entità del gioco possono essere <strong>curate</strong>, altre possono essere <strong>salvate</strong> su file, altre ancora possono essere <strong>osservate</strong> da altri oggetti.</p>
-<p>Queste capacità non appartengono alla gerarchia <code>Personaggio</code> — sono comportamenti che classi diverse possono condividere indipendentemente.</p>
+<p>Queste capacità non appartengono alla gerarchia <code>Personaggio</code>, sono comportamenti che classi diverse possono condividere indipendentemente.</p>
 <p>Per questo esistono le <strong>interfacce</strong>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -574,7 +574,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> <span class="fu">toStringSalvataggio</span><span class="op">();</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">caricaDaSalvataggio</span><span class="op">(</span><span class="bu">String</span> dati<span class="op">);</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Un’interfaccia può anche avere <strong>metodi default</strong> — metodi con un’implementazione di base che le classi possono sovrascrivere o usare così com’è:</p>
+<p>Un’interfaccia può anche avere <strong>metodi default</strong>: metodi con un’implementazione di base che le classi possono sovrascrivere o usare così com’è:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> Curabile <span class="op">{</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">cura</span><span class="op">(</span><span class="dt">int</span> quantita<span class="op">);</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> <span class="fu">getVita</span><span class="op">();</span></span>
@@ -645,7 +645,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="classe-astratta-vs-interfaccia" class="level2" data-number="9.8">
 <h2 data-number="9.8" class="anchored" data-anchor-id="classe-astratta-vs-interfaccia"><span class="header-section-number">9.8</span> Classe astratta vs interfaccia</h2>
-<p>È una domanda frequente. Ecco le differenze principali:</p>
+<p>Ecco le differenze principali:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -735,7 +735,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Dati salvati: "</span> <span class="op">+</span> dati<span class="op">);</span></span>
 <span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Nota come <code>eroe</code> può essere trattato come <code>Guerriero</code>, come <code>Curabile</code> e come <code>Salvabile</code> — è lo stesso oggetto visto attraverso interfacce diverse. Questo è il polimorfismo applicato alle interfacce.</p>
+<p>Nota come <code>eroe</code> può essere trattato come <code>Guerriero</code>, come <code>Curabile</code> e come `Salvabile: è lo stesso oggetto visto attraverso interfacce diverse. Questo è il polimorfismo applicato alle interfacce.</p>
 <hr>
 </section>
 <section id="riepilogo" class="level2" data-number="9.10">
@@ -746,13 +746,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>I concetti chiave di questa lezione
+<span class="screen-reader-only">Note</span>I concetti chiave
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Una <strong>classe astratta</strong> non può essere istanziata — esiste solo per essere estesa.</li>
-<li>Un <strong>metodo astratto</strong> non ha corpo — ogni sottoclasse concreta deve implementarlo.</li>
+<li>Una <strong>classe astratta</strong> non può essere istanziata, esiste solo per essere estesa.</li>
+<li>Un <strong>metodo astratto</strong> non ha corpo: ogni sottoclasse concreta deve implementarlo.</li>
 <li>Una <strong>interfaccia</strong> è un contratto puro: dichiara metodi senza implementazione (salvo i <code>default</code>).</li>
 <li>Una classe può estendere <strong>una sola</strong> classe madre ma implementare <strong>quante interfacce vuole</strong>.</li>
 <li>Usa la classe astratta per <strong>gerarchie con codice condiviso</strong>; usa l’interfaccia per <strong>capacità trasversali</strong>.</li>

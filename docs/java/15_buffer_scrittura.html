@@ -346,16 +346,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#perché-i-buffer" id="toc-perché-i-buffer" class="nav-link active" data-scroll-target="#perché-i-buffer"><span class="header-section-number">16.1</span> Perché i buffer?</a></li>
-  <li><a href="#bufferedwriter-scrivere-con-buffer" id="toc-bufferedwriter-scrivere-con-buffer" class="nav-link" data-scroll-target="#bufferedwriter-scrivere-con-buffer"><span class="header-section-number">16.2</span> BufferedWriter: scrivere con buffer</a></li>
-  <li><a href="#printwriter-scrivere-con-formattazione" id="toc-printwriter-scrivere-con-formattazione" class="nav-link" data-scroll-target="#printwriter-scrivere-con-formattazione"><span class="header-section-number">16.3</span> PrintWriter: scrivere con formattazione</a></li>
-  <li><a href="#bufferedreader-leggere-con-buffer" id="toc-bufferedreader-leggere-con-buffer" class="nav-link" data-scroll-target="#bufferedreader-leggere-con-buffer"><span class="header-section-number">16.4</span> BufferedReader: leggere con buffer</a></li>
-  <li><a href="#la-gerarchia-di-io-di-java" id="toc-la-gerarchia-di-io-di-java" class="nav-link" data-scroll-target="#la-gerarchia-di-io-di-java"><span class="header-section-number">16.5</span> La gerarchia di I/O di Java</a></li>
-  <li><a href="#codifica-dei-caratteri" id="toc-codifica-dei-caratteri" class="nav-link" data-scroll-target="#codifica-dei-caratteri"><span class="header-section-number">16.6</span> Codifica dei caratteri</a></li>
-  <li><a href="#flush-svuotare-il-buffer-manualmente" id="toc-flush-svuotare-il-buffer-manualmente" class="nav-link" data-scroll-target="#flush-svuotare-il-buffer-manualmente"><span class="header-section-number">16.7</span> Flush: svuotare il buffer manualmente</a></li>
-  <li><a href="#esempio-completo-logger-con-buffer" id="toc-esempio-completo-logger-con-buffer" class="nav-link" data-scroll-target="#esempio-completo-logger-con-buffer"><span class="header-section-number">16.8</span> Esempio completo: logger con buffer</a></li>
-  <li><a href="#confronto-finale-quando-usare-cosa" id="toc-confronto-finale-quando-usare-cosa" class="nav-link" data-scroll-target="#confronto-finale-quando-usare-cosa"><span class="header-section-number">16.9</span> Confronto finale: quando usare cosa</a></li>
-  <li><a href="#riepilogo" id="toc-riepilogo" class="nav-link" data-scroll-target="#riepilogo"><span class="header-section-number">16.10</span> Riepilogo</a></li>
+  <li><a href="#il-principio-del-buffer" id="toc-il-principio-del-buffer" class="nav-link active" data-scroll-target="#il-principio-del-buffer"><span class="header-section-number">16.1</span> Il principio del buffer</a></li>
+  <li><a href="#buffer-impliciti-le-api-di-alto-livello" id="toc-buffer-impliciti-le-api-di-alto-livello" class="nav-link" data-scroll-target="#buffer-impliciti-le-api-di-alto-livello"><span class="header-section-number">16.2</span> Buffer impliciti: le API di alto livello</a></li>
+  <li><a href="#il-primo-passo-verso-il-buffer-files.lines" id="toc-il-primo-passo-verso-il-buffer-files.lines" class="nav-link" data-scroll-target="#il-primo-passo-verso-il-buffer-files.lines"><span class="header-section-number">16.3</span> Il primo passo verso il buffer: <code>Files.lines()</code></a></li>
+  <li><a href="#buffer-espliciti-su-testo-bufferedreader-e-bufferedwriter" id="toc-buffer-espliciti-su-testo-bufferedreader-e-bufferedwriter" class="nav-link" data-scroll-target="#buffer-espliciti-su-testo-bufferedreader-e-bufferedwriter"><span class="header-section-number">16.4</span> Buffer espliciti su testo: BufferedReader e BufferedWriter</a>
+  <ul class="collapse">
+  <li><a href="#bufferedreader-leggere-riga-per-riga" id="toc-bufferedreader-leggere-riga-per-riga" class="nav-link" data-scroll-target="#bufferedreader-leggere-riga-per-riga"><span class="header-section-number">16.4.1</span> BufferedReader: leggere riga per riga</a></li>
+  <li><a href="#gestione-delle-eccezioni-dentro-il-try" id="toc-gestione-delle-eccezioni-dentro-il-try" class="nav-link" data-scroll-target="#gestione-delle-eccezioni-dentro-il-try"><span class="header-section-number">16.4.2</span> Gestione delle eccezioni dentro il try</a></li>
+  <li><a href="#due-risorse-nello-stesso-try" id="toc-due-risorse-nello-stesso-try" class="nav-link" data-scroll-target="#due-risorse-nello-stesso-try"><span class="header-section-number">16.4.3</span> Due risorse nello stesso try</a></li>
+  <li><a href="#bufferedwriter-scrivere-con-buffer" id="toc-bufferedwriter-scrivere-con-buffer" class="nav-link" data-scroll-target="#bufferedwriter-scrivere-con-buffer"><span class="header-section-number">16.4.4</span> BufferedWriter: scrivere con buffer</a></li>
+  <li><a href="#append-con-bufferedwriter" id="toc-append-con-bufferedwriter" class="nav-link" data-scroll-target="#append-con-bufferedwriter"><span class="header-section-number">16.4.5</span> Append con BufferedWriter</a></li>
+  <li><a href="#printwriter-testo-formattato" id="toc-printwriter-testo-formattato" class="nav-link" data-scroll-target="#printwriter-testo-formattato"><span class="header-section-number">16.4.6</span> PrintWriter: testo formattato</a></li>
+  </ul></li>
+  <li><a href="#lanalogia-tra-file-e-stringhe" id="toc-lanalogia-tra-file-e-stringhe" class="nav-link" data-scroll-target="#lanalogia-tra-file-e-stringhe"><span class="header-section-number">16.5</span> L’analogia tra file e stringhe</a></li>
+  <li><a href="#buffer-su-flussi-binari" id="toc-buffer-su-flussi-binari" class="nav-link" data-scroll-target="#buffer-su-flussi-binari"><span class="header-section-number">16.6</span> Buffer su flussi binari</a></li>
+  <li><a href="#buffer-specializzati-datainputstream-e-dataoutputstream" id="toc-buffer-specializzati-datainputstream-e-dataoutputstream" class="nav-link" data-scroll-target="#buffer-specializzati-datainputstream-e-dataoutputstream"><span class="header-section-number">16.7</span> Buffer specializzati: DataInputStream e DataOutputStream</a>
+  <ul class="collapse">
+  <li><a href="#quando-usarli" id="toc-quando-usarli" class="nav-link" data-scroll-target="#quando-usarli"><span class="header-section-number">16.7.1</span> Quando usarli</a></li>
+  </ul></li>
+  <li><a href="#il-quadro-completo-dei-buffer" id="toc-il-quadro-completo-dei-buffer" class="nav-link" data-scroll-target="#il-quadro-completo-dei-buffer"><span class="header-section-number">16.8</span> Il quadro completo dei buffer</a></li>
+  <li><a href="#la-codifica-dei-caratteri" id="toc-la-codifica-dei-caratteri" class="nav-link" data-scroll-target="#la-codifica-dei-caratteri"><span class="header-section-number">16.9</span> La codifica dei caratteri</a></li>
+  <li><a href="#flush-svuotare-il-buffer-manualmente" id="toc-flush-svuotare-il-buffer-manualmente" class="nav-link" data-scroll-target="#flush-svuotare-il-buffer-manualmente"><span class="header-section-number">16.10</span> Flush: svuotare il buffer manualmente</a></li>
+  <li><a href="#il-quadro-completo-quando-usare-cosa" id="toc-il-quadro-completo-quando-usare-cosa" class="nav-link" data-scroll-target="#il-quadro-completo-quando-usare-cosa"><span class="header-section-number">16.11</span> Il quadro completo: quando usare cosa</a></li>
+  <li><a href="#esempio-completo-logger-con-buffer-e-rotazione-giornaliera" id="toc-esempio-completo-logger-con-buffer-e-rotazione-giornaliera" class="nav-link" data-scroll-target="#esempio-completo-logger-con-buffer-e-rotazione-giornaliera"><span class="header-section-number">16.12</span> Esempio completo: logger con buffer e rotazione giornaliera</a></li>
+  <li><a href="#riepilogo" id="toc-riepilogo" class="nav-link" data-scroll-target="#riepilogo"><span class="header-section-number">16.13</span> Riepilogo</a></li>
   </ul>
 </nav>
     </div>
@@ -382,359 +396,542 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <hr>
-<section id="perché-i-buffer" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="perché-i-buffer"><span class="header-section-number">16.1</span> Perché i buffer?</h2>
-<p>Nella lezione precedente abbiamo usato <code>Files.writeString()</code> e <code>Files.write()</code> — comode e semplici. Ma hanno un limite: ogni chiamata apre il file, scrive, e lo chiude. Se devi scrivere molte righe una alla volta — come in un log in tempo reale — questo approccio è inefficiente.</p>
-<p>Immagina di dover costruire un muro mattone per mattone: ogni volta che posi un mattone, scendi dal ponteggio, vai al magazzino, torni su. È molto più efficiente caricare un carrello di mattoni, salire una volta sola e posarli tutti.</p>
-<p>Il <strong>buffer</strong> è quel carrello: raccoglie i dati in memoria e li scrive sul disco in un’unica operazione quando il buffer è pieno o quando lo chiudi esplicitamente.</p>
-<pre><code>Scrittura senza buffer:          Scrittura con buffer:
-[dato] → disco                   [dato] → buffer
-[dato] → disco        vs         [dato] → buffer
-[dato] → disco                   [dato] → buffer → disco (un'unica scrittura)</code></pre>
+<section id="il-principio-del-buffer" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="il-principio-del-buffer"><span class="header-section-number">16.1</span> Il principio del buffer</h2>
+<p>Nella lezione precedente abbiamo usato <code>Files.writeString()</code> e <code>Files.readAllLines()</code> — comode e leggibili. Ma c’è un principio importante che vale sia per i file che per le stringhe:</p>
+<blockquote class="blockquote">
+<p><strong>Evitare tante operazioni piccole e costose, accumulando i dati prima di scrivere o elaborare.</strong></p>
+</blockquote>
+<p>Accedere al disco è costoso. Farlo molte volte per piccoli pezzi di dati è lento. Il <strong>buffer</strong> è una zona di memoria RAM usata come zona di appoggio tra il programma e il file: accumula i dati e li scarica sul disco in un’unica operazione, riducendo drasticamente il numero di accessi.</p>
+<p>Quello che cambia tra le diverse API è <strong>chi gestisce il buffer</strong> e <strong>quanto è visibile</strong>.</p>
 <hr>
 </section>
-<section id="bufferedwriter-scrivere-con-buffer" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="bufferedwriter-scrivere-con-buffer"><span class="header-section-number">16.2</span> BufferedWriter: scrivere con buffer</h2>
-<p><code>BufferedWriter</code> avvolge uno scrittore base e aggiunge il buffering. Si usa tipicamente con <code>Files.newBufferedWriter()</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">file</span><span class="op">.*;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.*;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">charset</span><span class="op">.</span><span class="im">StandardCharsets</span><span class="op">;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Path file <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"output.txt"</span><span class="op">);</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedWriter</span> writer <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedWriter</span><span class="op">(</span>file<span class="op">))</span> <span class="op">{</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    writer<span class="op">.</span><span class="fu">write</span><span class="op">(</span><span class="st">"Prima riga"</span><span class="op">);</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    writer<span class="op">.</span><span class="fu">newLine</span><span class="op">();</span>  <span class="co">// aggiunge il carattere di a capo corretto per il SO</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    writer<span class="op">.</span><span class="fu">write</span><span class="op">(</span><span class="st">"Seconda riga"</span><span class="op">);</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    writer<span class="op">.</span><span class="fu">newLine</span><span class="op">();</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    writer<span class="op">.</span><span class="fu">write</span><span class="op">(</span><span class="st">"Terza riga"</span><span class="op">);</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">// il try-with-resources chiude e svuota il buffer automaticamente</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Per aggiungere in append senza sovrascrivere:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedWriter</span> writer <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedWriter</span><span class="op">(</span>file<span class="op">,</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>        StandardOpenOption<span class="op">.</span><span class="fu">APPEND</span><span class="op">,</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        StandardOpenOption<span class="op">.</span><span class="fu">CREATE</span><span class="op">))</span> <span class="op">{</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    writer<span class="op">.</span><span class="fu">write</span><span class="op">(</span><span class="st">"Riga aggiunta"</span><span class="op">);</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    writer<span class="op">.</span><span class="fu">newLine</span><span class="op">();</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="buffer-impliciti-le-api-di-alto-livello" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="buffer-impliciti-le-api-di-alto-livello"><span class="header-section-number">16.2</span> Buffer impliciti: le API di alto livello</h2>
+<p>Quando usi metodi come:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">readString</span><span class="op">(</span>p<span class="op">);</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">readAllLines</span><span class="op">(</span>p<span class="op">);</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Files<span class="op">.</span><span class="fu">writeString</span><span class="op">(</span>p<span class="op">,</span> testo<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>il buffering esiste, ma è completamente <strong>nascosto</strong>. Java legge o scrive il file usando buffer interni, poi ti restituisce il risultato finito.</p>
+<p>Questi metodi sono comodi, sicuri e leggibili. Ma implicano una scelta precisa: <strong>tutto il contenuto viene caricato in memoria</strong>. Sono indicati per file piccoli — configurazioni, testi brevi, output di report.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span><code>newLine()</code> vs <code>\n</code>
+<span class="screen-reader-only">Note</span>L’idea di base in Java moderno
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Usa sempre <code>writer.newLine()</code> invece di <code>"\n"</code>. Il metodo scrive il carattere di a capo corretto per il sistema operativo corrente: <code>\n</code> su Linux/Mac, <code>\r\n</code> su Windows. Così il file funziona correttamente su tutte le piattaforme.</p>
+<p>Non si parte dai buffer. Si parte da API di alto livello, già ottimizzate, e si scende solo quando serve — cioè quando il file è grande, quando si lavora riga per riga con logica complessa, o quando si vuole controllo fine sul flusso dei dati.</p>
 </div>
 </div>
 <hr>
 </section>
-<section id="printwriter-scrivere-con-formattazione" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="printwriter-scrivere-con-formattazione"><span class="header-section-number">16.3</span> PrintWriter: scrivere con formattazione</h2>
-<p><code>PrintWriter</code> aggiunge metodi comodi come <code>println()</code> e <code>printf()</code> — simili a <code>System.out</code>. È ideale quando vuoi scrivere testo formattato su file:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.*;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">file</span><span class="op">.*;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>Path file <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"report.txt"</span><span class="op">);</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span><span class="bu">PrintWriter</span> pw <span class="op">=</span> <span class="kw">new</span> <span class="bu">PrintWriter</span><span class="op">(</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        Files<span class="op">.</span><span class="fu">newBufferedWriter</span><span class="op">(</span>file<span class="op">)))</span> <span class="op">{</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    pw<span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"=== REPORT SQUADRA ==="</span><span class="op">);</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    pw<span class="op">.</span><span class="fu">println</span><span class="op">();</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">// printf-style formatting</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    pw<span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">"</span><span class="sc">%-15s</span><span class="st"> </span><span class="sc">%5s</span><span class="st"> </span><span class="sc">%5s</span><span class="st"> </span><span class="sc">%5s%n</span><span class="st">"</span><span class="op">,</span> <span class="st">"Nome"</span><span class="op">,</span> <span class="st">"Vita"</span><span class="op">,</span> <span class="st">"Att"</span><span class="op">,</span> <span class="st">"Lv"</span><span class="op">);</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    pw<span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">"</span><span class="sc">%-15s</span><span class="st"> </span><span class="sc">%5d</span><span class="st"> </span><span class="sc">%5d</span><span class="st"> </span><span class="sc">%5d%n</span><span class="st">"</span><span class="op">,</span> <span class="st">"Arthas"</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    pw<span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">"</span><span class="sc">%-15s</span><span class="st"> </span><span class="sc">%5d</span><span class="st"> </span><span class="sc">%5d</span><span class="st"> </span><span class="sc">%5d%n</span><span class="st">"</span><span class="op">,</span> <span class="st">"Gandalf"</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">25</span><span class="op">,</span> <span class="dv">7</span><span class="op">);</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    pw<span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">"</span><span class="sc">%-15s</span><span class="st"> </span><span class="sc">%5d</span><span class="st"> </span><span class="sc">%5d</span><span class="st"> </span><span class="sc">%5d%n</span><span class="st">"</span><span class="op">,</span> <span class="st">"Legolas"</span><span class="op">,</span> <span class="dv">120</span><span class="op">,</span> <span class="dv">28</span><span class="op">,</span> <span class="dv">6</span><span class="op">);</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Output nel file:</p>
-<pre><code>=== REPORT SQUADRA ===
-
-Nome             Vita   Att    Lv
-Arthas            150    30     5
-Gandalf           100    25     7
-Legolas           120    28     6</code></pre>
+<section id="il-primo-passo-verso-il-buffer-files.lines" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="il-primo-passo-verso-il-buffer-files.lines"><span class="header-section-number">16.3</span> Il primo passo verso il buffer: <code>Files.lines()</code></h2>
+<p><code>Files.lines()</code> è già un passo verso il buffering: non carica tutto, consuma i dati mentre arrivano.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span>Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> righe <span class="op">=</span> Files<span class="op">.</span><span class="fu">lines</span><span class="op">(</span>p<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    righe<span class="op">.</span><span class="fu">forEach</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">::</span>println<span class="op">);</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Questo codice può stampare un file enorme senza mai tenerlo tutto in memoria. Il buffer c’è, ma non lo vediamo.</p>
 <hr>
 </section>
-<section id="bufferedreader-leggere-con-buffer" class="level2" data-number="16.4">
-<h2 data-number="16.4" class="anchored" data-anchor-id="bufferedreader-leggere-con-buffer"><span class="header-section-number">16.4</span> BufferedReader: leggere con buffer</h2>
-<p><code>BufferedReader</code> fa il contrario — legge con buffer per efficienza. Il metodo <code>readLine()</code> legge una riga alla volta:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.*;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">file</span><span class="op">.*;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>Path file <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"squadra.csv"</span><span class="op">);</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedReader</span> reader <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedReader</span><span class="op">(</span>file<span class="op">))</span> <span class="op">{</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> riga<span class="op">;</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">((</span>riga <span class="op">=</span> reader<span class="op">.</span><span class="fu">readLine</span><span class="op">())</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>riga<span class="op">);</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="buffer-espliciti-su-testo-bufferedreader-e-bufferedwriter" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="buffer-espliciti-su-testo-bufferedreader-e-bufferedwriter"><span class="header-section-number">16.4</span> Buffer espliciti su testo: BufferedReader e BufferedWriter</h2>
+<p>Quando vogliamo controllo esplicito, usiamo <code>BufferedReader</code> e <code>BufferedWriter</code>. Il buffer non è più un dettaglio tecnico nascosto — diventa parte del nostro modello.</p>
+<section id="bufferedreader-leggere-riga-per-riga" class="level3" data-number="16.4.1">
+<h3 data-number="16.4.1" class="anchored" data-anchor-id="bufferedreader-leggere-riga-per-riga"><span class="header-section-number">16.4.1</span> BufferedReader: leggere riga per riga</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">file</span><span class="op">.*;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.*;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>Path p <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"nomi.txt"</span><span class="op">);</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedReader</span> br <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedReader</span><span class="op">(</span>p<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> riga<span class="op">;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">((</span>riga <span class="op">=</span> br<span class="op">.</span><span class="fu">readLine</span><span class="op">())</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Letto: "</span> <span class="op">+</span> riga<span class="op">);</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Dichiarando <code>BufferedReader</code> stai dicendo esplicitamente tre cose: 1. il file viene letto <strong>a righe</strong>, non come blocco unico 2. il file viene <strong>consumato progressivamente</strong> 3. c’è un’area di memoria che accumula dati prima di consegnarteli — il buffer è parte del tuo modello</p>
+<p>Il <code>try-with-resources</code> garantisce che il file venga aperto una sola volta, letto progressivamente, e <strong>chiuso automaticamente</strong> alla fine — anche se scatta un’eccezione nel mezzo.</p>
+</section>
+<section id="gestione-delle-eccezioni-dentro-il-try" class="level3" data-number="16.4.2">
+<h3 data-number="16.4.2" class="anchored" data-anchor-id="gestione-delle-eccezioni-dentro-il-try"><span class="header-section-number">16.4.2</span> Gestione delle eccezioni dentro il try</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Path p <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"numeri.txt"</span><span class="op">);</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedReader</span> br <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedReader</span><span class="op">(</span>p<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> riga<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">((</span>riga <span class="op">=</span> br<span class="op">.</span><span class="fu">readLine</span><span class="op">())</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> n <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>riga<span class="op">);</span>  <span class="co">// può lanciare NumberFormatException</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>n <span class="op">*</span> <span class="dv">2</span><span class="op">);</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore di lettura file"</span><span class="op">);</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Se una riga non è un numero, il programma va in errore. Ma il file viene comunque chiuso. Questo è il punto chiave: <strong>la chiusura della risorsa non dipende dal fatto che il codice finisca bene</strong>. La gestione delle risorse è separata dalla gestione degli errori.</p>
+</section>
+<section id="due-risorse-nello-stesso-try" class="level3" data-number="16.4.3">
+<h3 data-number="16.4.3" class="anchored" data-anchor-id="due-risorse-nello-stesso-try"><span class="header-section-number">16.4.3</span> Due risorse nello stesso try</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Path src <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"input.txt"</span><span class="op">);</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Path dst <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"output.txt"</span><span class="op">);</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">BufferedReader</span> br <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedReader</span><span class="op">(</span>src<span class="op">);</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">BufferedWriter</span> bw <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedWriter</span><span class="op">(</span>dst<span class="op">)</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> riga<span class="op">;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">((</span>riga <span class="op">=</span> br<span class="op">.</span><span class="fu">readLine</span><span class="op">())</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        bw<span class="op">.</span><span class="fu">write</span><span class="op">(</span>riga<span class="op">.</span><span class="fu">toUpperCase</span><span class="op">());</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        bw<span class="op">.</span><span class="fu">newLine</span><span class="op">();</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Java garantisce che prima venga chiuso il writer (svuotando i buffer di scrittura), poi il reader. Questo ordine è importante — e tu non devi ricordartelo: è parte del contratto del try-with-resources.</p>
+</section>
+<section id="bufferedwriter-scrivere-con-buffer" class="level3" data-number="16.4.4">
+<h3 data-number="16.4.4" class="anchored" data-anchor-id="bufferedwriter-scrivere-con-buffer"><span class="header-section-number">16.4.4</span> BufferedWriter: scrivere con buffer</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Path file <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"output.txt"</span><span class="op">);</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedWriter</span> bw <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedWriter</span><span class="op">(</span>file<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">1000</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        bw<span class="op">.</span><span class="fu">write</span><span class="op">(</span><span class="st">"Riga "</span> <span class="op">+</span> i<span class="op">);</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        bw<span class="op">.</span><span class="fu">newLine</span><span class="op">();</span>  <span class="co">// usa il separatore corretto per il sistema operativo</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Invece di mille accessi al disco, il buffer accumula le righe in memoria e le scarica in poche operazioni. Molto più efficiente.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span><code>newLine()</code> vs <code>"\n"</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Usa sempre <code>bw.newLine()</code> invece di <code>"\n"</code>. Il metodo scrive il carattere di a capo corretto per il sistema operativo: <code>\n</code> su Linux/Mac, <code>\r\n</code> su Windows.</p>
+</div>
+</div>
+</section>
+<section id="append-con-bufferedwriter" class="level3" data-number="16.4.5">
+<h3 data-number="16.4.5" class="anchored" data-anchor-id="append-con-bufferedwriter"><span class="header-section-number">16.4.5</span> Append con BufferedWriter</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedWriter</span> bw <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedWriter</span><span class="op">(</span>file<span class="op">,</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>        StandardOpenOption<span class="op">.</span><span class="fu">APPEND</span><span class="op">,</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        StandardOpenOption<span class="op">.</span><span class="fu">CREATE</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    bw<span class="op">.</span><span class="fu">write</span><span class="op">(</span><span class="st">"Riga aggiunta"</span><span class="op">);</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    bw<span class="op">.</span><span class="fu">newLine</span><span class="op">();</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="printwriter-testo-formattato" class="level3" data-number="16.4.6">
+<h3 data-number="16.4.6" class="anchored" data-anchor-id="printwriter-testo-formattato"><span class="header-section-number">16.4.6</span> PrintWriter: testo formattato</h3>
+<p><code>PrintWriter</code> aggiunge <code>println()</code> e <code>printf()</code> — ideale per report tabellari:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span><span class="bu">PrintWriter</span> pw <span class="op">=</span> <span class="kw">new</span> <span class="bu">PrintWriter</span><span class="op">(</span>Files<span class="op">.</span><span class="fu">newBufferedWriter</span><span class="op">(</span>file<span class="op">)))</span> <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    pw<span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"=== REPORT ==="</span><span class="op">);</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    pw<span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">"</span><span class="sc">%-15s</span><span class="st"> </span><span class="sc">%5s</span><span class="st"> </span><span class="sc">%5s%n</span><span class="st">"</span><span class="op">,</span> <span class="st">"Nome"</span><span class="op">,</span> <span class="st">"Vita"</span><span class="op">,</span> <span class="st">"Lv"</span><span class="op">);</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    pw<span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">"</span><span class="sc">%-15s</span><span class="st"> </span><span class="sc">%5d</span><span class="st"> </span><span class="sc">%5d%n</span><span class="st">"</span><span class="op">,</span> <span class="st">"Arthas"</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    pw<span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">"</span><span class="sc">%-15s</span><span class="st"> </span><span class="sc">%5d</span><span class="st"> </span><span class="sc">%5d%n</span><span class="st">"</span><span class="op">,</span> <span class="st">"Gandalf"</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">7</span><span class="op">);</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="lanalogia-tra-file-e-stringhe" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="lanalogia-tra-file-e-stringhe"><span class="header-section-number">16.5</span> L’analogia tra file e stringhe</h2>
+<p>Il principio del buffer vale in entrambi i contesti:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Situazione</th>
+<th>Senza buffer</th>
+<th>Con buffer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>File</strong></td>
+<td>scrittura continua byte per byte</td>
+<td><code>BufferedWriter</code></td>
+</tr>
+<tr class="even">
+<td><strong>Stringhe</strong></td>
+<td>concatenazione in ciclo con <code>+</code></td>
+<td><code>StringBuilder</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>BufferedWriter</code> bufferizza il <strong>disco</strong>. <code>StringBuilder</code> bufferizza la <strong>memoria</strong>. Stessa idea, contesti diversi.</p>
+<hr>
+</section>
+<section id="buffer-su-flussi-binari" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="buffer-su-flussi-binari"><span class="header-section-number">16.6</span> Buffer su flussi binari</h2>
+<p>Per i file di testo ha senso parlare di righe e caratteri. Per i <strong>file binari</strong> — immagini, audio, zip, file <code>.class</code> — no: sono solo sequenze di byte, senza significato testuale.</p>
+<p>In quel caso si usano <code>BufferedInputStream</code> e <code>BufferedOutputStream</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.*;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">file</span><span class="op">.*;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>Path src <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"immagine.png"</span><span class="op">);</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>Path dst <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"copia.png"</span><span class="op">);</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">BufferedInputStream</span> in  <span class="op">=</span> <span class="kw">new</span> <span class="bu">BufferedInputStream</span><span class="op">(</span>Files<span class="op">.</span><span class="fu">newInputStream</span><span class="op">(</span>src<span class="op">));</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">BufferedOutputStream</span> out <span class="op">=</span> <span class="kw">new</span> <span class="bu">BufferedOutputStream</span><span class="op">(</span>Files<span class="op">.</span><span class="fu">newOutputStream</span><span class="op">(</span>dst<span class="op">))</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">byte</span><span class="op">[]</span> buffer <span class="op">=</span> <span class="kw">new</span> <span class="dt">byte</span><span class="op">[</span><span class="dv">4096</span><span class="op">];</span>  <span class="co">// il buffer è concreto e visibile</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> letti<span class="op">;</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">((</span>letti <span class="op">=</span> in<span class="op">.</span><span class="fu">read</span><span class="op">(</span>buffer<span class="op">))</span> <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        out<span class="op">.</span><span class="fu">write</span><span class="op">(</span>buffer<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> letti<span class="op">);</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Qui il buffer non è più astratto: è un array di byte che rappresenta fisicamente quanti dati leggi alla volta. <code>read()</code> restituisce il numero di byte effettivamente letti — l’ultima lettura può essere parziale, quindi si scrive solo <code>letti</code> byte, non tutti i 4096.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span><code>BufferedReader</code> vs <code>Files.readAllLines()</code>
+<span class="screen-reader-only">Tip</span>Perché 4096?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>Files.readAllLines()</code> carica <strong>tutto</strong> il file in memoria. Con file piccoli va benissimo. Con file grandi (log di milioni di righe) è un problema.</p>
-<p><code>BufferedReader</code> legge una riga alla volta — usa solo la memoria necessaria per una riga. Scegli <code>BufferedReader</code> quando il file può essere molto grande.</p>
-<p><code>Files.lines()</code> (lo Stream lazy che abbiamo visto) è ancora più elegante di <code>BufferedReader</code> per la maggior parte dei casi.</p>
+<p>4096 byte (4 KB) è una dimensione comune perché corrisponde tipicamente alla dimensione di un blocco del filesystem. Leggere o scrivere blocchi allineati al filesystem è più efficiente.</p>
 </div>
 </div>
 <hr>
 </section>
-<section id="la-gerarchia-di-io-di-java" class="level2" data-number="16.5">
-<h2 data-number="16.5" class="anchored" data-anchor-id="la-gerarchia-di-io-di-java"><span class="header-section-number">16.5</span> La gerarchia di I/O di Java</h2>
-<p>Java ha due famiglie di classi per l’I/O:</p>
-<pre><code>Stream (byte)                    Reader/Writer (caratteri)
-├── InputStream                  ├── Reader
-│   ├── FileInputStream          │   ├── FileReader
-│   └── BufferedInputStream      │   └── BufferedReader
-└── OutputStream                 └── Writer
-    ├── FileOutputStream             ├── FileWriter
-    └── BufferedOutputStream         ├── BufferedWriter
-                                     └── PrintWriter</code></pre>
-<p><strong>Stream</strong> — lavorano con byte grezzi. Utili per file binari (immagini, audio, dati serializzati).</p>
-<p><strong>Reader/Writer</strong> — lavorano con caratteri. Utili per file di testo, gestendo correttamente la codifica (UTF-8, ecc.).</p>
-<p>Per i file di testo usa sempre <code>Reader</code>/<code>Writer</code> — <code>Files.newBufferedReader()</code> e <code>Files.newBufferedWriter()</code> sono il punto di ingresso consigliato.</p>
-<hr>
-</section>
-<section id="codifica-dei-caratteri" class="level2" data-number="16.6">
-<h2 data-number="16.6" class="anchored" data-anchor-id="codifica-dei-caratteri"><span class="header-section-number">16.6</span> Codifica dei caratteri</h2>
-<p>Quando lavori con file di testo, la <strong>codifica</strong> (charset) è importante. La codifica di default dipende dal sistema operativo — può causare problemi quando il file viene aperto su un sistema diverso.</p>
-<p>La soluzione: specifica sempre <strong>UTF-8</strong> esplicitamente.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">charset</span><span class="op">.</span><span class="im">StandardCharsets</span><span class="op">;</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Specifica UTF-8 esplicitamente — comportamento identico su tutti i sistemi</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedWriter</span> writer <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedWriter</span><span class="op">(</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        file<span class="op">,</span> StandardCharsets<span class="op">.</span><span class="fu">UTF_8</span><span class="op">))</span> <span class="op">{</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    writer<span class="op">.</span><span class="fu">write</span><span class="op">(</span><span class="st">"Testo con accenti: à è ì ò ù"</span><span class="op">);</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    writer<span class="op">.</span><span class="fu">newLine</span><span class="op">();</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedReader</span> reader <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedReader</span><span class="op">(</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        file<span class="op">,</span> StandardCharsets<span class="op">.</span><span class="fu">UTF_8</span><span class="op">))</span> <span class="op">{</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>reader<span class="op">.</span><span class="fu">readLine</span><span class="op">());</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="buffer-specializzati-datainputstream-e-dataoutputstream" class="level2" data-number="16.7">
+<h2 data-number="16.7" class="anchored" data-anchor-id="buffer-specializzati-datainputstream-e-dataoutputstream"><span class="header-section-number">16.7</span> Buffer specializzati: DataInputStream e DataOutputStream</h2>
+<p><code>DataInputStream</code> e <code>DataOutputStream</code> non introducono un nuovo tipo di buffer — si appoggiano a uno già esistente. La loro specialità è leggere e scrivere <strong>tipi primitivi in formato binario</strong>: <code>int</code>, <code>double</code>, <code>boolean</code>, <code>long</code> e così via.</p>
+<p>Senza questi stream, per salvare un intero dovresti convertirlo in stringa, scriverlo, poi rileggerlo e convertirlo di nuovo. Con <code>DataOutputStream</code> scrivi direttamente il valore binario — più compatto e più veloce.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.*;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">file</span><span class="op">.*;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>Path file <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"dati.bin"</span><span class="op">);</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Scrittura — avvolge un BufferedOutputStream</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span><span class="bu">DataOutputStream</span> out <span class="op">=</span> <span class="kw">new</span> <span class="bu">DataOutputStream</span><span class="op">(</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">new</span> <span class="bu">BufferedOutputStream</span><span class="op">(</span>Files<span class="op">.</span><span class="fu">newOutputStream</span><span class="op">(</span>file<span class="op">))))</span> <span class="op">{</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    out<span class="op">.</span><span class="fu">writeInt</span><span class="op">(</span><span class="dv">42</span><span class="op">);</span>           <span class="co">// scrive 4 byte</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    out<span class="op">.</span><span class="fu">writeDouble</span><span class="op">(</span><span class="fl">3.14</span><span class="op">);</span>      <span class="co">// scrive 8 byte</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    out<span class="op">.</span><span class="fu">writeBoolean</span><span class="op">(</span><span class="kw">true</span><span class="op">);</span>     <span class="co">// scrive 1 byte</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    out<span class="op">.</span><span class="fu">writeUTF</span><span class="op">(</span><span class="st">"Arthas"</span><span class="op">);</span>     <span class="co">// scrive la stringa in formato UTF-8 binario</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">// Lettura — avvolge un BufferedInputStream</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span><span class="bu">DataInputStream</span> in <span class="op">=</span> <span class="kw">new</span> <span class="bu">DataInputStream</span><span class="op">(</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>        <span class="kw">new</span> <span class="bu">BufferedInputStream</span><span class="op">(</span>Files<span class="op">.</span><span class="fu">newInputStream</span><span class="op">(</span>file<span class="op">))))</span> <span class="op">{</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n       <span class="op">=</span> in<span class="op">.</span><span class="fu">readInt</span><span class="op">();</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> d    <span class="op">=</span> in<span class="op">.</span><span class="fu">readDouble</span><span class="op">();</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    <span class="dt">boolean</span> b   <span class="op">=</span> in<span class="op">.</span><span class="fu">readBoolean</span><span class="op">();</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> nome <span class="op">=</span> in<span class="op">.</span><span class="fu">readUTF</span><span class="op">();</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>n <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> d <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> b <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> nome<span class="op">);</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 42 3.14 true Arthas</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Usa sempre UTF-8
+<span class="screen-reader-only">Important</span>L’ordine di lettura deve essere identico all’ordine di scrittura
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Specifica <code>StandardCharsets.UTF_8</code> ogni volta che apri un file di testo. Evita problemi con caratteri speciali, accenti e simboli su sistemi diversi.</p>
+<p>Il file binario non ha metadati — è solo una sequenza di byte. Java non sa cosa rappresenta ogni byte finché non glielo dici tu. Se scrivi <code>int</code>, <code>double</code>, <code>boolean</code> in quest’ordine, devi leggere esattamente nello stesso ordine. Un errore di ordine produce valori senza senso, senza nessun messaggio di errore.</p>
 </div>
 </div>
+<section id="quando-usarli" class="level3" data-number="16.7.1">
+<h3 data-number="16.7.1" class="anchored" data-anchor-id="quando-usarli"><span class="header-section-number">16.7.1</span> Quando usarli</h3>
+<p><code>DataInputStream</code>/<code>DataOutputStream</code> sono utili quando: - vuoi salvare dati strutturati in formato <strong>compatto e non leggibile</strong> da un editor di testo - stai implementando un <strong>formato di salvataggio binario</strong> (es. file di salvataggio di un gioco) - lavori con <strong>protocolli di rete</strong> che trasmettono dati primitivi in formato binario</p>
+<p>Non usarli quando i dati devono essere leggibili da un essere umano o da altri programmi — in quel caso usa CSV o JSON in formato testo.</p>
 <hr>
 </section>
-<section id="flush-svuotare-il-buffer-manualmente" class="level2" data-number="16.7">
-<h2 data-number="16.7" class="anchored" data-anchor-id="flush-svuotare-il-buffer-manualmente"><span class="header-section-number">16.7</span> Flush: svuotare il buffer manualmente</h2>
-<p>Normalmente il buffer viene svuotato (flushed) automaticamente quando il writer viene chiuso. Ma in alcuni casi — come un log in tempo reale — vuoi che i dati vengano scritti subito, senza aspettare la chiusura.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedWriter</span> writer <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedWriter</span><span class="op">(</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>        Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"live.log"</span><span class="op">),</span> StandardOpenOption<span class="op">.</span><span class="fu">APPEND</span><span class="op">))</span> <span class="op">{</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        writer<span class="op">.</span><span class="fu">write</span><span class="op">(</span><span class="st">"Evento "</span> <span class="op">+</span> i<span class="op">);</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        writer<span class="op">.</span><span class="fu">newLine</span><span class="op">();</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        writer<span class="op">.</span><span class="fu">flush</span><span class="op">();</span>  <span class="co">// scrive immediatamente sul disco</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Thread</span><span class="op">.</span><span class="fu">sleep</span><span class="op">(</span><span class="dv">1000</span><span class="op">);</span> <span class="co">// aspetta 1 secondo</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> <span class="op">|</span> <span class="bu">InterruptedException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Senza <code>flush()</code>, gli eventi rimarrebbero nel buffer e verrebbero scritti tutti insieme alla chiusura. Con <code>flush()</code> ogni evento è immediatamente visibile nel file.</p>
-<hr>
 </section>
-<section id="esempio-completo-logger-con-buffer" class="level2" data-number="16.8">
-<h2 data-number="16.8" class="anchored" data-anchor-id="esempio-completo-logger-con-buffer"><span class="header-section-number">16.8</span> Esempio completo: logger con buffer</h2>
-<p>Riscriviamo il logger della lezione precedente usando <code>BufferedWriter</code> per maggiore efficienza, e aggiungiamo la rotazione del log (un file per giorno):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">file</span><span class="op">.*;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.*;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">charset</span><span class="op">.</span><span class="im">StandardCharsets</span><span class="op">;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.*;</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">format</span><span class="op">.*;</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> <span class="bu">Logger</span> <span class="op">{</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> Path cartella<span class="op">;</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> DateTimeFormatter fmtData <span class="op">=</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        DateTimeFormatter<span class="op">.</span><span class="fu">ofPattern</span><span class="op">(</span><span class="st">"yyyy-MM-dd"</span><span class="op">);</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> DateTimeFormatter fmtTimestamp <span class="op">=</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        DateTimeFormatter<span class="op">.</span><span class="fu">ofPattern</span><span class="op">(</span><span class="st">"HH:mm:ss"</span><span class="op">);</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Logger</span><span class="op">(</span><span class="bu">String</span> cartella<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">cartella</span> <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span>cartella<span class="op">);</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">{</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>            Files<span class="op">.</span><span class="fu">createDirectories</span><span class="op">(</span><span class="kw">this</span><span class="op">.</span><span class="fu">cartella</span><span class="op">);</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Impossibile creare cartella log: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Il file di log cambia ogni giorno: gioco-2025-11-13.log</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> Path <span class="fu">fileOggi</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> nomeFile <span class="op">=</span> <span class="st">"gioco-"</span> <span class="op">+</span> LocalDate<span class="op">.</span><span class="fu">now</span><span class="op">().</span><span class="fu">format</span><span class="op">(</span>fmtData<span class="op">)</span> <span class="op">+</span> <span class="st">".log"</span><span class="op">;</span></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> cartella<span class="op">.</span><span class="fu">resolve</span><span class="op">(</span>nomeFile<span class="op">);</span></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">scrivi</span><span class="op">(</span><span class="bu">String</span> livello<span class="op">,</span> <span class="bu">String</span> messaggio<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> riga <span class="op">=</span> <span class="st">"["</span> <span class="op">+</span> LocalTime<span class="op">.</span><span class="fu">now</span><span class="op">().</span><span class="fu">format</span><span class="op">(</span>fmtTimestamp<span class="op">)</span> <span class="op">+</span> <span class="st">"] "</span> <span class="op">+</span></span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"["</span> <span class="op">+</span> livello <span class="op">+</span> <span class="st">"] "</span> <span class="op">+</span> messaggio<span class="op">;</span></span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedWriter</span> writer <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedWriter</span><span class="op">(</span></span>
-<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>                <span class="fu">fileOggi</span><span class="op">(),</span></span>
-<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>                StandardCharsets<span class="op">.</span><span class="fu">UTF_8</span><span class="op">,</span></span>
-<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>                StandardOpenOption<span class="op">.</span><span class="fu">CREATE</span><span class="op">,</span></span>
-<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>                StandardOpenOption<span class="op">.</span><span class="fu">APPEND</span><span class="op">))</span> <span class="op">{</span></span>
-<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>            writer<span class="op">.</span><span class="fu">write</span><span class="op">(</span>riga<span class="op">);</span></span>
-<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>            writer<span class="op">.</span><span class="fu">newLine</span><span class="op">();</span></span>
-<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">err</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore log: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">info</span><span class="op">(</span><span class="bu">String</span> msg<span class="op">)</span>  <span class="op">{</span> <span class="fu">scrivi</span><span class="op">(</span><span class="st">"INFO "</span><span class="op">,</span> msg<span class="op">);</span> <span class="op">}</span></span>
-<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">warn</span><span class="op">(</span><span class="bu">String</span> msg<span class="op">)</span>  <span class="op">{</span> <span class="fu">scrivi</span><span class="op">(</span><span class="st">"WARN "</span><span class="op">,</span> msg<span class="op">);</span> <span class="op">}</span></span>
-<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">error</span><span class="op">(</span><span class="bu">String</span> msg<span class="op">)</span> <span class="op">{</span> <span class="fu">scrivi</span><span class="op">(</span><span class="st">"ERROR"</span><span class="op">,</span> msg<span class="op">);</span> <span class="op">}</span></span>
-<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Legge e stampa il log di oggi</span></span>
-<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">stampaLog</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>        Path file <span class="op">=</span> <span class="fu">fileOggi</span><span class="op">();</span></span>
-<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(!</span>Files<span class="op">.</span><span class="fu">exists</span><span class="op">(</span>file<span class="op">))</span> <span class="op">{</span></span>
-<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Nessun log per oggi."</span><span class="op">);</span></span>
-<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span><span class="op">;</span></span>
-<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"=== LOG "</span> <span class="op">+</span> LocalDate<span class="op">.</span><span class="fu">now</span><span class="op">()</span> <span class="op">+</span> <span class="st">" ==="</span><span class="op">);</span></span>
-<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedReader</span> reader <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedReader</span><span class="op">(</span></span>
-<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>                file<span class="op">,</span> StandardCharsets<span class="op">.</span><span class="fu">UTF_8</span><span class="op">))</span> <span class="op">{</span></span>
-<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>            <span class="bu">String</span> riga<span class="op">;</span></span>
-<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>            <span class="cf">while</span> <span class="op">((</span>riga <span class="op">=</span> reader<span class="op">.</span><span class="fu">readLine</span><span class="op">())</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>                <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>riga<span class="op">);</span></span>
-<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
-<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore lettura: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Uso:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Main <span class="op">{</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Logger</span> logger <span class="op">=</span> <span class="kw">new</span> <span class="bu">Logger</span><span class="op">(</span><span class="st">"logs"</span><span class="op">);</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        logger<span class="op">.</span><span class="fu">info</span><span class="op">(</span><span class="st">"Partita iniziata"</span><span class="op">);</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        logger<span class="op">.</span><span class="fu">info</span><span class="op">(</span><span class="st">"Arthas ha raggiunto il livello 5"</span><span class="op">);</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        logger<span class="op">.</span><span class="fu">warn</span><span class="op">(</span><span class="st">"Vita di Gandalf sotto il 20%"</span><span class="op">);</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        logger<span class="op">.</span><span class="fu">error</span><span class="op">(</span><span class="st">"File di salvataggio corrotto"</span><span class="op">);</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        logger<span class="op">.</span><span class="fu">info</span><span class="op">(</span><span class="st">"Partita terminata"</span><span class="op">);</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        logger<span class="op">.</span><span class="fu">stampaLog</span><span class="op">();</span></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Output del log <code>logs/gioco-2025-11-13.log</code>:</p>
-<pre><code>[10:05:32] [INFO ] Partita iniziata
-[10:05:32] [INFO ] Arthas ha raggiunto il livello 5
-[10:05:32] [WARN ] Vita di Gandalf sotto il 20%
-[10:05:32] [ERROR] File di salvataggio corrotto
-[10:05:32] [INFO ] Partita terminata</code></pre>
-<hr>
-</section>
-<section id="confronto-finale-quando-usare-cosa" class="level2" data-number="16.9">
-<h2 data-number="16.9" class="anchored" data-anchor-id="confronto-finale-quando-usare-cosa"><span class="header-section-number">16.9</span> Confronto finale: quando usare cosa</h2>
+<section id="il-quadro-completo-dei-buffer" class="level2" data-number="16.8">
+<h2 data-number="16.8" class="anchored" data-anchor-id="il-quadro-completo-dei-buffer"><span class="header-section-number">16.8</span> Il quadro completo dei buffer</h2>
+<p>Ricapitolando tutti i livelli che abbiamo visto:</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Strumento</th>
-<th>Caso d’uso</th>
+<th>Gestisce</th>
+<th>Visibilità buffer</th>
+<th>Quando usarlo</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>Files.writeString()</code></td>
-<td>Scrittura semplice di una stringa</td>
-</tr>
-<tr class="even">
-<td><code>Files.write()</code></td>
-<td>Scrittura di una lista di righe</td>
-</tr>
-<tr class="odd">
-<td><code>Files.readAllLines()</code></td>
-<td>Lettura di file piccoli/medi</td>
+<td><code>Files.readString()</code> / <code>writeString()</code></td>
+<td>char</td>
+<td>Implicito, nascosto</td>
+<td>File piccoli, semplicità</td>
 </tr>
 <tr class="even">
 <td><code>Files.lines()</code></td>
-<td>Lettura lazy con Stream (file grandi)</td>
+<td>char</td>
+<td>Implicito, lazy</td>
+<td>File grandi con Stream</td>
 </tr>
 <tr class="odd">
-<td><code>BufferedWriter</code></td>
-<td>Scrittura incrementale efficiente</td>
+<td><code>BufferedReader</code> / <code>BufferedWriter</code></td>
+<td>char</td>
+<td>Esplicito, riga per riga</td>
+<td>File di testo grandi</td>
 </tr>
 <tr class="even">
-<td><code>BufferedReader</code></td>
-<td>Lettura riga per riga (file grandi)</td>
+<td><code>BufferedInputStream</code> / <code>BufferedOutputStream</code></td>
+<td>byte</td>
+<td>Esplicito, array di byte</td>
+<td>File binari, copie</td>
 </tr>
 <tr class="odd">
-<td><code>PrintWriter</code></td>
-<td>Testo formattato con <code>printf</code></td>
+<td><code>DataInputStream</code> / <code>DataOutputStream</code></td>
+<td>tipi primitivi</td>
+<td>Eredita da Buffered*</td>
+<td>Salvataggi binari strutturati</td>
 </tr>
 </tbody>
 </table>
-<hr>
-</section>
-<section id="riepilogo" class="level2" data-number="16.10">
-<h2 data-number="16.10" class="anchored" data-anchor-id="riepilogo"><span class="header-section-number">16.10</span> Riepilogo</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>I concetti chiave di questa lezione
+<span class="screen-reader-only">Note</span>La progressione concettuale
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<pre><code>Files.readString()              → buffer implicito, tutto in RAM
+Files.lines()                   → buffer implicito, lazy
+BufferedReader / Writer         → buffer esplicito, testo (char)
+BufferedInputStream / Output    → buffer esplicito, binario (byte)
+DataInputStream / Output        → buffer ereditato, tipi primitivi</code></pre>
+<p>Si scende di livello solo quando serve.</p>
+</div>
+</div>
+</section>
+<section id="la-codifica-dei-caratteri" class="level2" data-number="16.9">
+<h2 data-number="16.9" class="anchored" data-anchor-id="la-codifica-dei-caratteri"><span class="header-section-number">16.9</span> La codifica dei caratteri</h2>
+<p>Quando lavori con file di testo, specifica sempre <strong>UTF-8</strong> esplicitamente per evitare problemi con caratteri speciali su sistemi diversi:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">charset</span><span class="op">.</span><span class="im">StandardCharsets</span><span class="op">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedWriter</span> bw <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedWriter</span><span class="op">(</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        file<span class="op">,</span> StandardCharsets<span class="op">.</span><span class="fu">UTF_8</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    bw<span class="op">.</span><span class="fu">write</span><span class="op">(</span><span class="st">"Testo con accenti: à è ì ò ù"</span><span class="op">);</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    bw<span class="op">.</span><span class="fu">newLine</span><span class="op">();</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedReader</span> br <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedReader</span><span class="op">(</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        file<span class="op">,</span> StandardCharsets<span class="op">.</span><span class="fu">UTF_8</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>br<span class="op">.</span><span class="fu">readLine</span><span class="op">());</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="flush-svuotare-il-buffer-manualmente" class="level2" data-number="16.10">
+<h2 data-number="16.10" class="anchored" data-anchor-id="flush-svuotare-il-buffer-manualmente"><span class="header-section-number">16.10</span> Flush: svuotare il buffer manualmente</h2>
+<p>Normalmente il buffer viene svuotato automaticamente alla chiusura. Ma in alcuni casi, come un log in tempo reale, vuoi che i dati vengano scritti subito:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedWriter</span> bw <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedWriter</span><span class="op">(</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>        Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"live.log"</span><span class="op">),</span> StandardOpenOption<span class="op">.</span><span class="fu">APPEND</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        bw<span class="op">.</span><span class="fu">write</span><span class="op">(</span><span class="st">"Evento "</span> <span class="op">+</span> i<span class="op">);</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        bw<span class="op">.</span><span class="fu">newLine</span><span class="op">();</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        bw<span class="op">.</span><span class="fu">flush</span><span class="op">();</span>  <span class="co">// scrive immediatamente sul disco</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Thread</span><span class="op">.</span><span class="fu">sleep</span><span class="op">(</span><span class="dv">1000</span><span class="op">);</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> <span class="op">|</span> <span class="bu">InterruptedException</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Senza <code>flush()</code>, gli eventi rimarrebbero nel buffer e verrebbero scritti tutti insieme alla chiusura.</p>
+<hr>
+</section>
+<section id="il-quadro-completo-quando-usare-cosa" class="level2" data-number="16.11">
+<h2 data-number="16.11" class="anchored" data-anchor-id="il-quadro-completo-quando-usare-cosa"><span class="header-section-number">16.11</span> Il quadro completo: quando usare cosa</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Strumento</th>
+<th>Tipo</th>
+<th>Quando usarlo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Files.readString()</code></td>
+<td>testo, implicito</td>
+<td>file piccoli, lettura rapida</td>
+</tr>
+<tr class="even">
+<td><code>Files.readAllLines()</code></td>
+<td>testo, implicito</td>
+<td>file piccoli, serve una List</td>
+</tr>
+<tr class="odd">
+<td><code>Files.writeString()</code></td>
+<td>testo, implicito</td>
+<td>scrittura semplice</td>
+</tr>
+<tr class="even">
+<td><code>Files.lines()</code></td>
+<td>testo, lazy</td>
+<td>file grandi con Stream</td>
+</tr>
+<tr class="odd">
+<td><code>BufferedReader</code></td>
+<td>testo, esplicito</td>
+<td>lettura riga per riga, file grandi</td>
+</tr>
+<tr class="even">
+<td><code>BufferedWriter</code></td>
+<td>testo, esplicito</td>
+<td>scrittura incrementale, molte righe</td>
+</tr>
+<tr class="odd">
+<td><code>PrintWriter</code></td>
+<td>testo, formattato</td>
+<td>report con <code>printf</code></td>
+</tr>
+<tr class="even">
+<td><code>BufferedInputStream</code></td>
+<td>binario</td>
+<td>copia file, immagini, audio</td>
+</tr>
+<tr class="odd">
+<td><code>BufferedOutputStream</code></td>
+<td>binario</td>
+<td>scrittura file binari</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>La progressione concettuale
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<pre><code>Files.readString()         → buffer implicito, tutto in RAM
+Files.lines()              → buffer implicito, lazy (primo passo)
+BufferedReader/Writer      → buffer esplicito su testo
+BufferedInputStream/Output → buffer esplicito su byte</code></pre>
+<p>Si scende di livello solo quando serve: file grandi, prestazioni, dati binari.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="esempio-completo-logger-con-buffer-e-rotazione-giornaliera" class="level2" data-number="16.12">
+<h2 data-number="16.12" class="anchored" data-anchor-id="esempio-completo-logger-con-buffer-e-rotazione-giornaliera"><span class="header-section-number">16.12</span> Esempio completo: logger con buffer e rotazione giornaliera</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">file</span><span class="op">.*;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.*;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">charset</span><span class="op">.</span><span class="im">StandardCharsets</span><span class="op">;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.*;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">format</span><span class="op">.*;</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> <span class="bu">Logger</span> <span class="op">{</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> Path cartella<span class="op">;</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> DateTimeFormatter fmtData <span class="op">=</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>        DateTimeFormatter<span class="op">.</span><span class="fu">ofPattern</span><span class="op">(</span><span class="st">"yyyy-MM-dd"</span><span class="op">);</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> DateTimeFormatter fmtOra <span class="op">=</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>        DateTimeFormatter<span class="op">.</span><span class="fu">ofPattern</span><span class="op">(</span><span class="st">"HH:mm:ss"</span><span class="op">);</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Logger</span><span class="op">(</span><span class="bu">String</span> cartella<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">cartella</span> <span class="op">=</span> Path<span class="op">.</span><span class="fu">of</span><span class="op">(</span>cartella<span class="op">);</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>            Files<span class="op">.</span><span class="fu">createDirectories</span><span class="op">(</span><span class="kw">this</span><span class="op">.</span><span class="fu">cartella</span><span class="op">);</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Impossibile creare cartella log: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Un file di log diverso per ogni giorno</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> Path <span class="fu">fileOggi</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> cartella<span class="op">.</span><span class="fu">resolve</span><span class="op">(</span><span class="st">"gioco-"</span> <span class="op">+</span> LocalDate<span class="op">.</span><span class="fu">now</span><span class="op">().</span><span class="fu">format</span><span class="op">(</span>fmtData<span class="op">)</span> <span class="op">+</span> <span class="st">".log"</span><span class="op">);</span></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">scrivi</span><span class="op">(</span><span class="bu">String</span> livello<span class="op">,</span> <span class="bu">String</span> messaggio<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> riga <span class="op">=</span> <span class="st">"["</span> <span class="op">+</span> LocalTime<span class="op">.</span><span class="fu">now</span><span class="op">().</span><span class="fu">format</span><span class="op">(</span>fmtOra<span class="op">)</span> <span class="op">+</span> <span class="st">"] "</span></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>                    <span class="op">+</span> <span class="st">"["</span> <span class="op">+</span> livello <span class="op">+</span> <span class="st">"] "</span> <span class="op">+</span> messaggio<span class="op">;</span></span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedWriter</span> bw <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedWriter</span><span class="op">(</span></span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>                <span class="fu">fileOggi</span><span class="op">(),</span></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>                StandardCharsets<span class="op">.</span><span class="fu">UTF_8</span><span class="op">,</span></span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>                StandardOpenOption<span class="op">.</span><span class="fu">CREATE</span><span class="op">,</span></span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>                StandardOpenOption<span class="op">.</span><span class="fu">APPEND</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>            bw<span class="op">.</span><span class="fu">write</span><span class="op">(</span>riga<span class="op">);</span></span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>            bw<span class="op">.</span><span class="fu">newLine</span><span class="op">();</span></span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">err</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore log: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">info</span><span class="op">(</span><span class="bu">String</span> msg<span class="op">)</span>  <span class="op">{</span> <span class="fu">scrivi</span><span class="op">(</span><span class="st">"INFO "</span><span class="op">,</span> msg<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">warn</span><span class="op">(</span><span class="bu">String</span> msg<span class="op">)</span>  <span class="op">{</span> <span class="fu">scrivi</span><span class="op">(</span><span class="st">"WARN "</span><span class="op">,</span> msg<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">error</span><span class="op">(</span><span class="bu">String</span> msg<span class="op">)</span> <span class="op">{</span> <span class="fu">scrivi</span><span class="op">(</span><span class="st">"ERROR"</span><span class="op">,</span> msg<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-51"><a href="#cb15-51" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">stampaLog</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb15-52"><a href="#cb15-52" aria-hidden="true" tabindex="-1"></a>        Path file <span class="op">=</span> <span class="fu">fileOggi</span><span class="op">();</span></span>
+<span id="cb15-53"><a href="#cb15-53" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(!</span>Files<span class="op">.</span><span class="fu">exists</span><span class="op">(</span>file<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb15-54"><a href="#cb15-54" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Nessun log per oggi."</span><span class="op">);</span></span>
+<span id="cb15-55"><a href="#cb15-55" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb15-56"><a href="#cb15-56" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb15-57"><a href="#cb15-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-58"><a href="#cb15-58" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"=== LOG "</span> <span class="op">+</span> LocalDate<span class="op">.</span><span class="fu">now</span><span class="op">()</span> <span class="op">+</span> <span class="st">" ==="</span><span class="op">);</span></span>
+<span id="cb15-59"><a href="#cb15-59" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedReader</span> br <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedReader</span><span class="op">(</span>file<span class="op">,</span> StandardCharsets<span class="op">.</span><span class="fu">UTF_8</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb15-60"><a href="#cb15-60" aria-hidden="true" tabindex="-1"></a>            <span class="bu">String</span> riga<span class="op">;</span></span>
+<span id="cb15-61"><a href="#cb15-61" aria-hidden="true" tabindex="-1"></a>            <span class="cf">while</span> <span class="op">((</span>riga <span class="op">=</span> br<span class="op">.</span><span class="fu">readLine</span><span class="op">())</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb15-62"><a href="#cb15-62" aria-hidden="true" tabindex="-1"></a>                <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>riga<span class="op">);</span></span>
+<span id="cb15-63"><a href="#cb15-63" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb15-64"><a href="#cb15-64" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb15-65"><a href="#cb15-65" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Errore lettura: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb15-66"><a href="#cb15-66" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb15-67"><a href="#cb15-67" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb15-68"><a href="#cb15-68" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="riepilogo" class="level2" data-number="16.13">
+<h2 data-number="16.13" class="anchored" data-anchor-id="riepilogo"><span class="header-section-number">16.13</span> Riepilogo</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>I concetti chiave
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Il <strong>buffer</strong> raccoglie i dati in memoria e li scrive sul disco in un’unica operazione — molto più efficiente di scrivere un byte alla volta.</li>
-<li><strong><code>BufferedWriter</code></strong> scrive con buffer; usa <code>newLine()</code> per l’a capo multipiattaforma.</li>
-<li><strong><code>PrintWriter</code></strong> aggiunge <code>println()</code> e <code>printf()</code> per testo formattato.</li>
-<li><strong><code>BufferedReader</code></strong> legge riga per riga con <code>readLine()</code> — ideale per file grandi.</li>
+<li>Il <strong>buffer</strong> è una zona di RAM usata come appoggio tra il programma e il disco — riduce il numero di accessi.</li>
+<li>Le API di alto livello (<code>Files.readString</code>, <code>Files.writeString</code>) usano buffer <strong>impliciti</strong> — tutto in memoria, adatte per file piccoli.</li>
+<li><code>Files.lines()</code> è <strong>lazy</strong> — primo passo verso il buffer, non carica tutto.</li>
+<li><strong><code>BufferedReader</code></strong> e <strong><code>BufferedWriter</code></strong> rendono il buffer <strong>esplicito</strong> — per testo, riga per riga.</li>
+<li>Il <strong>try-with-resources</strong> chiude le risorse automaticamente, nell’ordine corretto, anche in caso di eccezione.</li>
+<li><strong><code>BufferedInputStream</code></strong> e <strong><code>BufferedOutputStream</code></strong> per file <strong>binari</strong> — il buffer diventa un array di byte concreto e misurabile.</li>
 <li>Specifica sempre <strong><code>StandardCharsets.UTF_8</code></strong> per evitare problemi con caratteri speciali.</li>
-<li>Usa <code>flush()</code> per scrivere immediatamente sul disco senza aspettare la chiusura.</li>
-<li>Il <strong>try-with-resources</strong> garantisce che il buffer venga svuotato e il file chiuso correttamente.</li>
+<li>Usa <code>flush()</code> per scrivere immediatamente senza aspettare la chiusura.</li>
+<li>Si parte dall’<strong>alto livello</strong> e si scende solo quando serve.</li>
 </ul>
 </div>
 </div>

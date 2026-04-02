@@ -408,7 +408,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="gli-8-tipi-primitivi" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="gli-8-tipi-primitivi"><span class="header-section-number">3.2</span> Gli 8 tipi primitivi</h2>
-<p>Java ha esattamente <strong>8 tipi primitivi</strong>, divisi in quattro categorie:</p>
+<p>Java ha <strong>8 tipi primitivi</strong>, divisi in quattro categorie:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -549,10 +549,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="casting-convertire-tra-tipi" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="casting-convertire-tra-tipi"><span class="header-section-number">3.4</span> Casting: convertire tra tipi</h2>
 <p>A volte devi convertire un tipo in un altro. Java distingue due casi:</p>
-<p><strong>Widening casting</strong> (implicito) — da un tipo “piccolo” a uno “grande”, senza perdita di dati. Java lo fa automaticamente:</p>
+<p><strong>Casting implicito</strong> da un tipo “piccolo” a uno “grande”, senza perdita di dati. Java lo fa automaticamente:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> n <span class="op">=</span> <span class="dv">42</span><span class="op">;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> d <span class="op">=</span> n<span class="op">;</span>  <span class="co">// automatico: int → double, nessun problema</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Narrowing casting</strong> (esplicito) — da un tipo “grande” a uno “piccolo”, con possibile perdita di dati. Devi dirlo esplicitamente con le parentesi:</p>
+<p><strong>Casting esplicito</strong> da un tipo “grande” a uno “piccolo”, con possibile perdita di dati. Devi dirlo esplicitamente con le parentesi:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> punteggio <span class="op">=</span> <span class="fl">97.8</span><span class="op">;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> puntiInteri <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> punteggio<span class="op">;</span>  <span class="co">// diventa 97 — la parte decimale viene troncata!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -848,7 +848,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>I concetti chiave di questa lezione
+<span class="screen-reader-only">Note</span>I concetti chiave
 </div>
 </div>
 <div class="callout-body-container callout-body">

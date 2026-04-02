@@ -555,7 +555,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="bu">Set</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> differenza <span class="op">=</span> <span class="kw">new</span> <span class="bu">HashSet</span><span class="op">&lt;&gt;(</span>squadraA<span class="op">);</span></span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>differenza<span class="op">.</span><span class="fu">removeAll</span><span class="op">(</span>squadraB<span class="op">);</span>  <span class="co">// giocatori in A ma non in B</span></span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Unione: "</span> <span class="op">+</span> unione<span class="op">);</span>          <span class="co">// [Arthas, Gandalf, Legolas, Aragorn, Frodo]</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Unione: "</span> <span class="op">+</span> unione<span class="op">);</span>             <span class="co">// [Arthas, Gandalf, Legolas, Aragorn, Frodo]</span></span>
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Intersezione: "</span> <span class="op">+</span> intersezione<span class="op">);</span> <span class="co">// [Gandalf]</span></span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Differenza: "</span> <span class="op">+</span> differenza<span class="op">);</span>     <span class="co">// [Arthas, Legolas]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -564,7 +564,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>HashSet vs TreeSet — quando usare quale
+<span class="screen-reader-only">Tip</span>HashSet vs TreeSet: quando usare quale
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -820,7 +820,6 @@ Curo Arthas (vita: 30)</code></pre>
 </ul>
 </div>
 </div>
-<p>Nella prossima lezione vedremo gli <strong>Stream</strong> — un modo moderno e potente per elaborare le collections con un approccio funzionale.</p>
 
 
 </section>

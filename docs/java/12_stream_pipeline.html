@@ -373,8 +373,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#statistiche-della-squadra" id="toc-statistiche-della-squadra" class="nav-link" data-scroll-target="#statistiche-della-squadra"><span class="header-section-number">13.8.2</span> Statistiche della squadra</a></li>
   <li><a href="#dal-file-al-report" id="toc-dal-file-al-report" class="nav-link" data-scroll-target="#dal-file-al-report"><span class="header-section-number">13.8.3</span> Dal file al report</a></li>
   </ul></li>
-  <li><a href="#stream-paralleli" id="toc-stream-paralleli" class="nav-link" data-scroll-target="#stream-paralleli"><span class="header-section-number">13.9</span> Stream paralleli</a></li>
-  <li><a href="#riepilogo" id="toc-riepilogo" class="nav-link" data-scroll-target="#riepilogo"><span class="header-section-number">13.10</span> Riepilogo</a></li>
+  <li><a href="#riepilogo" id="toc-riepilogo" class="nav-link" data-scroll-target="#riepilogo"><span class="header-section-number">13.9</span> Riepilogo</a></li>
   </ul>
 </nav>
     </div>
@@ -405,23 +404,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="13.1" class="anchored" data-anchor-id="un-nuovo-modo-di-pensare-alle-collections"><span class="header-section-number">13.1</span> Un nuovo modo di pensare alle collections</h2>
 <p>Nelle lezioni precedenti abbiamo visto come gestire le collections con cicli <code>for</code>, <code>while</code> e metodi espliciti. Funziona, ma il codice può diventare verboso. Considera questo esempio — trovare i nomi dei personaggi di livello superiore a 3, in ordine alfabetico:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Approccio tradizionale</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span>Personaggio<span class="op">&gt;</span> risultato <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>Personaggio p <span class="op">:</span> squadra<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>p<span class="op">.</span><span class="fu">getLivello</span><span class="op">()</span> <span class="op">&gt;</span> <span class="dv">3</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        risultato<span class="op">.</span><span class="fu">add</span><span class="op">(</span>p<span class="op">);</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">Collections</span><span class="op">.</span><span class="fu">sort</span><span class="op">(</span>risultato<span class="op">,</span> <span class="op">(</span>a<span class="op">,</span> b<span class="op">)</span> <span class="op">-&gt;</span> a<span class="op">.</span><span class="fu">getNome</span><span class="op">().</span><span class="fu">compareTo</span><span class="op">(</span>b<span class="op">.</span><span class="fu">getNome</span><span class="op">()));</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> nomi <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>Personaggio p <span class="op">:</span> risultato<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    nomi<span class="op">.</span><span class="fu">add</span><span class="op">(</span>p<span class="op">.</span><span class="fu">getNome</span><span class="op">());</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Approccio tradizionale</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span>Personaggio<span class="op">&gt;</span> risultato <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>Personaggio p <span class="op">:</span> squadra<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>p<span class="op">.</span><span class="fu">getLivello</span><span class="op">()</span> <span class="op">&gt;</span> <span class="dv">3</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        risultato<span class="op">.</span><span class="fu">add</span><span class="op">(</span>p<span class="op">);</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">Collections</span><span class="op">.</span><span class="fu">sort</span><span class="op">(</span>risultato<span class="op">);</span>  <span class="co">// usa l'ordine naturale definito in compareTo()</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> nomi <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>Personaggio p <span class="op">:</span> risultato<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    nomi<span class="op">.</span><span class="fu">add</span><span class="op">(</span>p<span class="op">.</span><span class="fu">getNome</span><span class="op">());</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Con gli <strong>Stream</strong> lo stesso risultato si scrive così:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Approccio con Stream</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> nomi <span class="op">=</span> squadra<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>p <span class="op">-&gt;</span> p<span class="op">.</span><span class="fu">getLivello</span><span class="op">()</span> <span class="op">&gt;</span> <span class="dv">3</span><span class="op">)</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">sorted</span><span class="op">((</span>a<span class="op">,</span> b<span class="op">)</span> <span class="op">-&gt;</span> a<span class="op">.</span><span class="fu">getNome</span><span class="op">().</span><span class="fu">compareTo</span><span class="op">(</span>b<span class="op">.</span><span class="fu">getNome</span><span class="op">()))</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">sorted</span><span class="op">()</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">map</span><span class="op">(</span>Personaggio<span class="op">::</span>getNome<span class="op">)</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">collect</span><span class="op">(</span>Collectors<span class="op">.</span><span class="fu">toList</span><span class="op">());</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Stesso risultato, meno codice, più leggibile. Vediamo come funziona.</p>
@@ -429,8 +429,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="cosè-uno-stream" class="level2" data-number="13.2">
 <h2 data-number="13.2" class="anchored" data-anchor-id="cosè-uno-stream"><span class="header-section-number">13.2</span> Cos’è uno Stream</h2>
-<p>Uno <strong>Stream</strong> è una sequenza di elementi su cui si applicano operazioni in <strong>pipeline</strong> — una catena di trasformazioni che si eseguono una dopo l’altra.</p>
-<p>Uno Stream non è una struttura dati — non memorizza elementi. È un flusso di dati che viene elaborato e trasformato.</p>
+<p>Uno <strong>Stream</strong> è una sequenza di elementi su cui si applicano operazioni in <strong>pipeline</strong>, una catena di trasformazioni che si eseguono una dopo l’altra.</p>
+<p>Uno Stream non è una struttura dati, non memorizza elementi ma è un flusso di dati che viene elaborato e trasformato.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -480,8 +480,7 @@ squadra  →     filter()     →      map()        →    collect()   → List&
 <p><strong>Lambda</strong> — una funzione anonima compatta:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Sintassi: (parametri) -&gt; espressione</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">-&gt;</span> p<span class="op">.</span><span class="fu">getLivello</span><span class="op">()</span> <span class="op">&gt;</span> <span class="dv">3</span>           <span class="co">// predicate: prende un Personaggio, restituisce boolean</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">-&gt;</span> p<span class="op">.</span><span class="fu">getNome</span><span class="op">()</span>                   <span class="co">// function: prende un Personaggio, restituisce String</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>a<span class="op">,</span> b<span class="op">)</span> <span class="op">-&gt;</span> a<span class="op">.</span><span class="fu">getNome</span><span class="op">().</span><span class="fu">compareTo</span><span class="op">(</span>b<span class="op">.</span><span class="fu">getNome</span><span class="op">())</span>  <span class="co">// comparator</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">-&gt;</span> p<span class="op">.</span><span class="fu">getNome</span><span class="op">()</span>                   <span class="co">// function: prende un Personaggio, restituisce String</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Method reference</strong> — abbreviazione quando il lambda chiama solo un metodo:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Invece di: p -&gt; p.getNome()</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>Personaggio<span class="op">::</span>getNome   <span class="co">// method reference su istanza</span></span>
@@ -495,7 +494,7 @@ squadra  →     filter()     →      map()        →    collect()   → List&
 </section>
 <section id="operazioni-intermedie" class="level2" data-number="13.5">
 <h2 data-number="13.5" class="anchored" data-anchor-id="operazioni-intermedie"><span class="header-section-number">13.5</span> Operazioni intermedie</h2>
-<p>Le operazioni intermedie trasformano lo Stream in un altro Stream. Sono <strong>lazy</strong> — non vengono eseguite finché non arriva un’operazione terminale.</p>
+<p>Le operazioni intermedie trasformano lo Stream in un altro Stream. Sono <strong>lazy</strong> cioè non vengono eseguite finché non arriva un’operazione terminale.</p>
 <section id="filter" class="level3" data-number="13.5.1">
 <h3 data-number="13.5.1" class="anchored" data-anchor-id="filter"><span class="header-section-number">13.5.1</span> filter()</h3>
 <p>Mantiene solo gli elementi che soddisfano una condizione:</p>
@@ -545,20 +544,15 @@ squadra  →     filter()     →      map()        →    collect()   → List&
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">sorted</span><span class="op">()</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">...</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Con Comparator</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">// per oggetti che non implementano Comparable possiamo usare Comparator</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>squadra<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">sorted</span><span class="op">((</span>a<span class="op">,</span> b<span class="op">)</span> <span class="op">-&gt;</span> a<span class="op">.</span><span class="fu">getNome</span><span class="op">().</span><span class="fu">compareTo</span><span class="op">(</span>b<span class="op">.</span><span class="fu">getNome</span><span class="op">()))</span></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">...</span></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">// Con Comparator.comparing (più leggibile)</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">// Ordine inverso</span></span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>squadra<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">sorted</span><span class="op">(</span><span class="bu">Comparator</span><span class="op">.</span><span class="fu">comparing</span><span class="op">(</span>Personaggio<span class="op">::</span>getNome<span class="op">))</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">...</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">// Ordine inverso</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>squadra<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">sorted</span><span class="op">(</span><span class="bu">Comparator</span><span class="op">.</span><span class="fu">comparing</span><span class="op">(</span>Personaggio<span class="op">::</span>getLivello<span class="op">).</span><span class="fu">reversed</span><span class="op">())</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">sorted</span><span class="op">(</span><span class="bu">Comparator</span><span class="op">.</span><span class="fu">comparing</span><span class="op">(</span>Personaggio<span class="op">::</span>getLivello<span class="op">).</span><span class="fu">reversed</span><span class="op">())</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="limit-e-skip" class="level3" data-number="13.5.4">
 <h3 data-number="13.5.4" class="anchored" data-anchor-id="limit-e-skip"><span class="header-section-number">13.5.4</span> limit() e skip()</h3>
@@ -745,7 +739,7 @@ squadra  →     filter()     →      map()        →    collect()   → List&
 </section>
 <section id="dal-file-al-report" class="level3" data-number="13.8.3">
 <h3 data-number="13.8.3" class="anchored" data-anchor-id="dal-file-al-report"><span class="header-section-number">13.8.3</span> Dal file al report</h3>
-<p>Uno stream può elaborare dati da qualsiasi sorgente — anche righe di testo che rappresentano dati:</p>
+<p>Uno stream può elaborare dati da qualsiasi sorgente, anche righe di testo che rappresentano dati:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">stream</span><span class="op">.*;</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Simula righe lette da un file CSV: "nome,livello,vita"</span></span>
@@ -776,42 +770,15 @@ squadra  →     filter()     →      map()        →    collect()   → List&
 <hr>
 </section>
 </section>
-<section id="stream-paralleli" class="level2" data-number="13.9">
-<h2 data-number="13.9" class="anchored" data-anchor-id="stream-paralleli"><span class="header-section-number">13.9</span> Stream paralleli</h2>
-<p>Per collezioni molto grandi puoi usare <code>parallelStream()</code> al posto di <code>stream()</code> — Java distribuisce automaticamente il lavoro su più thread:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Stream sequenziale</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="dt">long</span> count <span class="op">=</span> squadra<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>p <span class="op">-&gt;</span> p<span class="op">.</span><span class="fu">getLivello</span><span class="op">()</span> <span class="op">&gt;</span> <span class="dv">3</span><span class="op">)</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">count</span><span class="op">();</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Stream parallelo — più veloce su grandi collezioni</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="dt">long</span> countParallelo <span class="op">=</span> squadra<span class="op">.</span><span class="fu">parallelStream</span><span class="op">()</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>p <span class="op">-&gt;</span> p<span class="op">.</span><span class="fu">getLivello</span><span class="op">()</span> <span class="op">&gt;</span> <span class="dv">3</span><span class="op">)</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">count</span><span class="op">();</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Quando usare parallelStream
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Il parallelismo ha un overhead — per collezioni piccole è spesso più lento. Usalo solo con collezioni di migliaia di elementi e operazioni computazionalmente costose. E mai con operazioni che hanno effetti collaterali (come modificare una lista condivisa).</p>
-</div>
-</div>
-<hr>
-</section>
-<section id="riepilogo" class="level2" data-number="13.10">
-<h2 data-number="13.10" class="anchored" data-anchor-id="riepilogo"><span class="header-section-number">13.10</span> Riepilogo</h2>
+<section id="riepilogo" class="level2" data-number="13.9">
+<h2 data-number="13.9" class="anchored" data-anchor-id="riepilogo"><span class="header-section-number">13.9</span> Riepilogo</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>I concetti chiave di questa lezione
+<span class="screen-reader-only">Note</span>I concetti chiave
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -823,7 +790,6 @@ squadra  →     filter()     →      map()        →    collect()   → List&
 <li><strong><code>collect()</code></strong> raccoglie in una struttura, <strong><code>forEach()</code></strong> itera, <strong><code>count()</code></strong> conta.</li>
 <li><strong><code>Optional</code></strong> gestisce l’assenza di valore in modo sicuro, senza <code>null</code>.</li>
 <li>I <strong>lambda</strong> e i <strong>method reference</strong> rendono il codice compatto e leggibile.</li>
-<li><strong><code>parallelStream()</code></strong> per collezioni grandi — con cautela.</li>
 </ul>
 </div>
 </div>

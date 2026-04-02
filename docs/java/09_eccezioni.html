@@ -355,7 +355,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#il-blocco-finally" id="toc-il-blocco-finally" class="nav-link" data-scroll-target="#il-blocco-finally"><span class="header-section-number">10.7</span> Il blocco finally</a></li>
   <li><a href="#lanciare-eccezioni-con-throw" id="toc-lanciare-eccezioni-con-throw" class="nav-link" data-scroll-target="#lanciare-eccezioni-con-throw"><span class="header-section-number">10.8</span> Lanciare eccezioni con throw</a></li>
   <li><a href="#creare-eccezioni-personalizzate" id="toc-creare-eccezioni-personalizzate" class="nav-link" data-scroll-target="#creare-eccezioni-personalizzate"><span class="header-section-number">10.9</span> Creare eccezioni personalizzate</a></li>
-  <li><a href="#dichiarare-eccezioni-con-throws" id="toc-dichiarare-eccezioni-con-throws" class="nav-link" data-scroll-target="#dichiarare-eccezioni-con-throws"><span class="header-section-number">10.10</span> Dichiarare eccezioni con throws</a></li>
+  <li><a href="#propagare-eccezioni-con-throws" id="toc-propagare-eccezioni-con-throws" class="nav-link" data-scroll-target="#propagare-eccezioni-con-throws"><span class="header-section-number">10.10</span> Propagare eccezioni con throws</a></li>
   <li><a href="#esempio-completo-input-robusto" id="toc-esempio-completo-input-robusto" class="nav-link" data-scroll-target="#esempio-completo-input-robusto"><span class="header-section-number">10.11</span> Esempio completo: input robusto</a></li>
   <li><a href="#riepilogo" id="toc-riepilogo" class="nav-link" data-scroll-target="#riepilogo"><span class="header-section-number">10.12</span> Riepilogo</a></li>
   </ul>
@@ -386,14 +386,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="cosa-succede-quando-qualcosa-va-storto" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="cosa-succede-quando-qualcosa-va-storto"><span class="header-section-number">10.1</span> Cosa succede quando qualcosa va storto?</h2>
-<p>Fino ad ora abbiamo scritto codice che funziona — assumendo che i dati in ingresso siano sempre validi, che i file esistano, che la rete sia disponibile. Ma nella realtà non è così.</p>
+<p>Fino ad ora abbiamo scritto codice che funziona, assumendo che i dati in ingresso siano sempre validi, che i file esistano, che la rete sia disponibile. Ma nella realtà non è così.</p>
 <p>Un utente inserisce una lettera dove si aspetta un numero. Un file non esiste. La memoria finisce. La connessione cade.</p>
-<p>Questi sono <strong>errori a runtime</strong> — situazioni anomale che si verificano durante l’esecuzione del programma, non durante la compilazione. Java gestisce queste situazioni con un meccanismo chiamato <strong>gestione delle eccezioni</strong>.</p>
+<p>Questi sono <strong>errori a runtime</strong>, situazioni anomale che si verificano durante l’esecuzione del programma, non durante la compilazione. Java gestisce queste situazioni con un meccanismo chiamato <strong>gestione delle eccezioni</strong>.</p>
 <hr>
 </section>
 <section id="cosè-uneccezione" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="cosè-uneccezione"><span class="header-section-number">10.2</span> Cos’è un’eccezione</h2>
-<p>Un’<strong>eccezione</strong> è un oggetto che rappresenta una situazione anomala verificatasi durante l’esecuzione. Quando si verifica un errore, Java <strong>lancia</strong> (throws) un’eccezione — interrompe il flusso normale e cerca qualcuno che la gestisca.</p>
+<p>Un’<strong>eccezione</strong> è un oggetto che rappresenta una situazione anomala verificatasi durante l’esecuzione. Quando si verifica un errore, Java <strong>lancia</strong> (throws) un’eccezione e interrompe il flusso normale e cerca qualcuno che la gestisca.</p>
 <p>Se nessuno la gestisce, il programma termina stampando un messaggio di errore chiamato <strong>stack trace</strong>:</p>
 <pre><code>Exception in thread "main" java.lang.ArithmeticException: / by zero
     at Main.divide(Main.java:8)
@@ -403,7 +403,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="la-gerarchia-delle-eccezioni" class="level2" data-number="10.3">
 <h2 data-number="10.3" class="anchored" data-anchor-id="la-gerarchia-delle-eccezioni"><span class="header-section-number">10.3</span> La gerarchia delle eccezioni</h2>
-<p>In Java le eccezioni sono classi organizzate in una gerarchia:</p>
+<p>In Java le eccezioni sono classi organizzate in una gerarchia, Error ed Exception derivano entrambe dalla classe Throwable</p>
 <pre><code>Throwable
 ├── Error                    → errori gravi della JVM (non gestire)
 │   ├── OutOfMemoryError
@@ -428,7 +428,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Unchecked</strong> (RuntimeException e sottoclassi) — il compilatore non ti obbliga a gestirle. Spesso indicano bug nel codice: accesso a un indice fuori range, divisione per zero, cast errato.</p>
+<p><strong>Unchecked</strong> (RuntimeException e sottoclassi): il compilatore non ti obbliga a gestirle. Spesso indicano bug nel codice: accesso a un indice fuori range, divisione per zero, cast errato.</p>
 <p><strong>Checked</strong> (tutto il resto di Exception) — il compilatore ti <strong>obbliga</strong> a gestirle o a dichiararle. Tipicamente sono situazioni esterne al controllo del programma: file non trovato, errore di rete.</p>
 </div>
 </div>
@@ -558,7 +558,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="lanciare-eccezioni-con-throw" class="level2" data-number="10.8">
 <h2 data-number="10.8" class="anchored" data-anchor-id="lanciare-eccezioni-con-throw"><span class="header-section-number">10.8</span> Lanciare eccezioni con throw</h2>
-<p>Non solo puoi gestire le eccezioni — puoi anche <strong>lanciarle</strong> tu stesso con <code>throw</code>. Questo è utile nei setter e nei costruttori quando ricevi valori non validi:</p>
+<p>Non solo puoi gestire le eccezioni, puoi anche <strong>lanciarle</strong> tu stesso con <code>throw</code>. Questo è utile nei setter e nei costruttori quando ricevi valori non validi:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">setVita</span><span class="op">(</span><span class="dt">int</span> vita<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>vita <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalArgumentException</span><span class="op">(</span><span class="st">"La vita non può essere negativa: "</span> <span class="op">+</span> vita<span class="op">);</span></span>
@@ -613,9 +613,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <hr>
 </section>
-<section id="dichiarare-eccezioni-con-throws" class="level2" data-number="10.10">
-<h2 data-number="10.10" class="anchored" data-anchor-id="dichiarare-eccezioni-con-throws"><span class="header-section-number">10.10</span> Dichiarare eccezioni con throws</h2>
-<p>Se un metodo può lanciare una <strong>checked exception</strong> ma non la gestisce internamente, deve dichiararla nella firma con <code>throws</code>:</p>
+<section id="propagare-eccezioni-con-throws" class="level2" data-number="10.10">
+<h2 data-number="10.10" class="anchored" data-anchor-id="propagare-eccezioni-con-throws"><span class="header-section-number">10.10</span> Propagare eccezioni con throws</h2>
+<p>Se un metodo può lanciare una <strong>checked exception</strong> ma non la gestisce internamente, deve propagarla nella firma con <code>throws</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">caricaDaFile</span><span class="op">(</span><span class="bu">String</span> percorso<span class="op">)</span> <span class="kw">throws</span> <span class="bu">IOException</span> <span class="op">{</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// questo metodo può lanciare IOException</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// chi lo chiama deve gestirla</span></span>
@@ -637,8 +637,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><strong><code>throw</code></strong> (senza s) — lancia effettivamente un’eccezione all’interno del codice</li>
-<li><strong><code>throws</code></strong> (con s) — dichiara nella firma del metodo che potrebbe lanciare quell’eccezione</li>
+<li><strong><code>throw</code></strong> lancia effettivamente un’eccezione all’interno del codice</li>
+<li><strong><code>throws</code></strong> dichiara nella firma del metodo che potrebbe lanciare quell’eccezione</li>
 </ul>
 </div>
 </div>
@@ -646,7 +646,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="esempio-completo-input-robusto" class="level2" data-number="10.11">
 <h2 data-number="10.11" class="anchored" data-anchor-id="esempio-completo-input-robusto"><span class="header-section-number">10.11</span> Esempio completo: input robusto</h2>
-<p>Mettiamo tutto insieme con un esempio realistico — un programma che chiede la vita del personaggio e non si blocca su input errati:</p>
+<p>Mettiamo tutto insieme con un esempio realistico: un programma che chiede la vita del personaggio e non si blocca su input errati:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Scanner</span><span class="op">;</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> InputRobusto <span class="op">{</span></span>
@@ -697,7 +697,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>I concetti chiave di questa lezione
+<span class="screen-reader-only">Note</span>I concetti chiave
 </div>
 </div>
 <div class="callout-body-container callout-body">
