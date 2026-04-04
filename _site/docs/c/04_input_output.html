@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>14&nbsp; Introduzione a Java – Learning Stack</title>
+<title>5&nbsp; Input e output – Learning Stack</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -68,8 +68,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../docs/java/02_tipi_e_stringhe.html" rel="next">
-<link href="../../docs/c/12_puntatori.html" rel="prev">
+<link href="../../docs/c/05_selezione.html" rel="next">
+<link href="../../docs/c/03_operatori.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/java/01_introduzione.html">Java — Introduzione</a></li><li class="breadcrumb-item"><a href="../../docs/java/01_introduzione.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/c/01_introduzione.html">Linguaggio C — Fondamenti</a></li><li class="breadcrumb-item"><a href="../../docs/c/04_input_output.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Input e output</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -180,7 +180,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/c/04_input_output.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/c/04_input_output.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Input e output</span></span></a>
   </div>
 </li>
@@ -267,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/java/01_introduzione.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../docs/java/01_introduzione.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></span></a>
   </div>
 </li>
@@ -451,25 +451,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#perché-java" id="toc-perché-java" class="nav-link active" data-scroll-target="#perché-java"><span class="header-section-number">14.1</span> Perché Java?</a></li>
-  <li><a href="#compilatori-e-interpreti" id="toc-compilatori-e-interpreti" class="nav-link" data-scroll-target="#compilatori-e-interpreti"><span class="header-section-number">14.2</span> Compilatori e interpreti</a></li>
-  <li><a href="#la-jvm-e-il-bytecode" id="toc-la-jvm-e-il-bytecode" class="nav-link" data-scroll-target="#la-jvm-e-il-bytecode"><span class="header-section-number">14.3</span> La JVM e il bytecode</a></li>
-  <li><a href="#perché-si-chiama-java" id="toc-perché-si-chiama-java" class="nav-link" data-scroll-target="#perché-si-chiama-java"><span class="header-section-number">14.4</span> Perché si chiama Java?</a></li>
-  <li><a href="#file-e-programmi-java-vs-c" id="toc-file-e-programmi-java-vs-c" class="nav-link" data-scroll-target="#file-e-programmi-java-vs-c"><span class="header-section-number">14.5</span> File e programmi: Java vs C</a></li>
-  <li><a href="#il-primo-programma-java" id="toc-il-primo-programma-java" class="nav-link" data-scroll-target="#il-primo-programma-java"><span class="header-section-number">14.6</span> Il primo programma Java</a></li>
-  <li><a href="#il-metodo-main-riga-per-riga" id="toc-il-metodo-main-riga-per-riga" class="nav-link" data-scroll-target="#il-metodo-main-riga-per-riga"><span class="header-section-number">14.7</span> Il metodo main — riga per riga</a></li>
-  <li><a href="#system.out.println-oop-in-azione" id="toc-system.out.println-oop-in-azione" class="nav-link" data-scroll-target="#system.out.println-oop-in-azione"><span class="header-section-number">14.8</span> <code>System.out.println</code> — OOP in azione</a></li>
-  <li><a href="#compilare-ed-eseguire-da-terminale" id="toc-compilare-ed-eseguire-da-terminale" class="nav-link" data-scroll-target="#compilare-ed-eseguire-da-terminale"><span class="header-section-number">14.9</span> Compilare ed eseguire da terminale</a></li>
-  <li><a href="#riepilogo" id="toc-riepilogo" class="nav-link" data-scroll-target="#riepilogo"><span class="header-section-number">14.10</span> Riepilogo</a></li>
+  <li><a href="#comunicare-con-lutente" id="toc-comunicare-con-lutente" class="nav-link active" data-scroll-target="#comunicare-con-lutente"><span class="header-section-number">5.1</span> Comunicare con l’utente</a></li>
+  <li><a href="#printf-stampare-sullo-schermo" id="toc-printf-stampare-sullo-schermo" class="nav-link" data-scroll-target="#printf-stampare-sullo-schermo"><span class="header-section-number">5.2</span> printf — stampare sullo schermo</a>
+  <ul class="collapse">
+  <li><a href="#i-segnaposto" id="toc-i-segnaposto" class="nav-link" data-scroll-target="#i-segnaposto"><span class="header-section-number">5.2.1</span> I segnaposto</a></li>
+  <li><a href="#formattare-i-numeri-decimali" id="toc-formattare-i-numeri-decimali" class="nav-link" data-scroll-target="#formattare-i-numeri-decimali"><span class="header-section-number">5.2.2</span> Formattare i numeri decimali</a></li>
+  <li><a href="#i-caratteri-speciali" id="toc-i-caratteri-speciali" class="nav-link" data-scroll-target="#i-caratteri-speciali"><span class="header-section-number">5.2.3</span> I caratteri speciali</a></li>
+  <li><a href="#stampare-più-valori" id="toc-stampare-più-valori" class="nav-link" data-scroll-target="#stampare-più-valori"><span class="header-section-number">5.2.4</span> Stampare più valori</a></li>
+  </ul></li>
+  <li><a href="#scanf-leggere-dalla-tastiera" id="toc-scanf-leggere-dalla-tastiera" class="nav-link" data-scroll-target="#scanf-leggere-dalla-tastiera"><span class="header-section-number">5.3</span> scanf — leggere dalla tastiera</a>
+  <ul class="collapse">
+  <li><a href="#leggere-tipi-diversi" id="toc-leggere-tipi-diversi" class="nav-link" data-scroll-target="#leggere-tipi-diversi"><span class="header-section-number">5.3.1</span> Leggere tipi diversi</a></li>
+  <li><a href="#leggere-più-valori-con-un-solo-scanf" id="toc-leggere-più-valori-con-un-solo-scanf" class="nav-link" data-scroll-target="#leggere-più-valori-con-un-solo-scanf"><span class="header-section-number">5.3.2</span> Leggere più valori con un solo scanf</a></li>
+  </ul></li>
+  <li><a href="#il-buffer-di-input" id="toc-il-buffer-di-input" class="nav-link" data-scroll-target="#il-buffer-di-input"><span class="header-section-number">5.4</span> Il buffer di input</a></li>
+  <li><a href="#allineare-loutput" id="toc-allineare-loutput" class="nav-link" data-scroll-target="#allineare-loutput"><span class="header-section-number">5.5</span> Allineare l’output</a></li>
+  <li><a href="#esempio-completo-scheda-personaggio" id="toc-esempio-completo-scheda-personaggio" class="nav-link" data-scroll-target="#esempio-completo-scheda-personaggio"><span class="header-section-number">5.6</span> Esempio completo: scheda personaggio</a></li>
+  <li><a href="#schema-mentale" id="toc-schema-mentale" class="nav-link" data-scroll-target="#schema-mentale"><span class="header-section-number">5.7</span> Schema mentale</a></li>
+  <li><a href="#esercizi" id="toc-esercizi" class="nav-link" data-scroll-target="#esercizi"><span class="header-section-number">5.8</span> Esercizi</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/java/01_introduzione.html">Java — Introduzione</a></li><li class="breadcrumb-item"><a href="../../docs/java/01_introduzione.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/c/01_introduzione.html">Linguaggio C — Fondamenti</a></li><li class="breadcrumb-item"><a href="../../docs/c/04_input_output.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Input e output</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Input e output</span></h1>
 </div>
 
 
@@ -487,273 +495,275 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <hr>
-<section id="perché-java" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="perché-java"><span class="header-section-number">14.1</span> Perché Java?</h2>
-<p>Prima di scrivere una sola riga di codice, vale la pena capire <strong>perché esiste Java</strong> e cosa lo rende diverso dai linguaggi che conosci già.</p>
-<p>Con il C hai imparato a ragionare in modo imperativo: istruzioni, variabili, funzioni. Con il c il codice compilato funziona <strong>solo</strong> sulla macchina per cui è stato compilato. Un programma compilato su Linux non gira su Windows, e viceversa.</p>
-<p>Java nasce negli anni ’90 con un obiettivo preciso:</p>
-<blockquote class="blockquote">
-<p><em>“Write once, run anywhere.”</em> Scrivi il codice una volta, eseguilo ovunque.</p>
-</blockquote>
+<section id="comunicare-con-lutente" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="comunicare-con-lutente"><span class="header-section-number">5.1</span> Comunicare con l’utente</h2>
+<p>Un programma utile deve saper fare due cose: <strong>ricevere dati</strong> dall’utente e <strong>restituire risultati</strong>. In C questo si fa con due funzioni della libreria <code>stdio.h</code>:</p>
+<ul>
+<li><code>printf</code> — stampa dati sullo schermo</li>
+<li><code>scanf</code> — legge dati dalla tastiera</li>
+</ul>
+<p>Le hai già incontrate nelle lezioni precedenti. Ora le vediamo in modo completo.</p>
 <hr>
 </section>
-<section id="compilatori-e-interpreti" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="compilatori-e-interpreti"><span class="header-section-number">14.2</span> Compilatori e interpreti</h2>
-<p>Per capire come Java risolve il problema della portabilità, dobbiamo fare un passo indietro.</p>
-<p>Esistono due modi fondamentali per eseguire un programma:</p>
-<p><strong>Il compilatore</strong> traduce l’intero sorgente in codice macchina <em>prima</em> dell’esecuzione. Il risultato è un file eseguibile velocissimo, ma legato a uno specifico sistema operativo e processore. È quello che fa <code>gcc</code> con il C.</p>
-<p><strong>L’interprete</strong> legge ed esegue il sorgente riga per riga, senza compilare prima. È più flessibile — lo stesso file gira su qualsiasi macchina che ha l’interprete installato — ma in genere più lento. Python funziona così.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Compilatore vs interprete in sintesi
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<section id="printf-stampare-sullo-schermo" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="printf-stampare-sullo-schermo"><span class="header-section-number">5.2</span> printf — stampare sullo schermo</h2>
+<p><code>printf</code> stampa testo e valori sullo schermo. La struttura è sempre:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"stringa di formato"</span><span class="op">,</span> variabile1<span class="op">,</span> variabile2<span class="op">,</span> <span class="op">...);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La <strong>stringa di formato</strong> è il testo da stampare. Può contenere testo normale e <strong>segnaposto</strong> — codici che indicano dove inserire i valori delle variabili.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> eta <span class="op">=</span> <span class="dv">17</span><span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"Ho </span><span class="sc">%d</span><span class="st"> anni.</span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> eta<span class="op">);</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">/* stampa: Ho 17 anni. */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="i-segnaposto" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="i-segnaposto"><span class="header-section-number">5.2.1</span> I segnaposto</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th></th>
-<th>Compilatore</th>
-<th>Interprete</th>
+<th>Segnaposto</th>
+<th>Tipo</th>
+<th>Esempio</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Quando traduce</strong></td>
-<td>Prima dell’esecuzione</td>
-<td>Durante l’esecuzione</td>
+<td><code>%d</code></td>
+<td><code>int</code></td>
+<td><code>printf("%d", 42)</code> → <code>42</code></td>
 </tr>
 <tr class="even">
-<td><strong>Velocità</strong></td>
-<td>Più veloce</td>
-<td>Più lenta</td>
+<td><code>%f</code></td>
+<td><code>float</code> / <code>double</code></td>
+<td><code>printf("%f", 3.14)</code> → <code>3.140000</code></td>
 </tr>
 <tr class="odd">
-<td><strong>Portabilità</strong></td>
-<td>Limitata</td>
-<td>Alta</td>
+<td><code>%lf</code></td>
+<td><code>double</code> (con scanf)</td>
+<td>—</td>
 </tr>
 <tr class="even">
-<td><strong>Esempio</strong></td>
-<td>C, C++</td>
-<td>Python, JavaScript</td>
+<td><code>%c</code></td>
+<td><code>char</code></td>
+<td><code>printf("%c", 'A')</code> → <code>A</code></td>
+</tr>
+<tr class="odd">
+<td><code>%s</code></td>
+<td>stringa</td>
+<td><code>printf("%s", "ciao")</code> → <code>ciao</code></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<p>Java fa qualcosa di più intelligente: <strong>unisce i vantaggi di entrambi</strong>.</p>
-<hr>
 </section>
-<section id="la-jvm-e-il-bytecode" class="level2" data-number="14.3">
-<h2 data-number="14.3" class="anchored" data-anchor-id="la-jvm-e-il-bytecode"><span class="header-section-number">14.3</span> La JVM e il bytecode</h2>
-<p>Ecco come funziona il ciclo di vita di un programma Java:</p>
-<p><strong>1. Tu scrivi</strong> il codice sorgente in un file <code>.java</code>.</p>
-<p><strong>2. Il compilatore <code>javac</code></strong> traduce il sorgente non in codice macchina, ma in <strong>bytecode</strong> — un linguaggio intermedio, portabile e standardizzato, contenuto in file <code>.class</code>.</p>
-<p><strong>3. La Java Virtual Machine (JVM)</strong> legge il bytecode ed esegue il programma sulla macchina reale. Ogni sistema operativo ha la sua JVM, ma il bytecode è sempre lo stesso.</p>
-<pre><code>Codice sorgente (.java)
-        ↓  javac
-    Bytecode (.class)
-        ↓  JVM
-   Esecuzione sul sistema</code></pre>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Il compilatore JIT
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>La JVM non si limita a interpretare il bytecode riga per riga. Al suo interno c’è anche un compilatore <strong>Just-In-Time (JIT)</strong> che, mentre il programma gira, traduce le parti più usate direttamente in codice macchina nativo. Risultato: la velocità si avvicina a quella del C, mantenendo la portabilità.</p>
-</div>
-</div>
-<p>Il bytecode non è codice macchina e non può girare direttamente sul processore. Ma è uguale su tutte le piattaforme. Basta avere la JVM installata, e il programma gira.</p>
-<hr>
+<section id="formattare-i-numeri-decimali" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="formattare-i-numeri-decimali"><span class="header-section-number">5.2.2</span> Formattare i numeri decimali</h3>
+<p>Di default <code>%f</code> stampa 6 cifre decimali. Puoi controllare quante cifre vuoi:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> media <span class="op">=</span> <span class="fl">7.666666</span><span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%f\n</span><span class="st">"</span><span class="op">,</span>   media<span class="op">);</span>    <span class="co">/* 7.666666 — default */</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%.2f\n</span><span class="st">"</span><span class="op">,</span> media<span class="op">);</span>    <span class="co">/* 7.67     — 2 decimali */</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%.0f\n</span><span class="st">"</span><span class="op">,</span> media<span class="op">);</span>    <span class="co">/* 8        — nessun decimale */</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%8.2f\n</span><span class="st">"</span><span class="op">,</span> media<span class="op">);</span>   <span class="co">/* __7.67   — 8 caratteri totali, 2 decimali */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="perché-si-chiama-java" class="level2" data-number="14.4">
-<h2 data-number="14.4" class="anchored" data-anchor-id="perché-si-chiama-java"><span class="header-section-number">14.4</span> Perché si chiama Java?</h2>
-<p>Il nome originale del linguaggio era <strong>Oak</strong> (“quercia”) ma esisteva già un altro linguaggio con quel nome e serviva un’alternativa.</p>
-<p>Durante una riunione che stava diventando molto lunga, il team di sviluppatori stava bevendo grandi quantità di caffè. Qualcuno propose <strong>Java</strong> — slang americano per “caffè”, che prende il nome dall’isola indonesiana famosa per le sue piantagioni.</p>
-<p>Il nome piacque e rimase. Da qui il logo della tazzina fumante che ancora oggi identifica Java.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>JDK, JRE e JVM — le sigle ricorrenti
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><strong>JVM</strong> (Java Virtual Machine) — esegue il bytecode</li>
-<li><strong>JRE</strong> (Java Runtime Environment) — JVM + librerie standard, per chi vuole solo <em>eseguire</em> programmi Java</li>
-<li><strong>JDK</strong> (Java Development Kit) — JRE + compilatore + strumenti di sviluppo, per chi vuole <em>scrivere</em> programmi Java</li>
-</ul>
-<p>Se stai sviluppando, ti serve il JDK.</p>
-</div>
-</div>
-<hr>
-</section>
-<section id="file-e-programmi-java-vs-c" class="level2" data-number="14.5">
-<h2 data-number="14.5" class="anchored" data-anchor-id="file-e-programmi-java-vs-c"><span class="header-section-number">14.5</span> File e programmi: Java vs C</h2>
-<p>In C i programmi erano divisi in file <code>.h</code> (intestazioni con le dichiarazioni) e file <code>.c</code> (implementazioni). Per collegare tutto si usava <code>#include</code>, che funziona in modo molto meccanico: il compilatore copia il contenuto del file incluso dentro al programma.</p>
-<p>Java funziona diversamente:</p>
-<ul>
-<li>Ogni classe sta in un <strong>file separato</strong> chiamato esattamente come la classe: <code>NomeClasse.java</code></li>
-<li>Non esistono file header <code>.h</code></li>
-<li>Per usare classi già pronte si usa <code>import</code></li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Scanner</span><span class="op">;</span>  <span class="co">// importa la classe Scanner</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span><code>import</code> non è <code>#include</code>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Quando scrivi <code>import</code>, non stai copiando del codice nel tuo file. Stai solo dicendo al compilatore <strong>dove trovare</strong> quella classe.</p>
-</div>
-</div>
-<hr>
-</section>
-<section id="il-primo-programma-java" class="level2" data-number="14.6">
-<h2 data-number="14.6" class="anchored" data-anchor-id="il-primo-programma-java"><span class="header-section-number">14.6</span> Il primo programma Java</h2>
-<p>In Java, anche il programma più semplice deve avere almeno una <strong>classe</strong> e un metodo <strong><code>main</code></strong>. Il <code>main</code> è il punto di ingresso: è da lì che la JVM comincia a eseguire le istruzioni.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> PrimoProgramma <span class="op">{</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Ciao, Java!"</span><span class="op">);</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Tre regole fondamentali:</p>
-<ul>
-<li>Tutto il codice sta <strong>dentro una classe</strong></li>
-<li>L’esecuzione parte sempre dal <strong><code>main</code></strong></li>
-<li>Il file deve chiamarsi <strong>esattamente come la classe</strong>: <code>PrimoProgramma.java</code></li>
-</ul>
-<hr>
-</section>
-<section id="il-metodo-main-riga-per-riga" class="level2" data-number="14.7">
-<h2 data-number="14.7" class="anchored" data-anchor-id="il-metodo-main-riga-per-riga"><span class="header-section-number">14.7</span> Il metodo main — riga per riga</h2>
-<p>La firma del main è sempre questa:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Analizziamola pezzo per pezzo:</p>
+<section id="i-caratteri-speciali" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="i-caratteri-speciali"><span class="header-section-number">5.2.3</span> I caratteri speciali</h3>
+<p>All’interno delle stringhe alcuni caratteri hanno un significato speciale:</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Parola</th>
-<th>Significato</th>
+<th>Sequenza</th>
+<th>Effetto</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>public</code></td>
-<td>Visibile alla JVM — deve poterlo chiamare dall’esterno</td>
+<td><code>\n</code></td>
+<td>vai a capo</td>
 </tr>
 <tr class="even">
-<td><code>static</code></td>
-<td>Non serve creare un oggetto per chiamarlo — la JVM lo chiama direttamente</td>
+<td><code>\t</code></td>
+<td>tabulazione orizzontale</td>
 </tr>
 <tr class="odd">
-<td><code>void</code></td>
-<td>Non restituisce nessun valore</td>
+<td><code>\\</code></td>
+<td>stampa il carattere <code>\</code></td>
 </tr>
 <tr class="even">
-<td><code>String[] args</code></td>
-<td>Può ricevere argomenti da riga di comando</td>
+<td><code>\"</code></td>
+<td>stampa il carattere <code>"</code></td>
+</tr>
+<tr class="odd">
+<td><code>%%</code></td>
+<td>stampa il carattere <code>%</code></td>
 </tr>
 </tbody>
 </table>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Il main non va in tutte le classi
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Il <code>main</code> serve <strong>solo nella classe da cui parte il programma</strong>. Tutte le altre classi non hanno un <code>main</code> — hanno solo attributi e metodi.</p>
-</div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"Nome:</span><span class="sc">\t</span><span class="st">Arthas</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"Punteggio:</span><span class="sc">\t%d%%\n</span><span class="st">"</span><span class="op">,</span> <span class="dv">85</span><span class="op">);</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">/* stampa:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">   Nome:   Arthas</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">   Punteggio:  85%  */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="stampare-più-valori" class="level3" data-number="5.2.4">
+<h3 data-number="5.2.4" class="anchored" data-anchor-id="stampare-più-valori"><span class="header-section-number">5.2.4</span> Stampare più valori</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> livello <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> vita <span class="op">=</span> <span class="fl">87.5</span><span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> classe <span class="op">=</span> <span class="ch">'G'</span><span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"Classe: </span><span class="sc">%c</span><span class="st"> | Livello: </span><span class="sc">%d</span><span class="st"> | Vita: </span><span class="sc">%.1f%%\n</span><span class="st">"</span><span class="op">,</span> classe<span class="op">,</span> livello<span class="op">,</span> vita<span class="op">);</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">/* stampa: Classe: G | Livello: 5 | Vita: 87.5% */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>I segnaposto vengono sostituiti nell’ordine: il primo <code>%c</code> con <code>classe</code>, il primo <code>%d</code> con <code>livello</code>, e così via.</p>
 <hr>
 </section>
-<section id="system.out.println-oop-in-azione" class="level2" data-number="14.8">
-<h2 data-number="14.8" class="anchored" data-anchor-id="system.out.println-oop-in-azione"><span class="header-section-number">14.8</span> <code>System.out.println</code> — OOP in azione</h2>
-<p>La prima istruzione che scrivi in Java è già un esempio perfetto di programmazione a oggetti:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Ciao, Java!"</span><span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Scomponila così:</p>
-<ul>
-<li><code>System</code> — una <strong>classe</strong> della libreria standard Java</li>
-<li><code>out</code> — un <strong>oggetto</strong> di tipo <code>PrintStream</code> che gestisce l’output</li>
-<li><code>println()</code> — un <strong>metodo</strong> che stampa il testo e va a capo</li>
-</ul>
-<p>In C usavi <code>printf()</code> — una funzione globale. In Java invece stai chiamando un <strong>metodo su un oggetto</strong>. Anche per stampare una riga, Java ragiona in termini di oggetti che collaborano.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Testo con a capo"</span><span class="op">);</span>  <span class="co">// va a capo</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"Testo senza a capo"</span><span class="op">);</span> <span class="co">// non va a capo</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">"Formattato: </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> <span class="dv">42</span><span class="op">);</span> <span class="co">// come printf in C</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
 </section>
-<section id="compilare-ed-eseguire-da-terminale" class="level2" data-number="14.9">
-<h2 data-number="14.9" class="anchored" data-anchor-id="compilare-ed-eseguire-da-terminale"><span class="header-section-number">14.9</span> Compilare ed eseguire da terminale</h2>
-<p>Se vuoi fare tutto da terminale senza IDE:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compila il file sorgente → genera PrimoProgramma.class</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">javac</span> PrimoProgramma.java</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Esegui il bytecode con la JVM</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">java</span> PrimoProgramma</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="scanf-leggere-dalla-tastiera" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="scanf-leggere-dalla-tastiera"><span class="header-section-number">5.3</span> scanf — leggere dalla tastiera</h2>
+<p><code>scanf</code> legge quello che l’utente digita e lo salva in una variabile. La struttura è:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>scanf<span class="op">(</span><span class="st">"segnaposto"</span><span class="op">,</span> <span class="op">&amp;</span>variabile<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La <code>&amp;</code> davanti alla variabile è obbligatoria — indica l’indirizzo in memoria dove salvare il valore. Vedremo meglio cosa significa quando studieremo i puntatori. Per ora: <strong>con <code>scanf</code> si mette sempre <code>&amp;</code></strong>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> eta<span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"Inserisci la tua età: "</span><span class="op">);</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>eta<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="leggere-tipi-diversi" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="leggere-tipi-diversi"><span class="header-section-number">5.3.1</span> Leggere tipi diversi</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> n<span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> x<span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> c<span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> nome<span class="op">[</span><span class="dv">50</span><span class="op">];</span>   <span class="co">/* stringa — la vediamo dopo */</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>n<span class="op">);</span>      <span class="co">/* legge un intero */</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%lf</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>x<span class="op">);</span>     <span class="co">/* legge un double — nota: %lf, non %f */</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>scanf<span class="op">(</span><span class="st">" </span><span class="sc">%c</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>c<span class="op">);</span>     <span class="co">/* legge un carattere — nota lo spazio prima di %c */</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%s</span><span class="st">"</span><span class="op">,</span> nome<span class="op">);</span>    <span class="co">/* legge una parola — senza &amp; per le stringhe */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Attenzione al nome
+<span class="screen-reader-only">Warning</span>Tre cose da ricordare con scanf
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Il comando <code>java</code> vuole il <strong>nome della classe</strong>, non il nome del file. Quindi <code>java PrimoProgramma</code>, non <code>java PrimoProgramma.class</code>.</p>
+<p><strong>1. Con <code>scanf</code> si usa <code>%lf</code> per i double, non <code>%f</code>.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> x<span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%lf</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>x<span class="op">);</span>   <span class="co">/* corretto */</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%f</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>x<span class="op">);</span>    <span class="co">/* sbagliato — comportamento indefinito */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>2. Lo spazio prima di <code>%c</code> è necessario.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> n<span class="op">;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> c<span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>n<span class="op">);</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>scanf<span class="op">(</span><span class="st">" </span><span class="sc">%c</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>c<span class="op">);</span>   <span class="co">/* lo spazio consuma l'invio rimasto nel buffer */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Senza lo spazio, <code>scanf</code> leggerebbe il carattere <code>\n</code> rimasto dal <code>%d</code> precedente.</p>
+<p><strong>3. Non mettere <code>\n</code> nella stringa di formato di scanf.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>n<span class="op">);</span>   <span class="co">/* sbagliato — aspetta un altro invio */</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>n<span class="op">);</span>     <span class="co">/* corretto */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
+</section>
+<section id="leggere-più-valori-con-un-solo-scanf" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="leggere-più-valori-con-un-solo-scanf"><span class="header-section-number">5.3.2</span> Leggere più valori con un solo scanf</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a<span class="op">,</span> b<span class="op">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> </span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>a<span class="op">,</span> <span class="op">&amp;</span>b<span class="op">);</span>   <span class="co">/* legge due interi separati da spazio */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>L’utente può separare i valori con spazi o con invio — <code>scanf</code> li gestisce allo stesso modo.</p>
 <hr>
 </section>
-<section id="riepilogo" class="level2" data-number="14.10">
-<h2 data-number="14.10" class="anchored" data-anchor-id="riepilogo"><span class="header-section-number">14.10</span> Riepilogo</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>I concetti chiave
-</div>
-</div>
-<div class="callout-body-container callout-body">
+</section>
+<section id="il-buffer-di-input" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="il-buffer-di-input"><span class="header-section-number">5.4</span> Il buffer di input</h2>
+<p>Quando l’utente preme invio, il testo digitato va in una zona di memoria chiamata <strong>buffer di input</strong>. <code>scanf</code> legge dal buffer — non direttamente dalla tastiera.</p>
+<p>Questo causa un problema classico: quando <code>scanf</code> legge un intero con <code>%d</code>, lascia nel buffer il carattere <code>\n</code> (l’invio). Se subito dopo leggi un carattere con <code>%c</code>, <code>scanf</code> troverà quel <code>\n</code> nel buffer e lo leggerà — invece di aspettare che l’utente digiti qualcosa.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> n<span class="op">;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> c<span class="op">;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>n<span class="op">);</span>      <span class="co">/* legge il numero, lascia \n nel buffer */</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%c</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>c<span class="op">);</span>      <span class="co">/* legge \n invece di aspettare l'utente! */</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>scanf<span class="op">(</span><span class="st">" </span><span class="sc">%c</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>c<span class="op">);</span>     <span class="co">/* lo spazio consuma il \n — corretto */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Schema mentale: <strong>ogni volta che leggi un <code>char</code> dopo un <code>int</code> o un <code>double</code>, metti uno spazio prima di <code>%c</code></strong>.</p>
+<hr>
+</section>
+<section id="allineare-loutput" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="allineare-loutput"><span class="header-section-number">5.5</span> Allineare l’output</h2>
+<p>Quando stampi tabelle o elenchi, puoi allineare i valori con i modificatori di larghezza:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%-15s</span><span class="st"> </span><span class="sc">%5s</span><span class="st"> </span><span class="sc">%8s\n</span><span class="st">"</span><span class="op">,</span> <span class="st">"Nome"</span><span class="op">,</span> <span class="st">"Voto"</span><span class="op">,</span> <span class="st">"Media"</span><span class="op">);</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%-15s</span><span class="st"> </span><span class="sc">%5d</span><span class="st"> </span><span class="sc">%8.2f\n</span><span class="st">"</span><span class="op">,</span> <span class="st">"Arthas"</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="fl">7.83</span><span class="op">);</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%-15s</span><span class="st"> </span><span class="sc">%5d</span><span class="st"> </span><span class="sc">%8.2f\n</span><span class="st">"</span><span class="op">,</span> <span class="st">"Gandalf"</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="fl">8.50</span><span class="op">);</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%-15s</span><span class="st"> </span><span class="sc">%5d</span><span class="st"> </span><span class="sc">%8.2f\n</span><span class="st">"</span><span class="op">,</span> <span class="st">"Legolas"</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="fl">6.67</span><span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Output:</p>
+<pre><code>Nome             Voto    Media
+Arthas              8     7.83
+Gandalf             9     8.50
+Legolas             7     6.67</code></pre>
 <ul>
-<li>Java compila il sorgente <code>.java</code> in <strong>bytecode</strong> <code>.class</code>, non in codice macchina.</li>
-<li>La <strong>JVM</strong> esegue il bytecode su qualsiasi sistema operativo — <em>write once, run anywhere</em>.</li>
-<li>Il compilatore <strong>JIT</strong> ottimizza l’esecuzione traducendo il bytecode in codice nativo al volo.</li>
-<li>Ogni classe sta in un file <code>.java</code> con lo stesso nome della classe.</li>
-<li><code>import</code> indica dove trovare una classe, non copia il suo codice.</li>
-<li>Ogni programma ha un punto di ingresso: il metodo <strong><code>main</code></strong>.</li>
-<li><code>System.out.println()</code> è già OOP: classe, oggetto e metodo.</li>
+<li><code>%15s</code> — testo allineato a destra in 15 caratteri</li>
+<li><code>%-15s</code> — testo allineato a sinistra in 15 caratteri (il <code>-</code> inverte l’allineamento)</li>
+<li><code>%5d</code> — intero in 5 caratteri, allineato a destra</li>
+<li><code>%8.2f</code> — decimale in 8 caratteri totali con 2 cifre dopo la virgola</li>
 </ul>
-</div>
-</div>
+<hr>
+</section>
+<section id="esempio-completo-scheda-personaggio" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="esempio-completo-scheda-personaggio"><span class="header-section-number">5.6</span> Esempio completo: scheda personaggio</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> nome<span class="op">[</span><span class="dv">50</span><span class="op">];</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> livello<span class="op">;</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> vita<span class="op">;</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> classe<span class="op">;</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* Lettura dei dati */</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"=== CREA IL TUO PERSONAGGIO ===</span><span class="sc">\n\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Nome: "</span><span class="op">);</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%s</span><span class="st">"</span><span class="op">,</span> nome<span class="op">);</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Classe (G=Guerriero, M=Mago, A=Arciere): "</span><span class="op">);</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    scanf<span class="op">(</span><span class="st">" </span><span class="sc">%c</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>classe<span class="op">);</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Livello (1-10): "</span><span class="op">);</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>livello<span class="op">);</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Punti vita: "</span><span class="op">);</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%lf</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>vita<span class="op">);</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* Stampa della scheda */</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">\n</span><span class="st">--- SCHEDA PERSONAGGIO ---</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%-10s</span><span class="st"> </span><span class="sc">%s\n</span><span class="st">"</span><span class="op">,</span>   <span class="st">"Nome:"</span><span class="op">,</span>    nome<span class="op">);</span></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%-10s</span><span class="st"> </span><span class="sc">%c\n</span><span class="st">"</span><span class="op">,</span>   <span class="st">"Classe:"</span><span class="op">,</span>  classe<span class="op">);</span></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%-10s</span><span class="st"> </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span>   <span class="st">"Livello:"</span><span class="op">,</span> livello<span class="op">);</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%-10s</span><span class="st"> </span><span class="sc">%.1f\n</span><span class="st">"</span><span class="op">,</span> <span class="st">"Vita:"</span><span class="op">,</span>    vita<span class="op">);</span></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="schema-mentale" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="schema-mentale"><span class="header-section-number">5.7</span> Schema mentale</h2>
+<pre><code>Devo stampare qualcosa?
+    → printf("...", valori)
+    → scegli il segnaposto giusto: %d %f %c %s
+    → controlla i decimali: %.2f
+    → vai a capo con \n
+
+Devo leggere qualcosa?
+    → scanf("segnaposto", &amp;variabile)
+    → usa %lf per i double
+    → metti spazio prima di %c se hai letto un int prima
+    → non mettere \n nella stringa di formato
+
+Devo allineare l'output?
+    → usa la larghezza: %10d, %-15s, %8.2f</code></pre>
+<hr>
+</section>
+<section id="esercizi" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="esercizi"><span class="header-section-number">5.8</span> Esercizi</h2>
+<p><strong>Esercizio 1</strong> Scrivi un programma che legge nome, cognome e anno di nascita di una persona e stampa:</p>
+<pre><code>Benvenuto, Mario Rossi!
+Sei nato nel 1990.</code></pre>
+<p><strong>Esercizio 2</strong> Scrivi un programma che legge tre voti interi e stampa una tabella allineata con i voti e la media:</p>
+<pre><code>Voto 1:     7
+Voto 2:     8
+Voto 3:     6
+Media:   7.00</code></pre>
+<p><strong>Esercizio 3</strong> Scrivi un programma che legge un intero e un carattere (in quest’ordine) e li stampa entrambi. Fai attenzione al problema del buffer.</p>
 
 
 </section>
@@ -1161,13 +1171,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../docs/c/12_puntatori.html" class="pagination-link" aria-label="Puntatori">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Puntatori</span></span>
+      <a href="../../docs/c/03_operatori.html" class="pagination-link" aria-label="Operatori">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Operatori</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../docs/java/02_tipi_e_stringhe.html" class="pagination-link" aria-label="Tipi, stringhe e input">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tipi, stringhe e input</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../docs/c/05_selezione.html" class="pagination-link" aria-label="Selezione">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Selezione</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -9,7 +9,7 @@ book:
   chapters:
     - index.qmd
 
-    - part: "Linguaggio C — Fondamenti"
+    - part: "C: Fondamenti"
       chapters:
         - docs/c/01_introduzione.md
         - docs/c/02_variabili_tipi.md
@@ -20,22 +20,22 @@ book:
         - docs/c/07_funzioni.md
         - docs/c/08_boolean.md
 
-    - part: "Linguaggio C — Strutture dati"
+    - part: "C: Strutture dati"
       chapters:
         - docs/c/09_array.md
         - docs/c/10_matrici.md
         - docs/c/11_stringhe.md
 
-    - part: "Linguaggio C — Puntatori"
+    - part: "C: Puntatori"
       chapters:
         - docs/c/12_puntatori.md
 
-    - part: "Java — Introduzione"
+    - part: "Java: Introduzione"
       chapters:
         - docs/java/01_introduzione.md
         - docs/java/02_tipi_e_stringhe.md
 
-    - part: "Java — OOP"
+    - part: "Java: OOP"
       chapters:
         - docs/java/03_paradigmi_e_oggetti.md
         - docs/java/04_creare_una_classe.md
@@ -44,26 +44,26 @@ book:
         - docs/java/07_polimorfismo_upcasting.md
         - docs/java/08_classi_astratte_interfacce.md
 
-    - part: "Java — Eccezioni"
+    - part: "Java: Eccezioni"
       chapters:
         - docs/java/09_eccezioni.md
 
-    - part: "Java — Collections e Stream"
+    - part: "Java: Collections e Stream"
       chapters:
         - docs/java/10_collections.md
         - docs/java/11_list_set_queue.md
         - docs/java/12_stream_pipeline.md
 
-    - part: "Java — Stringhe avanzate"
+    - part: "Java: Stringhe avanzate"
       chapters:
         - docs/java/13_stringhe_avanzate.md
 
-    - part: "Java — Gestione file"
+    - part: "Java: Gestione file"
       chapters:
         - docs/java/14_path_files_log.md
         - docs/java/15_buffer_scrittura.md
 
-    - part: "Java — Qualità del codice"
+    - part: "Java: Qualità del codice"
       chapters:
         - docs/java/16_testing_junit.md
         - docs/java/17_solid.md

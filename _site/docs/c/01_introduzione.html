@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>14&nbsp; Introduzione a Java – Learning Stack</title>
+<title>2&nbsp; Introduzione al linguaggio C – Learning Stack</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -68,8 +68,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../docs/java/02_tipi_e_stringhe.html" rel="next">
-<link href="../../docs/c/12_puntatori.html" rel="prev">
+<link href="../../docs/c/02_variabili_tipi.html" rel="next">
+<link href="../../index.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/java/01_introduzione.html">Java — Introduzione</a></li><li class="breadcrumb-item"><a href="../../docs/java/01_introduzione.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/c/01_introduzione.html">Linguaggio C — Fondamenti</a></li><li class="breadcrumb-item"><a href="../../docs/c/01_introduzione.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduzione al linguaggio C</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -162,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/c/01_introduzione.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/c/01_introduzione.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduzione al linguaggio C</span></span></a>
   </div>
 </li>
@@ -267,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/java/01_introduzione.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../docs/java/01_introduzione.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></span></a>
   </div>
 </li>
@@ -451,25 +451,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#perché-java" id="toc-perché-java" class="nav-link active" data-scroll-target="#perché-java"><span class="header-section-number">14.1</span> Perché Java?</a></li>
-  <li><a href="#compilatori-e-interpreti" id="toc-compilatori-e-interpreti" class="nav-link" data-scroll-target="#compilatori-e-interpreti"><span class="header-section-number">14.2</span> Compilatori e interpreti</a></li>
-  <li><a href="#la-jvm-e-il-bytecode" id="toc-la-jvm-e-il-bytecode" class="nav-link" data-scroll-target="#la-jvm-e-il-bytecode"><span class="header-section-number">14.3</span> La JVM e il bytecode</a></li>
-  <li><a href="#perché-si-chiama-java" id="toc-perché-si-chiama-java" class="nav-link" data-scroll-target="#perché-si-chiama-java"><span class="header-section-number">14.4</span> Perché si chiama Java?</a></li>
-  <li><a href="#file-e-programmi-java-vs-c" id="toc-file-e-programmi-java-vs-c" class="nav-link" data-scroll-target="#file-e-programmi-java-vs-c"><span class="header-section-number">14.5</span> File e programmi: Java vs C</a></li>
-  <li><a href="#il-primo-programma-java" id="toc-il-primo-programma-java" class="nav-link" data-scroll-target="#il-primo-programma-java"><span class="header-section-number">14.6</span> Il primo programma Java</a></li>
-  <li><a href="#il-metodo-main-riga-per-riga" id="toc-il-metodo-main-riga-per-riga" class="nav-link" data-scroll-target="#il-metodo-main-riga-per-riga"><span class="header-section-number">14.7</span> Il metodo main — riga per riga</a></li>
-  <li><a href="#system.out.println-oop-in-azione" id="toc-system.out.println-oop-in-azione" class="nav-link" data-scroll-target="#system.out.println-oop-in-azione"><span class="header-section-number">14.8</span> <code>System.out.println</code> — OOP in azione</a></li>
-  <li><a href="#compilare-ed-eseguire-da-terminale" id="toc-compilare-ed-eseguire-da-terminale" class="nav-link" data-scroll-target="#compilare-ed-eseguire-da-terminale"><span class="header-section-number">14.9</span> Compilare ed eseguire da terminale</a></li>
-  <li><a href="#riepilogo" id="toc-riepilogo" class="nav-link" data-scroll-target="#riepilogo"><span class="header-section-number">14.10</span> Riepilogo</a></li>
+  <li><a href="#cosè-un-programma" id="toc-cosè-un-programma" class="nav-link active" data-scroll-target="#cosè-un-programma"><span class="header-section-number">2.1</span> Cos’è un programma</a></li>
+  <li><a href="#il-ciclo-di-vita-di-un-programma-c" id="toc-il-ciclo-di-vita-di-un-programma-c" class="nav-link" data-scroll-target="#il-ciclo-di-vita-di-un-programma-c"><span class="header-section-number">2.2</span> Il ciclo di vita di un programma C</a></li>
+  <li><a href="#il-primo-programma" id="toc-il-primo-programma" class="nav-link" data-scroll-target="#il-primo-programma"><span class="header-section-number">2.3</span> Il primo programma</a></li>
+  <li><a href="#come-compilare-ed-eseguire" id="toc-come-compilare-ed-eseguire" class="nav-link" data-scroll-target="#come-compilare-ed-eseguire"><span class="header-section-number">2.4</span> Come compilare ed eseguire</a></li>
+  <li><a href="#le-regole-fondamentali-del-c" id="toc-le-regole-fondamentali-del-c" class="nav-link" data-scroll-target="#le-regole-fondamentali-del-c"><span class="header-section-number">2.5</span> Le regole fondamentali del C</a></li>
+  <li><a href="#i-commenti" id="toc-i-commenti" class="nav-link" data-scroll-target="#i-commenti"><span class="header-section-number">2.6</span> I commenti</a></li>
+  <li><a href="#cosa-sono-le-librerie" id="toc-cosa-sono-le-librerie" class="nav-link" data-scroll-target="#cosa-sono-le-librerie"><span class="header-section-number">2.7</span> Cosa sono le librerie</a></li>
+  <li><a href="#schema-mentale-da-portarsi-dietro" id="toc-schema-mentale-da-portarsi-dietro" class="nav-link" data-scroll-target="#schema-mentale-da-portarsi-dietro"><span class="header-section-number">2.8</span> Schema mentale da portarsi dietro</a></li>
+  <li><a href="#esercizio" id="toc-esercizio" class="nav-link" data-scroll-target="#esercizio"><span class="header-section-number">2.9</span> Esercizio</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/java/01_introduzione.html">Java — Introduzione</a></li><li class="breadcrumb-item"><a href="../../docs/java/01_introduzione.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/c/01_introduzione.html">Linguaggio C — Fondamenti</a></li><li class="breadcrumb-item"><a href="../../docs/c/01_introduzione.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduzione al linguaggio C</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduzione al linguaggio C</span></h1>
 </div>
 
 
@@ -487,273 +486,174 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <hr>
-<section id="perché-java" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="perché-java"><span class="header-section-number">14.1</span> Perché Java?</h2>
-<p>Prima di scrivere una sola riga di codice, vale la pena capire <strong>perché esiste Java</strong> e cosa lo rende diverso dai linguaggi che conosci già.</p>
-<p>Con il C hai imparato a ragionare in modo imperativo: istruzioni, variabili, funzioni. Con il c il codice compilato funziona <strong>solo</strong> sulla macchina per cui è stato compilato. Un programma compilato su Linux non gira su Windows, e viceversa.</p>
-<p>Java nasce negli anni ’90 con un obiettivo preciso:</p>
-<blockquote class="blockquote">
-<p><em>“Write once, run anywhere.”</em> Scrivi il codice una volta, eseguilo ovunque.</p>
-</blockquote>
+<section id="cosè-un-programma" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="cosè-un-programma"><span class="header-section-number">2.1</span> Cos’è un programma</h2>
+<p>Un programma è un insieme di istruzioni che il computer esegue una dopo l’altra. Tu scrivi le istruzioni, il computer le esegue.</p>
+<p>Il problema è che il computer non capisce il linguaggio naturale (come l’italiano), capisce solo sequenze di numeri chiamate <strong>codice macchina</strong>. Noi però non scriviamo in codice macchina: scriviamo in un linguaggio più leggibile, come il C, e poi lo facciamo tradurre.</p>
 <hr>
 </section>
-<section id="compilatori-e-interpreti" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="compilatori-e-interpreti"><span class="header-section-number">14.2</span> Compilatori e interpreti</h2>
-<p>Per capire come Java risolve il problema della portabilità, dobbiamo fare un passo indietro.</p>
-<p>Esistono due modi fondamentali per eseguire un programma:</p>
-<p><strong>Il compilatore</strong> traduce l’intero sorgente in codice macchina <em>prima</em> dell’esecuzione. Il risultato è un file eseguibile velocissimo, ma legato a uno specifico sistema operativo e processore. È quello che fa <code>gcc</code> con il C.</p>
-<p><strong>L’interprete</strong> legge ed esegue il sorgente riga per riga, senza compilare prima. È più flessibile — lo stesso file gira su qualsiasi macchina che ha l’interprete installato — ma in genere più lento. Python funziona così.</p>
+<section id="il-ciclo-di-vita-di-un-programma-c" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="il-ciclo-di-vita-di-un-programma-c"><span class="header-section-number">2.2</span> Il ciclo di vita di un programma C</h2>
+<p>Scrivere ed eseguire un programma C richiede tre passi:</p>
+<pre><code>1. Scrivi il codice sorgente   →   file .c
+2. Compila                     →   file eseguibile
+3. Esegui</code></pre>
+<p><strong>Passo 1 — scrivi il codice sorgente</strong> Il codice sorgente è il testo che scrivi tu — le istruzioni in linguaggio C, salvate in un file con estensione <code>.c</code>.</p>
+<p><strong>Passo 2 — compila</strong> Il <strong>compilatore</strong> è un programma che traduce il tuo codice sorgente in un file eseguibile che il computer sa eseguire. In C usiamo il compilatore <code>gcc</code>.</p>
+<p><strong>Passo 3 — esegui</strong> Lanci il programma e il computer esegue le istruzioni.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Compilatore vs interprete in sintesi
+<span class="screen-reader-only">Note</span>Cosa succede se c’è un errore?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th>Compilatore</th>
-<th>Interprete</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Quando traduce</strong></td>
-<td>Prima dell’esecuzione</td>
-<td>Durante l’esecuzione</td>
-</tr>
-<tr class="even">
-<td><strong>Velocità</strong></td>
-<td>Più veloce</td>
-<td>Più lenta</td>
-</tr>
-<tr class="odd">
-<td><strong>Portabilità</strong></td>
-<td>Limitata</td>
-<td>Alta</td>
-</tr>
-<tr class="even">
-<td><strong>Esempio</strong></td>
-<td>C, C++</td>
-<td>Python, JavaScript</td>
-</tr>
-</tbody>
-</table>
+<p>Se il codice ha errori di sintassi, il compilatore si ferma e ti segnala il problema — il file eseguibile non viene creato. Devi correggere l’errore e ricompilare.</p>
+<p>Un programma che <strong>compila</strong> non significa che funziona correttamente — significa solo che la sintassi è corretta. Gli errori di logica si scoprono solo eseguendo il programma.</p>
 </div>
 </div>
-<p>Java fa qualcosa di più intelligente: <strong>unisce i vantaggi di entrambi</strong>.</p>
 <hr>
 </section>
-<section id="la-jvm-e-il-bytecode" class="level2" data-number="14.3">
-<h2 data-number="14.3" class="anchored" data-anchor-id="la-jvm-e-il-bytecode"><span class="header-section-number">14.3</span> La JVM e il bytecode</h2>
-<p>Ecco come funziona il ciclo di vita di un programma Java:</p>
-<p><strong>1. Tu scrivi</strong> il codice sorgente in un file <code>.java</code>.</p>
-<p><strong>2. Il compilatore <code>javac</code></strong> traduce il sorgente non in codice macchina, ma in <strong>bytecode</strong> — un linguaggio intermedio, portabile e standardizzato, contenuto in file <code>.class</code>.</p>
-<p><strong>3. La Java Virtual Machine (JVM)</strong> legge il bytecode ed esegue il programma sulla macchina reale. Ogni sistema operativo ha la sua JVM, ma il bytecode è sempre lo stesso.</p>
-<pre><code>Codice sorgente (.java)
-        ↓  javac
-    Bytecode (.class)
-        ↓  JVM
-   Esecuzione sul sistema</code></pre>
+<section id="il-primo-programma" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="il-primo-programma"><span class="header-section-number">2.3</span> Il primo programma</h2>
+<p>Ogni programma C, anche il più semplice, ha questa struttura:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Ciao, mondo!</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Analizziamolo riga per riga.</p>
+<p><strong><code>#include &lt;stdio.h&gt;</code></strong> Dice al compilatore di includere la libreria <code>stdio.h</code> — la libreria standard per l’input e l’output. Senza questa riga non puoi usare <code>printf</code> e <code>scanf</code>. Va sempre messa all’inizio.</p>
+<p><strong><code>int main()</code></strong> Ogni programma C ha un punto di partenza: il blocco <code>main</code>. Il computer inizia sempre da qui. <code>int</code> indica che <code>main</code> restituisce un numero intero alla fine.</p>
+<p><strong><code>{ ... }</code></strong> Le graffe delimitano il corpo del <code>main</code> — tutto il codice che vuoi eseguire va dentro di esse.</p>
+<p><strong><code>printf("Ciao, mondo!\n");</code></strong> Stampa il testo sullo schermo. <code>\n</code> è il carattere di a capo — senza di esso il cursore resta sulla stessa riga. Il punto e virgola <code>;</code> termina ogni istruzione.</p>
+<p><strong><code>return 0;</code></strong> Segnala al sistema operativo che il programma è terminato correttamente. 0 significa “nessun errore”.</p>
+<hr>
+</section>
+<section id="come-compilare-ed-eseguire" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="come-compilare-ed-eseguire"><span class="header-section-number">2.4</span> Come compilare ed eseguire</h2>
+<p>Apri il terminale e posizionati nella cartella dove hai salvato il file.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compila</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gcc</span> programma.c <span class="at">-o</span> programma</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Esegui</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">./programma</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>gcc</code> è il compilatore. <code>programma.c</code> è il tuo file sorgente. <code>-o programma</code> dice al compilatore di chiamare il file eseguibile <code>programma</code>. Se non metti <code>-o nome</code>, il compilatore crea un file chiamato <code>a.out</code>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Il compilatore JIT
+<span class="screen-reader-only">Tip</span>Errori comuni di compilazione
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La JVM non si limita a interpretare il bytecode riga per riga. Al suo interno c’è anche un compilatore <strong>Just-In-Time (JIT)</strong> che, mentre il programma gira, traduce le parti più usate direttamente in codice macchina nativo. Risultato: la velocità si avvicina a quella del C, mantenendo la portabilità.</p>
-</div>
-</div>
-<p>Il bytecode non è codice macchina e non può girare direttamente sul processore. Ma è uguale su tutte le piattaforme. Basta avere la JVM installata, e il programma gira.</p>
-<hr>
-</section>
-<section id="perché-si-chiama-java" class="level2" data-number="14.4">
-<h2 data-number="14.4" class="anchored" data-anchor-id="perché-si-chiama-java"><span class="header-section-number">14.4</span> Perché si chiama Java?</h2>
-<p>Il nome originale del linguaggio era <strong>Oak</strong> (“quercia”) ma esisteva già un altro linguaggio con quel nome e serviva un’alternativa.</p>
-<p>Durante una riunione che stava diventando molto lunga, il team di sviluppatori stava bevendo grandi quantità di caffè. Qualcuno propose <strong>Java</strong> — slang americano per “caffè”, che prende il nome dall’isola indonesiana famosa per le sue piantagioni.</p>
-<p>Il nome piacque e rimase. Da qui il logo della tazzina fumante che ancora oggi identifica Java.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>JDK, JRE e JVM — le sigle ricorrenti
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><strong>JVM</strong> (Java Virtual Machine) — esegue il bytecode</li>
-<li><strong>JRE</strong> (Java Runtime Environment) — JVM + librerie standard, per chi vuole solo <em>eseguire</em> programmi Java</li>
-<li><strong>JDK</strong> (Java Development Kit) — JRE + compilatore + strumenti di sviluppo, per chi vuole <em>scrivere</em> programmi Java</li>
-</ul>
-<p>Se stai sviluppando, ti serve il JDK.</p>
+<p>Il compilatore segnala gli errori con riga e messaggio. Impara a leggere questi messaggi — sono il tuo strumento principale per correggere il codice.</p>
+<pre><code>programma.c:4:5: error: expected ';' before 'return'</code></pre>
+<p>Questo dice: nel file <code>programma.c</code>, alla riga 4, colonna 5, manca un punto e virgola prima di <code>return</code>.</p>
 </div>
 </div>
 <hr>
 </section>
-<section id="file-e-programmi-java-vs-c" class="level2" data-number="14.5">
-<h2 data-number="14.5" class="anchored" data-anchor-id="file-e-programmi-java-vs-c"><span class="header-section-number">14.5</span> File e programmi: Java vs C</h2>
-<p>In C i programmi erano divisi in file <code>.h</code> (intestazioni con le dichiarazioni) e file <code>.c</code> (implementazioni). Per collegare tutto si usava <code>#include</code>, che funziona in modo molto meccanico: il compilatore copia il contenuto del file incluso dentro al programma.</p>
-<p>Java funziona diversamente:</p>
-<ul>
-<li>Ogni classe sta in un <strong>file separato</strong> chiamato esattamente come la classe: <code>NomeClasse.java</code></li>
-<li>Non esistono file header <code>.h</code></li>
-<li>Per usare classi già pronte si usa <code>import</code></li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Scanner</span><span class="op">;</span>  <span class="co">// importa la classe Scanner</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span><code>import</code> non è <code>#include</code>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Quando scrivi <code>import</code>, non stai copiando del codice nel tuo file. Stai solo dicendo al compilatore <strong>dove trovare</strong> quella classe.</p>
-</div>
-</div>
+<section id="le-regole-fondamentali-del-c" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="le-regole-fondamentali-del-c"><span class="header-section-number">2.5</span> Le regole fondamentali del C</h2>
+<p>Prima di andare avanti, ci sono alcune regole che devi sempre rispettare.</p>
+<p><strong>Ogni istruzione termina con <code>;</code></strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"Ciao</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span>   <span class="co">// corretto</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"Ciao</span><span class="sc">\n</span><span class="st">"</span><span class="op">)</span>    <span class="co">// ERRORE — manca il punto e virgola</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Il C distingue maiuscole e minuscole</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">5</span><span class="op">;</span>    <span class="co">// corretto</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>Int x <span class="op">=</span> <span class="dv">5</span><span class="op">;</span>    <span class="co">// ERRORE — Int non esiste, si scrive int</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Printf<span class="op">(</span><span class="st">".."</span><span class="op">);</span> <span class="co">// ERRORE — Printf non esiste, si scrive printf</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Le graffe devono sempre essere aperte e chiuse</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Ciao</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span>   <span class="co">// la graffa chiusa corrisponde a quella aperta</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Le istruzioni si eseguono in ordine, dall’alto verso il basso</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"Prima riga</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"Seconda riga</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"Terza riga</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Il computer esegue la prima, poi la seconda, poi la terza — sempre in quest’ordine.</p>
 <hr>
 </section>
-<section id="il-primo-programma-java" class="level2" data-number="14.6">
-<h2 data-number="14.6" class="anchored" data-anchor-id="il-primo-programma-java"><span class="header-section-number">14.6</span> Il primo programma Java</h2>
-<p>In Java, anche il programma più semplice deve avere almeno una <strong>classe</strong> e un metodo <strong><code>main</code></strong>. Il <code>main</code> è il punto di ingresso: è da lì che la JVM comincia a eseguire le istruzioni.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> PrimoProgramma <span class="op">{</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Ciao, Java!"</span><span class="op">);</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Tre regole fondamentali:</p>
-<ul>
-<li>Tutto il codice sta <strong>dentro una classe</strong></li>
-<li>L’esecuzione parte sempre dal <strong><code>main</code></strong></li>
-<li>Il file deve chiamarsi <strong>esattamente come la classe</strong>: <code>PrimoProgramma.java</code></li>
-</ul>
+<section id="i-commenti" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="i-commenti"><span class="header-section-number">2.6</span> I commenti</h2>
+<p>I commenti sono note che scrivi nel codice per spiegare cosa fa — il compilatore li ignora completamente.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Questo è un commento su una riga sola</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">/* Questo è un commento</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">   su più righe */</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Ciao</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span>  <span class="co">// stampa il saluto</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Usare i commenti è una buona abitudine — rende il codice più leggibile, sia per chi lo legge sia per te quando lo rileggi dopo qualche giorno.</p>
 <hr>
 </section>
-<section id="il-metodo-main-riga-per-riga" class="level2" data-number="14.7">
-<h2 data-number="14.7" class="anchored" data-anchor-id="il-metodo-main-riga-per-riga"><span class="header-section-number">14.7</span> Il metodo main — riga per riga</h2>
-<p>La firma del main è sempre questa:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Analizziamola pezzo per pezzo:</p>
+<section id="cosa-sono-le-librerie" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="cosa-sono-le-librerie"><span class="header-section-number">2.7</span> Cosa sono le librerie</h2>
+<p>Il C di base sa fare pochissimo. Quasi tutto quello che ti serve — stampare, leggere, calcolare, gestire file — sta dentro delle <strong>librerie</strong>.</p>
+<p>Una libreria è una raccolta di funzioni già scritte che puoi usare nel tuo programma. Per usarla devi includerla con <code>#include</code>.</p>
+<p>Le librerie più comuni che userai:</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Parola</th>
-<th>Significato</th>
+<th>Libreria</th>
+<th>Cosa contiene</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>public</code></td>
-<td>Visibile alla JVM — deve poterlo chiamare dall’esterno</td>
+<td><code>stdio.h</code></td>
+<td><code>printf</code>, <code>scanf</code>, gestione file</td>
 </tr>
 <tr class="even">
-<td><code>static</code></td>
-<td>Non serve creare un oggetto per chiamarlo — la JVM lo chiama direttamente</td>
+<td><code>stdlib.h</code></td>
+<td><code>exit</code>, conversioni, numeri casuali</td>
 </tr>
 <tr class="odd">
-<td><code>void</code></td>
-<td>Non restituisce nessun valore</td>
+<td><code>string.h</code></td>
+<td>funzioni per le stringhe</td>
 </tr>
 <tr class="even">
-<td><code>String[] args</code></td>
-<td>Può ricevere argomenti da riga di comando</td>
+<td><code>math.h</code></td>
+<td>funzioni matematiche (<code>sqrt</code>, <code>pow</code>…)</td>
+</tr>
+<tr class="odd">
+<td><code>ctype.h</code></td>
+<td>funzioni sui caratteri (<code>isupper</code>, <code>islower</code>…)</td>
 </tr>
 </tbody>
 </table>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Il main non va in tutte le classi
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Il <code>main</code> serve <strong>solo nella classe da cui parte il programma</strong>. Tutte le altre classi non hanno un <code>main</code> — hanno solo attributi e metodi.</p>
-</div>
-</div>
 <hr>
 </section>
-<section id="system.out.println-oop-in-azione" class="level2" data-number="14.8">
-<h2 data-number="14.8" class="anchored" data-anchor-id="system.out.println-oop-in-azione"><span class="header-section-number">14.8</span> <code>System.out.println</code> — OOP in azione</h2>
-<p>La prima istruzione che scrivi in Java è già un esempio perfetto di programmazione a oggetti:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Ciao, Java!"</span><span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Scomponila così:</p>
-<ul>
-<li><code>System</code> — una <strong>classe</strong> della libreria standard Java</li>
-<li><code>out</code> — un <strong>oggetto</strong> di tipo <code>PrintStream</code> che gestisce l’output</li>
-<li><code>println()</code> — un <strong>metodo</strong> che stampa il testo e va a capo</li>
-</ul>
-<p>In C usavi <code>printf()</code> — una funzione globale. In Java invece stai chiamando un <strong>metodo su un oggetto</strong>. Anche per stampare una riga, Java ragiona in termini di oggetti che collaborano.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Testo con a capo"</span><span class="op">);</span>  <span class="co">// va a capo</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"Testo senza a capo"</span><span class="op">);</span> <span class="co">// non va a capo</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">"Formattato: </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> <span class="dv">42</span><span class="op">);</span> <span class="co">// come printf in C</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="schema-mentale-da-portarsi-dietro" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="schema-mentale-da-portarsi-dietro"><span class="header-section-number">2.8</span> Schema mentale da portarsi dietro</h2>
+<p>Ogni volta che scrivi un programma C, la struttura è sempre questa:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span><span class="pp">      </span><span class="co">/* librerie necessarie */</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* 1. dichiara le variabili */</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* 2. leggi i dati (se servono) */</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* 3. elabora */</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* 4. stampa il risultato */</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Non devi memorizzare tutto subito. L’obiettivo di questa prima lezione è capire il ciclo: <strong>scrivi → compila → esegui</strong>.</p>
 <hr>
 </section>
-<section id="compilare-ed-eseguire-da-terminale" class="level2" data-number="14.9">
-<h2 data-number="14.9" class="anchored" data-anchor-id="compilare-ed-eseguire-da-terminale"><span class="header-section-number">14.9</span> Compilare ed eseguire da terminale</h2>
-<p>Se vuoi fare tutto da terminale senza IDE:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compila il file sorgente → genera PrimoProgramma.class</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">javac</span> PrimoProgramma.java</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Esegui il bytecode con la JVM</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">java</span> PrimoProgramma</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Attenzione al nome
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Il comando <code>java</code> vuole il <strong>nome della classe</strong>, non il nome del file. Quindi <code>java PrimoProgramma</code>, non <code>java PrimoProgramma.class</code>.</p>
-</div>
-</div>
-<hr>
-</section>
-<section id="riepilogo" class="level2" data-number="14.10">
-<h2 data-number="14.10" class="anchored" data-anchor-id="riepilogo"><span class="header-section-number">14.10</span> Riepilogo</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>I concetti chiave
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Java compila il sorgente <code>.java</code> in <strong>bytecode</strong> <code>.class</code>, non in codice macchina.</li>
-<li>La <strong>JVM</strong> esegue il bytecode su qualsiasi sistema operativo — <em>write once, run anywhere</em>.</li>
-<li>Il compilatore <strong>JIT</strong> ottimizza l’esecuzione traducendo il bytecode in codice nativo al volo.</li>
-<li>Ogni classe sta in un file <code>.java</code> con lo stesso nome della classe.</li>
-<li><code>import</code> indica dove trovare una classe, non copia il suo codice.</li>
-<li>Ogni programma ha un punto di ingresso: il metodo <strong><code>main</code></strong>.</li>
-<li><code>System.out.println()</code> è già OOP: classe, oggetto e metodo.</li>
-</ul>
-</div>
-</div>
+<section id="esercizio" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="esercizio"><span class="header-section-number">2.9</span> Esercizio</h2>
+<p>Scrivi un programma che stampa le seguenti righe:</p>
+<pre><code>Benvenuto nel corso di informatica
+Linguaggio: C</code></pre>
+<p>Suggerimenti: - ogni riga vuole un <code>printf</code> separato - non dimenticare <code>\n</code> alla fine di ogni riga - compila con <code>gcc</code> e verifica l’output</p>
 
 
 </section>
@@ -1161,13 +1061,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../docs/c/12_puntatori.html" class="pagination-link" aria-label="Puntatori">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Puntatori</span></span>
+      <a href="../../index.html" class="pagination-link" aria-label="Learning Stack">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Learning Stack</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../docs/java/02_tipi_e_stringhe.html" class="pagination-link" aria-label="Tipi, stringhe e input">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tipi, stringhe e input</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../docs/c/02_variabili_tipi.html" class="pagination-link" aria-label="Variabili e tipi">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variabili e tipi</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
