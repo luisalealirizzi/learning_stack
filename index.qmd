@@ -1,3 +1,31 @@
 # Learning Stack
 
-materiale didattico
+Appunti e dispense per il corso di informatica.
+
+Qui trovi il materiale delle lezioni organizzato per argomento: dalla prima riga di codice in C fino ai design pattern in Java. Puoi usarlo per studiare, per ripassare o per ritrovare uno schema che non ricordi.
+
+---
+
+## Cosa trovi qui
+
+### Linguaggio C
+
+Il C è il primo linguaggio: si parte da zero (variabili, cicli, funzioni) fino ad arrivare alle stringhe e ai puntatori. È un linguaggio vicino alla macchina: capire come funziona il C aiuta a capire come funziona davvero un computer.
+
+→ [Inizia dal primo capitolo](docs/c/01_introduzione.md)
+
+### Java
+
+Con Java si fa un salto di paradigma: dalla programmazione strutturata alla programmazione a oggetti. Si pensa in termini di classi, oggetti.
+
+→ [Inizia dal primo capitolo](docs/java/01_introduzione.md)
+
+---
+
+## Come usare questo sito
+
+Usa il menu a sinistra per navigare tra gli argomenti. Ogni pagina ha spiegazioni, esempi di codice e esercizi. Le soluzioni degli esercizi guidati sono incluse.
+
+---
+
+*Materiale in continuo aggiornamento.*
