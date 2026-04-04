@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>12&nbsp; Stringhe – Learning Stack</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../docs/c/12_puntatori.html" rel="next">
+<link href="../../docs/c/10_matrici.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-1f9e6d70b8b583c31478a0530d9dad38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/c/09_array.html">Linguaggio C — Strutture dati</a></li><li class="breadcrumb-item"><a href="../../docs/c/11_stringhe.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Stringhe</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Learning Stack</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Learning Stack</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Linguaggio C — Fondamenti</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/c/01_introduzione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduzione al linguaggio C</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/c/02_variabili_tipi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variabili e tipi</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/c/03_operatori.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Operatori</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/c/04_input_output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Input e output</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/c/05_selezione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Selezione</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/c/06_iterazione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Iterazione</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/c/07_funzioni.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Funzioni</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/c/08_boolean.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Il tipo booleano</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Linguaggio C — Strutture dati</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/c/09_array.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Array</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/c/10_matrici.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matrici</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/c/11_stringhe.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Stringhe</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Linguaggio C — Puntatori</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/c/12_puntatori.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Puntatori</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Java — Introduzione</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/01_introduzione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/02_tipi_e_stringhe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tipi, stringhe e input</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Java — OOP</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/03_paradigmi_e_oggetti.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Paradigmi e oggetti</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/04_creare_una_classe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Creare una classe</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/05_incapsulamento_adt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Incapsulamento e ADT</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/06_ereditarieta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ereditarietà</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/07_polimorfismo_upcasting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Polimorfismo, upcasting e downcasting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/08_classi_astratte_interfacce.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Classi astratte e interfacce</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Java — Eccezioni</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/09_eccezioni.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Eccezioni</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Java — Collections e Stream</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/10_collections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Java Collections</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/11_list_set_queue.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">List, Set e Queue</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/12_stream_pipeline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Stream e pipeline</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Java — Stringhe avanzate</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/13_stringhe_avanzate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Stringhe avanzate</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Java — Gestione file</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/14_path_files_log.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Path, Files e Log</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/15_buffer_scrittura.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Buffer e scrittura</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Java — Qualità del codice</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/16_testing_junit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Testing con JUnit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/17_solid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">17_solid.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/18_design_pattern.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">18_design_pattern.html</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#idea-chiave" id="toc-idea-chiave" class="nav-link active" data-scroll-target="#idea-chiave"><span class="header-section-number">12.1</span> Idea chiave</a></li>
+  <li><a href="#perché-non-si-usa-scanf-per-leggere-le-stringhe" id="toc-perché-non-si-usa-scanf-per-leggere-le-stringhe" class="nav-link" data-scroll-target="#perché-non-si-usa-scanf-per-leggere-le-stringhe"><span class="header-section-number">12.2</span> Perché non si usa scanf per leggere le stringhe</a></li>
+  <li><a href="#come-funziona-fgets" id="toc-come-funziona-fgets" class="nav-link" data-scroll-target="#come-funziona-fgets"><span class="header-section-number">12.3</span> Come funziona fgets</a>
+  <ul class="collapse">
+  <li><a href="#fgets-protegge-dalloverflow" id="toc-fgets-protegge-dalloverflow" class="nav-link" data-scroll-target="#fgets-protegge-dalloverflow"><span class="header-section-number">12.3.1</span> fgets protegge dall’overflow</a></li>
+  <li><a href="#usare-sizeof-per-la-dimensione" id="toc-usare-sizeof-per-la-dimensione" class="nav-link" data-scroll-target="#usare-sizeof-per-la-dimensione"><span class="header-section-number">12.3.2</span> Usare sizeof per la dimensione</a></li>
+  <li><a href="#confronto-scanf-vs-fgets" id="toc-confronto-scanf-vs-fgets" class="nav-link" data-scroll-target="#confronto-scanf-vs-fgets"><span class="header-section-number">12.3.3</span> Confronto scanf vs fgets</a></li>
+  </ul></li>
+  <li><a href="#blocco-1-saper-leggere-correttamente-una-stringa" id="toc-blocco-1-saper-leggere-correttamente-una-stringa" class="nav-link" data-scroll-target="#blocco-1-saper-leggere-correttamente-una-stringa"><span class="header-section-number">12.4</span> Blocco 1: Saper leggere correttamente una stringa</a>
+  <ul class="collapse">
+  <li><a href="#quando-non-è-necessario-togliere-n" id="toc-quando-non-è-necessario-togliere-n" class="nav-link" data-scroll-target="#quando-non-è-necessario-togliere-n"><span class="header-section-number">12.4.1</span> Quando NON è necessario togliere <code>\n</code></a></li>
+  <li><a href="#quando-invece-bisogna-togliere-n" id="toc-quando-invece-bisogna-togliere-n" class="nav-link" data-scroll-target="#quando-invece-bisogna-togliere-n"><span class="header-section-number">12.4.2</span> Quando invece bisogna togliere <code>\n</code></a></li>
+  </ul></li>
+  <li><a href="#blocco-2-saper-scorrere-tutta-la-stringa" id="toc-blocco-2-saper-scorrere-tutta-la-stringa" class="nav-link" data-scroll-target="#blocco-2-saper-scorrere-tutta-la-stringa"><span class="header-section-number">12.5</span> Blocco 2: Saper scorrere tutta la stringa</a></li>
+  <li><a href="#blocco-3-saper-riconoscere-il-tipo-di-carattere" id="toc-blocco-3-saper-riconoscere-il-tipo-di-carattere" class="nav-link" data-scroll-target="#blocco-3-saper-riconoscere-il-tipo-di-carattere"><span class="header-section-number">12.6</span> Blocco 3: Saper riconoscere il tipo di carattere</a></li>
+  <li><a href="#blocco-4-le-funzioni-della-libreria-string.h" id="toc-blocco-4-le-funzioni-della-libreria-string.h" class="nav-link" data-scroll-target="#blocco-4-le-funzioni-della-libreria-string.h"><span class="header-section-number">12.7</span> Blocco 4: Le funzioni della libreria string.h</a>
+  <ul class="collapse">
+  <li><a href="#strcmp-confrontare-due-stringhe" id="toc-strcmp-confrontare-due-stringhe" class="nav-link" data-scroll-target="#strcmp-confrontare-due-stringhe"><span class="header-section-number">12.7.1</span> strcmp — confrontare due stringhe</a></li>
+  </ul></li>
+  <li><a href="#blocco-5-come-si-scrive-una-funzione-che-lavora-sulle-stringhe" id="toc-blocco-5-come-si-scrive-una-funzione-che-lavora-sulle-stringhe" class="nav-link" data-scroll-target="#blocco-5-come-si-scrive-una-funzione-che-lavora-sulle-stringhe"><span class="header-section-number">12.8</span> Blocco 5: Come si scrive una funzione che lavora sulle stringhe</a>
+  <ul class="collapse">
+  <li><a href="#le-tre-cose-da-decidere" id="toc-le-tre-cose-da-decidere" class="nav-link" data-scroll-target="#le-tre-cose-da-decidere"><span class="header-section-number">12.8.1</span> Le tre cose da decidere</a></li>
+  <li><a href="#funzione-che-conta-qualcosa" id="toc-funzione-che-conta-qualcosa" class="nav-link" data-scroll-target="#funzione-che-conta-qualcosa"><span class="header-section-number">12.8.2</span> Funzione che conta qualcosa</a></li>
+  <li><a href="#funzione-che-trasforma-una-stringa" id="toc-funzione-che-trasforma-una-stringa" class="nav-link" data-scroll-target="#funzione-che-trasforma-una-stringa"><span class="header-section-number">12.8.3</span> Funzione che trasforma una stringa</a></li>
+  <li><a href="#funzione-che-confronta-due-stringhe" id="toc-funzione-che-confronta-due-stringhe" class="nav-link" data-scroll-target="#funzione-che-confronta-due-stringhe"><span class="header-section-number">12.8.4</span> Funzione che confronta due stringhe</a></li>
+  <li><a href="#il-ruolo-del-main" id="toc-il-ruolo-del-main" class="nav-link" data-scroll-target="#il-ruolo-del-main"><span class="header-section-number">12.8.5</span> Il ruolo del main</a></li>
+  </ul></li>
+  <li><a href="#blocco-6-strategie-per-risolvere-gli-esercizi-sulle-stringhe" id="toc-blocco-6-strategie-per-risolvere-gli-esercizi-sulle-stringhe" class="nav-link" data-scroll-target="#blocco-6-strategie-per-risolvere-gli-esercizi-sulle-stringhe"><span class="header-section-number">12.9</span> Blocco 6: Strategie per risolvere gli esercizi sulle stringhe</a>
+  <ul class="collapse">
+  <li><a href="#esercizi-di-tipo-contare" id="toc-esercizi-di-tipo-contare" class="nav-link" data-scroll-target="#esercizi-di-tipo-contare"><span class="header-section-number">12.9.1</span> Esercizi di tipo contare</a></li>
+  <li><a href="#esercizi-di-tipo-trasformare" id="toc-esercizi-di-tipo-trasformare" class="nav-link" data-scroll-target="#esercizi-di-tipo-trasformare"><span class="header-section-number">12.9.2</span> Esercizi di tipo trasformare</a></li>
+  <li><a href="#esercizi-di-tipo-cercare" id="toc-esercizi-di-tipo-cercare" class="nav-link" data-scroll-target="#esercizi-di-tipo-cercare"><span class="header-section-number">12.9.3</span> Esercizi di tipo cercare</a></li>
+  <li><a href="#esercizi-di-tipo-convertire" id="toc-esercizi-di-tipo-convertire" class="nav-link" data-scroll-target="#esercizi-di-tipo-convertire"><span class="header-section-number">12.9.4</span> Esercizi di tipo convertire</a></li>
+  </ul></li>
+  <li><a href="#esercizio-contare" id="toc-esercizio-contare" class="nav-link" data-scroll-target="#esercizio-contare"><span class="header-section-number">12.10</span> Esercizio — Contare</a></li>
+  <li><a href="#esercizio-trasformare" id="toc-esercizio-trasformare" class="nav-link" data-scroll-target="#esercizio-trasformare"><span class="header-section-number">12.11</span> Esercizio — Trasformare</a></li>
+  <li><a href="#esercizio-cercare" id="toc-esercizio-cercare" class="nav-link" data-scroll-target="#esercizio-cercare"><span class="header-section-number">12.12</span> Esercizio — Cercare</a></li>
+  <li><a href="#esercizio-convertire" id="toc-esercizio-convertire" class="nav-link" data-scroll-target="#esercizio-convertire"><span class="header-section-number">12.13</span> Esercizio — Convertire</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/c/09_array.html">Linguaggio C — Strutture dati</a></li><li class="breadcrumb-item"><a href="../../docs/c/11_stringhe.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Stringhe</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Stringhe</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<hr>
+<section id="idea-chiave" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="idea-chiave"><span class="header-section-number">12.1</span> Idea chiave</h2>
+<p>In C non esiste un tipo stringa. Una stringa è un <strong>array di caratteri</strong> che termina con il carattere speciale <code>'\0'</code> (chiamato terminatore nullo o null terminator).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> nome<span class="op">[</span><span class="dv">10</span><span class="op">]</span> <span class="op">=</span> <span class="st">"Arthas"</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In memoria si trova così:</p>
+<pre><code>'A' 'r' 't' 'h' 'a' 's' '\0' ? ? ?
+ 0    1    2    3    4    5    6</code></pre>
+<p>Il <code>'\0'</code> segnala la fine della stringa. Senza di esso il C non saprebbe dove finisce il testo.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>La dimensione deve contenere anche ‘\0’
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Se la parola ha 6 caratteri, l’array deve avere almeno 7 celle — una in più per il terminatore.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> nome<span class="op">[</span><span class="dv">7</span><span class="op">]</span> <span class="op">=</span> <span class="st">"Arthas"</span><span class="op">;</span>   <span class="co">/* 6 lettere + '\0' */</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> nome<span class="op">[</span><span class="dv">6</span><span class="op">]</span> <span class="op">=</span> <span class="st">"Arthas"</span><span class="op">;</span>   <span class="co">/* ERRORE — non c'è spazio per '\0' */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<hr>
+</section>
+<section id="perché-non-si-usa-scanf-per-leggere-le-stringhe" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="perché-non-si-usa-scanf-per-leggere-le-stringhe"><span class="header-section-number">12.2</span> Perché non si usa scanf per leggere le stringhe</h2>
+<p>Prima di vedere come si legge una stringa, è importante capire perché <code>scanf</code> da solo non basta.</p>
+<p><code>scanf("%s", s)</code> legge caratteri fino al primo spazio o invio — poi si ferma. Se l’utente scrive <code>"ciao mondo"</code>, <code>scanf</code> legge solo <code>"ciao"</code> e lascia <code>" mondo"</code> nel buffer.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> s<span class="op">[</span><span class="dv">100</span><span class="op">];</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%s</span><span class="st">"</span><span class="op">,</span> s<span class="op">);</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">/* l'utente scrive: "ciao mondo" */</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">/* s contiene solo: "ciao" */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Per leggere una frase intera — spazi inclusi — si usa <code>fgets</code>.</p>
+<hr>
+</section>
+<section id="come-funziona-fgets" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="come-funziona-fgets"><span class="header-section-number">12.3</span> Come funziona fgets</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fgets<span class="op">(</span>s<span class="op">,</span> dimensione<span class="op">,</span> stdin<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>fgets</code> riceve tre argomenti:</p>
+<ul>
+<li><code>s</code> — l’array dove salvare la stringa</li>
+<li><code>dimensione</code> — il numero massimo di caratteri da leggere, spazi inclusi</li>
+<li><code>stdin</code> — da dove leggere (standard input = tastiera)</li>
+</ul>
+<p><code>fgets</code> legge caratteri dalla tastiera finché non incontra un invio (<code>\n</code>) oppure raggiunge il limite di <code>dimensione - 1</code> caratteri. Aggiunge sempre <code>'\0'</code> alla fine.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> s<span class="op">[</span><span class="dv">10</span><span class="op">];</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>fgets<span class="op">(</span>s<span class="op">,</span> <span class="dv">10</span><span class="op">,</span> stdin<span class="op">);</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">/* l'utente scrive: "ciao" + invio */</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">/* s contiene: "ciao\n\0" */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>fgets salva anche il newline
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>fgets</code> include il <code>\n</code> dell’invio nella stringa. Quindi se l’utente scrive <code>"ciao"</code> e preme invio, la stringa contiene <code>"ciao\n"</code> — non solo <code>"ciao"</code>.</p>
+<p>In alcuni esercizi questo non dà fastidio. In altri bisogna eliminarlo. Lo vediamo nel Blocco 1.</p>
+</div>
+</div>
+<section id="fgets-protegge-dalloverflow" class="level3" data-number="12.3.1">
+<h3 data-number="12.3.1" class="anchored" data-anchor-id="fgets-protegge-dalloverflow"><span class="header-section-number">12.3.1</span> fgets protegge dall’overflow</h3>
+<p>Il secondo argomento di <code>fgets</code> è fondamentale: dice quanti caratteri al massimo leggere. Se l’utente scrive più caratteri del previsto, <code>fgets</code> si ferma al limite — l’array non può andare in overflow.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> s<span class="op">[</span><span class="dv">10</span><span class="op">];</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>fgets<span class="op">(</span>s<span class="op">,</span> <span class="dv">10</span><span class="op">,</span> stdin<span class="op">);</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">/* anche se l'utente scrive 100 caratteri, fgets ne legge al massimo 9 + '\0' */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Con <code>scanf("%s", s)</code> invece non c’è nessun limite — se l’utente scrive troppo, si va fuori dall’array con conseguenze imprevedibili.</p>
+</section>
+<section id="usare-sizeof-per-la-dimensione" class="level3" data-number="12.3.2">
+<h3 data-number="12.3.2" class="anchored" data-anchor-id="usare-sizeof-per-la-dimensione"><span class="header-section-number">12.3.2</span> Usare sizeof per la dimensione</h3>
+<p>Invece di scrivere il numero a mano, usa <code>sizeof(s)</code> — così se cambi la dimensione dell’array non devi ricordare di aggiornare anche <code>fgets</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> s<span class="op">[</span><span class="dv">200</span><span class="op">];</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fgets<span class="op">(</span>s<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>s<span class="op">),</span> stdin<span class="op">);</span>   <span class="co">/* preferibile a fgets(s, 200, stdin) */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="confronto-scanf-vs-fgets" class="level3" data-number="12.3.3">
+<h3 data-number="12.3.3" class="anchored" data-anchor-id="confronto-scanf-vs-fgets"><span class="header-section-number">12.3.3</span> Confronto scanf vs fgets</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><code>scanf("%s", s)</code></th>
+<th><code>fgets(s, dim, stdin)</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Legge gli spazi</strong></td>
+<td>❌ si ferma allo spazio</td>
+<td>✅ sì</td>
+</tr>
+<tr class="even">
+<td><strong>Legge il newline</strong></td>
+<td>❌ lo lascia nel buffer</td>
+<td>✅ lo include nella stringa</td>
+</tr>
+<tr class="odd">
+<td><strong>Protegge dall’overflow</strong></td>
+<td>❌ no</td>
+<td>✅ sì, con il limite</td>
+</tr>
+<tr class="even">
+<td><strong>Quando usarlo</strong></td>
+<td>una singola parola</td>
+<td>una frase intera</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Regola pratica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Quando devi leggere una stringa, usa sempre <code>fgets</code>. È più sicuro e legge anche le frasi con spazi.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> s<span class="op">[</span><span class="dv">200</span><span class="op">];</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>fgets<span class="op">(</span>s<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>s<span class="op">),</span> stdin<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Se vuoi solo una parola senza spazi, <code>scanf("%s", s)</code> funziona — ma tieni presente che non ha protezione dall’overflow.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="blocco-1-saper-leggere-correttamente-una-stringa" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="blocco-1-saper-leggere-correttamente-una-stringa"><span class="header-section-number">12.4</span> Blocco 1: Saper leggere correttamente una stringa</h2>
+<p>Devi saper fare senza esitazione questo schema: <strong>leggo con <code>fgets</code>, se serve tolgo il newline</strong>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> s<span class="op">[</span><span class="dv">200</span><span class="op">];</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fgets<span class="op">(</span>s<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>s<span class="op">),</span> stdin<span class="op">);</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">/* se dobbiamo eliminare l'andata a capo */</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>s<span class="op">[</span>strcspn<span class="op">(</span>s<span class="op">,</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">)]</span> <span class="op">=</span> <span class="ch">'</span><span class="sc">\0</span><span class="ch">'</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Cose da sapere bene: - <code>fgets</code> legge anche gli spazi — a differenza di <code>scanf("%s", ...)</code> - salva anche <code>\n</code> alla fine — in alcuni casi va eliminato - la stringa finisce comunque con <code>'\0'</code></p>
+<section id="quando-non-è-necessario-togliere-n" class="level3" data-number="12.4.1">
+<h3 data-number="12.4.1" class="anchored" data-anchor-id="quando-non-è-necessario-togliere-n"><span class="header-section-number">12.4.1</span> Quando NON è necessario togliere <code>\n</code></h3>
+<p>Non serve eliminarlo quando scorriamo la stringa carattere per carattere. Il <code>\n</code> verrà semplicemente trattato come un carattere qualsiasi.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>s<span class="op">[</span>i<span class="op">]</span> <span class="op">!=</span> <span class="ch">'</span><span class="sc">\0</span><span class="ch">'</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* lavoro su s[i] */</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    i<span class="op">++;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Questo va bene negli esercizi in cui: - si contano caratteri (es: frequenza dei caratteri) - si analizza il testo (es: conteggio vocali) - si modificano solo alcune lettere (es: crittografia delle sole lettere) - si ignorano i caratteri non alfabetici</p>
+<p>In questi casi il <code>\n</code> non crea problemi.</p>
+</section>
+<section id="quando-invece-bisogna-togliere-n" class="level3" data-number="12.4.2">
+<h3 data-number="12.4.2" class="anchored" data-anchor-id="quando-invece-bisogna-togliere-n"><span class="header-section-number">12.4.2</span> Quando invece bisogna togliere <code>\n</code></h3>
+<p>È necessario eliminarlo quando vogliamo che la stringa rappresenti esattamente il testo inserito, senza l’invio finale. Questo succede quando:</p>
+<p><strong>confrontiamo stringhe</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>strcmp<span class="op">(</span>s<span class="op">,</span> <span class="st">"ciao"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Se la stringa è <code>"ciao\n"</code> il confronto fallisce.</p>
+<p><strong>calcoliamo la lunghezza “reale”</strong> Il newline verrebbe contato come carattere in più.</p>
+<p><strong>facciamo elaborazioni sensibili alla posizione</strong> Per esempio: palindromi, parsing preciso del testo, confronti esatti tra stringhe.</p>
+<hr>
+</section>
+</section>
+<section id="blocco-2-saper-scorrere-tutta-la-stringa" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="blocco-2-saper-scorrere-tutta-la-stringa"><span class="header-section-number">12.5</span> Blocco 2: Saper scorrere tutta la stringa</h2>
+<p>Questo è il cuore di quasi tutto: se non sai fare questo, non puoi fare né frequenze né crittografia.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>s<span class="op">[</span>i<span class="op">]</span> <span class="op">!=</span> <span class="ch">'</span><span class="sc">\0</span><span class="ch">'</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* lavoro su s[i] */</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    i<span class="op">++;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Lo schema mentale deve essere: <strong>leggo un carattere alla volta finché trovo <code>'\0'</code></strong>.</p>
+<hr>
+</section>
+<section id="blocco-3-saper-riconoscere-il-tipo-di-carattere" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="blocco-3-saper-riconoscere-il-tipo-di-carattere"><span class="header-section-number">12.6</span> Blocco 3: Saper riconoscere il tipo di carattere</h2>
+<p>Negli esercizi questo è fondamentale. Devi saper distinguere lettera maiuscola, lettera minuscola, carattere non alfabetico.</p>
+<p><strong>Schema minimo — senza librerie:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>s<span class="op">[</span>i<span class="op">]</span> <span class="op">&gt;=</span> <span class="ch">'A'</span> <span class="op">&amp;&amp;</span> s<span class="op">[</span>i<span class="op">]</span> <span class="op">&lt;=</span> <span class="ch">'Z'</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* maiuscola */</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>s<span class="op">[</span>i<span class="op">]</span> <span class="op">&gt;=</span> <span class="ch">'a'</span> <span class="op">&amp;&amp;</span> s<span class="op">[</span>i<span class="op">]</span> <span class="op">&lt;=</span> <span class="ch">'z'</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* minuscola */</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* altro */</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Con la libreria <code>ctype.h</code></strong> — più leggibile:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;ctype.h&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>isupper<span class="op">(</span>s<span class="op">[</span>i<span class="op">])</span>    <span class="co">/* 1 se maiuscola */</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>islower<span class="op">(</span>s<span class="op">[</span>i<span class="op">])</span>    <span class="co">/* 1 se minuscola */</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>isalpha<span class="op">(</span>s<span class="op">[</span>i<span class="op">])</span>    <span class="co">/* 1 se lettera */</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>isdigit<span class="op">(</span>s<span class="op">[</span>i<span class="op">])</span>    <span class="co">/* 1 se cifra 0-9 */</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>isspace<span class="op">(</span>s<span class="op">[</span>i<span class="op">])</span>    <span class="co">/* 1 se spazio, tab, \n */</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>toupper<span class="op">(</span>s<span class="op">[</span>i<span class="op">])</span>    <span class="co">/* converte in maiuscolo */</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>tolower<span class="op">(</span>s<span class="op">[</span>i<span class="op">])</span>    <span class="co">/* converte in minuscolo */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Trasformazione manuale — senza ctype.h:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Da minuscolo a maiuscolo */</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>s<span class="op">[</span>i<span class="op">]</span> <span class="op">&gt;=</span> <span class="ch">'a'</span> <span class="op">&amp;&amp;</span> s<span class="op">[</span>i<span class="op">]</span> <span class="op">&lt;=</span> <span class="ch">'z'</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    s<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> s<span class="op">[</span>i<span class="op">]</span> <span class="op">-</span> <span class="ch">'a'</span> <span class="op">+</span> <span class="ch">'A'</span><span class="op">;</span>   <span class="co">/* oppure: s[i] -= 32; */</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">/* Da maiuscolo a minuscolo */</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>s<span class="op">[</span>i<span class="op">]</span> <span class="op">&gt;=</span> <span class="ch">'A'</span> <span class="op">&amp;&amp;</span> s<span class="op">[</span>i<span class="op">]</span> <span class="op">&lt;=</span> <span class="ch">'Z'</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    s<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> s<span class="op">[</span>i<span class="op">]</span> <span class="op">-</span> <span class="ch">'A'</span> <span class="op">+</span> <span class="ch">'a'</span><span class="op">;</span>   <span class="co">/* oppure: s[i] += 32; */</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Perché funziona la trasformazione con i numeri?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I caratteri sono numeri — seguono la tabella ASCII. <code>'A'</code> vale 65, <code>'a'</code> vale 97. La differenza è sempre 32. Quindi <code>'a' - 'A' = 32</code> e <code>'A' + 32 = 'a'</code>. Per lo stesso motivo <code>'0'</code> vale 48, e <code>s[i] - '0'</code> converte un carattere cifra nel suo valore numerico.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="blocco-4-le-funzioni-della-libreria-string.h" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="blocco-4-le-funzioni-della-libreria-string.h"><span class="header-section-number">12.7</span> Blocco 4: Le funzioni della libreria string.h</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;string.h&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Le funzioni più usate:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Funzione</th>
+<th>Cosa fa</th>
+<th>Esempio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>strlen(s)</code></td>
+<td>lunghezza della stringa (senza <code>\0</code>)</td>
+<td><code>strlen("ciao")</code> → <code>4</code></td>
+</tr>
+<tr class="even">
+<td><code>strcpy(dst, src)</code></td>
+<td>copia <code>src</code> in <code>dst</code></td>
+<td><code>strcpy(s2, s1)</code></td>
+</tr>
+<tr class="odd">
+<td><code>strcat(dst, src)</code></td>
+<td>aggiunge <code>src</code> in fondo a <code>dst</code></td>
+<td><code>strcat(s, " mondo")</code></td>
+</tr>
+<tr class="even">
+<td><code>strcmp(s1, s2)</code></td>
+<td>confronta due stringhe</td>
+<td><code>0</code> se uguali</td>
+</tr>
+<tr class="odd">
+<td><code>strcspn(s, rif)</code></td>
+<td>posizione del primo char di <code>rif</code> in <code>s</code></td>
+<td>trova <code>\n</code></td>
+</tr>
+</tbody>
+</table>
+<section id="strcmp-confrontare-due-stringhe" class="level3" data-number="12.7.1">
+<h3 data-number="12.7.1" class="anchored" data-anchor-id="strcmp-confrontare-due-stringhe"><span class="header-section-number">12.7.1</span> strcmp — confrontare due stringhe</h3>
+<p><code>strcmp</code> restituisce: - <code>0</code> se le stringhe sono uguali - un valore negativo se <code>s1</code> viene prima di <code>s2</code> alfabeticamente - un valore positivo se <code>s1</code> viene dopo</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>strcmp<span class="op">(</span>s1<span class="op">,</span> s2<span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Stringhe uguali</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Non usare == per confrontare stringhe
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In C non puoi confrontare stringhe con <code>==</code> — confronteresti gli indirizzi in memoria, non il contenuto.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>s1 <span class="op">==</span> s2<span class="op">)</span> <span class="op">{</span> <span class="op">...</span> <span class="op">}</span>         <span class="co">/* SBAGLIATO */</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>strcmp<span class="op">(</span>s1<span class="op">,</span> s2<span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span>  <span class="co">/* CORRETTO */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="blocco-5-come-si-scrive-una-funzione-che-lavora-sulle-stringhe" class="level2" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="blocco-5-come-si-scrive-una-funzione-che-lavora-sulle-stringhe"><span class="header-section-number">12.8</span> Blocco 5: Come si scrive una funzione che lavora sulle stringhe</h2>
+<p>Una funzione che lavora sulle stringhe svolge un compito preciso: contare qualcosa, trasformare una stringa, confrontare, cercare, convertire.</p>
+<section id="le-tre-cose-da-decidere" class="level3" data-number="12.8.1">
+<h3 data-number="12.8.1" class="anchored" data-anchor-id="le-tre-cose-da-decidere"><span class="header-section-number">12.8.1</span> Le tre cose da decidere</h3>
+<p><strong>1. Il tipo restituito</strong></p>
+<p>Si usa <code>int</code> quando la funzione deve restituire un conteggio, una posizione, un valore numerico, 1 oppure 0:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> contaMaiuscole<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> s<span class="op">[]);</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> contaVocali<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> s<span class="op">[]);</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> sottoStringa<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> s1<span class="op">[],</span> <span class="dt">const</span> <span class="dt">char</span> s2<span class="op">[]);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Si usa <code>void</code> quando la funzione produce un risultato modificando una stringa:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> maiuscolo<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> s1<span class="op">[],</span> <span class="dt">char</span> s2<span class="op">[]);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>2. I parametri</strong></p>
+<p><em>Caso 1: una stringa</em></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> contaMaiuscole<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> s<span class="op">[])</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Serve per: contare, analizzare, convertire in place.</p>
+<p><em>Caso 2: due stringhe</em></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> maiuscolo<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> s1<span class="op">[],</span> <span class="dt">char</span> s2<span class="op">[])</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>s1</code> è la stringa di partenza, <code>s2</code> è la stringa risultato.</p>
+<p><em>Caso 3: stringa + numero</em></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> crittografa<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> s<span class="op">[],</span> <span class="dt">int</span> k<span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Serve per: traslare i caratteri, tagliare, cercare una posizione.</p>
+<p><strong>3. Lo schema del corpo</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>tipo funzione<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> s<span class="op">[])</span> <span class="op">{</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>s<span class="op">[</span>i<span class="op">]</span> <span class="op">!=</span> <span class="ch">'</span><span class="sc">\0</span><span class="ch">'</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>        <span class="co">/* lavoro su s[i] */</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>        i<span class="op">++;</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Questo è il cuore dell’algoritmo.</p>
+</section>
+<section id="funzione-che-conta-qualcosa" class="level3" data-number="12.8.2">
+<h3 data-number="12.8.2" class="anchored" data-anchor-id="funzione-che-conta-qualcosa"><span class="header-section-number">12.8.2</span> Funzione che conta qualcosa</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> funzione<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> s<span class="op">[])</span> <span class="op">{</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> cont <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>s<span class="op">[</span>i<span class="op">]</span> <span class="op">!=</span> <span class="ch">'</span><span class="sc">\0</span><span class="ch">'</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span><span class="co">/* condizione */</span><span class="op">)</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>            cont<span class="op">++;</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>        i<span class="op">++;</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> cont<span class="op">;</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Esempi possibili: <code>contaMaiuscole</code>, <code>contaVocali</code>, <code>contaSpazi</code>.</p>
+</section>
+<section id="funzione-che-trasforma-una-stringa" class="level3" data-number="12.8.3">
+<h3 data-number="12.8.3" class="anchored" data-anchor-id="funzione-che-trasforma-una-stringa"><span class="header-section-number">12.8.3</span> Funzione che trasforma una stringa</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> funzione<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> s1<span class="op">[],</span> <span class="dt">char</span> s2<span class="op">[])</span> <span class="op">{</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>s1<span class="op">[</span>i<span class="op">]</span> <span class="op">!=</span> <span class="ch">'</span><span class="sc">\0</span><span class="ch">'</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>        s2<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> <span class="co">/* trasformazione di s1[i] */</span><span class="op">;</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>        i<span class="op">++;</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    s2<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> <span class="ch">'</span><span class="sc">\0</span><span class="ch">'</span><span class="op">;</span>   <span class="co">/* fondamentale — termina la nuova stringa */</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="funzione-che-confronta-due-stringhe" class="level3" data-number="12.8.4">
+<h3 data-number="12.8.4" class="anchored" data-anchor-id="funzione-che-confronta-due-stringhe"><span class="header-section-number">12.8.4</span> Funzione che confronta due stringhe</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> funzione<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> s1<span class="op">[],</span> <span class="dt">const</span> <span class="dt">char</span> s2<span class="op">[])</span> <span class="op">{</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>s1<span class="op">[</span>i<span class="op">]</span> <span class="op">!=</span> <span class="ch">'</span><span class="sc">\0</span><span class="ch">'</span> <span class="op">&amp;&amp;</span> s2<span class="op">[</span>i<span class="op">]</span> <span class="op">!=</span> <span class="ch">'</span><span class="sc">\0</span><span class="ch">'</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>s1<span class="op">[</span>i<span class="op">]</span> <span class="op">!=</span> s2<span class="op">[</span>i<span class="op">])</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>        i<span class="op">++;</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s1<span class="op">[</span>i<span class="op">]</span> <span class="op">==</span> s2<span class="op">[</span>i<span class="op">];</span>   <span class="co">/* vero solo se entrambe finite insieme */</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="il-ruolo-del-main" class="level3" data-number="12.8.5">
+<h3 data-number="12.8.5" class="anchored" data-anchor-id="il-ruolo-del-main"><span class="header-section-number">12.8.5</span> Il ruolo del main</h3>
+<p>Il main serve per: leggere i dati, chiamare le funzioni, stampare i risultati.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> s<span class="op">[</span><span class="dv">100</span><span class="op">];</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Inserisci una frase: "</span><span class="op">);</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    fgets<span class="op">(</span>s<span class="op">,</span> <span class="dv">100</span><span class="op">,</span> stdin<span class="op">);</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> risultato <span class="op">=</span> contaMaiuscole<span class="op">(</span>s<span class="op">);</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Maiuscole: </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> risultato<span class="op">);</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In generale è meglio evitare <code>printf</code> dentro una funzione. Una funzione dovrebbe fare un solo lavoro: calcolare o trasformare. La stampa è responsabilità del main. Separare queste due cose rende il programma più chiaro, più riutilizzabile, più facile da testare.</p>
+<hr>
+</section>
+</section>
+<section id="blocco-6-strategie-per-risolvere-gli-esercizi-sulle-stringhe" class="level2" data-number="12.9">
+<h2 data-number="12.9" class="anchored" data-anchor-id="blocco-6-strategie-per-risolvere-gli-esercizi-sulle-stringhe"><span class="header-section-number">12.9</span> Blocco 6: Strategie per risolvere gli esercizi sulle stringhe</h2>
+<p>Molti esercizi sulle stringhe sembrano diversi, ma appartengono quasi sempre a quattro famiglie di problemi. Quando vedi un esercizio, la prima cosa da fare è capire a quale famiglia appartiene.</p>
+<p>Le quattro famiglie sono: <strong>contare</strong>, <strong>trasformare</strong>, <strong>cercare</strong>, <strong>convertire</strong>.</p>
+<section id="esercizi-di-tipo-contare" class="level3" data-number="12.9.1">
+<h3 data-number="12.9.1" class="anchored" data-anchor-id="esercizi-di-tipo-contare"><span class="header-section-number">12.9.1</span> Esercizi di tipo contare</h3>
+<p>Bisogna scorrere la stringa e contare quante volte succede qualcosa.</p>
+<p>Esempi: contare le maiuscole, contare le vocali, contare gli spazi, contare la frequenza delle lettere, contare i caratteri speciali.</p>
+<p>Strategia: - inizializzare un contatore - scorrere la stringa carattere per carattere - controllare se il carattere soddisfa una condizione - aumentare il contatore - restituire il risultato</p>
+<p>Schema mentale: <strong>scorro la stringa → se il carattere soddisfa la condizione → aumento il contatore</strong></p>
+<p>Varianti possibili: la consegna può cambiare solo la condizione — se è una vocale, se è uno spazio, se è un numero, se è un carattere alfabetico. La struttura dell’algoritmo rimane la stessa.</p>
+</section>
+<section id="esercizi-di-tipo-trasformare" class="level3" data-number="12.9.2">
+<h3 data-number="12.9.2" class="anchored" data-anchor-id="esercizi-di-tipo-trasformare"><span class="header-section-number">12.9.2</span> Esercizi di tipo trasformare</h3>
+<p>Bisogna modificare i caratteri della stringa oppure creare una nuova stringa trasformata.</p>
+<p>Esempi: convertire in maiuscolo, convertire in minuscolo, cifrare una stringa, sostituire un carattere, eliminare certi caratteri.</p>
+<p>Strategia: - scorrere la stringa - controllare il carattere - se serve trasformarlo - scrivere il risultato nella nuova stringa (o nella stessa)</p>
+<p>Schema mentale: <strong>leggo un carattere → decido se modificarlo → scrivo il risultato</strong></p>
+<p>Varianti possibili: sostituire le vocali con <code>*</code>, cifrare con uno spostamento, eliminare gli spazi, trasformare minuscole in maiuscole. La struttura resta sempre la stessa.</p>
+</section>
+<section id="esercizi-di-tipo-cercare" class="level3" data-number="12.9.3">
+<h3 data-number="12.9.3" class="anchored" data-anchor-id="esercizi-di-tipo-cercare"><span class="header-section-number">12.9.3</span> Esercizi di tipo cercare</h3>
+<p>Bisogna verificare se qualcosa è presente nella stringa.</p>
+<p>Esempi: verificare se una parola è contenuta in una frase, trovare la posizione di un carattere, controllare se due stringhe sono uguali, verificare se una stringa è palindroma.</p>
+<p>Strategia: - scorrere la stringa principale - confrontare i caratteri - verificare se la sequenza cercata appare - restituire 1 oppure 0</p>
+<p>Schema mentale: <strong>parto da una posizione → confronto i caratteri → se coincidono fino alla fine → trovato</strong></p>
+<p>Varianti possibili: verificare se una parola è presente, trovare la prima posizione di una lettera, verificare se due stringhe sono uguali. La logica è sempre confrontare caratteri.</p>
+</section>
+<section id="esercizi-di-tipo-convertire" class="level3" data-number="12.9.4">
+<h3 data-number="12.9.4" class="anchored" data-anchor-id="esercizi-di-tipo-convertire"><span class="header-section-number">12.9.4</span> Esercizi di tipo convertire</h3>
+<p>Bisogna trasformare una stringa in un numero o in un altro formato.</p>
+<p>Esempi: convertire un numero romano in intero, convertire una stringa numerica in un numero, interpretare un codice.</p>
+<p>Strategia: - scorrere la stringa - riconoscere il simbolo corrente - assegnare il valore numerico - aggiornare il risultato finale</p>
+<p>Schema mentale: <strong>leggo simbolo → lo trasformo in numero → aggiorno il totale</strong></p>
+<hr>
+<p>Quando leggi una consegna, chiediti: - Devo contare qualcosa? → esercizio di conteggio - Devo modificare la stringa? → esercizio di trasformazione - Devo verificare se qualcosa è presente? → esercizio di ricerca - Devo trasformare il testo in un numero? → esercizio di conversione</p>
+<hr>
+</section>
+</section>
+<section id="esercizio-contare" class="level2" data-number="12.10">
+<h2 data-number="12.10" class="anchored" data-anchor-id="esercizio-contare"><span class="header-section-number">12.10</span> Esercizio — Contare</h2>
+<p>Scrivere la funzione <code>int contaSpazi(const char s[])</code> che restituisce il numero di spazi presenti nella stringa <code>s</code>. Scrivere anche un main che legge una frase, chiama la funzione e stampa il risultato.</p>
+<p>Soluzione:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> contaSpazi<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> s<span class="op">[])</span> <span class="op">{</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> cont <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>s<span class="op">[</span>i<span class="op">]</span> <span class="op">!=</span> <span class="ch">'</span><span class="sc">\0</span><span class="ch">'</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>s<span class="op">[</span>i<span class="op">]</span> <span class="op">==</span> <span class="ch">' '</span><span class="op">)</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>            cont<span class="op">++;</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>        i<span class="op">++;</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> cont<span class="op">;</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> frase<span class="op">[</span><span class="dv">200</span><span class="op">];</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Inserisci una frase: "</span><span class="op">);</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>    fgets<span class="op">(</span>frase<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>frase<span class="op">),</span> stdin<span class="op">);</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Numero di spazi: </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> contaSpazi<span class="op">(</span>frase<span class="op">));</span></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="esercizio-trasformare" class="level2" data-number="12.11">
+<h2 data-number="12.11" class="anchored" data-anchor-id="esercizio-trasformare"><span class="header-section-number">12.11</span> Esercizio — Trasformare</h2>
+<p>Scrivere la funzione <code>void sostituisciVocali(const char s1[], char s2[])</code> che copia la stringa <code>s1</code> in <code>s2</code>, sostituendo tutte le vocali con <code>*</code>. Scrivere anche un main che legge una parola, chiama la funzione e stampa la stringa trasformata.</p>
+<p>Soluzione:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> sostituisciVocali<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> s1<span class="op">[],</span> <span class="dt">char</span> s2<span class="op">[])</span> <span class="op">{</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>s1<span class="op">[</span>i<span class="op">]</span> <span class="op">!=</span> <span class="ch">'</span><span class="sc">\0</span><span class="ch">'</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">char</span> c <span class="op">=</span> s1<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>c<span class="op">==</span><span class="ch">'a'</span><span class="op">||</span>c<span class="op">==</span><span class="ch">'e'</span><span class="op">||</span>c<span class="op">==</span><span class="ch">'i'</span><span class="op">||</span>c<span class="op">==</span><span class="ch">'o'</span><span class="op">||</span>c<span class="op">==</span><span class="ch">'u'</span><span class="op">||</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>            c<span class="op">==</span><span class="ch">'A'</span><span class="op">||</span>c<span class="op">==</span><span class="ch">'E'</span><span class="op">||</span>c<span class="op">==</span><span class="ch">'I'</span><span class="op">||</span>c<span class="op">==</span><span class="ch">'O'</span><span class="op">||</span>c<span class="op">==</span><span class="ch">'U'</span><span class="op">)</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>            s2<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> <span class="ch">'*'</span><span class="op">;</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>            s2<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> c<span class="op">;</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>        i<span class="op">++;</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>    s2<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> <span class="ch">'</span><span class="sc">\0</span><span class="ch">'</span><span class="op">;</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> parola<span class="op">[</span><span class="dv">100</span><span class="op">],</span> risultato<span class="op">[</span><span class="dv">100</span><span class="op">];</span></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Inserisci una parola: "</span><span class="op">);</span></span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>    fgets<span class="op">(</span>parola<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>parola<span class="op">),</span> stdin<span class="op">);</span></span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>    sostituisciVocali<span class="op">(</span>parola<span class="op">,</span> risultato<span class="op">);</span></span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Risultato: </span><span class="sc">%s\n</span><span class="st">"</span><span class="op">,</span> risultato<span class="op">);</span></span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="esercizio-cercare" class="level2" data-number="12.12">
+<h2 data-number="12.12" class="anchored" data-anchor-id="esercizio-cercare"><span class="header-section-number">12.12</span> Esercizio — Cercare</h2>
+<p>Scrivere la funzione <code>int contieneCarattere(const char s[], char c)</code> che restituisce 1 se il carattere <code>c</code> è presente nella stringa <code>s</code>, 0 altrimenti. Scrivere anche un main che legge una parola e un carattere, chiama la funzione e stampa il risultato.</p>
+<p>Soluzione:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> contieneCarattere<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> s<span class="op">[],</span> <span class="dt">char</span> c<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>s<span class="op">[</span>i<span class="op">]</span> <span class="op">!=</span> <span class="ch">'</span><span class="sc">\0</span><span class="ch">'</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>s<span class="op">[</span>i<span class="op">]</span> <span class="op">==</span> c<span class="op">)</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>        i<span class="op">++;</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> parola<span class="op">[</span><span class="dv">100</span><span class="op">];</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> c<span class="op">;</span></span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Inserisci una parola: "</span><span class="op">);</span></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>    fgets<span class="op">(</span>parola<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>parola<span class="op">),</span> stdin<span class="op">);</span></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Inserisci un carattere: "</span><span class="op">);</span></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>    scanf<span class="op">(</span><span class="st">" </span><span class="sc">%c</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>c<span class="op">);</span></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Risultato: </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> contieneCarattere<span class="op">(</span>parola<span class="op">,</span> c<span class="op">));</span></span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="esercizio-convertire" class="level2" data-number="12.13">
+<h2 data-number="12.13" class="anchored" data-anchor-id="esercizio-convertire"><span class="header-section-number">12.13</span> Esercizio — Convertire</h2>
+<p>Scrivere la funzione <code>int sommaCifre(const char s[])</code> che riceve una stringa contenente solo cifre numeriche e restituisce la somma delle cifre. Scrivere anche un main che legge la stringa, chiama la funzione e stampa il risultato.</p>
+<p>Soluzione:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> sommaCifre<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> s<span class="op">[])</span> <span class="op">{</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> somma <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>s<span class="op">[</span>i<span class="op">]</span> <span class="op">!=</span> <span class="ch">'</span><span class="sc">\0</span><span class="ch">'</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>        somma <span class="op">+=</span> s<span class="op">[</span>i<span class="op">]</span> <span class="op">-</span> <span class="ch">'0'</span><span class="op">;</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>        i<span class="op">++;</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> somma<span class="op">;</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> numero<span class="op">[</span><span class="dv">100</span><span class="op">];</span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Inserisci un numero: "</span><span class="op">);</span></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>    fgets<span class="op">(</span>numero<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>numero<span class="op">),</span> stdin<span class="op">);</span></span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Somma cifre: </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> sommaCifre<span class="op">(</span>numero<span class="op">));</span></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Noterai che tutti e quattro gli esercizi hanno lo stesso cuore
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>s<span class="op">[</span>i<span class="op">]</span> <span class="op">!=</span> <span class="ch">'</span><span class="sc">\0</span><span class="ch">'</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* lavoro su s[i] */</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    i<span class="op">++;</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Cambia solo cosa fai dentro il ciclo.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../docs/c/10_matrici.html" class="pagination-link" aria-label="Matrici">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matrici</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../docs/c/12_puntatori.html" class="pagination-link" aria-label="Puntatori">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Puntatori</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

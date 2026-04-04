@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>14&nbsp; Introduzione a Java – Learning Stack</title>
+<title>9&nbsp; Il tipo booleano – Learning Stack</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -68,8 +68,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../docs/java/02_tipi_e_stringhe.html" rel="next">
-<link href="../../docs/c/12_puntatori.html" rel="prev">
+<link href="../../docs/c/09_array.html" rel="next">
+<link href="../../docs/c/07_funzioni.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/java/01_introduzione.html">Java — Introduzione</a></li><li class="breadcrumb-item"><a href="../../docs/java/01_introduzione.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/c/01_introduzione.html">Linguaggio C — Fondamenti</a></li><li class="breadcrumb-item"><a href="../../docs/c/08_boolean.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Il tipo booleano</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -204,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/c/08_boolean.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/c/08_boolean.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Il tipo booleano</span></span></a>
   </div>
 </li>
@@ -267,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/java/01_introduzione.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../docs/java/01_introduzione.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></span></a>
   </div>
 </li>
@@ -451,25 +451,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#perché-java" id="toc-perché-java" class="nav-link active" data-scroll-target="#perché-java"><span class="header-section-number">14.1</span> Perché Java?</a></li>
-  <li><a href="#compilatori-e-interpreti" id="toc-compilatori-e-interpreti" class="nav-link" data-scroll-target="#compilatori-e-interpreti"><span class="header-section-number">14.2</span> Compilatori e interpreti</a></li>
-  <li><a href="#la-jvm-e-il-bytecode" id="toc-la-jvm-e-il-bytecode" class="nav-link" data-scroll-target="#la-jvm-e-il-bytecode"><span class="header-section-number">14.3</span> La JVM e il bytecode</a></li>
-  <li><a href="#perché-si-chiama-java" id="toc-perché-si-chiama-java" class="nav-link" data-scroll-target="#perché-si-chiama-java"><span class="header-section-number">14.4</span> Perché si chiama Java?</a></li>
-  <li><a href="#file-e-programmi-java-vs-c" id="toc-file-e-programmi-java-vs-c" class="nav-link" data-scroll-target="#file-e-programmi-java-vs-c"><span class="header-section-number">14.5</span> File e programmi: Java vs C</a></li>
-  <li><a href="#il-primo-programma-java" id="toc-il-primo-programma-java" class="nav-link" data-scroll-target="#il-primo-programma-java"><span class="header-section-number">14.6</span> Il primo programma Java</a></li>
-  <li><a href="#il-metodo-main-riga-per-riga" id="toc-il-metodo-main-riga-per-riga" class="nav-link" data-scroll-target="#il-metodo-main-riga-per-riga"><span class="header-section-number">14.7</span> Il metodo main — riga per riga</a></li>
-  <li><a href="#system.out.println-oop-in-azione" id="toc-system.out.println-oop-in-azione" class="nav-link" data-scroll-target="#system.out.println-oop-in-azione"><span class="header-section-number">14.8</span> <code>System.out.println</code> — OOP in azione</a></li>
-  <li><a href="#compilare-ed-eseguire-da-terminale" id="toc-compilare-ed-eseguire-da-terminale" class="nav-link" data-scroll-target="#compilare-ed-eseguire-da-terminale"><span class="header-section-number">14.9</span> Compilare ed eseguire da terminale</a></li>
-  <li><a href="#riepilogo" id="toc-riepilogo" class="nav-link" data-scroll-target="#riepilogo"><span class="header-section-number">14.10</span> Riepilogo</a></li>
+  <li><a href="#vero-e-falso-in-c" id="toc-vero-e-falso-in-c" class="nav-link active" data-scroll-target="#vero-e-falso-in-c"><span class="header-section-number">9.1</span> Vero e falso in C</a></li>
+  <li><a href="#la-libreria-stdbool.h" id="toc-la-libreria-stdbool.h" class="nav-link" data-scroll-target="#la-libreria-stdbool.h"><span class="header-section-number">9.2</span> La libreria stdbool.h</a></li>
+  <li><a href="#bool-true-e-false" id="toc-bool-true-e-false" class="nav-link" data-scroll-target="#bool-true-e-false"><span class="header-section-number">9.3</span> bool, true e false</a></li>
+  <li><a href="#usare-bool-come-flag" id="toc-usare-bool-come-flag" class="nav-link" data-scroll-target="#usare-bool-come-flag"><span class="header-section-number">9.4</span> Usare bool come flag</a></li>
+  <li><a href="#bool-nelle-funzioni" id="toc-bool-nelle-funzioni" class="nav-link" data-scroll-target="#bool-nelle-funzioni"><span class="header-section-number">9.5</span> bool nelle funzioni</a></li>
+  <li><a href="#bool-o-int" id="toc-bool-o-int" class="nav-link" data-scroll-target="#bool-o-int"><span class="header-section-number">9.6</span> bool o int?</a></li>
+  <li><a href="#schema-mentale" id="toc-schema-mentale" class="nav-link" data-scroll-target="#schema-mentale"><span class="header-section-number">9.7</span> Schema mentale</a></li>
+  <li><a href="#esercizio" id="toc-esercizio" class="nav-link" data-scroll-target="#esercizio"><span class="header-section-number">9.8</span> Esercizio</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/java/01_introduzione.html">Java — Introduzione</a></li><li class="breadcrumb-item"><a href="../../docs/java/01_introduzione.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/c/01_introduzione.html">Linguaggio C — Fondamenti</a></li><li class="breadcrumb-item"><a href="../../docs/c/08_boolean.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Il tipo booleano</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Il tipo booleano</span></h1>
 </div>
 
 
@@ -487,273 +485,248 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <hr>
-<section id="perché-java" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="perché-java"><span class="header-section-number">14.1</span> Perché Java?</h2>
-<p>Prima di scrivere una sola riga di codice, vale la pena capire <strong>perché esiste Java</strong> e cosa lo rende diverso dai linguaggi che conosci già.</p>
-<p>Con il C hai imparato a ragionare in modo imperativo: istruzioni, variabili, funzioni. Con il c il codice compilato funziona <strong>solo</strong> sulla macchina per cui è stato compilato. Un programma compilato su Linux non gira su Windows, e viceversa.</p>
-<p>Java nasce negli anni ’90 con un obiettivo preciso:</p>
-<blockquote class="blockquote">
-<p><em>“Write once, run anywhere.”</em> Scrivi il codice una volta, eseguilo ovunque.</p>
-</blockquote>
+<section id="vero-e-falso-in-c" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="vero-e-falso-in-c"><span class="header-section-number">9.1</span> Vero e falso in C</h2>
+<p>In C non esiste un tipo booleano nativo come in altri linguaggi. Il C usa i numeri interi per rappresentare vero e falso:</p>
+<ul>
+<li><strong>0</strong> significa <strong>falso</strong></li>
+<li><strong>qualsiasi valore diverso da 0</strong> significa <strong>vero</strong> (tipicamente si usa 1)</li>
+</ul>
+<p>Questo è il motivo per cui le condizioni degli <code>if</code> e dei <code>while</code> sono espressioni numeriche:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="dv">5</span> <span class="op">&gt;</span> <span class="dv">3</span><span class="op">)</span> <span class="op">{</span> <span class="op">...</span> <span class="op">}</span>     <span class="co">/* 5 &gt; 3 vale 1 — vero */</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="dv">0</span><span class="op">)</span> <span class="op">{</span> <span class="op">...</span> <span class="op">}</span>          <span class="co">/* 0 — falso — il blocco non viene mai eseguito */</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="dv">42</span><span class="op">)</span> <span class="op">{</span> <span class="op">...</span> <span class="op">}</span>         <span class="co">/* 42 — vero — il blocco viene sempre eseguito */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>E questo è il motivo per cui le funzioni che restituiscono vero/falso usano <code>int</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> isPari<span class="op">(</span><span class="dt">int</span> n<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">;</span>   <span class="co">/* restituisce 1 (vero) o 0 (falso) */</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="compilatori-e-interpreti" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="compilatori-e-interpreti"><span class="header-section-number">14.2</span> Compilatori e interpreti</h2>
-<p>Per capire come Java risolve il problema della portabilità, dobbiamo fare un passo indietro.</p>
-<p>Esistono due modi fondamentali per eseguire un programma:</p>
-<p><strong>Il compilatore</strong> traduce l’intero sorgente in codice macchina <em>prima</em> dell’esecuzione. Il risultato è un file eseguibile velocissimo, ma legato a uno specifico sistema operativo e processore. È quello che fa <code>gcc</code> con il C.</p>
-<p><strong>L’interprete</strong> legge ed esegue il sorgente riga per riga, senza compilare prima. È più flessibile — lo stesso file gira su qualsiasi macchina che ha l’interprete installato — ma in genere più lento. Python funziona così.</p>
+<section id="la-libreria-stdbool.h" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="la-libreria-stdbool.h"><span class="header-section-number">9.2</span> La libreria stdbool.h</h2>
+<p>Dal C99 in poi esiste la libreria <code>stdbool.h</code> che introduce il tipo <code>bool</code> e le costanti <code>true</code> e <code>false</code>. Rende il codice più leggibile senza cambiare nulla nel funzionamento.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdbool.h&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Con questa libreria puoi scrivere:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> trovato <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> finito <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>invece di:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> trovato <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> finito <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="bool-true-e-false" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="bool-true-e-false"><span class="header-section-number">9.3</span> bool, true e false</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Con <code>stdbool.h</code></th>
+<th>Equivale a</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>bool</code></td>
+<td><code>int</code></td>
+</tr>
+<tr class="even">
+<td><code>true</code></td>
+<td><code>1</code></td>
+</tr>
+<tr class="odd">
+<td><code>false</code></td>
+<td><code>0</code></td>
+</tr>
+</tbody>
+</table>
+<p>Sono solo nomi più leggibili — sotto al cofano sono ancora interi.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdbool.h&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> isPari<span class="op">(</span><span class="dt">int</span> n<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> isPrimo<span class="op">(</span><span class="dt">int</span> n<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i<span class="op">;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>n <span class="op">&lt;</span> <span class="dv">2</span><span class="op">)</span> <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">2</span><span class="op">;</span> i <span class="op">*</span> i <span class="op">&lt;=</span> n<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>n <span class="op">%</span> i <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n<span class="op">;</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Inserisci un numero: "</span><span class="op">);</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>n<span class="op">);</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>isPari<span class="op">(</span>n<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> è pari.</span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> n<span class="op">);</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> è dispari.</span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> n<span class="op">);</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>isPrimo<span class="op">(</span>n<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>        printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> è primo.</span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> n<span class="op">);</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>        printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> non è primo.</span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> n<span class="op">);</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="usare-bool-come-flag" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="usare-bool-come-flag"><span class="header-section-number">9.4</span> Usare bool come flag</h2>
+<p>Un uso molto comune di <code>bool</code> è il <strong>flag</strong> — una variabile che tiene traccia di una condizione che può cambiare durante il programma.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdbool.h&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> numeri<span class="op">[]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">3</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">21</span><span class="op">,</span> <span class="dv">4</span><span class="op">};</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> dimensione <span class="op">=</span> <span class="dv">7</span><span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> cercato <span class="op">=</span> <span class="dv">12</span><span class="op">;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">bool</span> trovato <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> posizione <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i<span class="op">;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> dimensione<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>numeri<span class="op">[</span>i<span class="op">]</span> <span class="op">==</span> cercato<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            trovato <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>            posizione <span class="op">=</span> i<span class="op">;</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>trovato<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> trovato alla posizione </span><span class="sc">%d</span><span class="st">.</span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> cercato<span class="op">,</span> posizione<span class="op">);</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> non trovato.</span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> cercato<span class="op">);</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Il flag <code>trovato</code> parte come <code>false</code>. Appena il numero viene trovato, diventa <code>true</code> e il ciclo si interrompe. Alla fine del ciclo, basta controllare il flag per sapere se la ricerca ha avuto successo.</p>
+<hr>
+</section>
+<section id="bool-nelle-funzioni" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="bool-nelle-funzioni"><span class="header-section-number">9.5</span> bool nelle funzioni</h2>
+<p>Le funzioni che rispondono a una domanda sì/no si scrivono naturalmente con <code>bool</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> isVocale<span class="op">(</span><span class="dt">char</span> c<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> tolower<span class="op">(</span>c<span class="op">);</span>   <span class="co">/* converte in minuscolo — da ctype.h */</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> c <span class="op">==</span> <span class="ch">'a'</span> <span class="op">||</span> c <span class="op">==</span> <span class="ch">'e'</span> <span class="op">||</span> c <span class="op">==</span> <span class="ch">'i'</span> <span class="op">||</span> c <span class="op">==</span> <span class="ch">'o'</span> <span class="op">||</span> c <span class="op">==</span> <span class="ch">'u'</span><span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> isAlfa<span class="op">(</span><span class="dt">char</span> c<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">(</span>c <span class="op">&gt;=</span> <span class="ch">'a'</span> <span class="op">&amp;&amp;</span> c <span class="op">&lt;=</span> <span class="ch">'z'</span><span class="op">)</span> <span class="op">||</span> <span class="op">(</span>c <span class="op">&gt;=</span> <span class="ch">'A'</span> <span class="op">&amp;&amp;</span> c <span class="op">&lt;=</span> <span class="ch">'Z'</span><span class="op">);</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> isUguali<span class="op">(</span><span class="dt">int</span> a<span class="op">[],</span> <span class="dt">int</span> b<span class="op">[],</span> <span class="dt">int</span> n<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i<span class="op">;</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>a<span class="op">[</span>i<span class="op">]</span> <span class="op">!=</span> b<span class="op">[</span>i<span class="op">])</span> <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Compilatore vs interprete in sintesi
+<span class="screen-reader-only">Note</span>Convenzione sui nomi
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>Le funzioni che restituiscono <code>bool</code> di solito iniziano con <code>is</code> o <code>ha</code> — per comunicare chiaramente che rispondono a una domanda:</p>
+<ul>
+<li><code>isPari</code>, <code>isPrimo</code>, <code>isVocale</code> — “è…?”</li>
+<li><code>isAlfa</code>, <code>isDigit</code> — “è…?”</li>
+<li><code>haSpazi</code>, <code>haVocali</code> — “ha…?”</li>
+</ul>
+<p>Questa convenzione rende il codice molto più leggibile:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>isPrimo<span class="op">(</span>n<span class="op">))</span> <span class="op">{</span> <span class="op">...</span> <span class="op">}</span>   <span class="co">/* si legge quasi come italiano */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<hr>
+</section>
+<section id="bool-o-int" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="bool-o-int"><span class="header-section-number">9.6</span> bool o int?</h2>
+<p>In pratica, molti programmi C usano ancora <code>int</code> per i valori booleani — soprattutto nel codice più vecchio. Entrambi gli approcci funzionano.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th></th>
-<th>Compilatore</th>
-<th>Interprete</th>
+<th><code>int</code></th>
+<th><code>bool</code></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Quando traduce</strong></td>
-<td>Prima dell’esecuzione</td>
-<td>Durante l’esecuzione</td>
+<td><strong>Disponibilità</strong></td>
+<td>sempre</td>
+<td>richiede <code>#include &lt;stdbool.h&gt;</code></td>
 </tr>
 <tr class="even">
-<td><strong>Velocità</strong></td>
-<td>Più veloce</td>
-<td>Più lenta</td>
+<td><strong>Leggibilità</strong></td>
+<td>meno chiaro</td>
+<td>più chiaro</td>
 </tr>
 <tr class="odd">
-<td><strong>Portabilità</strong></td>
-<td>Limitata</td>
-<td>Alta</td>
-</tr>
-<tr class="even">
-<td><strong>Esempio</strong></td>
-<td>C, C++</td>
-<td>Python, JavaScript</td>
+<td><strong>Compatibilità</strong></td>
+<td>tutti i compilatori</td>
+<td>C99 o successivo</td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<p>Java fa qualcosa di più intelligente: <strong>unisce i vantaggi di entrambi</strong>.</p>
-<hr>
-</section>
-<section id="la-jvm-e-il-bytecode" class="level2" data-number="14.3">
-<h2 data-number="14.3" class="anchored" data-anchor-id="la-jvm-e-il-bytecode"><span class="header-section-number">14.3</span> La JVM e il bytecode</h2>
-<p>Ecco come funziona il ciclo di vita di un programma Java:</p>
-<p><strong>1. Tu scrivi</strong> il codice sorgente in un file <code>.java</code>.</p>
-<p><strong>2. Il compilatore <code>javac</code></strong> traduce il sorgente non in codice macchina, ma in <strong>bytecode</strong> — un linguaggio intermedio, portabile e standardizzato, contenuto in file <code>.class</code>.</p>
-<p><strong>3. La Java Virtual Machine (JVM)</strong> legge il bytecode ed esegue il programma sulla macchina reale. Ogni sistema operativo ha la sua JVM, ma il bytecode è sempre lo stesso.</p>
-<pre><code>Codice sorgente (.java)
-        ↓  javac
-    Bytecode (.class)
-        ↓  JVM
-   Esecuzione sul sistema</code></pre>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Il compilatore JIT
+<span class="screen-reader-only">Tip</span>Quale scegliere?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La JVM non si limita a interpretare il bytecode riga per riga. Al suo interno c’è anche un compilatore <strong>Just-In-Time (JIT)</strong> che, mentre il programma gira, traduce le parti più usate direttamente in codice macchina nativo. Risultato: la velocità si avvicina a quella del C, mantenendo la portabilità.</p>
+<p>Usa <code>bool</code> quando vuoi rendere chiaro che una variabile o una funzione rappresenta un valore vero/falso. Usa <code>int</code> quando il risultato è usato anche come numero (conteggio, indice, ecc.).</p>
+<p>In ogni caso, ricorda che sono la stessa cosa — <code>bool</code> è solo un nome più leggibile per <code>int</code>.</p>
 </div>
 </div>
-<p>Il bytecode non è codice macchina e non può girare direttamente sul processore. Ma è uguale su tutte le piattaforme. Basta avere la JVM installata, e il programma gira.</p>
 <hr>
 </section>
-<section id="perché-si-chiama-java" class="level2" data-number="14.4">
-<h2 data-number="14.4" class="anchored" data-anchor-id="perché-si-chiama-java"><span class="header-section-number">14.4</span> Perché si chiama Java?</h2>
-<p>Il nome originale del linguaggio era <strong>Oak</strong> (“quercia”) ma esisteva già un altro linguaggio con quel nome e serviva un’alternativa.</p>
-<p>Durante una riunione che stava diventando molto lunga, il team di sviluppatori stava bevendo grandi quantità di caffè. Qualcuno propose <strong>Java</strong> — slang americano per “caffè”, che prende il nome dall’isola indonesiana famosa per le sue piantagioni.</p>
-<p>Il nome piacque e rimase. Da qui il logo della tazzina fumante che ancora oggi identifica Java.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>JDK, JRE e JVM — le sigle ricorrenti
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<section id="schema-mentale" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="schema-mentale"><span class="header-section-number">9.7</span> Schema mentale</h2>
+<pre><code>La mia funzione risponde a una domanda sì/no?
+    → usa bool come tipo di ritorno
+    → chiamala con is... o ha...
+    → return true / return false
+
+Ho una variabile che tiene traccia di una condizione?
+    → usala come flag: bool trovato = false
+    → quando la condizione si verifica: trovato = true
+    → alla fine controlla il flag con if (trovato)
+
+Devo includere stdbool.h?
+    → sì, se usi bool, true o false
+    → no, se usi int, 1 e 0</code></pre>
+<hr>
+</section>
+<section id="esercizio" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="esercizio"><span class="header-section-number">9.8</span> Esercizio</h2>
+<p>Scrivi le seguenti funzioni usando <code>bool</code>:</p>
 <ul>
-<li><strong>JVM</strong> (Java Virtual Machine) — esegue il bytecode</li>
-<li><strong>JRE</strong> (Java Runtime Environment) — JVM + librerie standard, per chi vuole solo <em>eseguire</em> programmi Java</li>
-<li><strong>JDK</strong> (Java Development Kit) — JRE + compilatore + strumenti di sviluppo, per chi vuole <em>scrivere</em> programmi Java</li>
+<li><code>bool isLettera(char c)</code> — true se <code>c</code> è una lettera dell’alfabeto</li>
+<li><code>bool isMaiuscola(char c)</code> — true se <code>c</code> è una lettera maiuscola</li>
+<li><code>bool isMinuscola(char c)</code> — true se <code>c</code> è una lettera minuscola</li>
+<li><code>bool isCifra(char c)</code> — true se <code>c</code> è una cifra da ‘0’ a ‘9’</li>
 </ul>
-<p>Se stai sviluppando, ti serve il JDK.</p>
-</div>
-</div>
-<hr>
-</section>
-<section id="file-e-programmi-java-vs-c" class="level2" data-number="14.5">
-<h2 data-number="14.5" class="anchored" data-anchor-id="file-e-programmi-java-vs-c"><span class="header-section-number">14.5</span> File e programmi: Java vs C</h2>
-<p>In C i programmi erano divisi in file <code>.h</code> (intestazioni con le dichiarazioni) e file <code>.c</code> (implementazioni). Per collegare tutto si usava <code>#include</code>, che funziona in modo molto meccanico: il compilatore copia il contenuto del file incluso dentro al programma.</p>
-<p>Java funziona diversamente:</p>
-<ul>
-<li>Ogni classe sta in un <strong>file separato</strong> chiamato esattamente come la classe: <code>NomeClasse.java</code></li>
-<li>Non esistono file header <code>.h</code></li>
-<li>Per usare classi già pronte si usa <code>import</code></li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Scanner</span><span class="op">;</span>  <span class="co">// importa la classe Scanner</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span><code>import</code> non è <code>#include</code>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Quando scrivi <code>import</code>, non stai copiando del codice nel tuo file. Stai solo dicendo al compilatore <strong>dove trovare</strong> quella classe.</p>
-</div>
-</div>
-<hr>
-</section>
-<section id="il-primo-programma-java" class="level2" data-number="14.6">
-<h2 data-number="14.6" class="anchored" data-anchor-id="il-primo-programma-java"><span class="header-section-number">14.6</span> Il primo programma Java</h2>
-<p>In Java, anche il programma più semplice deve avere almeno una <strong>classe</strong> e un metodo <strong><code>main</code></strong>. Il <code>main</code> è il punto di ingresso: è da lì che la JVM comincia a eseguire le istruzioni.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> PrimoProgramma <span class="op">{</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Ciao, Java!"</span><span class="op">);</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Tre regole fondamentali:</p>
-<ul>
-<li>Tutto il codice sta <strong>dentro una classe</strong></li>
-<li>L’esecuzione parte sempre dal <strong><code>main</code></strong></li>
-<li>Il file deve chiamarsi <strong>esattamente come la classe</strong>: <code>PrimoProgramma.java</code></li>
-</ul>
-<hr>
-</section>
-<section id="il-metodo-main-riga-per-riga" class="level2" data-number="14.7">
-<h2 data-number="14.7" class="anchored" data-anchor-id="il-metodo-main-riga-per-riga"><span class="header-section-number">14.7</span> Il metodo main — riga per riga</h2>
-<p>La firma del main è sempre questa:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Analizziamola pezzo per pezzo:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Parola</th>
-<th>Significato</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>public</code></td>
-<td>Visibile alla JVM — deve poterlo chiamare dall’esterno</td>
-</tr>
-<tr class="even">
-<td><code>static</code></td>
-<td>Non serve creare un oggetto per chiamarlo — la JVM lo chiama direttamente</td>
-</tr>
-<tr class="odd">
-<td><code>void</code></td>
-<td>Non restituisce nessun valore</td>
-</tr>
-<tr class="even">
-<td><code>String[] args</code></td>
-<td>Può ricevere argomenti da riga di comando</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Il main non va in tutte le classi
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Il <code>main</code> serve <strong>solo nella classe da cui parte il programma</strong>. Tutte le altre classi non hanno un <code>main</code> — hanno solo attributi e metodi.</p>
-</div>
-</div>
-<hr>
-</section>
-<section id="system.out.println-oop-in-azione" class="level2" data-number="14.8">
-<h2 data-number="14.8" class="anchored" data-anchor-id="system.out.println-oop-in-azione"><span class="header-section-number">14.8</span> <code>System.out.println</code> — OOP in azione</h2>
-<p>La prima istruzione che scrivi in Java è già un esempio perfetto di programmazione a oggetti:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Ciao, Java!"</span><span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Scomponila così:</p>
-<ul>
-<li><code>System</code> — una <strong>classe</strong> della libreria standard Java</li>
-<li><code>out</code> — un <strong>oggetto</strong> di tipo <code>PrintStream</code> che gestisce l’output</li>
-<li><code>println()</code> — un <strong>metodo</strong> che stampa il testo e va a capo</li>
-</ul>
-<p>In C usavi <code>printf()</code> — una funzione globale. In Java invece stai chiamando un <strong>metodo su un oggetto</strong>. Anche per stampare una riga, Java ragiona in termini di oggetti che collaborano.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Testo con a capo"</span><span class="op">);</span>  <span class="co">// va a capo</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"Testo senza a capo"</span><span class="op">);</span> <span class="co">// non va a capo</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">"Formattato: </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> <span class="dv">42</span><span class="op">);</span> <span class="co">// come printf in C</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
-</section>
-<section id="compilare-ed-eseguire-da-terminale" class="level2" data-number="14.9">
-<h2 data-number="14.9" class="anchored" data-anchor-id="compilare-ed-eseguire-da-terminale"><span class="header-section-number">14.9</span> Compilare ed eseguire da terminale</h2>
-<p>Se vuoi fare tutto da terminale senza IDE:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compila il file sorgente → genera PrimoProgramma.class</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">javac</span> PrimoProgramma.java</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Esegui il bytecode con la JVM</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">java</span> PrimoProgramma</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Attenzione al nome
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Il comando <code>java</code> vuole il <strong>nome della classe</strong>, non il nome del file. Quindi <code>java PrimoProgramma</code>, non <code>java PrimoProgramma.class</code>.</p>
-</div>
-</div>
-<hr>
-</section>
-<section id="riepilogo" class="level2" data-number="14.10">
-<h2 data-number="14.10" class="anchored" data-anchor-id="riepilogo"><span class="header-section-number">14.10</span> Riepilogo</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>I concetti chiave
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Java compila il sorgente <code>.java</code> in <strong>bytecode</strong> <code>.class</code>, non in codice macchina.</li>
-<li>La <strong>JVM</strong> esegue il bytecode su qualsiasi sistema operativo — <em>write once, run anywhere</em>.</li>
-<li>Il compilatore <strong>JIT</strong> ottimizza l’esecuzione traducendo il bytecode in codice nativo al volo.</li>
-<li>Ogni classe sta in un file <code>.java</code> con lo stesso nome della classe.</li>
-<li><code>import</code> indica dove trovare una classe, non copia il suo codice.</li>
-<li>Ogni programma ha un punto di ingresso: il metodo <strong><code>main</code></strong>.</li>
-<li><code>System.out.println()</code> è già OOP: classe, oggetto e metodo.</li>
-</ul>
-</div>
-</div>
+<p>Scrivi un <code>main</code> che legge un carattere e stampa tutte le informazioni su di esso:</p>
+<pre><code>Carattere: A
+È una lettera?   sì
+È maiuscola?     sì
+È minuscola?     no
+È una cifra?     no</code></pre>
 
 
 </section>
@@ -1161,13 +1134,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../docs/c/12_puntatori.html" class="pagination-link" aria-label="Puntatori">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Puntatori</span></span>
+      <a href="../../docs/c/07_funzioni.html" class="pagination-link" aria-label="Funzioni">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Funzioni</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../docs/java/02_tipi_e_stringhe.html" class="pagination-link" aria-label="Tipi, stringhe e input">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tipi, stringhe e input</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../docs/c/09_array.html" class="pagination-link" aria-label="Array">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Array</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
