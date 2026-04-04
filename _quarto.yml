@@ -9,12 +9,30 @@ book:
   chapters:
     - index.qmd
 
-    - part: "Introduzione a Java"
+- part: "Linguaggio C: Fondamenti"
+      chapters:
+        - docs/c/01_introduzione.md
+        - docs/c/02_variabili_tipi.md
+        - docs/c/03_operatori.md
+        - docs/c/04_input_output.md
+        - docs/c/05_selezione.md
+        - docs/c/06_iterazione.md
+        - docs/c/07_funzioni.md
+        - docs/c/08_boolean.md
+  - part: "Linguaggio C: Strutture dati"
+  chapters:
+        - docs/c/09_array.md
+        - docs/c/10_matrici.md
+        - docs/c/11_stringhe.md
+    - part: "Linguaggio C: Puntatori"
+  chapters: 
+        - docs/c/12_puntatori.md
+    - part: "Java: Introduzione"
       chapters:
         - docs/java/01_introduzione.md
         - docs/java/02_tipi_e_stringhe.md
 
-    - part: "OOP"
+    - part: "Java: OOP"
       chapters:
         - docs/java/03_paradigmi_e_oggetti.md
         - docs/java/04_creare_una_classe.md
@@ -23,35 +41,30 @@ book:
         - docs/java/07_polimorfismo_upcasting.md
         - docs/java/08_classi_astratte_interfacce.md
 
-    - part: "Eccezioni"
+    - part: "Java: Eccezioni"
       chapters:
         - docs/java/09_eccezioni.md
 
-    - part: "Collections e Stream"
+    - part: "Java: Collections e Stream"
       chapters:
         - docs/java/10_collections.md
         - docs/java/11_list_set_queue.md
         - docs/java/12_stream_pipeline.md
 
-    - part: "Stringhe e applicazioni"
+    - part: "Java: Stringhe e applicazioni"
       chapters:
         - docs/java/13_stringhe_avanzate.md
 
-    - part: "Gestione file"
+    - part: "Java: Gestione file"
       chapters:
         - docs/java/14_path_files_log.md
         - docs/java/15_buffer_scrittura.md
 
-    - part: "Qualità del codice"
+    - part: "Java: Qualità del codice"
       chapters:
         - docs/java/16_testing_junit.md
         - docs/java/17_solid.md
         - docs/java/18_design_pattern.md
-        
-    - part: "Laboratorio"
-      chapters:
-        - docs/laboratorio/lab01_introduzione.md
-
 
 format:
   html:
