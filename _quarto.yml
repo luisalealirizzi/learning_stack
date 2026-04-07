@@ -79,7 +79,8 @@ website:
             contents:
               - docs/java/16_testing_junit.md
               - docs/java/17_solid.md
-              - docs/java/18_design_pattern.md
+              - /docs/java/18_solid_caso_uso.md
+              - docs/java/19_design_pattern.md
 
 format:
   html:
