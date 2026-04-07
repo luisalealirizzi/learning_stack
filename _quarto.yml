@@ -3,7 +3,7 @@ project:
   output-dir: _site
 
 website:
-  title: "Learning Stack"
+  title: "Learning Stack: materiale didattico"
   navbar:
    right:
       - icon: file-pdf

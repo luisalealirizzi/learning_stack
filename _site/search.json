@@ -2430,7 +2430,7 @@
     "href": "index.html",
     "title": "Learning Stack",
     "section": "",
-    "text": "Appunti e dispense per il corso di informatica.\nQui trovi il materiale delle lezioni organizzato per argomento: dalla prima riga di codice in C fino ai design pattern in Java. Puoi usarlo per studiare, per ripassare o per ritrovare uno schema che non ricordi.\n\n\n\n\n\nIl C è il primo linguaggio: si parte da zero (variabili, cicli, funzioni) fino ad arrivare alle stringhe e ai puntatori. È un linguaggio vicino alla macchina: capire come funziona il C aiuta a capire come funziona davvero un computer.\n→ Inizia dal primo capitolo\n\n\n\nCon Java si fa un salto di paradigma: dalla programmazione strutturata alla programmazione a oggetti. Si pensa in termini di classi, oggetti.\n→ Inizia dal primo capitolo\n\n\n\n\n\nUsa il menu a sinistra per navigare tra gli argomenti. Ogni pagina ha spiegazioni, esempi di codice e esercizi. Le soluzioni degli esercizi guidati sono incluse.\n\nMateriale in continuo aggiornamento.  Rilasciato sotto licenza CC BY-NC 4.0. Puoi usarlo e condividerlo liberamente per scopi non commerciali"
+    "text": "Appunti e dispense per il corso di informatica.\nQui trovi il materiale delle lezioni organizzato per argomento: dalla prima riga di codice in C fino ai design pattern in Java. Puoi usarlo per studiare, per ripassare o per ritrovare uno schema che non ricordi.\n\n\n\n\n\nIl C è il primo linguaggio: si parte da zero (variabili, cicli, funzioni) fino ad arrivare alle stringhe e ai puntatori. È un linguaggio vicino alla macchina: capire come funziona il C aiuta a capire come funziona davvero un computer.\n→ Inizia dal primo capitolo\n\n\n\nCon Java si fa un salto di paradigma: dalla programmazione strutturata alla programmazione a oggetti. Si pensa in termini di classi, oggetti.\n→ Inizia dal primo capitolo\n\n\n\n\n\nUsa il menu a sinistra per navigare tra gli argomenti. Ogni pagina ha spiegazioni, esempi di codice e esercizi. Le soluzioni degli esercizi guidati sono incluse.\n\nMateriale in continuo aggiornamento.\n Rilasciato sotto licenza CC BY-NC 4.0. Puoi usarlo e condividerlo liberamente per scopi non commerciali"
   },
   {
     "objectID": "index.html#cosa-trovi-qui",
@@ -2444,7 +2444,7 @@
     "href": "index.html#come-usare-questo-sito",
     "title": "Learning Stack",
     "section": "",
-    "text": "Usa il menu a sinistra per navigare tra gli argomenti. Ogni pagina ha spiegazioni, esempi di codice e esercizi. Le soluzioni degli esercizi guidati sono incluse.\n\nMateriale in continuo aggiornamento.  Rilasciato sotto licenza CC BY-NC 4.0. Puoi usarlo e condividerlo liberamente per scopi non commerciali"
+    "text": "Usa il menu a sinistra per navigare tra gli argomenti. Ogni pagina ha spiegazioni, esempi di codice e esercizi. Le soluzioni degli esercizi guidati sono incluse.\n\nMateriale in continuo aggiornamento.\n Rilasciato sotto licenza CC BY-NC 4.0. Puoi usarlo e condividerlo liberamente per scopi non commerciali"
   },
   {
     "objectID": "docs/diagrammi_flusso/02_dal_testo_allo_schema.html",
