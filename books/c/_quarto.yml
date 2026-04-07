@@ -3,8 +3,8 @@ project:
   output-dir: ../../_site/pdfs
 
 book:
-  title: "Learning Stack — C"
-  author: "Luisa Leali Rizzi"
+  title: "Appunti di C"
+  author: ""s
   language: it
   chapters:
     - index.qmd

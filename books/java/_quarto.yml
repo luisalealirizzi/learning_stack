@@ -3,8 +3,8 @@ project:
   output-dir: ../../_site/pdfs
 
 book:
-  title: "Learning Stack — Java"
-  author: "Luisa Leali Rizzi"
+  title: "Appunti di Java"
+  author: ""
   language: it
   chapters:
     - index.qmd
