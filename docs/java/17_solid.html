@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -112,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Java</li><li class="breadcrumb-item"><a href="../../docs/java/16_testing_junit.html">Qualità del codice</a></li><li class="breadcrumb-item"><a href="../../docs/java/17_solid.html">17_solid.html</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Java</li><li class="breadcrumb-item"><a href="../../docs/java/16_testing_junit.html">Qualità del codice</a></li><li class="breadcrumb-item"><a href="../../docs/java/17_solid.html">SOLID</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -423,7 +458,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/17_solid.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">17_solid.html</span></a>
+ <span class="menu-text">SOLID</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -441,17 +476,523 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#solid" id="toc-solid" class="nav-link active" data-scroll-target="#solid">SOLID</a>
+  <ul class="collapse">
+  <li><a href="#cosè-solid" id="toc-cosè-solid" class="nav-link" data-scroll-target="#cosè-solid">Cos’è SOLID</a></li>
+  <li><a href="#s---single-responsibility-principle" id="toc-s---single-responsibility-principle" class="nav-link" data-scroll-target="#s---single-responsibility-principle">S - Single Responsibility Principle</a>
+  <ul class="collapse">
+  <li><a href="#il-problema" id="toc-il-problema" class="nav-link" data-scroll-target="#il-problema">Il problema</a></li>
+  <li><a href="#la-soluzione" id="toc-la-soluzione" class="nav-link" data-scroll-target="#la-soluzione">La soluzione</a></li>
+  </ul></li>
+  <li><a href="#o---openclosed-principle" id="toc-o---openclosed-principle" class="nav-link" data-scroll-target="#o---openclosed-principle">O - Open/Closed Principle</a>
+  <ul class="collapse">
+  <li><a href="#il-problema-1" id="toc-il-problema-1" class="nav-link" data-scroll-target="#il-problema-1">Il problema</a></li>
+  <li><a href="#la-soluzione-1" id="toc-la-soluzione-1" class="nav-link" data-scroll-target="#la-soluzione-1">La soluzione</a></li>
+  </ul></li>
+  <li><a href="#l---liskov-substitution-principle" id="toc-l---liskov-substitution-principle" class="nav-link" data-scroll-target="#l---liskov-substitution-principle">L - Liskov Substitution Principle</a>
+  <ul class="collapse">
+  <li><a href="#il-problema-2" id="toc-il-problema-2" class="nav-link" data-scroll-target="#il-problema-2">Il problema</a></li>
+  <li><a href="#la-soluzione-2" id="toc-la-soluzione-2" class="nav-link" data-scroll-target="#la-soluzione-2">La soluzione</a></li>
+  </ul></li>
+  <li><a href="#i---interface-segregation-principle" id="toc-i---interface-segregation-principle" class="nav-link" data-scroll-target="#i---interface-segregation-principle">I - Interface Segregation Principle</a>
+  <ul class="collapse">
+  <li><a href="#il-problema-3" id="toc-il-problema-3" class="nav-link" data-scroll-target="#il-problema-3">Il problema</a></li>
+  <li><a href="#la-soluzione-3" id="toc-la-soluzione-3" class="nav-link" data-scroll-target="#la-soluzione-3">La soluzione</a></li>
+  </ul></li>
+  <li><a href="#d---dependency-inversion-principle" id="toc-d---dependency-inversion-principle" class="nav-link" data-scroll-target="#d---dependency-inversion-principle">D - Dependency Inversion Principle</a>
+  <ul class="collapse">
+  <li><a href="#il-problema-4" id="toc-il-problema-4" class="nav-link" data-scroll-target="#il-problema-4">Il problema</a></li>
+  <li><a href="#la-soluzione-4" id="toc-la-soluzione-4" class="nav-link" data-scroll-target="#la-soluzione-4">La soluzione</a></li>
+  </ul></li>
+  <li><a href="#i-cinque-principi-insieme" id="toc-i-cinque-principi-insieme" class="nav-link" data-scroll-target="#i-cinque-principi-insieme">I cinque principi insieme</a></li>
+  <li><a href="#riepilogo" id="toc-riepilogo" class="nav-link" data-scroll-target="#riepilogo">Riepilogo</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Java</li><li class="breadcrumb-item"><a href="../../docs/java/16_testing_junit.html">Qualità del codice</a></li><li class="breadcrumb-item"><a href="../../docs/java/17_solid.html">17_solid.html</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Java</li><li class="breadcrumb-item"><a href="../../docs/java/16_testing_junit.html">Qualità del codice</a></li><li class="breadcrumb-item"><a href="../../docs/java/17_solid.html">SOLID</a></li></ol></nav></header>
 
 
 
 
+<section id="solid" class="level1">
+<h1>SOLID</h1>
+<hr>
+<section id="cosè-solid" class="level2">
+<h2 class="anchored" data-anchor-id="cosè-solid">Cos’è SOLID</h2>
+<p>Quando un programma è piccolo, quasi qualsiasi approccio funziona. Ma quando cresce — più classi, più funzionalità, più persone che ci lavorano, il codice scritto senza criteri diventa difficile da capire, da modificare e da testare.</p>
+<p>SOLID è un insieme di cinque principi di progettazione che aiutano a scrivere codice orientato agli oggetti che sia: - facile da leggere - facile da modificare senza rompere quello che già funziona - facile da estendere con nuove funzionalità</p>
+<p>Ogni lettera di SOLID corrisponde a un principio.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Lettera</th>
+<th>Nome</th>
+<th>In breve</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>S</strong></td>
+<td>Single Responsibility</td>
+<td>una classe, un solo compito</td>
+</tr>
+<tr class="even">
+<td><strong>O</strong></td>
+<td>Open/Closed</td>
+<td>aperto alle estensioni, chiuso alle modifiche</td>
+</tr>
+<tr class="odd">
+<td><strong>L</strong></td>
+<td>Liskov Substitution</td>
+<td>le sottoclassi devono poter sostituire la madre</td>
+</tr>
+<tr class="even">
+<td><strong>I</strong></td>
+<td>Interface Segregation</td>
+<td>interfacce piccole e specifiche</td>
+</tr>
+<tr class="odd">
+<td><strong>D</strong></td>
+<td>Dependency Inversion</td>
+<td>dipendi dalle astrazioni, non dalle implementazioni</td>
+</tr>
+</tbody>
+</table>
+<p>Non devi memorizzare le definizioni. Devi capire il problema che ogni principio risolve.</p>
+<hr>
+</section>
+<section id="s---single-responsibility-principle" class="level2">
+<h2 class="anchored" data-anchor-id="s---single-responsibility-principle">S - Single Responsibility Principle</h2>
+<blockquote class="blockquote">
+<p>Una classe deve avere un solo motivo per cambiare.</p>
+</blockquote>
+<p>In altre parole: una classe fa una cosa sola e la fa bene.</p>
+<section id="il-problema" class="level3">
+<h3 class="anchored" data-anchor-id="il-problema">Il problema</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Personaggio <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> nome<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> vita<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> livello<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// logica del personaggio</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">subirDanno</span><span class="op">(</span><span class="dt">int</span> danno<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">salaDiLivello</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// logica di salvataggio -- non c'entra con il personaggio!</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">salvaSuFile</span><span class="op">(</span><span class="bu">String</span> percorso<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">caricaDaFile</span><span class="op">(</span><span class="bu">String</span> percorso<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">// logica di stampa -- non c'entra con il personaggio!</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">stampaScheda</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">stampaStatistiche</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>Personaggio</code> fa troppe cose: gestisce lo stato del personaggio, salva su file e stampa. Se cambia il formato del file di salvataggio, devi modificare <code>Personaggio</code> – ma il personaggio non c’entra nulla con il file.</p>
+</section>
+<section id="la-soluzione" class="level3">
+<h3 class="anchored" data-anchor-id="la-soluzione">La soluzione</h3>
+<p>Separa le responsabilità in classi diverse:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Personaggio <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> nome<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> vita<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> livello<span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">subirDanno</span><span class="op">(</span><span class="dt">int</span> danno<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">salaDiLivello</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// solo la logica del personaggio</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> PersonaggioRepository <span class="op">{</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">salva</span><span class="op">(</span>Personaggio p<span class="op">,</span> <span class="bu">String</span> percorso<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Personaggio <span class="fu">carica</span><span class="op">(</span><span class="bu">String</span> percorso<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">// solo la logica di persistenza</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> PersonaggioView <span class="op">{</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">stampaScheda</span><span class="op">(</span>Personaggio p<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">stampaStatistiche</span><span class="op">(</span>Personaggio p<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">// solo la logica di presentazione</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Schema mentale
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Quando scrivi una classe, chiediti: “quanti motivi ho per modificare questa classe in futuro?”. Se la risposta e piu di uno, probabilmente sta facendo troppe cose.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="o---openclosed-principle" class="level2">
+<h2 class="anchored" data-anchor-id="o---openclosed-principle">O - Open/Closed Principle</h2>
+<blockquote class="blockquote">
+<p>Una classe deve essere aperta alle estensioni ma chiusa alle modifiche.</p>
+</blockquote>
+<p>In altre parole: aggiungi funzionalita nuove senza toccare il codice che gia funziona.</p>
+<section id="il-problema-1" class="level3">
+<h3 class="anchored" data-anchor-id="il-problema-1">Il problema</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> CalcolatoreTariffa <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">double</span> <span class="fu">calcola</span><span class="op">(</span>Personaggio p<span class="op">,</span> <span class="bu">String</span> tipo<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>tipo<span class="op">.</span><span class="fu">equals</span><span class="op">(</span><span class="st">"normale"</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> p<span class="op">.</span><span class="fu">getLivello</span><span class="op">()</span> <span class="op">*</span> <span class="fl">10.0</span><span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>tipo<span class="op">.</span><span class="fu">equals</span><span class="op">(</span><span class="st">"premium"</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> p<span class="op">.</span><span class="fu">getLivello</span><span class="op">()</span> <span class="op">*</span> <span class="fl">10.0</span> <span class="op">*</span> <span class="fl">0.8</span><span class="op">;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>tipo<span class="op">.</span><span class="fu">equals</span><span class="op">(</span><span class="st">"vip"</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> p<span class="op">.</span><span class="fu">getLivello</span><span class="op">()</span> <span class="op">*</span> <span class="fl">10.0</span> <span class="op">*</span> <span class="fl">0.5</span><span class="op">;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ogni volta che aggiungi un tipo, devi modificare questo metodo</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ogni nuovo tipo di tariffa richiede di aprire e modificare <code>CalcolatoreTariffa</code>. Rischi di rompere i tipi che gia funzionano.</p>
+</section>
+<section id="la-soluzione-1" class="level3">
+<h3 class="anchored" data-anchor-id="la-soluzione-1">La soluzione</h3>
+<p>Usa un’interfaccia per definire il contratto, e una classe separata per ogni variante:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> Tariffa <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> <span class="fu">calcola</span><span class="op">(</span>Personaggio p<span class="op">);</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TariffaNormale <span class="kw">implements</span> Tariffa <span class="op">{</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">double</span> <span class="fu">calcola</span><span class="op">(</span>Personaggio p<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> p<span class="op">.</span><span class="fu">getLivello</span><span class="op">()</span> <span class="op">*</span> <span class="fl">10.0</span><span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TariffaPremium <span class="kw">implements</span> Tariffa <span class="op">{</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">double</span> <span class="fu">calcola</span><span class="op">(</span>Personaggio p<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> p<span class="op">.</span><span class="fu">getLivello</span><span class="op">()</span> <span class="op">*</span> <span class="fl">10.0</span> <span class="op">*</span> <span class="fl">0.8</span><span class="op">;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TariffaVip <span class="kw">implements</span> Tariffa <span class="op">{</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">double</span> <span class="fu">calcola</span><span class="op">(</span>Personaggio p<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> p<span class="op">.</span><span class="fu">getLivello</span><span class="op">()</span> <span class="op">*</span> <span class="fl">10.0</span> <span class="op">*</span> <span class="fl">0.5</span><span class="op">;</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Per aggiungere un nuovo tipo di tariffa, crei una nuova classe che implementa <code>Tariffa</code> – senza toccare nulla di quello che esiste gia.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Schema mentale
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Quando ti trovi ad aggiungere un <code>else if</code> a una catena gia lunga, fermati. Probabilmente stai violando Open/Closed. Chiediti: posso risolvere questo con una nuova classe invece di modificare quella esistente?</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="l---liskov-substitution-principle" class="level2">
+<h2 class="anchored" data-anchor-id="l---liskov-substitution-principle">L - Liskov Substitution Principle</h2>
+<blockquote class="blockquote">
+<p>Se B estende A, allora ovunque si usa A si deve poter usare B senza che il programma si comporti in modo inatteso.</p>
+</blockquote>
+<p>In altre parole: una sottoclasse deve poter sostituire la classe madre senza sorprese.</p>
+<section id="il-problema-2" class="level3">
+<h3 class="anchored" data-anchor-id="il-problema-2">Il problema</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Rettangolo <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">protected</span> <span class="dt">int</span> base<span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">protected</span> <span class="dt">int</span> altezza<span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setBase</span><span class="op">(</span><span class="dt">int</span> base<span class="op">)</span>       <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">base</span> <span class="op">=</span> base<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setAltezza</span><span class="op">(</span><span class="dt">int</span> altezza<span class="op">)</span> <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">altezza</span> <span class="op">=</span> altezza<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">area</span><span class="op">()</span>                   <span class="op">{</span> <span class="cf">return</span> base <span class="op">*</span> altezza<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Quadrato <span class="kw">extends</span> Rettangolo <span class="op">{</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setBase</span><span class="op">(</span><span class="dt">int</span> lato<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">base</span> <span class="op">=</span> lato<span class="op">;</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">altezza</span> <span class="op">=</span> lato<span class="op">;</span>   <span class="co">// il quadrato ha i lati uguali</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setAltezza</span><span class="op">(</span><span class="dt">int</span> lato<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">base</span> <span class="op">=</span> lato<span class="op">;</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">altezza</span> <span class="op">=</span> lato<span class="op">;</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In apparenza sembra corretto. Ma:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Rettangolo r <span class="op">=</span> <span class="kw">new</span> <span class="fu">Quadrato</span><span class="op">();</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>r<span class="op">.</span><span class="fu">setBase</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>r<span class="op">.</span><span class="fu">setAltezza</span><span class="op">(</span><span class="dv">3</span><span class="op">);</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>r<span class="op">.</span><span class="fu">area</span><span class="op">());</span>   <span class="co">// ci aspettiamo 15, otteniamo 9</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>Quadrato</code> si comporta in modo diverso da <code>Rettangolo</code> – viola il principio di Liskov.</p>
+</section>
+<section id="la-soluzione-2" class="level3">
+<h3 class="anchored" data-anchor-id="la-soluzione-2">La soluzione</h3>
+<p>Se una sottoclasse non puo rispettare il contratto della madre, ripensa la gerarchia. In questo caso, <code>Quadrato</code> e <code>Rettangolo</code> non hanno un rapporto “e un” corretto – entrambi possono estendere una classe <code>Figura</code> piu generica.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">abstract</span> <span class="kw">class</span> Figura <span class="op">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">abstract</span> <span class="dt">int</span> <span class="fu">area</span><span class="op">();</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Rettangolo <span class="kw">extends</span> Figura <span class="op">{</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> base<span class="op">,</span> altezza<span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Rettangolo</span><span class="op">(</span><span class="dt">int</span> base<span class="op">,</span> <span class="dt">int</span> altezza<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">area</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> base <span class="op">*</span> altezza<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Quadrato <span class="kw">extends</span> Figura <span class="op">{</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> lato<span class="op">;</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Quadrato</span><span class="op">(</span><span class="dt">int</span> lato<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">area</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> lato <span class="op">*</span> lato<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Schema mentale
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Se una sottoclasse deve “sabotare” un metodo della madre – svuotarlo, lanciare un’eccezione, cambiarne il significato – stai probabilmente violando Liskov. Ripensa la gerarchia.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="i---interface-segregation-principle" class="level2">
+<h2 class="anchored" data-anchor-id="i---interface-segregation-principle">I - Interface Segregation Principle</h2>
+<blockquote class="blockquote">
+<p>Non costringere una classe a implementare metodi che non usa.</p>
+</blockquote>
+<p>In altre parole: e meglio avere tante interfacce piccole e specifiche che una sola grande e generica.</p>
+<section id="il-problema-3" class="level3">
+<h3 class="anchored" data-anchor-id="il-problema-3">Il problema</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> Personaggio <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">attacca</span><span class="op">();</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">difendi</span><span class="op">();</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">lanciaIncantesimo</span><span class="op">();</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">cavalca</span><span class="op">();</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">nuota</span><span class="op">();</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Guerriero <span class="kw">implements</span> Personaggio <span class="op">{</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">attacca</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">difendi</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">lanciaIncantesimo</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">UnsupportedOperationException</span><span class="op">();</span> <span class="co">// il guerriero non lancia incantesimi!</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">cavalca</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">nuota</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">UnsupportedOperationException</span><span class="op">();</span> <span class="co">// il guerriero non sa nuotare!</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>Guerriero</code> e costretto a implementare metodi che non ha senso abbia. L’interfaccia e troppo grande.</p>
+</section>
+<section id="la-soluzione-3" class="level3">
+<h3 class="anchored" data-anchor-id="la-soluzione-3">La soluzione</h3>
+<p>Dividi l’interfaccia in parti piu piccole e specifiche:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> Combattente <span class="op">{</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">attacca</span><span class="op">();</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">difendi</span><span class="op">();</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> Mago <span class="op">{</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">lanciaIncantesimo</span><span class="op">();</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> Cavaliere <span class="op">{</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">cavalca</span><span class="op">();</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> Nuotatore <span class="op">{</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">nuota</span><span class="op">();</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">// Il guerriero implementa solo quello che sa fare</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Guerriero <span class="kw">implements</span> Combattente<span class="op">,</span> Cavaliere <span class="op">{</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">attacca</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">difendi</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">cavalca</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="co">// Il mago implementa quello che sa fare lui</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Mago <span class="kw">implements</span> Combattente<span class="op">,</span> Mago <span class="op">{</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">attacca</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">difendi</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">lanciaIncantesimo</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Schema mentale
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Se una classe implementa un’interfaccia ma alcuni metodi li lascia vuoti o lancia eccezioni, l’interfaccia e troppo grande. Spezzala.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="d---dependency-inversion-principle" class="level2">
+<h2 class="anchored" data-anchor-id="d---dependency-inversion-principle">D - Dependency Inversion Principle</h2>
+<blockquote class="blockquote">
+<p>I moduli di alto livello non devono dipendere dai moduli di basso livello. Entrambi devono dipendere dalle astrazioni.</p>
+</blockquote>
+<p>In altre parole: dipendi dalle interfacce, non dalle implementazioni concrete.</p>
+<section id="il-problema-4" class="level3">
+<h3 class="anchored" data-anchor-id="il-problema-4">Il problema</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GestorePartita <span class="op">{</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> SalvataggioSuFile salvataggio<span class="op">;</span>   <span class="co">// dipende da una classe concreta!</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">GestorePartita</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">salvataggio</span> <span class="op">=</span> <span class="kw">new</span> <span class="fu">SalvataggioSuFile</span><span class="op">();</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">salva</span><span class="op">(</span>Personaggio p<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        salvataggio<span class="op">.</span><span class="fu">salva</span><span class="op">(</span>p<span class="op">);</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>GestorePartita</code> e legato a <code>SalvataggioSuFile</code>. Se vuoi cambiare il sistema di salvataggio – per esempio salvare su database o sul cloud – devi modificare <code>GestorePartita</code>.</p>
+</section>
+<section id="la-soluzione-4" class="level3">
+<h3 class="anchored" data-anchor-id="la-soluzione-4">La soluzione</h3>
+<p>Introduce un’interfaccia e passa l’implementazione dall’esterno:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> Salvataggio <span class="op">{</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">salva</span><span class="op">(</span>Personaggio p<span class="op">);</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    Personaggio <span class="fu">carica</span><span class="op">();</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> SalvataggioSuFile <span class="kw">implements</span> Salvataggio <span class="op">{</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">salva</span><span class="op">(</span>Personaggio p<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Personaggio <span class="fu">carica</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> SalvataggioSuDatabase <span class="kw">implements</span> Salvataggio <span class="op">{</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">salva</span><span class="op">(</span>Personaggio p<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Personaggio <span class="fu">carica</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GestorePartita <span class="op">{</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> Salvataggio salvataggio<span class="op">;</span>   <span class="co">// dipende dall'interfaccia</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">GestorePartita</span><span class="op">(</span>Salvataggio salvataggio<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">salvataggio</span> <span class="op">=</span> salvataggio<span class="op">;</span>   <span class="co">// riceve l'implementazione dall'esterno</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">salva</span><span class="op">(</span>Personaggio p<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>        salvataggio<span class="op">.</span><span class="fu">salva</span><span class="op">(</span>p<span class="op">);</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ora puoi cambiare il sistema di salvataggio senza toccare <code>GestorePartita</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>GestorePartita g1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">GestorePartita</span><span class="op">(</span><span class="kw">new</span> <span class="fu">SalvataggioSuFile</span><span class="op">());</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>GestorePartita g2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">GestorePartita</span><span class="op">(</span><span class="kw">new</span> <span class="fu">SalvataggioSuDatabase</span><span class="op">());</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Schema mentale
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Se dentro una classe scrivi <code>new NomeClasseConcreta()</code> per creare una dipendenza, chiediti: questa classe deve davvero sapere quale implementazione usare? Spesso la risposta e no – ricevila dall’esterno tramite il costruttore.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="i-cinque-principi-insieme" class="level2">
+<h2 class="anchored" data-anchor-id="i-cinque-principi-insieme">I cinque principi insieme</h2>
+<p>SOLID non e una lista di regole da seguire ciecamente. E un insieme di domande da farti mentre progetti:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Principio</th>
+<th>La domanda da farti</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>S</strong></td>
+<td>Questa classe ha piu di un motivo per cambiare?</td>
+</tr>
+<tr class="even">
+<td><strong>O</strong></td>
+<td>Posso aggiungere questa funzionalita senza modificare codice esistente?</td>
+</tr>
+<tr class="odd">
+<td><strong>L</strong></td>
+<td>Le mie sottoclassi si comportano come ci si aspetta dalla madre?</td>
+</tr>
+<tr class="even">
+<td><strong>I</strong></td>
+<td>Le mie interfacce hanno metodi che alcune classi non useranno mai?</td>
+</tr>
+<tr class="odd">
+<td><strong>D</strong></td>
+<td>Le mie classi dipendono da implementazioni concrete invece che da astrazioni?</td>
+</tr>
+</tbody>
+</table>
+<p>Se la risposta a queste domande e si, c’e spazio per migliorare il design.</p>
+<hr>
+</section>
+<section id="riepilogo" class="level2">
+<h2 class="anchored" data-anchor-id="riepilogo">Riepilogo</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>I concetti chiave di questa lezione
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>S</strong> - Single Responsibility: una classe, una sola responsabilita. Se fa troppe cose, spezzala.</li>
+<li><strong>O</strong> - Open/Closed: estendi con nuove classi, non modificare quelle esistenti. Usa interfacce e polimorfismo.</li>
+<li><strong>L</strong> - Liskov Substitution: una sottoclasse deve comportarsi come la madre. Se non puo, ripensa la gerarchia.</li>
+<li><strong>I</strong> - Interface Segregation: interfacce piccole e specifiche. Nessuna classe deve implementare metodi inutili.</li>
+<li><strong>D</strong> - Dependency Inversion: dipendi dalle interfacce, non dalle classi concrete. Passa le dipendenze dall’esterno.</li>
+</ul>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
