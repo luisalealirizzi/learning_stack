@@ -4,7 +4,7 @@ project:
 
 book:
   title: "Appunti di C"
-  author: ""s
+  author: ""
   language: it
   chapters:
     - index.qmd
