@@ -8,10 +8,10 @@ website:
    right:
       - icon: file-pdf
         text: "PDF C"
-        href: pdfs/Learning-Stack-—-C.pdf
+        href: pdfs/Appunti-di-C.pdf
       - icon: file-pdf
         text: "PDF Java"
-        href: pdfs/Learning-Stack-—-Java.pdf
+        href: pdfs/Appunti-di-Java.pdf
   sidebar:
     style: "docked"
     collapse-level: 1
