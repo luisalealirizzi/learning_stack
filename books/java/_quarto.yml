@@ -1,0 +1,48 @@
+project:
+  type: book
+  output-dir: ../../_site/pdfs
+
+book:
+  title: "Learning Stack — Java"
+  author: "Luisa Leali Rizzi"
+  language: it
+  chapters:
+    - index.qmd
+    - part: "Introduzione"
+      chapters:
+        - ../../docs/java/01_introduzione.md
+        - ../../docs/java/02_tipi_e_stringhe.md
+    - part: "OOP"
+      chapters:
+        - ../../docs/java/03_paradigmi_e_oggetti.md
+        - ../../docs/java/04_creare_una_classe.md
+        - ../../docs/java/05_incapsulamento_adt.md
+        - ../../docs/java/06_ereditarieta.md
+        - ../../docs/java/07_polimorfismo_upcasting.md
+        - ../../docs/java/08_classi_astratte_interfacce.md
+    - part: "Eccezioni"
+      chapters:
+        - ../../docs/java/09_eccezioni.md
+    - part: "Collections e Stream"
+      chapters:
+        - ../../docs/java/10_collections.md
+        - ../../docs/java/11_list_set_queue.md
+        - ../../docs/java/12_stream_pipeline.md
+    - part: "Stringhe avanzate"
+      chapters:
+        - ../../docs/java/13_stringhe_avanzate.md
+    - part: "Gestione file"
+      chapters:
+        - ../../docs/java/14_path_files_log.md
+        - ../../docs/java/15_buffer_scrittura.md
+    - part: "Qualità del codice"
+      chapters:
+        - ../../docs/java/16_testing_junit.md
+        - ../../docs/java/17_solid.md
+        - ../../docs/java/18_design_pattern.md
+
+format:
+  pdf:
+    toc: true
+    number-sections: true
+    output-file: "learning-stack-java.pdf"

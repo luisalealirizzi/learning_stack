@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; Array – Learning Stack</title>
+<title>array – Learning Stack</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -68,8 +68,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../docs/c/10_matrici.html" rel="next">
-<link href="../../docs/c/08_boolean.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -79,13 +77,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-1f9e6d70b8b583c31478a0530d9dad38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-bf48ec02367bdbf5a16ab0867e90c56e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -111,334 +109,366 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Learning Stack</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../pdfs/Learning-Stack-—-C.pdf"> <i class="bi bi-file-pdf" role="img">
+</i> 
+<span class="menu-text">PDF C</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../pdfs/Learning-Stack-—-Java.pdf"> <i class="bi bi-file-pdf" role="img">
+</i> 
+<span class="menu-text">PDF Java</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/c/09_array.html">C: Strutture dati</a></li><li class="breadcrumb-item"><a href="../../docs/c/09_array.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Array</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">C</li><li class="breadcrumb-item"><a href="../../docs/c/09_array.html">Strutture dati</a></li><li class="breadcrumb-item"><a href="../../docs/c/09_array.html">Array</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Learning Stack</a> 
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Learning Stack</span></span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">C: Fondamenti</span></a>
+ <span class="menu-text">C</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fondamenti</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/01_introduzione.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduzione al linguaggio C</span></span></a>
+ <span class="menu-text">Introduzione al linguaggio C</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/02_variabili_tipi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variabili e tipi</span></span></a>
+ <span class="menu-text">Variabili e tipi</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/03_operatori.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Operatori</span></span></a>
+ <span class="menu-text">Operatori</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/04_input_output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Input e output</span></span></a>
+ <span class="menu-text">Input e output</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/05_selezione.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Selezione</span></span></a>
+ <span class="menu-text">Selezione</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/06_iterazione.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Iterazione</span></span></a>
+ <span class="menu-text">Iterazione</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/07_funzioni.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Funzioni</span></span></a>
+ <span class="menu-text">Funzioni</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/08_boolean.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Il tipo booleano</span></span></a>
+ <span class="menu-text">Il tipo booleano</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">C: Strutture dati</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Strutture dati</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/09_array.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Array</span></span></a>
+ <span class="menu-text">Array</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/10_matrici.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matrici</span></span></a>
+ <span class="menu-text">Matrici</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/11_stringhe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Stringhe</span></span></a>
+ <span class="menu-text">Stringhe</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">C: Puntatori</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Puntatori</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/12_puntatori.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Puntatori</span></span></a>
+ <span class="menu-text">Puntatori</span></a>
   </div>
 </li>
       </ul>
   </li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: Introduzione</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Java</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Introduzione</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/01_introduzione.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></span></a>
+ <span class="menu-text">Introduzione a Java</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/02_tipi_e_stringhe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tipi, stringhe e input</span></span></a>
+ <span class="menu-text">Tipi, stringhe e input</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: OOP</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">OOP</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/03_paradigmi_e_oggetti.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Paradigmi e oggetti</span></span></a>
+ <span class="menu-text">Paradigmi e oggetti</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/04_creare_una_classe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Creare una classe</span></span></a>
+ <span class="menu-text">Creare una classe</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/05_incapsulamento_adt.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Incapsulamento e ADT</span></span></a>
+ <span class="menu-text">Incapsulamento e ADT</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/06_ereditarieta.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ereditarietà</span></span></a>
+ <span class="menu-text">Ereditarietà</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/07_polimorfismo_upcasting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Polimorfismo, upcasting e downcasting</span></span></a>
+ <span class="menu-text">Polimorfismo, upcasting e downcasting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/08_classi_astratte_interfacce.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Classi astratte e interfacce</span></span></a>
+ <span class="menu-text">Classi astratte e interfacce</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: Eccezioni</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">Eccezioni</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/09_eccezioni.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Eccezioni</span></span></a>
+ <span class="menu-text">Eccezioni</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: Collections e Stream</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Collections e Stream</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/10_collections.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Java Collections</span></span></a>
+ <span class="menu-text">Java Collections</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/11_list_set_queue.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">List, Set e Queue</span></span></a>
+ <span class="menu-text">List, Set e Queue</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/12_stream_pipeline.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Stream e pipeline</span></span></a>
+ <span class="menu-text">Stream e pipeline</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: Stringhe avanzate</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text">Stringhe avanzate</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/13_stringhe_avanzate.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Stringhe avanzate</span></span></a>
+ <span class="menu-text">Stringhe avanzate</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: Gestione file</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
+ <span class="menu-text">Gestione file</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/14_path_files_log.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Path, Files e Log</span></span></a>
+ <span class="menu-text">Path, Files e Log</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/15_buffer_scrittura.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Buffer e scrittura</span></span></a>
+ <span class="menu-text">Buffer e scrittura</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: Qualità del codice</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text">Qualità del codice</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/16_testing_junit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Testing con JUnit</span></span></a>
+ <span class="menu-text">Testing con JUnit</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/17_solid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">17_solid.html</span></span></a>
+ <span class="menu-text">17_solid.html</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/18_design_pattern.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">18_design_pattern.html</span></span></a>
+ <span class="menu-text">18_design_pattern.html</span></a>
   </div>
 </li>
+      </ul>
+  </li>
       </ul>
   </li>
     </ul>
@@ -448,91 +478,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#blocco-1-dichiarare-e-accedere-a-un-array" id="toc-blocco-1-dichiarare-e-accedere-a-un-array" class="nav-link active" data-scroll-target="#blocco-1-dichiarare-e-accedere-a-un-array"><span class="header-section-number">10.1</span> Blocco 1: Dichiarare e accedere a un array</a>
+  <li><a href="#array" id="toc-array" class="nav-link active" data-scroll-target="#array">Array</a>
   <ul class="collapse">
-  <li><a href="#dichiarazione" id="toc-dichiarazione" class="nav-link" data-scroll-target="#dichiarazione"><span class="header-section-number">10.1.1</span> Dichiarazione</a></li>
-  <li><a href="#accesso-agli-elementi" id="toc-accesso-agli-elementi" class="nav-link" data-scroll-target="#accesso-agli-elementi"><span class="header-section-number">10.1.2</span> Accesso agli elementi</a></li>
-  <li><a href="#inizializzazione" id="toc-inizializzazione" class="nav-link" data-scroll-target="#inizializzazione"><span class="header-section-number">10.1.3</span> Inizializzazione</a></li>
-  <li><a href="#usare-define-per-la-dimensione" id="toc-usare-define-per-la-dimensione" class="nav-link" data-scroll-target="#usare-define-per-la-dimensione"><span class="header-section-number">10.1.4</span> Usare #define per la dimensione</a></li>
-  </ul></li>
-  <li><a href="#blocco-2-saper-scorrere-un-array" id="toc-blocco-2-saper-scorrere-un-array" class="nav-link" data-scroll-target="#blocco-2-saper-scorrere-un-array"><span class="header-section-number">10.2</span> Blocco 2: Saper scorrere un array</a>
+  <li><a href="#blocco-1-dichiarare-e-accedere-a-un-array" id="toc-blocco-1-dichiarare-e-accedere-a-un-array" class="nav-link" data-scroll-target="#blocco-1-dichiarare-e-accedere-a-un-array">Blocco 1: Dichiarare e accedere a un array</a>
   <ul class="collapse">
-  <li><a href="#leggere-un-array-dallutente" id="toc-leggere-un-array-dallutente" class="nav-link" data-scroll-target="#leggere-un-array-dallutente"><span class="header-section-number">10.2.1</span> Leggere un array dall’utente</a></li>
-  <li><a href="#stampare-un-array" id="toc-stampare-un-array" class="nav-link" data-scroll-target="#stampare-un-array"><span class="header-section-number">10.2.2</span> Stampare un array</a></li>
-  <li><a href="#calcolare-la-somma" id="toc-calcolare-la-somma" class="nav-link" data-scroll-target="#calcolare-la-somma"><span class="header-section-number">10.2.3</span> Calcolare la somma</a></li>
-  <li><a href="#trovare-il-massimo" id="toc-trovare-il-massimo" class="nav-link" data-scroll-target="#trovare-il-massimo"><span class="header-section-number">10.2.4</span> Trovare il massimo</a></li>
+  <li><a href="#dichiarazione" id="toc-dichiarazione" class="nav-link" data-scroll-target="#dichiarazione">Dichiarazione</a></li>
+  <li><a href="#accesso-agli-elementi" id="toc-accesso-agli-elementi" class="nav-link" data-scroll-target="#accesso-agli-elementi">Accesso agli elementi</a></li>
+  <li><a href="#inizializzazione" id="toc-inizializzazione" class="nav-link" data-scroll-target="#inizializzazione">Inizializzazione</a></li>
+  <li><a href="#usare-define-per-la-dimensione" id="toc-usare-define-per-la-dimensione" class="nav-link" data-scroll-target="#usare-define-per-la-dimensione">Usare #define per la dimensione</a></li>
   </ul></li>
-  <li><a href="#blocco-3-come-si-scrive-una-funzione-che-lavora-sugli-array" id="toc-blocco-3-come-si-scrive-una-funzione-che-lavora-sugli-array" class="nav-link" data-scroll-target="#blocco-3-come-si-scrive-una-funzione-che-lavora-sugli-array"><span class="header-section-number">10.3</span> Blocco 3: Come si scrive una funzione che lavora sugli array</a>
+  <li><a href="#blocco-2-saper-scorrere-un-array" id="toc-blocco-2-saper-scorrere-un-array" class="nav-link" data-scroll-target="#blocco-2-saper-scorrere-un-array">Blocco 2: Saper scorrere un array</a>
   <ul class="collapse">
-  <li><a href="#il-tipo-restituito" id="toc-il-tipo-restituito" class="nav-link" data-scroll-target="#il-tipo-restituito"><span class="header-section-number">10.3.1</span> Il tipo restituito</a></li>
-  <li><a href="#i-parametri" id="toc-i-parametri" class="nav-link" data-scroll-target="#i-parametri"><span class="header-section-number">10.3.2</span> I parametri</a></li>
-  <li><a href="#schema-tipico-di-una-funzione-sugli-array" id="toc-schema-tipico-di-una-funzione-sugli-array" class="nav-link" data-scroll-target="#schema-tipico-di-una-funzione-sugli-array"><span class="header-section-number">10.3.3</span> Schema tipico di una funzione sugli array</a></li>
-  <li><a href="#funzione-che-conta-qualcosa" id="toc-funzione-che-conta-qualcosa" class="nav-link" data-scroll-target="#funzione-che-conta-qualcosa"><span class="header-section-number">10.3.4</span> Funzione che conta qualcosa</a></li>
-  <li><a href="#funzione-che-trova-un-valore" id="toc-funzione-che-trova-un-valore" class="nav-link" data-scroll-target="#funzione-che-trova-un-valore"><span class="header-section-number">10.3.5</span> Funzione che trova un valore</a></li>
-  <li><a href="#funzione-che-cerca-un-elemento" id="toc-funzione-che-cerca-un-elemento" class="nav-link" data-scroll-target="#funzione-che-cerca-un-elemento"><span class="header-section-number">10.3.6</span> Funzione che cerca un elemento</a></li>
-  <li><a href="#funzione-che-modifica-un-array" id="toc-funzione-che-modifica-un-array" class="nav-link" data-scroll-target="#funzione-che-modifica-un-array"><span class="header-section-number">10.3.7</span> Funzione che modifica un array</a></li>
+  <li><a href="#leggere-un-array-dallutente" id="toc-leggere-un-array-dallutente" class="nav-link" data-scroll-target="#leggere-un-array-dallutente">Leggere un array dall’utente</a></li>
+  <li><a href="#stampare-un-array" id="toc-stampare-un-array" class="nav-link" data-scroll-target="#stampare-un-array">Stampare un array</a></li>
+  <li><a href="#calcolare-la-somma" id="toc-calcolare-la-somma" class="nav-link" data-scroll-target="#calcolare-la-somma">Calcolare la somma</a></li>
+  <li><a href="#trovare-il-massimo" id="toc-trovare-il-massimo" class="nav-link" data-scroll-target="#trovare-il-massimo">Trovare il massimo</a></li>
   </ul></li>
-  <li><a href="#blocco-4-array-bidimensionali" id="toc-blocco-4-array-bidimensionali" class="nav-link" data-scroll-target="#blocco-4-array-bidimensionali"><span class="header-section-number">10.4</span> Blocco 4: Array bidimensionali</a>
+  <li><a href="#blocco-3-come-si-scrive-una-funzione-che-lavora-sugli-array" id="toc-blocco-3-come-si-scrive-una-funzione-che-lavora-sugli-array" class="nav-link" data-scroll-target="#blocco-3-come-si-scrive-una-funzione-che-lavora-sugli-array">Blocco 3: Come si scrive una funzione che lavora sugli array</a>
   <ul class="collapse">
-  <li><a href="#scorrere-una-matrice-con-due-cicli-annidati" id="toc-scorrere-una-matrice-con-due-cicli-annidati" class="nav-link" data-scroll-target="#scorrere-una-matrice-con-due-cicli-annidati"><span class="header-section-number">10.4.1</span> Scorrere una matrice con due cicli annidati</a></li>
-  <li><a href="#leggere-e-stampare-una-matrice" id="toc-leggere-e-stampare-una-matrice" class="nav-link" data-scroll-target="#leggere-e-stampare-una-matrice"><span class="header-section-number">10.4.2</span> Leggere e stampare una matrice</a></li>
+  <li><a href="#il-tipo-restituito" id="toc-il-tipo-restituito" class="nav-link" data-scroll-target="#il-tipo-restituito">Il tipo restituito</a></li>
+  <li><a href="#i-parametri" id="toc-i-parametri" class="nav-link" data-scroll-target="#i-parametri">I parametri</a></li>
+  <li><a href="#schema-tipico-di-una-funzione-sugli-array" id="toc-schema-tipico-di-una-funzione-sugli-array" class="nav-link" data-scroll-target="#schema-tipico-di-una-funzione-sugli-array">Schema tipico di una funzione sugli array</a></li>
+  <li><a href="#funzione-che-conta-qualcosa" id="toc-funzione-che-conta-qualcosa" class="nav-link" data-scroll-target="#funzione-che-conta-qualcosa">Funzione che conta qualcosa</a></li>
+  <li><a href="#funzione-che-trova-un-valore" id="toc-funzione-che-trova-un-valore" class="nav-link" data-scroll-target="#funzione-che-trova-un-valore">Funzione che trova un valore</a></li>
+  <li><a href="#funzione-che-cerca-un-elemento" id="toc-funzione-che-cerca-un-elemento" class="nav-link" data-scroll-target="#funzione-che-cerca-un-elemento">Funzione che cerca un elemento</a></li>
+  <li><a href="#funzione-che-modifica-un-array" id="toc-funzione-che-modifica-un-array" class="nav-link" data-scroll-target="#funzione-che-modifica-un-array">Funzione che modifica un array</a></li>
   </ul></li>
-  <li><a href="#blocco-5-strategie-per-risolvere-gli-esercizi-sugli-array" id="toc-blocco-5-strategie-per-risolvere-gli-esercizi-sugli-array" class="nav-link" data-scroll-target="#blocco-5-strategie-per-risolvere-gli-esercizi-sugli-array"><span class="header-section-number">10.5</span> Blocco 5: Strategie per risolvere gli esercizi sugli array</a>
+  <li><a href="#blocco-4-array-bidimensionali" id="toc-blocco-4-array-bidimensionali" class="nav-link" data-scroll-target="#blocco-4-array-bidimensionali">Blocco 4: Array bidimensionali</a>
   <ul class="collapse">
-  <li><a href="#esercizi-di-tipo-contare" id="toc-esercizi-di-tipo-contare" class="nav-link" data-scroll-target="#esercizi-di-tipo-contare"><span class="header-section-number">10.5.1</span> Esercizi di tipo contare</a></li>
-  <li><a href="#esercizi-di-tipo-trovare" id="toc-esercizi-di-tipo-trovare" class="nav-link" data-scroll-target="#esercizi-di-tipo-trovare"><span class="header-section-number">10.5.2</span> Esercizi di tipo trovare</a></li>
-  <li><a href="#esercizi-di-tipo-cercare" id="toc-esercizi-di-tipo-cercare" class="nav-link" data-scroll-target="#esercizi-di-tipo-cercare"><span class="header-section-number">10.5.3</span> Esercizi di tipo cercare</a></li>
-  <li><a href="#esercizi-di-tipo-trasformare" id="toc-esercizi-di-tipo-trasformare" class="nav-link" data-scroll-target="#esercizi-di-tipo-trasformare"><span class="header-section-number">10.5.4</span> Esercizi di tipo trasformare</a></li>
+  <li><a href="#scorrere-una-matrice-con-due-cicli-annidati" id="toc-scorrere-una-matrice-con-due-cicli-annidati" class="nav-link" data-scroll-target="#scorrere-una-matrice-con-due-cicli-annidati">Scorrere una matrice con due cicli annidati</a></li>
+  <li><a href="#leggere-e-stampare-una-matrice" id="toc-leggere-e-stampare-una-matrice" class="nav-link" data-scroll-target="#leggere-e-stampare-una-matrice">Leggere e stampare una matrice</a></li>
   </ul></li>
-  <li><a href="#esercizio-contare" id="toc-esercizio-contare" class="nav-link" data-scroll-target="#esercizio-contare"><span class="header-section-number">10.6</span> Esercizio — Contare</a></li>
-  <li><a href="#esercizio-trovare" id="toc-esercizio-trovare" class="nav-link" data-scroll-target="#esercizio-trovare"><span class="header-section-number">10.7</span> Esercizio — Trovare</a></li>
-  <li><a href="#esercizio-cercare" id="toc-esercizio-cercare" class="nav-link" data-scroll-target="#esercizio-cercare"><span class="header-section-number">10.8</span> Esercizio — Cercare</a></li>
+  <li><a href="#blocco-5-strategie-per-risolvere-gli-esercizi-sugli-array" id="toc-blocco-5-strategie-per-risolvere-gli-esercizi-sugli-array" class="nav-link" data-scroll-target="#blocco-5-strategie-per-risolvere-gli-esercizi-sugli-array">Blocco 5: Strategie per risolvere gli esercizi sugli array</a>
+  <ul class="collapse">
+  <li><a href="#esercizi-di-tipo-contare" id="toc-esercizi-di-tipo-contare" class="nav-link" data-scroll-target="#esercizi-di-tipo-contare">Esercizi di tipo contare</a></li>
+  <li><a href="#esercizi-di-tipo-trovare" id="toc-esercizi-di-tipo-trovare" class="nav-link" data-scroll-target="#esercizi-di-tipo-trovare">Esercizi di tipo trovare</a></li>
+  <li><a href="#esercizi-di-tipo-cercare" id="toc-esercizi-di-tipo-cercare" class="nav-link" data-scroll-target="#esercizi-di-tipo-cercare">Esercizi di tipo cercare</a></li>
+  <li><a href="#esercizi-di-tipo-trasformare" id="toc-esercizi-di-tipo-trasformare" class="nav-link" data-scroll-target="#esercizi-di-tipo-trasformare">Esercizi di tipo trasformare</a></li>
+  </ul></li>
+  <li><a href="#esercizio-contare" id="toc-esercizio-contare" class="nav-link" data-scroll-target="#esercizio-contare">Esercizio — Contare</a></li>
+  <li><a href="#esercizio-trovare" id="toc-esercizio-trovare" class="nav-link" data-scroll-target="#esercizio-trovare">Esercizio — Trovare</a></li>
+  <li><a href="#esercizio-cercare" id="toc-esercizio-cercare" class="nav-link" data-scroll-target="#esercizio-cercare">Esercizio — Cercare</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/c/09_array.html">C: Strutture dati</a></li><li class="breadcrumb-item"><a href="../../docs/c/09_array.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Array</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Array</span></h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">C</li><li class="breadcrumb-item"><a href="../../docs/c/09_array.html">Strutture dati</a></li><li class="breadcrumb-item"><a href="../../docs/c/09_array.html">Array</a></li></ol></nav></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
+<section id="array" class="level1">
+<h1>Array</h1>
 <hr>
-<section id="blocco-1-dichiarare-e-accedere-a-un-array" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="blocco-1-dichiarare-e-accedere-a-un-array"><span class="header-section-number">10.1</span> Blocco 1: Dichiarare e accedere a un array</h2>
+<section id="blocco-1-dichiarare-e-accedere-a-un-array" class="level2">
+<h2 class="anchored" data-anchor-id="blocco-1-dichiarare-e-accedere-a-un-array">Blocco 1: Dichiarare e accedere a un array</h2>
 <p>Un array è una sequenza di variabili dello stesso tipo, tutte con lo stesso nome, accessibili tramite un indice.</p>
 <p>Senza array, per memorizzare 5 voti dovresti scrivere:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> voto1<span class="op">,</span> voto2<span class="op">,</span> voto3<span class="op">,</span> voto4<span class="op">,</span> voto5<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Con un array:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> voti<span class="op">[</span><span class="dv">5</span><span class="op">];</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Un solo nome, cinque celle. Se i voti fossero cento, cambieresti solo il numero.</p>
-<section id="dichiarazione" class="level3" data-number="10.1.1">
-<h3 data-number="10.1.1" class="anchored" data-anchor-id="dichiarazione"><span class="header-section-number">10.1.1</span> Dichiarazione</h3>
+<section id="dichiarazione" class="level3">
+<h3 class="anchored" data-anchor-id="dichiarazione">Dichiarazione</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> voti<span class="op">[</span><span class="dv">5</span><span class="op">];</span>           <span class="co">/* array di 5 interi */</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> temperature<span class="op">[</span><span class="dv">10</span><span class="op">];</span> <span class="co">/* array di 10 double */</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> lettere<span class="op">[</span><span class="dv">26</span><span class="op">];</span>       <span class="co">/* array di 26 caratteri */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Il numero dentro le parentesi quadre è la <strong>dimensione</strong> — quante celle ha l’array. Deve essere un valore costante.</p>
 </section>
-<section id="accesso-agli-elementi" class="level3" data-number="10.1.2">
-<h3 data-number="10.1.2" class="anchored" data-anchor-id="accesso-agli-elementi"><span class="header-section-number">10.1.2</span> Accesso agli elementi</h3>
+<section id="accesso-agli-elementi" class="level3">
+<h3 class="anchored" data-anchor-id="accesso-agli-elementi">Accesso agli elementi</h3>
 <p>Ogni elemento ha un <strong>indice</strong> — un numero che indica la sua posizione. In C gli indici partono da <strong>0</strong>, non da 1.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> voti<span class="op">[</span><span class="dv">5</span><span class="op">];</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -560,8 +579,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="inizializzazione" class="level3" data-number="10.1.3">
-<h3 data-number="10.1.3" class="anchored" data-anchor-id="inizializzazione"><span class="header-section-number">10.1.3</span> Inizializzazione</h3>
+<section id="inizializzazione" class="level3">
+<h3 class="anchored" data-anchor-id="inizializzazione">Inizializzazione</h3>
 <p>Puoi inizializzare un array al momento della dichiarazione:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> voti<span class="op">[</span><span class="dv">5</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">7</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">7</span><span class="op">};</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -571,8 +590,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">/* Trucco per azzerare tutto l'array */</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> voti<span class="op">[</span><span class="dv">5</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">0</span><span class="op">};</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="usare-define-per-la-dimensione" class="level3" data-number="10.1.4">
-<h3 data-number="10.1.4" class="anchored" data-anchor-id="usare-define-per-la-dimensione"><span class="header-section-number">10.1.4</span> Usare #define per la dimensione</h3>
+<section id="usare-define-per-la-dimensione" class="level3">
+<h3 class="anchored" data-anchor-id="usare-define-per-la-dimensione">Usare #define per la dimensione</h3>
 <p>È buona pratica definire la dimensione dell’array con una costante:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define N </span><span class="dv">5</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -581,8 +600,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="blocco-2-saper-scorrere-un-array" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="blocco-2-saper-scorrere-un-array"><span class="header-section-number">10.2</span> Blocco 2: Saper scorrere un array</h2>
+<section id="blocco-2-saper-scorrere-un-array" class="level2">
+<h2 class="anchored" data-anchor-id="blocco-2-saper-scorrere-un-array">Blocco 2: Saper scorrere un array</h2>
 <p>Questo è il cuore di quasi tutto: se non sai fare questo, non puoi fare né somme né ricerche né ordinamenti.</p>
 <p>Lo schema mentale deve essere: <strong>accedo a un elemento alla volta, dall’indice 0 fino all’ultimo</strong>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define N </span><span class="dv">5</span></span>
@@ -593,8 +612,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* lavoro su voti[i] */</span></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Il ciclo <code>for</code> è perfetto per gli array perché sai sempre quanti elementi ci sono.</p>
-<section id="leggere-un-array-dallutente" class="level3" data-number="10.2.1">
-<h3 data-number="10.2.1" class="anchored" data-anchor-id="leggere-un-array-dallutente"><span class="header-section-number">10.2.1</span> Leggere un array dall’utente</h3>
+<section id="leggere-un-array-dallutente" class="level3">
+<h3 class="anchored" data-anchor-id="leggere-un-array-dallutente">Leggere un array dall’utente</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define N </span><span class="dv">5</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> voti<span class="op">[</span>N<span class="op">];</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i<span class="op">;</span></span>
@@ -604,14 +623,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>voti<span class="op">[</span>i<span class="op">]);</span></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="stampare-un-array" class="level3" data-number="10.2.2">
-<h3 data-number="10.2.2" class="anchored" data-anchor-id="stampare-un-array"><span class="header-section-number">10.2.2</span> Stampare un array</h3>
+<section id="stampare-un-array" class="level3">
+<h3 class="anchored" data-anchor-id="stampare-un-array">Stampare un array</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> N<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"voti[</span><span class="sc">%d</span><span class="st">] = </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> i<span class="op">,</span> voti<span class="op">[</span>i<span class="op">]);</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="calcolare-la-somma" class="level3" data-number="10.2.3">
-<h3 data-number="10.2.3" class="anchored" data-anchor-id="calcolare-la-somma"><span class="header-section-number">10.2.3</span> Calcolare la somma</h3>
+<section id="calcolare-la-somma" class="level3">
+<h3 class="anchored" data-anchor-id="calcolare-la-somma">Calcolare la somma</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> somma <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> N<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    somma <span class="op">+=</span> voti<span class="op">[</span>i<span class="op">];</span></span>
@@ -619,8 +638,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"Somma: </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> somma<span class="op">);</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"Media: </span><span class="sc">%.2f\n</span><span class="st">"</span><span class="op">,</span> <span class="op">(</span><span class="dt">double</span><span class="op">)</span>somma <span class="op">/</span> N<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="trovare-il-massimo" class="level3" data-number="10.2.4">
-<h3 data-number="10.2.4" class="anchored" data-anchor-id="trovare-il-massimo"><span class="header-section-number">10.2.4</span> Trovare il massimo</h3>
+<section id="trovare-il-massimo" class="level3">
+<h3 class="anchored" data-anchor-id="trovare-il-massimo">Trovare il massimo</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> max <span class="op">=</span> voti<span class="op">[</span><span class="dv">0</span><span class="op">];</span>   <span class="co">/* parti dal primo elemento */</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> N<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>voti<span class="op">[</span>i<span class="op">]</span> <span class="op">&gt;</span> max<span class="op">)</span> <span class="op">{</span></span>
@@ -644,8 +663,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="blocco-3-come-si-scrive-una-funzione-che-lavora-sugli-array" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="blocco-3-come-si-scrive-una-funzione-che-lavora-sugli-array"><span class="header-section-number">10.3</span> Blocco 3: Come si scrive una funzione che lavora sugli array</h2>
+<section id="blocco-3-come-si-scrive-una-funzione-che-lavora-sugli-array" class="level2">
+<h2 class="anchored" data-anchor-id="blocco-3-come-si-scrive-una-funzione-che-lavora-sugli-array">Blocco 3: Come si scrive una funzione che lavora sugli array</h2>
 <p>Una funzione che lavora su un array riceve l’array e la sua dimensione come parametri.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tipo funzione<span class="op">(</span><span class="dt">int</span> v<span class="op">[],</span> <span class="dt">int</span> n<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i<span class="op">;</span></span>
@@ -654,8 +673,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Questo schema si adatta a qualsiasi esercizio sugli array.</p>
-<section id="il-tipo-restituito" class="level3" data-number="10.3.1">
-<h3 data-number="10.3.1" class="anchored" data-anchor-id="il-tipo-restituito"><span class="header-section-number">10.3.1</span> Il tipo restituito</h3>
+<section id="il-tipo-restituito" class="level3">
+<h3 class="anchored" data-anchor-id="il-tipo-restituito">Il tipo restituito</h3>
 <p>Si usa <code>int</code> quando la funzione deve restituire un conteggio, una posizione, un valore numerico, oppure 1 o 0 (trovato/non trovato).</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> somma<span class="op">(</span><span class="dt">int</span> v<span class="op">[],</span> <span class="dt">int</span> n<span class="op">);</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> massimo<span class="op">(</span><span class="dt">int</span> v<span class="op">[],</span> <span class="dt">int</span> n<span class="op">);</span></span>
@@ -665,8 +684,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> stampaArray<span class="op">(</span><span class="dt">int</span> v<span class="op">[],</span> <span class="dt">int</span> n<span class="op">);</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> azzera<span class="op">(</span><span class="dt">int</span> v<span class="op">[],</span> <span class="dt">int</span> n<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="i-parametri" class="level3" data-number="10.3.2">
-<h3 data-number="10.3.2" class="anchored" data-anchor-id="i-parametri"><span class="header-section-number">10.3.2</span> I parametri</h3>
+<section id="i-parametri" class="level3">
+<h3 class="anchored" data-anchor-id="i-parametri">I parametri</h3>
 <p><strong>Caso 1: array + dimensione</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> somma<span class="op">(</span><span class="dt">int</span> v<span class="op">[],</span> <span class="dt">int</span> n<span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Serve per: analizzare, contare, trovare il massimo/minimo.</p>
@@ -677,8 +696,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> cerca<span class="op">(</span><span class="dt">int</span> v<span class="op">[],</span> <span class="dt">int</span> n<span class="op">,</span> <span class="dt">int</span> elemento<span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Serve per: cercare un elemento, contare le occorrenze di un valore.</p>
 </section>
-<section id="schema-tipico-di-una-funzione-sugli-array" class="level3" data-number="10.3.3">
-<h3 data-number="10.3.3" class="anchored" data-anchor-id="schema-tipico-di-una-funzione-sugli-array"><span class="header-section-number">10.3.3</span> Schema tipico di una funzione sugli array</h3>
+<section id="schema-tipico-di-una-funzione-sugli-array" class="level3">
+<h3 class="anchored" data-anchor-id="schema-tipico-di-una-funzione-sugli-array">Schema tipico di una funzione sugli array</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>tipo funzione<span class="op">(</span><span class="dt">int</span> v<span class="op">[],</span> <span class="dt">int</span> n<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i<span class="op">;</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
@@ -688,8 +707,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Questo è il cuore dell’algoritmo.</p>
 </section>
-<section id="funzione-che-conta-qualcosa" class="level3" data-number="10.3.4">
-<h3 data-number="10.3.4" class="anchored" data-anchor-id="funzione-che-conta-qualcosa"><span class="header-section-number">10.3.4</span> Funzione che conta qualcosa</h3>
+<section id="funzione-che-conta-qualcosa" class="level3">
+<h3 class="anchored" data-anchor-id="funzione-che-conta-qualcosa">Funzione che conta qualcosa</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> contaPositivi<span class="op">(</span><span class="dt">int</span> v<span class="op">[],</span> <span class="dt">int</span> n<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i<span class="op">,</span> cont <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
@@ -700,8 +719,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Esempi possibili: <code>contaNegativi</code>, <code>contaPari</code>, <code>contaMaggioriDi</code>.</p>
 </section>
-<section id="funzione-che-trova-un-valore" class="level3" data-number="10.3.5">
-<h3 data-number="10.3.5" class="anchored" data-anchor-id="funzione-che-trova-un-valore"><span class="header-section-number">10.3.5</span> Funzione che trova un valore</h3>
+<section id="funzione-che-trova-un-valore" class="level3">
+<h3 class="anchored" data-anchor-id="funzione-che-trova-un-valore">Funzione che trova un valore</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> massimo<span class="op">(</span><span class="dt">int</span> v<span class="op">[],</span> <span class="dt">int</span> n<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i<span class="op">,</span> max <span class="op">=</span> v<span class="op">[</span><span class="dv">0</span><span class="op">];</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
@@ -711,8 +730,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> max<span class="op">;</span></span>
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="funzione-che-cerca-un-elemento" class="level3" data-number="10.3.6">
-<h3 data-number="10.3.6" class="anchored" data-anchor-id="funzione-che-cerca-un-elemento"><span class="header-section-number">10.3.6</span> Funzione che cerca un elemento</h3>
+<section id="funzione-che-cerca-un-elemento" class="level3">
+<h3 class="anchored" data-anchor-id="funzione-che-cerca-un-elemento">Funzione che cerca un elemento</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> cerca<span class="op">(</span><span class="dt">int</span> v<span class="op">[],</span> <span class="dt">int</span> n<span class="op">,</span> <span class="dt">int</span> elemento<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i<span class="op">;</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
@@ -735,8 +754,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="funzione-che-modifica-un-array" class="level3" data-number="10.3.7">
-<h3 data-number="10.3.7" class="anchored" data-anchor-id="funzione-che-modifica-un-array"><span class="header-section-number">10.3.7</span> Funzione che modifica un array</h3>
+<section id="funzione-che-modifica-un-array" class="level3">
+<h3 class="anchored" data-anchor-id="funzione-che-modifica-un-array">Funzione che modifica un array</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> azzera<span class="op">(</span><span class="dt">int</span> v<span class="op">[],</span> <span class="dt">int</span> n<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i<span class="op">;</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
@@ -765,15 +784,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="blocco-4-array-bidimensionali" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="blocco-4-array-bidimensionali"><span class="header-section-number">10.4</span> Blocco 4: Array bidimensionali</h2>
+<section id="blocco-4-array-bidimensionali" class="level2">
+<h2 class="anchored" data-anchor-id="blocco-4-array-bidimensionali">Blocco 4: Array bidimensionali</h2>
 <p>Un array bidimensionale è una tabella — righe e colonne.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> matrice<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">4</span><span class="op">];</span>   <span class="co">/* 3 righe, 4 colonne */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Si accede con due indici: prima la riga, poi la colonna.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>matrice<span class="op">[</span><span class="dv">0</span><span class="op">][</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>   <span class="co">/* prima riga, prima colonna */</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>matrice<span class="op">[</span><span class="dv">1</span><span class="op">][</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> <span class="dv">7</span><span class="op">;</span>   <span class="co">/* seconda riga, terza colonna */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<section id="scorrere-una-matrice-con-due-cicli-annidati" class="level3" data-number="10.4.1">
-<h3 data-number="10.4.1" class="anchored" data-anchor-id="scorrere-una-matrice-con-due-cicli-annidati"><span class="header-section-number">10.4.1</span> Scorrere una matrice con due cicli annidati</h3>
+<section id="scorrere-una-matrice-con-due-cicli-annidati" class="level3">
+<h3 class="anchored" data-anchor-id="scorrere-una-matrice-con-due-cicli-annidati">Scorrere una matrice con due cicli annidati</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define RIGHE </span><span class="dv">3</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#define COLONNE </span><span class="dv">4</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -787,8 +806,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Lo schema mentale: <strong>per ogni riga, scorri tutte le colonne</strong>.</p>
 </section>
-<section id="leggere-e-stampare-una-matrice" class="level3" data-number="10.4.2">
-<h3 data-number="10.4.2" class="anchored" data-anchor-id="leggere-e-stampare-una-matrice"><span class="header-section-number">10.4.2</span> Leggere e stampare una matrice</h3>
+<section id="leggere-e-stampare-una-matrice" class="level3">
+<h3 class="anchored" data-anchor-id="leggere-e-stampare-una-matrice">Leggere e stampare una matrice</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Lettura */</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> RIGHE<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> COLONNE<span class="op">;</span> j<span class="op">++)</span> <span class="op">{</span></span>
@@ -807,13 +826,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="blocco-5-strategie-per-risolvere-gli-esercizi-sugli-array" class="level2" data-number="10.5">
-<h2 data-number="10.5" class="anchored" data-anchor-id="blocco-5-strategie-per-risolvere-gli-esercizi-sugli-array"><span class="header-section-number">10.5</span> Blocco 5: Strategie per risolvere gli esercizi sugli array</h2>
+<section id="blocco-5-strategie-per-risolvere-gli-esercizi-sugli-array" class="level2">
+<h2 class="anchored" data-anchor-id="blocco-5-strategie-per-risolvere-gli-esercizi-sugli-array">Blocco 5: Strategie per risolvere gli esercizi sugli array</h2>
 <p>Molti esercizi sugli array sembrano diversi, ma appartengono quasi sempre a quattro famiglie di problemi.</p>
 <p>Quando vedi un esercizio, la prima cosa da fare è capire a quale famiglia appartiene.</p>
 <p>Le quattro famiglie più comuni sono: <strong>contare</strong>, <strong>trovare</strong>, <strong>cercare</strong>, <strong>trasformare</strong>.</p>
-<section id="esercizi-di-tipo-contare" class="level3" data-number="10.5.1">
-<h3 data-number="10.5.1" class="anchored" data-anchor-id="esercizi-di-tipo-contare"><span class="header-section-number">10.5.1</span> Esercizi di tipo contare</h3>
+<section id="esercizi-di-tipo-contare" class="level3">
+<h3 class="anchored" data-anchor-id="esercizi-di-tipo-contare">Esercizi di tipo contare</h3>
 <p>Bisogna scorrere l’array e contare quante volte succede qualcosa.</p>
 <p>Esempi: contare i pari, contare i negativi, contare i valori maggiori di una soglia.</p>
 <p>Strategia: - inizializzare un contatore - scorrere l’array - controllare se l’elemento soddisfa una condizione - aumentare il contatore - restituire il risultato</p>
@@ -828,8 +847,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Varianti possibili: cambia solo la condizione. La struttura rimane la stessa.</p>
 </section>
-<section id="esercizi-di-tipo-trovare" class="level3" data-number="10.5.2">
-<h3 data-number="10.5.2" class="anchored" data-anchor-id="esercizi-di-tipo-trovare"><span class="header-section-number">10.5.2</span> Esercizi di tipo trovare</h3>
+<section id="esercizi-di-tipo-trovare" class="level3">
+<h3 class="anchored" data-anchor-id="esercizi-di-tipo-trovare">Esercizi di tipo trovare</h3>
 <p>Bisogna trovare un valore particolare nell’array: il massimo, il minimo, la media, la somma.</p>
 <p>Esempi: trovare il massimo, trovare il minimo, calcolare la media.</p>
 <p>Strategia: - inizializzare la variabile risultato con il primo elemento - scorrere dal secondo elemento - aggiornare il risultato se l’elemento corrente è migliore - restituire il risultato</p>
@@ -844,8 +863,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Varianti possibili: massimo, minimo, somma, media. La struttura rimane la stessa.</p>
 </section>
-<section id="esercizi-di-tipo-cercare" class="level3" data-number="10.5.3">
-<h3 data-number="10.5.3" class="anchored" data-anchor-id="esercizi-di-tipo-cercare"><span class="header-section-number">10.5.3</span> Esercizi di tipo cercare</h3>
+<section id="esercizi-di-tipo-cercare" class="level3">
+<h3 class="anchored" data-anchor-id="esercizi-di-tipo-cercare">Esercizi di tipo cercare</h3>
 <p>Bisogna verificare se qualcosa è presente nell’array o trovare la sua posizione.</p>
 <p>Esempi: verificare se un elemento è presente, trovare la prima occorrenza, verificare se l’array è ordinato.</p>
 <p>Strategia: - scorrere l’array - confrontare ogni elemento con quello cercato - restituire la posizione se trovato, -1 altrimenti</p>
@@ -860,8 +879,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Varianti possibili: trovare l’ultima occorrenza, contare le occorrenze, verificare se esiste. La logica è sempre confrontare elementi.</p>
 </section>
-<section id="esercizi-di-tipo-trasformare" class="level3" data-number="10.5.4">
-<h3 data-number="10.5.4" class="anchored" data-anchor-id="esercizi-di-tipo-trasformare"><span class="header-section-number">10.5.4</span> Esercizi di tipo trasformare</h3>
+<section id="esercizi-di-tipo-trasformare" class="level3">
+<h3 class="anchored" data-anchor-id="esercizi-di-tipo-trasformare">Esercizi di tipo trasformare</h3>
 <p>Bisogna modificare gli elementi dell’array o crearne uno nuovo trasformato.</p>
 <p>Esempi: raddoppiare tutti gli elementi, azzerare i negativi, copiare solo i pari.</p>
 <p>Strategia: - scorrere l’array - applicare la trasformazione a ogni elemento - scrivere il risultato nell’array originale o in uno nuovo</p>
@@ -878,8 +897,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="esercizio-contare" class="level2" data-number="10.6">
-<h2 data-number="10.6" class="anchored" data-anchor-id="esercizio-contare"><span class="header-section-number">10.6</span> Esercizio — Contare</h2>
+<section id="esercizio-contare" class="level2">
+<h2 class="anchored" data-anchor-id="esercizio-contare">Esercizio — Contare</h2>
 <p>Scrivere la funzione <code>int contaPari(int v[], int n)</code> che restituisce il numero di elementi pari nell’array. Scrivere anche un main che: - legge N interi - chiama la funzione - stampa il risultato</p>
 <p>Soluzione:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
@@ -905,8 +924,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="esercizio-trovare" class="level2" data-number="10.7">
-<h2 data-number="10.7" class="anchored" data-anchor-id="esercizio-trovare"><span class="header-section-number">10.7</span> Esercizio — Trovare</h2>
+<section id="esercizio-trovare" class="level2">
+<h2 class="anchored" data-anchor-id="esercizio-trovare">Esercizio — Trovare</h2>
 <p>Scrivere la funzione <code>double media(int v[], int n)</code> che restituisce la media degli elementi dell’array. Scrivere anche un main che: - legge N interi - chiama la funzione - stampa il risultato con due decimali</p>
 <p>Soluzione:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
@@ -932,8 +951,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="esercizio-cercare" class="level2" data-number="10.8">
-<h2 data-number="10.8" class="anchored" data-anchor-id="esercizio-cercare"><span class="header-section-number">10.8</span> Esercizio — Cercare</h2>
+<section id="esercizio-cercare" class="level2">
+<h2 class="anchored" data-anchor-id="esercizio-cercare">Esercizio — Cercare</h2>
 <p>Scrivere la funzione <code>int cerca(int v[], int n, int elemento)</code> che restituisce la posizione dell’elemento cercato, oppure -1 se non è presente. Scrivere anche un main che: - legge N interi - legge il valore da cercare - chiama la funzione - stampa la posizione oppure “non trovato”</p>
 <p>Soluzione:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
@@ -966,6 +985,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1369,18 +1389,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../docs/c/08_boolean.html" class="pagination-link" aria-label="Il tipo booleano">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Il tipo booleano</span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../docs/c/10_matrici.html" class="pagination-link" aria-label="Matrici">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matrici</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

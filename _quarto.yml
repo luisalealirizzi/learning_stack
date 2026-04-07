@@ -1,73 +1,85 @@
 project:
-  type: book
+  type: website
   output-dir: _site
 
-book:
+website:
   title: "Learning Stack"
-  author: "Luisa Leali Rizzi"
-  language: it
-  chapters:
-    - index.qmd
-
-    - part: "C: Fondamenti"
-      chapters:
-        - docs/c/01_introduzione.md
-        - docs/c/02_variabili_tipi.md
-        - docs/c/03_operatori.md
-        - docs/c/04_input_output.md
-        - docs/c/05_selezione.md
-        - docs/c/06_iterazione.md
-        - docs/c/07_funzioni.md
-        - docs/c/08_boolean.md
-
-    - part: "C: Strutture dati"
-      chapters:
-        - docs/c/09_array.md
-        - docs/c/10_matrici.md
-        - docs/c/11_stringhe.md
-
-    - part: "C: Puntatori"
-      chapters:
-        - docs/c/12_puntatori.md
-
-    - part: "Java: Introduzione"
-      chapters:
-        - docs/java/01_introduzione.md
-        - docs/java/02_tipi_e_stringhe.md
-
-    - part: "Java: OOP"
-      chapters:
-        - docs/java/03_paradigmi_e_oggetti.md
-        - docs/java/04_creare_una_classe.md
-        - docs/java/05_incapsulamento_adt.md
-        - docs/java/06_ereditarieta.md
-        - docs/java/07_polimorfismo_upcasting.md
-        - docs/java/08_classi_astratte_interfacce.md
-
-    - part: "Java: Eccezioni"
-      chapters:
-        - docs/java/09_eccezioni.md
-
-    - part: "Java: Collections e Stream"
-      chapters:
-        - docs/java/10_collections.md
-        - docs/java/11_list_set_queue.md
-        - docs/java/12_stream_pipeline.md
-
-    - part: "Java: Stringhe avanzate"
-      chapters:
-        - docs/java/13_stringhe_avanzate.md
-
-    - part: "Java: Gestione file"
-      chapters:
-        - docs/java/14_path_files_log.md
-        - docs/java/15_buffer_scrittura.md
-
-    - part: "Java: Qualità del codice"
-      chapters:
-        - docs/java/16_testing_junit.md
-        - docs/java/17_solid.md
-        - docs/java/18_design_pattern.md
+  navbar:
+   right:
+      - icon: file-pdf
+        text: "PDF C"
+        href: pdfs/Learning-Stack-—-C.pdf
+      - icon: file-pdf
+        text: "PDF Java"
+        href: pdfs/Learning-Stack-—-Java.pdf
+  sidebar:
+    style: "docked"
+    collapse-level: 1
+    contents:
+      - section: "C"
+        contents:
+          - section: "Fondamenti"
+            collapsed: true
+            contents:
+              - docs/c/01_introduzione.md
+              - docs/c/02_variabili_tipi.md
+              - docs/c/03_operatori.md
+              - docs/c/04_input_output.md
+              - docs/c/05_selezione.md
+              - docs/c/06_iterazione.md
+              - docs/c/07_funzioni.md
+              - docs/c/08_boolean.md
+          - section: "Strutture dati"
+            collapsed: true
+            contents:
+              - docs/c/09_array.md
+              - docs/c/10_matrici.md
+              - docs/c/11_stringhe.md
+          - section: "Puntatori"
+            collapsed: true
+            contents:
+              - docs/c/12_puntatori.md
+      - section: "Java"
+        contents:
+          - section: "Introduzione"
+            collapsed: true
+            contents:
+              - docs/java/01_introduzione.md
+              - docs/java/02_tipi_e_stringhe.md
+          - section: "OOP"
+            collapsed: true
+            contents:
+              - docs/java/03_paradigmi_e_oggetti.md
+              - docs/java/04_creare_una_classe.md
+              - docs/java/05_incapsulamento_adt.md
+              - docs/java/06_ereditarieta.md
+              - docs/java/07_polimorfismo_upcasting.md
+              - docs/java/08_classi_astratte_interfacce.md
+          - section: "Eccezioni"
+            collapsed: true
+            contents:
+              - docs/java/09_eccezioni.md
+          - section: "Collections e Stream"
+            collapsed: true
+            contents:
+              - docs/java/10_collections.md
+              - docs/java/11_list_set_queue.md
+              - docs/java/12_stream_pipeline.md
+          - section: "Stringhe avanzate"
+            collapsed: true
+            contents:
+              - docs/java/13_stringhe_avanzate.md
+          - section: "Gestione file"
+            collapsed: true
+            contents:
+              - docs/java/14_path_files_log.md
+              - docs/java/15_buffer_scrittura.md
+          - section: "Qualità del codice"
+            collapsed: true
+            contents:
+              - docs/java/16_testing_junit.md
+              - docs/java/17_solid.md
+              - docs/java/18_design_pattern.md
 
 format:
   html:

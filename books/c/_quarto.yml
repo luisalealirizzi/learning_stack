@@ -1,0 +1,34 @@
+project:
+  type: book
+  output-dir: ../../_site/pdfs
+
+book:
+  title: "Learning Stack — C"
+  author: "Luisa Leali Rizzi"
+  language: it
+  chapters:
+    - index.qmd
+    - part: "Fondamenti"
+      chapters:
+        - ../../docs/c/01_introduzione.md
+        - ../../docs/c/02_variabili_tipi.md
+        - ../../docs/c/03_operatori.md
+        - ../../docs/c/04_input_output.md
+        - ../../docs/c/05_selezione.md
+        - ../../docs/c/06_iterazione.md
+        - ../../docs/c/07_funzioni.md
+        - ../../docs/c/08_boolean.md
+    - part: "Strutture dati"
+      chapters:
+        - ../../docs/c/09_array.md
+        - ../../docs/c/10_matrici.md
+        - ../../docs/c/11_stringhe.md
+    - part: "Puntatori"
+      chapters:
+        - ../../docs/c/12_puntatori.md
+
+format:
+  pdf:
+    toc: true
+    number-sections: true
+    output-file: "learning-stack-c.pdf"
