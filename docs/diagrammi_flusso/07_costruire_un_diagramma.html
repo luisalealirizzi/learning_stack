@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; Costruire un diagramma passo passo – Learning Stack</title>
+<title>costruire_un_diagramma – Learning Stack</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,8 +33,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html" rel="next">
-<link href="../../docs/diagrammi_flusso/06_flowgorithm.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -44,13 +42,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-1f9e6d70b8b583c31478a0530d9dad38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-bf48ec02367bdbf5a16ab0867e90c56e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -76,143 +74,366 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Learning Stack</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../pdfs/Learning-Stack-—-C.pdf"> <i class="bi bi-file-pdf" role="img">
+</i> 
+<span class="menu-text">PDF C</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../pdfs/Learning-Stack-—-Java.pdf"> <i class="bi bi-file-pdf" role="img">
+</i> 
+<span class="menu-text">PDF Java</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/diagrammi_flusso/01_algoritmi.html">Diagrammi di flusso</a></li><li class="breadcrumb-item"><a href="../../docs/diagrammi_flusso/07_costruire_un_diagramma.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Costruire un diagramma passo passo</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Learning Stack</a> 
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Learning Stack</span></span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Diagrammi di flusso</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">C</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fondamenti</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/diagrammi_flusso/01_algoritmi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Perché servono gli algoritmi?</span></span></a>
+  <a href="../../docs/c/01_introduzione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduzione al linguaggio C</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/diagrammi_flusso/02_dal_testo_allo_schema.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dal testo allo schema (prima dei simboli)</span></span></a>
+  <a href="../../docs/c/02_variabili_tipi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Variabili e tipi</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/diagrammi_flusso/03_simboli.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">I simboli dei diagrammi di flusso</span></span></a>
+  <a href="../../docs/c/03_operatori.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Operatori</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/diagrammi_flusso/05_esempi_diagrammi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Esempi di diagrammi di flusso</span></span></a>
+  <a href="../../docs/c/04_input_output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Input e output</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/diagrammi_flusso/06_flowgorithm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduzione a Flowgorithm</span></span></a>
+  <a href="../../docs/c/05_selezione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Selezione</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/diagrammi_flusso/07_costruire_un_diagramma.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Costruire un diagramma passo passo</span></span></a>
+  <a href="../../docs/c/06_iterazione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Iterazione</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Variabili e controlli con Flowgorithm</span></span></a>
+  <a href="../../docs/c/07_funzioni.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Funzioni</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/c/08_boolean.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Il tipo booleano</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Linguaggio C</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Strutture dati</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/c/stringhe/01_input_stringhe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stringhe in input in C</span></span></a>
+  <a href="../../docs/c/09_array.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Array</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/c/stringhe/02_scorrimento.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Scorrimento di una stringa in C</span></span></a>
+  <a href="../../docs/c/10_matrici.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrici</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/c/stringhe/03_tipi_caratteri.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Riconoscere i tipi di carattere in C</span></span></a>
+  <a href="../../docs/c/11_stringhe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stringhe</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Reti</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Puntatori</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/reti/guida_pianondirizzamento.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Guida al piano di indirizzamento IP</span></span></a>
+  <a href="../../docs/c/12_puntatori.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Puntatori</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Java</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Introduzione</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/01_introduzione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduzione a Java</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/02_tipi_e_stringhe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tipi, stringhe e input</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">OOP</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/03_paradigmi_e_oggetti.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Paradigmi e oggetti</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/04_creare_una_classe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Creare una classe</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/05_incapsulamento_adt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Incapsulamento e ADT</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/06_ereditarieta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ereditarietà</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/07_polimorfismo_upcasting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Polimorfismo, upcasting e downcasting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/08_classi_astratte_interfacce.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Classi astratte e interfacce</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">Eccezioni</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/09_eccezioni.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Eccezioni</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Collections e Stream</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/10_collections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Java Collections</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/11_list_set_queue.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">List, Set e Queue</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/12_stream_pipeline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stream e pipeline</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text">Stringhe avanzate</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/13_stringhe_avanzate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stringhe avanzate</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
+ <span class="menu-text">Gestione file</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/14_path_files_log.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Path, Files e Log</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/15_buffer_scrittura.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Buffer e scrittura</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text">Qualità del codice</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/16_testing_junit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Testing con JUnit</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/17_solid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">17_solid.html</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/18_design_pattern.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">18_design_pattern.html</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
     </ul>
@@ -222,50 +443,39 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#metodo" id="toc-metodo" class="nav-link active" data-scroll-target="#metodo"><span class="header-section-number">7.1</span> Metodo</a>
+  <li><a href="#costruire-un-diagramma-passo-passo" id="toc-costruire-un-diagramma-passo-passo" class="nav-link active" data-scroll-target="#costruire-un-diagramma-passo-passo">Costruire un diagramma passo passo</a>
   <ul class="collapse">
-  <li><a href="#caso-1-una-scelta" id="toc-caso-1-una-scelta" class="nav-link" data-scroll-target="#caso-1-una-scelta"><span class="header-section-number">7.1.1</span> Caso 1 — Una scelta</a></li>
-  <li><a href="#caso-2-una-ripetizione" id="toc-caso-2-una-ripetizione" class="nav-link" data-scroll-target="#caso-2-una-ripetizione"><span class="header-section-number">7.1.2</span> Caso 2 — Una ripetizione</a></li>
-  <li><a href="#caso-3-solo-sequenza" id="toc-caso-3-solo-sequenza" class="nav-link" data-scroll-target="#caso-3-solo-sequenza"><span class="header-section-number">7.1.3</span> Caso 3 — Solo sequenza</a></li>
+  <li><a href="#metodo" id="toc-metodo" class="nav-link" data-scroll-target="#metodo">Metodo</a>
+  <ul class="collapse">
+  <li><a href="#caso-1-una-scelta" id="toc-caso-1-una-scelta" class="nav-link" data-scroll-target="#caso-1-una-scelta">Caso 1 — Una scelta</a></li>
+  <li><a href="#caso-2-una-ripetizione" id="toc-caso-2-una-ripetizione" class="nav-link" data-scroll-target="#caso-2-una-ripetizione">Caso 2 — Una ripetizione</a></li>
+  <li><a href="#caso-3-solo-sequenza" id="toc-caso-3-solo-sequenza" class="nav-link" data-scroll-target="#caso-3-solo-sequenza">Caso 3 — Solo sequenza</a></li>
   </ul></li>
-  <li><a href="#in-sintesi" id="toc-in-sintesi" class="nav-link" data-scroll-target="#in-sintesi"><span class="header-section-number">7.2</span> In sintesi</a></li>
+  <li><a href="#in-sintesi" id="toc-in-sintesi" class="nav-link" data-scroll-target="#in-sintesi">In sintesi</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/diagrammi_flusso/01_algoritmi.html">Diagrammi di flusso</a></li><li class="breadcrumb-item"><a href="../../docs/diagrammi_flusso/07_costruire_un_diagramma.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Costruire un diagramma passo passo</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Costruire un diagramma passo passo</span></h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
+<section id="costruire-un-diagramma-passo-passo" class="level1">
+<h1>Costruire un diagramma passo passo</h1>
 <p>Finora abbiamo visto esempi di diagrammi di flusso. Ma come si costruisce davvero un diagramma?</p>
 <p>Non si parte dai simboli. Si parte dal ragionamento.</p>
-<section id="metodo" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="metodo"><span class="header-section-number">7.1</span> Metodo</h2>
+<section id="metodo" class="level2">
+<h2 class="anchored" data-anchor-id="metodo">Metodo</h2>
 <p>Quando devi costruire un diagramma:</p>
 <p>leggi il problema individua cosa deve succedere metti in ordine le azioni individua le decisioni verifica se qualcosa si ripete</p>
 <p>Solo dopo si disegna il diagramma.</p>
-<section id="caso-1-una-scelta" class="level3" data-number="7.1.1">
-<h3 data-number="7.1.1" class="anchored" data-anchor-id="caso-1-una-scelta"><span class="header-section-number">7.1.1</span> Caso 1 — Una scelta</h3>
+<section id="caso-1-una-scelta" class="level3">
+<h3 class="anchored" data-anchor-id="caso-1-una-scelta">Caso 1 — Una scelta</h3>
 <p>Situazione: inserisci una password. Se è corretta accedi, altrimenti compare un errore.</p>
 <p>Ragionamento l’utente inserisce una password il sistema controlla se è corretta ci sono due possibilità: sì → accesso no → errore</p>
 <p>qui c’è una decisione</p>
@@ -278,8 +488,8 @@ C -- No --&gt; E[Errore]
 D --&gt; F([FINE])
 E --&gt; F</code></pre>
 </section>
-<section id="caso-2-una-ripetizione" class="level3" data-number="7.1.2">
-<h3 data-number="7.1.2" class="anchored" data-anchor-id="caso-2-una-ripetizione"><span class="header-section-number">7.1.2</span> Caso 2 — Una ripetizione</h3>
+<section id="caso-2-una-ripetizione" class="level3">
+<h3 class="anchored" data-anchor-id="caso-2-una-ripetizione">Caso 2 — Una ripetizione</h3>
 <p>Situazione: inserisci una password finché è sbagliata.</p>
 <p>Ragionamento: l’utente inserisce la password il sistema controlla se è sbagliata → si riprova se è corretta → si entra</p>
 <p><strong>qui qualcosa si ripete</strong></p>
@@ -291,8 +501,8 @@ C -- No --&gt; B
 C -- Sì --&gt; D[Accesso consentito]
 D --&gt; E([FINE])</code></pre>
 </section>
-<section id="caso-3-solo-sequenza" class="level3" data-number="7.1.3">
-<h3 data-number="7.1.3" class="anchored" data-anchor-id="caso-3-solo-sequenza"><span class="header-section-number">7.1.3</span> Caso 3 — Solo sequenza</h3>
+<section id="caso-3-solo-sequenza" class="level3">
+<h3 class="anchored" data-anchor-id="caso-3-solo-sequenza">Caso 3 — Solo sequenza</h3>
 <p>Situazione: avvia un videogioco e inizia a giocare.</p>
 <p>Ragionamento accendi il dispositivo avvia il gioco premi start</p>
 <p>non ci sono scelte non ci sono ripetizioni</p>
@@ -307,8 +517,8 @@ D --&gt; E([FINE])</code></pre>
 <p>Queste tre situazioni compaiono in tutti i programmi.</p>
 </section>
 </section>
-<section id="in-sintesi" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="in-sintesi"><span class="header-section-number">7.2</span> In sintesi</h2>
+<section id="in-sintesi" class="level2">
+<h2 class="anchored" data-anchor-id="in-sintesi">In sintesi</h2>
 <p>Per costruire un diagramma:</p>
 <p>prima pensi poi organizzi i passi solo alla fine disegni Prossimo passo</p>
 <p>Le situazioni che abbiamo visto hanno un nome preciso.</p>
@@ -316,6 +526,7 @@ D --&gt; E([FINE])</code></pre>
 <p>e sono la base di tutti i programmi</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -392,7 +603,7 @@ D --&gt; E([FINE])</code></pre>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/luisalealirizzi\.github\.io\/learning_stack\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -719,18 +930,6 @@ D --&gt; E([FINE])</code></pre>
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../docs/diagrammi_flusso/06_flowgorithm.html" class="pagination-link" aria-label="Introduzione a Flowgorithm">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduzione a Flowgorithm</span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html" class="pagination-link" aria-label="Variabili e controlli con Flowgorithm">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Variabili e controlli con Flowgorithm</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

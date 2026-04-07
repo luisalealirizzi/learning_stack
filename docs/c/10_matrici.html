@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>11&nbsp; Matrici – Learning Stack</title>
+<title>matrici – Learning Stack</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -68,8 +68,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../docs/c/11_stringhe.html" rel="next">
-<link href="../../docs/c/09_array.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -79,13 +77,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-1f9e6d70b8b583c31478a0530d9dad38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-bf48ec02367bdbf5a16ab0867e90c56e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -111,334 +109,366 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Learning Stack</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../pdfs/Learning-Stack-—-C.pdf"> <i class="bi bi-file-pdf" role="img">
+</i> 
+<span class="menu-text">PDF C</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../pdfs/Learning-Stack-—-Java.pdf"> <i class="bi bi-file-pdf" role="img">
+</i> 
+<span class="menu-text">PDF Java</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/c/09_array.html">C: Strutture dati</a></li><li class="breadcrumb-item"><a href="../../docs/c/10_matrici.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matrici</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">C</li><li class="breadcrumb-item"><a href="../../docs/c/09_array.html">Strutture dati</a></li><li class="breadcrumb-item"><a href="../../docs/c/10_matrici.html">Matrici</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Learning Stack</a> 
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Learning Stack</span></span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">C: Fondamenti</span></a>
+ <span class="menu-text">C</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fondamenti</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/01_introduzione.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduzione al linguaggio C</span></span></a>
+ <span class="menu-text">Introduzione al linguaggio C</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/02_variabili_tipi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variabili e tipi</span></span></a>
+ <span class="menu-text">Variabili e tipi</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/03_operatori.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Operatori</span></span></a>
+ <span class="menu-text">Operatori</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/04_input_output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Input e output</span></span></a>
+ <span class="menu-text">Input e output</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/05_selezione.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Selezione</span></span></a>
+ <span class="menu-text">Selezione</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/06_iterazione.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Iterazione</span></span></a>
+ <span class="menu-text">Iterazione</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/07_funzioni.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Funzioni</span></span></a>
+ <span class="menu-text">Funzioni</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/08_boolean.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Il tipo booleano</span></span></a>
+ <span class="menu-text">Il tipo booleano</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">C: Strutture dati</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Strutture dati</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/09_array.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Array</span></span></a>
+ <span class="menu-text">Array</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/10_matrici.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matrici</span></span></a>
+ <span class="menu-text">Matrici</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/11_stringhe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Stringhe</span></span></a>
+ <span class="menu-text">Stringhe</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">C: Puntatori</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Puntatori</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/12_puntatori.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Puntatori</span></span></a>
+ <span class="menu-text">Puntatori</span></a>
   </div>
 </li>
       </ul>
   </li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: Introduzione</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Java</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Introduzione</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/01_introduzione.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></span></a>
+ <span class="menu-text">Introduzione a Java</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/02_tipi_e_stringhe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tipi, stringhe e input</span></span></a>
+ <span class="menu-text">Tipi, stringhe e input</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: OOP</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">OOP</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/03_paradigmi_e_oggetti.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Paradigmi e oggetti</span></span></a>
+ <span class="menu-text">Paradigmi e oggetti</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/04_creare_una_classe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Creare una classe</span></span></a>
+ <span class="menu-text">Creare una classe</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/05_incapsulamento_adt.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Incapsulamento e ADT</span></span></a>
+ <span class="menu-text">Incapsulamento e ADT</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/06_ereditarieta.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ereditarietà</span></span></a>
+ <span class="menu-text">Ereditarietà</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/07_polimorfismo_upcasting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Polimorfismo, upcasting e downcasting</span></span></a>
+ <span class="menu-text">Polimorfismo, upcasting e downcasting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/08_classi_astratte_interfacce.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Classi astratte e interfacce</span></span></a>
+ <span class="menu-text">Classi astratte e interfacce</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: Eccezioni</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">Eccezioni</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/09_eccezioni.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Eccezioni</span></span></a>
+ <span class="menu-text">Eccezioni</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: Collections e Stream</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Collections e Stream</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/10_collections.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Java Collections</span></span></a>
+ <span class="menu-text">Java Collections</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/11_list_set_queue.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">List, Set e Queue</span></span></a>
+ <span class="menu-text">List, Set e Queue</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/12_stream_pipeline.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Stream e pipeline</span></span></a>
+ <span class="menu-text">Stream e pipeline</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: Stringhe avanzate</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text">Stringhe avanzate</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/13_stringhe_avanzate.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Stringhe avanzate</span></span></a>
+ <span class="menu-text">Stringhe avanzate</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: Gestione file</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
+ <span class="menu-text">Gestione file</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/14_path_files_log.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Path, Files e Log</span></span></a>
+ <span class="menu-text">Path, Files e Log</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/15_buffer_scrittura.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Buffer e scrittura</span></span></a>
+ <span class="menu-text">Buffer e scrittura</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: Qualità del codice</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text">Qualità del codice</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/16_testing_junit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Testing con JUnit</span></span></a>
+ <span class="menu-text">Testing con JUnit</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/17_solid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">17_solid.html</span></span></a>
+ <span class="menu-text">17_solid.html</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/18_design_pattern.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">18_design_pattern.html</span></span></a>
+ <span class="menu-text">18_design_pattern.html</span></a>
   </div>
 </li>
+      </ul>
+  </li>
       </ul>
   </li>
     </ul>
@@ -448,72 +478,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#idea-chiave" id="toc-idea-chiave" class="nav-link active" data-scroll-target="#idea-chiave"><span class="header-section-number">11.1</span> Idea chiave</a></li>
-  <li><a href="#blocco-1-dichiarare-e-inizializzare-una-matrice" id="toc-blocco-1-dichiarare-e-inizializzare-una-matrice" class="nav-link" data-scroll-target="#blocco-1-dichiarare-e-inizializzare-una-matrice"><span class="header-section-number">11.2</span> Blocco 1: Dichiarare e inizializzare una matrice</a>
+  <li><a href="#matrici" id="toc-matrici" class="nav-link active" data-scroll-target="#matrici">Matrici</a>
   <ul class="collapse">
-  <li><a href="#dichiarazione" id="toc-dichiarazione" class="nav-link" data-scroll-target="#dichiarazione"><span class="header-section-number">11.2.1</span> Dichiarazione</a></li>
-  <li><a href="#inizializzazione" id="toc-inizializzazione" class="nav-link" data-scroll-target="#inizializzazione"><span class="header-section-number">11.2.2</span> Inizializzazione</a></li>
-  <li><a href="#accesso-a-un-elemento" id="toc-accesso-a-un-elemento" class="nav-link" data-scroll-target="#accesso-a-un-elemento"><span class="header-section-number">11.2.3</span> Accesso a un elemento</a></li>
-  </ul></li>
-  <li><a href="#blocco-2-saper-scorrere-una-matrice" id="toc-blocco-2-saper-scorrere-una-matrice" class="nav-link" data-scroll-target="#blocco-2-saper-scorrere-una-matrice"><span class="header-section-number">11.3</span> Blocco 2: Saper scorrere una matrice</a>
+  <li><a href="#idea-chiave" id="toc-idea-chiave" class="nav-link" data-scroll-target="#idea-chiave">Idea chiave</a></li>
+  <li><a href="#blocco-1-dichiarare-e-inizializzare-una-matrice" id="toc-blocco-1-dichiarare-e-inizializzare-una-matrice" class="nav-link" data-scroll-target="#blocco-1-dichiarare-e-inizializzare-una-matrice">Blocco 1: Dichiarare e inizializzare una matrice</a>
   <ul class="collapse">
-  <li><a href="#leggere-una-matrice-dallutente" id="toc-leggere-una-matrice-dallutente" class="nav-link" data-scroll-target="#leggere-una-matrice-dallutente"><span class="header-section-number">11.3.1</span> Leggere una matrice dall’utente</a></li>
-  <li><a href="#stampare-una-matrice" id="toc-stampare-una-matrice" class="nav-link" data-scroll-target="#stampare-una-matrice"><span class="header-section-number">11.3.2</span> Stampare una matrice</a></li>
-  <li><a href="#somma-di-tutti-gli-elementi" id="toc-somma-di-tutti-gli-elementi" class="nav-link" data-scroll-target="#somma-di-tutti-gli-elementi"><span class="header-section-number">11.3.3</span> Somma di tutti gli elementi</a></li>
-  <li><a href="#ricerca-del-massimo" id="toc-ricerca-del-massimo" class="nav-link" data-scroll-target="#ricerca-del-massimo"><span class="header-section-number">11.3.4</span> Ricerca del massimo</a></li>
-  <li><a href="#somma-di-una-riga-specifica" id="toc-somma-di-una-riga-specifica" class="nav-link" data-scroll-target="#somma-di-una-riga-specifica"><span class="header-section-number">11.3.5</span> Somma di una riga specifica</a></li>
-  <li><a href="#somma-di-una-colonna-specifica" id="toc-somma-di-una-colonna-specifica" class="nav-link" data-scroll-target="#somma-di-una-colonna-specifica"><span class="header-section-number">11.3.6</span> Somma di una colonna specifica</a></li>
-  <li><a href="#diagonale-principale-solo-matrici-quadrate" id="toc-diagonale-principale-solo-matrici-quadrate" class="nav-link" data-scroll-target="#diagonale-principale-solo-matrici-quadrate"><span class="header-section-number">11.3.7</span> Diagonale principale (solo matrici quadrate)</a></li>
+  <li><a href="#dichiarazione" id="toc-dichiarazione" class="nav-link" data-scroll-target="#dichiarazione">Dichiarazione</a></li>
+  <li><a href="#inizializzazione" id="toc-inizializzazione" class="nav-link" data-scroll-target="#inizializzazione">Inizializzazione</a></li>
+  <li><a href="#accesso-a-un-elemento" id="toc-accesso-a-un-elemento" class="nav-link" data-scroll-target="#accesso-a-un-elemento">Accesso a un elemento</a></li>
   </ul></li>
-  <li><a href="#blocco-3-funzioni-con-le-matrici" id="toc-blocco-3-funzioni-con-le-matrici" class="nav-link" data-scroll-target="#blocco-3-funzioni-con-le-matrici"><span class="header-section-number">11.4</span> Blocco 3: Funzioni con le matrici</a>
+  <li><a href="#blocco-2-saper-scorrere-una-matrice" id="toc-blocco-2-saper-scorrere-una-matrice" class="nav-link" data-scroll-target="#blocco-2-saper-scorrere-una-matrice">Blocco 2: Saper scorrere una matrice</a>
   <ul class="collapse">
-  <li><a href="#schema-delle-funzioni-più-comuni" id="toc-schema-delle-funzioni-più-comuni" class="nav-link" data-scroll-target="#schema-delle-funzioni-più-comuni"><span class="header-section-number">11.4.1</span> Schema delle funzioni più comuni</a></li>
+  <li><a href="#leggere-una-matrice-dallutente" id="toc-leggere-una-matrice-dallutente" class="nav-link" data-scroll-target="#leggere-una-matrice-dallutente">Leggere una matrice dall’utente</a></li>
+  <li><a href="#stampare-una-matrice" id="toc-stampare-una-matrice" class="nav-link" data-scroll-target="#stampare-una-matrice">Stampare una matrice</a></li>
+  <li><a href="#somma-di-tutti-gli-elementi" id="toc-somma-di-tutti-gli-elementi" class="nav-link" data-scroll-target="#somma-di-tutti-gli-elementi">Somma di tutti gli elementi</a></li>
+  <li><a href="#ricerca-del-massimo" id="toc-ricerca-del-massimo" class="nav-link" data-scroll-target="#ricerca-del-massimo">Ricerca del massimo</a></li>
+  <li><a href="#somma-di-una-riga-specifica" id="toc-somma-di-una-riga-specifica" class="nav-link" data-scroll-target="#somma-di-una-riga-specifica">Somma di una riga specifica</a></li>
+  <li><a href="#somma-di-una-colonna-specifica" id="toc-somma-di-una-colonna-specifica" class="nav-link" data-scroll-target="#somma-di-una-colonna-specifica">Somma di una colonna specifica</a></li>
+  <li><a href="#diagonale-principale-solo-matrici-quadrate" id="toc-diagonale-principale-solo-matrici-quadrate" class="nav-link" data-scroll-target="#diagonale-principale-solo-matrici-quadrate">Diagonale principale (solo matrici quadrate)</a></li>
   </ul></li>
-  <li><a href="#blocco-4-sizeof-e-matrici" id="toc-blocco-4-sizeof-e-matrici" class="nav-link" data-scroll-target="#blocco-4-sizeof-e-matrici"><span class="header-section-number">11.5</span> Blocco 4: sizeof e matrici</a></li>
-  <li><a href="#esempio-completo" id="toc-esempio-completo" class="nav-link" data-scroll-target="#esempio-completo"><span class="header-section-number">11.6</span> Esempio completo</a></li>
-  <li><a href="#schema-mentale" id="toc-schema-mentale" class="nav-link" data-scroll-target="#schema-mentale"><span class="header-section-number">11.7</span> Schema mentale</a></li>
-  <li><a href="#esercizi" id="toc-esercizi" class="nav-link" data-scroll-target="#esercizi"><span class="header-section-number">11.8</span> Esercizi</a></li>
+  <li><a href="#blocco-3-funzioni-con-le-matrici" id="toc-blocco-3-funzioni-con-le-matrici" class="nav-link" data-scroll-target="#blocco-3-funzioni-con-le-matrici">Blocco 3: Funzioni con le matrici</a>
+  <ul class="collapse">
+  <li><a href="#schema-delle-funzioni-più-comuni" id="toc-schema-delle-funzioni-più-comuni" class="nav-link" data-scroll-target="#schema-delle-funzioni-più-comuni">Schema delle funzioni più comuni</a></li>
+  </ul></li>
+  <li><a href="#blocco-4-sizeof-e-matrici" id="toc-blocco-4-sizeof-e-matrici" class="nav-link" data-scroll-target="#blocco-4-sizeof-e-matrici">Blocco 4: sizeof e matrici</a></li>
+  <li><a href="#esempio-completo" id="toc-esempio-completo" class="nav-link" data-scroll-target="#esempio-completo">Esempio completo</a></li>
+  <li><a href="#schema-mentale" id="toc-schema-mentale" class="nav-link" data-scroll-target="#schema-mentale">Schema mentale</a></li>
+  <li><a href="#esercizi" id="toc-esercizi" class="nav-link" data-scroll-target="#esercizi">Esercizi</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/c/09_array.html">C: Strutture dati</a></li><li class="breadcrumb-item"><a href="../../docs/c/10_matrici.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matrici</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matrici</span></h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">C</li><li class="breadcrumb-item"><a href="../../docs/c/09_array.html">Strutture dati</a></li><li class="breadcrumb-item"><a href="../../docs/c/10_matrici.html">Matrici</a></li></ol></nav></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
+<section id="matrici" class="level1">
+<h1>Matrici</h1>
 <hr>
-<section id="idea-chiave" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="idea-chiave"><span class="header-section-number">11.1</span> Idea chiave</h2>
+<section id="idea-chiave" class="level2">
+<h2 class="anchored" data-anchor-id="idea-chiave">Idea chiave</h2>
 <p>Una matrice in C è un <strong>array di array</strong>. Pensala come una tabella: righe e colonne. Ogni elemento è identificato da due indici: <code>[riga][colonna]</code>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> m<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">4</span><span class="op">];</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Significa: - 3 righe - 4 colonne - totale elementi = 3 × 4 = 12 - ogni elemento è <code>int</code></p>
 <p>È memoria contigua: come un array monodimensionale ma più grande. Gli elementi sono disposti riga per riga in memoria.</p>
 <hr>
 </section>
-<section id="blocco-1-dichiarare-e-inizializzare-una-matrice" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="blocco-1-dichiarare-e-inizializzare-una-matrice"><span class="header-section-number">11.2</span> Blocco 1: Dichiarare e inizializzare una matrice</h2>
-<section id="dichiarazione" class="level3" data-number="11.2.1">
-<h3 data-number="11.2.1" class="anchored" data-anchor-id="dichiarazione"><span class="header-section-number">11.2.1</span> Dichiarazione</h3>
+<section id="blocco-1-dichiarare-e-inizializzare-una-matrice" class="level2">
+<h2 class="anchored" data-anchor-id="blocco-1-dichiarare-e-inizializzare-una-matrice">Blocco 1: Dichiarare e inizializzare una matrice</h2>
+<section id="dichiarazione" class="level3">
+<h3 class="anchored" data-anchor-id="dichiarazione">Dichiarazione</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> m<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">4</span><span class="op">];</span>          <span class="co">/* matrice di interi, 3 righe, 4 colonne */</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> tabella<span class="op">[</span><span class="dv">5</span><span class="op">][</span><span class="dv">5</span><span class="op">];</span> <span class="co">/* matrice quadrata di double */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Con <code>#define</code> per le dimensioni — sempre consigliato:</p>
@@ -522,8 +541,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> m<span class="op">[</span>RIGHE<span class="op">][</span>COLONNE<span class="op">];</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="inizializzazione" class="level3" data-number="11.2.2">
-<h3 data-number="11.2.2" class="anchored" data-anchor-id="inizializzazione"><span class="header-section-number">11.2.2</span> Inizializzazione</h3>
+<section id="inizializzazione" class="level3">
+<h3 class="anchored" data-anchor-id="inizializzazione">Inizializzazione</h3>
 <p><strong>Forma “tabella”</strong> — più leggibile:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> m<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">3</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">},</span></span>
@@ -536,8 +555,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Azzerare tutto:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> m<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">4</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">0</span><span class="op">};</span>   <span class="co">/* tutti gli elementi a 0 */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="accesso-a-un-elemento" class="level3" data-number="11.2.3">
-<h3 data-number="11.2.3" class="anchored" data-anchor-id="accesso-a-un-elemento"><span class="header-section-number">11.2.3</span> Accesso a un elemento</h3>
+<section id="accesso-a-un-elemento" class="level3">
+<h3 class="anchored" data-anchor-id="accesso-a-un-elemento">Accesso a un elemento</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>m<span class="op">[</span><span class="dv">0</span><span class="op">][</span><span class="dv">2</span><span class="op">]</span>   <span class="co">/* riga 0, colonna 2 */</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>m<span class="op">[</span><span class="dv">1</span><span class="op">][</span><span class="dv">3</span><span class="op">]</span>   <span class="co">/* riga 1, colonna 3 */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Prima l’indice riga, poi l’indice colonna. Come dire: “vai alla riga 0, poi alla colonna 2”.</p>
@@ -560,8 +579,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="blocco-2-saper-scorrere-una-matrice" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="blocco-2-saper-scorrere-una-matrice"><span class="header-section-number">11.3</span> Blocco 2: Saper scorrere una matrice</h2>
+<section id="blocco-2-saper-scorrere-una-matrice" class="level2">
+<h2 class="anchored" data-anchor-id="blocco-2-saper-scorrere-una-matrice">Blocco 2: Saper scorrere una matrice</h2>
 <p>Questo è il cuore di quasi tutto: se non sai fare questo, non puoi fare né somme né ricerche.</p>
 <p>Lo schema mentale deve essere: <strong>per ogni riga, scorri tutte le colonne</strong>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i<span class="op">,</span> j<span class="op">;</span></span>
@@ -570,8 +589,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        <span class="co">/* lavoro su m[i][j] */</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<section id="leggere-una-matrice-dallutente" class="level3" data-number="11.3.1">
-<h3 data-number="11.3.1" class="anchored" data-anchor-id="leggere-una-matrice-dallutente"><span class="header-section-number">11.3.1</span> Leggere una matrice dall’utente</h3>
+<section id="leggere-una-matrice-dallutente" class="level3">
+<h3 class="anchored" data-anchor-id="leggere-una-matrice-dallutente">Leggere una matrice dall’utente</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i<span class="op">,</span> j<span class="op">;</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> RIGHE<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> COLONNE<span class="op">;</span> j<span class="op">++)</span> <span class="op">{</span></span>
@@ -580,8 +599,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="stampare-una-matrice" class="level3" data-number="11.3.2">
-<h3 data-number="11.3.2" class="anchored" data-anchor-id="stampare-una-matrice"><span class="header-section-number">11.3.2</span> Stampare una matrice</h3>
+<section id="stampare-una-matrice" class="level3">
+<h3 class="anchored" data-anchor-id="stampare-una-matrice">Stampare una matrice</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i<span class="op">,</span> j<span class="op">;</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> RIGHE<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> COLONNE<span class="op">;</span> j<span class="op">++)</span> <span class="op">{</span></span>
@@ -594,8 +613,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    4   5   6
    7   8   9</code></pre>
 </section>
-<section id="somma-di-tutti-gli-elementi" class="level3" data-number="11.3.3">
-<h3 data-number="11.3.3" class="anchored" data-anchor-id="somma-di-tutti-gli-elementi"><span class="header-section-number">11.3.3</span> Somma di tutti gli elementi</h3>
+<section id="somma-di-tutti-gli-elementi" class="level3">
+<h3 class="anchored" data-anchor-id="somma-di-tutti-gli-elementi">Somma di tutti gli elementi</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> somma <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> RIGHE<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> COLONNE<span class="op">;</span> j<span class="op">++)</span> <span class="op">{</span></span>
@@ -604,8 +623,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"Somma: </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> somma<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="ricerca-del-massimo" class="level3" data-number="11.3.4">
-<h3 data-number="11.3.4" class="anchored" data-anchor-id="ricerca-del-massimo"><span class="header-section-number">11.3.4</span> Ricerca del massimo</h3>
+<section id="ricerca-del-massimo" class="level3">
+<h3 class="anchored" data-anchor-id="ricerca-del-massimo">Ricerca del massimo</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> max <span class="op">=</span> m<span class="op">[</span><span class="dv">0</span><span class="op">][</span><span class="dv">0</span><span class="op">];</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> RIGHE<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> COLONNE<span class="op">;</span> j<span class="op">++)</span> <span class="op">{</span></span>
@@ -615,8 +634,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"Massimo: </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> max<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="somma-di-una-riga-specifica" class="level3" data-number="11.3.5">
-<h3 data-number="11.3.5" class="anchored" data-anchor-id="somma-di-una-riga-specifica"><span class="header-section-number">11.3.5</span> Somma di una riga specifica</h3>
+<section id="somma-di-una-riga-specifica" class="level3">
+<h3 class="anchored" data-anchor-id="somma-di-una-riga-specifica">Somma di una riga specifica</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> r <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>   <span class="co">/* seconda riga */</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> COLONNE<span class="op">;</span> j<span class="op">++)</span> <span class="op">{</span></span>
@@ -624,8 +643,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"Somma riga </span><span class="sc">%d</span><span class="st">: </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> r<span class="op">,</span> s<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="somma-di-una-colonna-specifica" class="level3" data-number="11.3.6">
-<h3 data-number="11.3.6" class="anchored" data-anchor-id="somma-di-una-colonna-specifica"><span class="header-section-number">11.3.6</span> Somma di una colonna specifica</h3>
+<section id="somma-di-una-colonna-specifica" class="level3">
+<h3 class="anchored" data-anchor-id="somma-di-una-colonna-specifica">Somma di una colonna specifica</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> c <span class="op">=</span> <span class="dv">2</span><span class="op">;</span>   <span class="co">/* terza colonna */</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> RIGHE<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
@@ -633,8 +652,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"Somma colonna </span><span class="sc">%d</span><span class="st">: </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> c<span class="op">,</span> s<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="diagonale-principale-solo-matrici-quadrate" class="level3" data-number="11.3.7">
-<h3 data-number="11.3.7" class="anchored" data-anchor-id="diagonale-principale-solo-matrici-quadrate"><span class="header-section-number">11.3.7</span> Diagonale principale (solo matrici quadrate)</h3>
+<section id="diagonale-principale-solo-matrici-quadrate" class="level3">
+<h3 class="anchored" data-anchor-id="diagonale-principale-solo-matrici-quadrate">Diagonale principale (solo matrici quadrate)</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* La diagonale principale ha i == j */</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> RIGHE<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
@@ -644,8 +663,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="blocco-3-funzioni-con-le-matrici" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="blocco-3-funzioni-con-le-matrici"><span class="header-section-number">11.4</span> Blocco 3: Funzioni con le matrici</h2>
+<section id="blocco-3-funzioni-con-le-matrici" class="level2">
+<h2 class="anchored" data-anchor-id="blocco-3-funzioni-con-le-matrici">Blocco 3: Funzioni con le matrici</h2>
 <p>Quando passi una matrice a una funzione, devi specificare almeno la dimensione delle colonne.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> stampa<span class="op">(</span><span class="dt">int</span> m<span class="op">[][</span><span class="dv">4</span><span class="op">],</span> <span class="dt">int</span> righe<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i<span class="op">,</span> j<span class="op">;</span></span>
@@ -671,8 +690,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Il numero di righe invece puoi passarlo come parametro, come facevi con gli array monodimensionali.</p>
 </div>
 </div>
-<section id="schema-delle-funzioni-più-comuni" class="level3" data-number="11.4.1">
-<h3 data-number="11.4.1" class="anchored" data-anchor-id="schema-delle-funzioni-più-comuni"><span class="header-section-number">11.4.1</span> Schema delle funzioni più comuni</h3>
+<section id="schema-delle-funzioni-più-comuni" class="level3">
+<h3 class="anchored" data-anchor-id="schema-delle-funzioni-più-comuni">Schema delle funzioni più comuni</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Somma tutti gli elementi */</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> somma<span class="op">(</span><span class="dt">int</span> m<span class="op">[][</span>COLONNE<span class="op">],</span> <span class="dt">int</span> righe<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i<span class="op">,</span> j<span class="op">,</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
@@ -704,8 +723,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="blocco-4-sizeof-e-matrici" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="blocco-4-sizeof-e-matrici"><span class="header-section-number">11.5</span> Blocco 4: sizeof e matrici</h2>
+<section id="blocco-4-sizeof-e-matrici" class="level2">
+<h2 class="anchored" data-anchor-id="blocco-4-sizeof-e-matrici">Blocco 4: sizeof e matrici</h2>
 <p>Puoi usare <code>sizeof</code> per calcolare dimensioni e indici — ma solo nello stesso scope in cui la matrice è dichiarata, non dentro le funzioni.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> m<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">4</span><span class="op">];</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -734,8 +753,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <hr>
 </section>
-<section id="esempio-completo" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="esempio-completo"><span class="header-section-number">11.6</span> Esempio completo</h2>
+<section id="esempio-completo" class="level2">
+<h2 class="anchored" data-anchor-id="esempio-completo">Esempio completo</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#define RIGHE   </span><span class="dv">3</span></span>
@@ -806,8 +825,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb22-68"><a href="#cb22-68" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="schema-mentale" class="level2" data-number="11.7">
-<h2 data-number="11.7" class="anchored" data-anchor-id="schema-mentale"><span class="header-section-number">11.7</span> Schema mentale</h2>
+<section id="schema-mentale" class="level2">
+<h2 class="anchored" data-anchor-id="schema-mentale">Schema mentale</h2>
 <pre><code>Devo lavorare su tutta la matrice?
     → due cicli annidati: for i (righe) → for j (colonne)
 
@@ -825,14 +844,15 @@ Devo passare la matrice a una funzione?
     → passa le righe come parametro</code></pre>
 <hr>
 </section>
-<section id="esercizi" class="level2" data-number="11.8">
-<h2 data-number="11.8" class="anchored" data-anchor-id="esercizi"><span class="header-section-number">11.8</span> Esercizi</h2>
+<section id="esercizi" class="level2">
+<h2 class="anchored" data-anchor-id="esercizi">Esercizi</h2>
 <p><strong>Esercizio 1</strong> Scrivi un programma che legge una matrice 3×3 e stampa la somma di ogni riga e di ogni colonna.</p>
 <p><strong>Esercizio 2</strong> Scrivi una funzione <code>int contieneValore(int m[][COLONNE], int righe, int val)</code> che restituisce 1 se il valore <code>val</code> è presente nella matrice, 0 altrimenti.</p>
 <p><strong>Esercizio 3</strong> Scrivi una funzione <code>void trasposta(int m[][COLONNE], int t[][RIGHE], int righe)</code> che calcola la trasposta di una matrice (scambia righe e colonne).</p>
 <p><strong>Esercizio 4</strong> Scrivi un programma che legge una matrice quadrata NxN e verifica se è simmetrica (cioè se <code>m[i][j] == m[j][i]</code> per ogni <code>i</code> e <code>j</code>).</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -909,7 +929,7 @@ Devo passare la matrice a una funzione?
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/luisalealirizzi\.github\.io\/learning_stack\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1236,18 +1256,6 @@ Devo passare la matrice a una funzione?
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../docs/c/09_array.html" class="pagination-link" aria-label="Array">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Array</span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../docs/c/11_stringhe.html" class="pagination-link" aria-label="Stringhe">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Stringhe</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

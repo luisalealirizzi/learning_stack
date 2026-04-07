@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Variabili e tipi – Learning Stack</title>
+<title>variabili_tipi – Learning Stack</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -68,8 +68,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../docs/c/03_operatori.html" rel="next">
-<link href="../../docs/c/01_introduzione.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -79,13 +77,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-1f9e6d70b8b583c31478a0530d9dad38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-bf48ec02367bdbf5a16ab0867e90c56e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -111,334 +109,366 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Learning Stack</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../pdfs/Learning-Stack-—-C.pdf"> <i class="bi bi-file-pdf" role="img">
+</i> 
+<span class="menu-text">PDF C</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../pdfs/Learning-Stack-—-Java.pdf"> <i class="bi bi-file-pdf" role="img">
+</i> 
+<span class="menu-text">PDF Java</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/c/01_introduzione.html">C: Fondamenti</a></li><li class="breadcrumb-item"><a href="../../docs/c/02_variabili_tipi.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variabili e tipi</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">C</li><li class="breadcrumb-item"><a href="../../docs/c/01_introduzione.html">Fondamenti</a></li><li class="breadcrumb-item"><a href="../../docs/c/02_variabili_tipi.html">Variabili e tipi</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Learning Stack</a> 
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Learning Stack</span></span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">C: Fondamenti</span></a>
+ <span class="menu-text">C</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Fondamenti</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/01_introduzione.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduzione al linguaggio C</span></span></a>
+ <span class="menu-text">Introduzione al linguaggio C</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/02_variabili_tipi.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variabili e tipi</span></span></a>
+ <span class="menu-text">Variabili e tipi</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/03_operatori.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Operatori</span></span></a>
+ <span class="menu-text">Operatori</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/04_input_output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Input e output</span></span></a>
+ <span class="menu-text">Input e output</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/05_selezione.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Selezione</span></span></a>
+ <span class="menu-text">Selezione</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/06_iterazione.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Iterazione</span></span></a>
+ <span class="menu-text">Iterazione</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/07_funzioni.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Funzioni</span></span></a>
+ <span class="menu-text">Funzioni</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/08_boolean.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Il tipo booleano</span></span></a>
+ <span class="menu-text">Il tipo booleano</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">C: Strutture dati</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Strutture dati</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/09_array.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Array</span></span></a>
+ <span class="menu-text">Array</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/10_matrici.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matrici</span></span></a>
+ <span class="menu-text">Matrici</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/11_stringhe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Stringhe</span></span></a>
+ <span class="menu-text">Stringhe</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">C: Puntatori</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Puntatori</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/c/12_puntatori.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Puntatori</span></span></a>
+ <span class="menu-text">Puntatori</span></a>
   </div>
 </li>
       </ul>
   </li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: Introduzione</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Java</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Introduzione</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/01_introduzione.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Introduzione a Java</span></span></a>
+ <span class="menu-text">Introduzione a Java</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/02_tipi_e_stringhe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tipi, stringhe e input</span></span></a>
+ <span class="menu-text">Tipi, stringhe e input</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: OOP</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">OOP</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/03_paradigmi_e_oggetti.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Paradigmi e oggetti</span></span></a>
+ <span class="menu-text">Paradigmi e oggetti</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/04_creare_una_classe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Creare una classe</span></span></a>
+ <span class="menu-text">Creare una classe</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/05_incapsulamento_adt.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Incapsulamento e ADT</span></span></a>
+ <span class="menu-text">Incapsulamento e ADT</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/06_ereditarieta.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ereditarietà</span></span></a>
+ <span class="menu-text">Ereditarietà</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/07_polimorfismo_upcasting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Polimorfismo, upcasting e downcasting</span></span></a>
+ <span class="menu-text">Polimorfismo, upcasting e downcasting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/08_classi_astratte_interfacce.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Classi astratte e interfacce</span></span></a>
+ <span class="menu-text">Classi astratte e interfacce</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: Eccezioni</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">Eccezioni</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/09_eccezioni.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Eccezioni</span></span></a>
+ <span class="menu-text">Eccezioni</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: Collections e Stream</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Collections e Stream</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/10_collections.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Java Collections</span></span></a>
+ <span class="menu-text">Java Collections</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/11_list_set_queue.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">List, Set e Queue</span></span></a>
+ <span class="menu-text">List, Set e Queue</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/12_stream_pipeline.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Stream e pipeline</span></span></a>
+ <span class="menu-text">Stream e pipeline</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: Stringhe avanzate</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text">Stringhe avanzate</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/13_stringhe_avanzate.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Stringhe avanzate</span></span></a>
+ <span class="menu-text">Stringhe avanzate</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: Gestione file</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
+ <span class="menu-text">Gestione file</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/14_path_files_log.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Path, Files e Log</span></span></a>
+ <span class="menu-text">Path, Files e Log</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/15_buffer_scrittura.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Buffer e scrittura</span></span></a>
+ <span class="menu-text">Buffer e scrittura</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">Java: Qualità del codice</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text">Qualità del codice</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/16_testing_junit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Testing con JUnit</span></span></a>
+ <span class="menu-text">Testing con JUnit</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/17_solid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">17_solid.html</span></span></a>
+ <span class="menu-text">17_solid.html</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/java/18_design_pattern.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">18_design_pattern.html</span></span></a>
+ <span class="menu-text">18_design_pattern.html</span></a>
   </div>
 </li>
+      </ul>
+  </li>
       </ul>
   </li>
     </ul>
@@ -448,61 +478,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#cosè-una-variabile" id="toc-cosè-una-variabile" class="nav-link active" data-scroll-target="#cosè-una-variabile"><span class="header-section-number">3.1</span> Cos’è una variabile</a></li>
-  <li><a href="#dichiarazione-e-assegnazione" id="toc-dichiarazione-e-assegnazione" class="nav-link" data-scroll-target="#dichiarazione-e-assegnazione"><span class="header-section-number">3.2</span> Dichiarazione e assegnazione</a></li>
-  <li><a href="#i-tipi-di-dato" id="toc-i-tipi-di-dato" class="nav-link" data-scroll-target="#i-tipi-di-dato"><span class="header-section-number">3.3</span> I tipi di dato</a>
+  <li><a href="#variabili-e-tipi" id="toc-variabili-e-tipi" class="nav-link active" data-scroll-target="#variabili-e-tipi">Variabili e tipi</a>
   <ul class="collapse">
-  <li><a href="#int-numeri-interi" id="toc-int-numeri-interi" class="nav-link" data-scroll-target="#int-numeri-interi"><span class="header-section-number">3.3.1</span> int: numeri interi</a></li>
-  <li><a href="#float-e-double-numeri-decimali" id="toc-float-e-double-numeri-decimali" class="nav-link" data-scroll-target="#float-e-double-numeri-decimali"><span class="header-section-number">3.3.2</span> float e double: numeri decimali</a></li>
-  <li><a href="#char-un-singolo-carattere" id="toc-char-un-singolo-carattere" class="nav-link" data-scroll-target="#char-un-singolo-carattere"><span class="header-section-number">3.3.3</span> char: un singolo carattere</a></li>
+  <li><a href="#cosè-una-variabile" id="toc-cosè-una-variabile" class="nav-link" data-scroll-target="#cosè-una-variabile">Cos’è una variabile</a></li>
+  <li><a href="#dichiarazione-e-assegnazione" id="toc-dichiarazione-e-assegnazione" class="nav-link" data-scroll-target="#dichiarazione-e-assegnazione">Dichiarazione e assegnazione</a></li>
+  <li><a href="#i-tipi-di-dato" id="toc-i-tipi-di-dato" class="nav-link" data-scroll-target="#i-tipi-di-dato">I tipi di dato</a>
+  <ul class="collapse">
+  <li><a href="#int-numeri-interi" id="toc-int-numeri-interi" class="nav-link" data-scroll-target="#int-numeri-interi">int: numeri interi</a></li>
+  <li><a href="#float-e-double-numeri-decimali" id="toc-float-e-double-numeri-decimali" class="nav-link" data-scroll-target="#float-e-double-numeri-decimali">float e double: numeri decimali</a></li>
+  <li><a href="#char-un-singolo-carattere" id="toc-char-un-singolo-carattere" class="nav-link" data-scroll-target="#char-un-singolo-carattere">char: un singolo carattere</a></li>
   </ul></li>
-  <li><a href="#tabella-riassuntiva" id="toc-tabella-riassuntiva" class="nav-link" data-scroll-target="#tabella-riassuntiva"><span class="header-section-number">3.4</span> Tabella riassuntiva</a></li>
-  <li><a href="#le-costanti" id="toc-le-costanti" class="nav-link" data-scroll-target="#le-costanti"><span class="header-section-number">3.5</span> Le costanti</a></li>
-  <li><a href="#i-nomi-delle-variabili" id="toc-i-nomi-delle-variabili" class="nav-link" data-scroll-target="#i-nomi-delle-variabili"><span class="header-section-number">3.6</span> I nomi delle variabili</a></li>
-  <li><a href="#stampare-le-variabili-con-printf" id="toc-stampare-le-variabili-con-printf" class="nav-link" data-scroll-target="#stampare-le-variabili-con-printf"><span class="header-section-number">3.7</span> Stampare le variabili con printf</a></li>
-  <li><a href="#leggere-le-variabili-con-scanf" id="toc-leggere-le-variabili-con-scanf" class="nav-link" data-scroll-target="#leggere-le-variabili-con-scanf"><span class="header-section-number">3.8</span> Leggere le variabili con scanf</a></li>
-  <li><a href="#esempio-completo" id="toc-esempio-completo" class="nav-link" data-scroll-target="#esempio-completo"><span class="header-section-number">3.9</span> Esempio completo</a></li>
-  <li><a href="#schema-mentale" id="toc-schema-mentale" class="nav-link" data-scroll-target="#schema-mentale"><span class="header-section-number">3.10</span> Schema mentale</a></li>
-  <li><a href="#esercizi" id="toc-esercizi" class="nav-link" data-scroll-target="#esercizi"><span class="header-section-number">3.11</span> Esercizi</a></li>
+  <li><a href="#tabella-riassuntiva" id="toc-tabella-riassuntiva" class="nav-link" data-scroll-target="#tabella-riassuntiva">Tabella riassuntiva</a></li>
+  <li><a href="#le-costanti" id="toc-le-costanti" class="nav-link" data-scroll-target="#le-costanti">Le costanti</a></li>
+  <li><a href="#i-nomi-delle-variabili" id="toc-i-nomi-delle-variabili" class="nav-link" data-scroll-target="#i-nomi-delle-variabili">I nomi delle variabili</a></li>
+  <li><a href="#stampare-le-variabili-con-printf" id="toc-stampare-le-variabili-con-printf" class="nav-link" data-scroll-target="#stampare-le-variabili-con-printf">Stampare le variabili con printf</a></li>
+  <li><a href="#leggere-le-variabili-con-scanf" id="toc-leggere-le-variabili-con-scanf" class="nav-link" data-scroll-target="#leggere-le-variabili-con-scanf">Leggere le variabili con scanf</a></li>
+  <li><a href="#esempio-completo" id="toc-esempio-completo" class="nav-link" data-scroll-target="#esempio-completo">Esempio completo</a></li>
+  <li><a href="#schema-mentale" id="toc-schema-mentale" class="nav-link" data-scroll-target="#schema-mentale">Schema mentale</a></li>
+  <li><a href="#esercizi" id="toc-esercizi" class="nav-link" data-scroll-target="#esercizi">Esercizi</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/c/01_introduzione.html">C: Fondamenti</a></li><li class="breadcrumb-item"><a href="../../docs/c/02_variabili_tipi.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variabili e tipi</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variabili e tipi</span></h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">C</li><li class="breadcrumb-item"><a href="../../docs/c/01_introduzione.html">Fondamenti</a></li><li class="breadcrumb-item"><a href="../../docs/c/02_variabili_tipi.html">Variabili e tipi</a></li></ol></nav></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
+<section id="variabili-e-tipi" class="level1">
+<h1>Variabili e tipi</h1>
 <hr>
-<section id="cosè-una-variabile" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="cosè-una-variabile"><span class="header-section-number">3.1</span> Cos’è una variabile</h2>
+<section id="cosè-una-variabile" class="level2">
+<h2 class="anchored" data-anchor-id="cosè-una-variabile">Cos’è una variabile</h2>
 <p>Un programma ha bisogno di ricordare dei dati mentre lavora: il nome di un utente, il risultato di un calcolo, l’età di una persona. Per farlo usa le <strong>variabili</strong>.</p>
 <p>Una variabile è una zona di memoria con un nome. Quando dichiari una variabile, stai dicendo al computer: <em>“tieni da parte un po’ di memoria e chiamala con questo nome”</em>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> eta<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Questa riga dichiara una variabile chiamata <code>eta</code> che può contenere un numero intero. Per ora è vuota — non ha ancora un valore.</p>
 <hr>
 </section>
-<section id="dichiarazione-e-assegnazione" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="dichiarazione-e-assegnazione"><span class="header-section-number">3.2</span> Dichiarazione e assegnazione</h2>
+<section id="dichiarazione-e-assegnazione" class="level2">
+<h2 class="anchored" data-anchor-id="dichiarazione-e-assegnazione">Dichiarazione e assegnazione</h2>
 <p>In C devi sempre <strong>dichiarare</strong> una variabile prima di usarla. La dichiarazione dice due cose: il tipo e il nome.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> eta<span class="op">;</span>           <span class="co">/* dichiarazione */</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>eta <span class="op">=</span> <span class="dv">17</span><span class="op">;</span>          <span class="co">/* assegnazione */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -526,25 +545,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <hr>
 </section>
-<section id="i-tipi-di-dato" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="i-tipi-di-dato"><span class="header-section-number">3.3</span> I tipi di dato</h2>
+<section id="i-tipi-di-dato" class="level2">
+<h2 class="anchored" data-anchor-id="i-tipi-di-dato">I tipi di dato</h2>
 <p>Il tipo di una variabile determina: - che <strong>tipo di valore</strong> può contenere (numero intero, numero decimale, carattere…) - quanta <strong>memoria</strong> occupa</p>
 <p>I tipi fondamentali del C sono quattro.</p>
-<section id="int-numeri-interi" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="int-numeri-interi"><span class="header-section-number">3.3.1</span> int: numeri interi</h3>
+<section id="int-numeri-interi" class="level3">
+<h3 class="anchored" data-anchor-id="int-numeri-interi">int: numeri interi</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> punteggio <span class="op">=</span> <span class="dv">1500</span><span class="op">;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> livello <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> temperatura <span class="op">=</span> <span class="op">-</span><span class="dv">5</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Contiene numeri interi, positivi o negativi. Occupa tipicamente 4 byte.</p>
 </section>
-<section id="float-e-double-numeri-decimali" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="float-e-double-numeri-decimali"><span class="header-section-number">3.3.2</span> float e double: numeri decimali</h3>
+<section id="float-e-double-numeri-decimali" class="level3">
+<h3 class="anchored" data-anchor-id="float-e-double-numeri-decimali">float e double: numeri decimali</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> media <span class="op">=</span> <span class="fl">7.5</span><span class="op">;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> pigreco <span class="op">=</span> <span class="fl">3.14159265358979</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>float</code> è a precisione singola (4 byte), <code>double</code> a precisione doppia (8 byte). Nella pratica si usa quasi sempre <code>double</code> perché è più preciso.</p>
 </section>
-<section id="char-un-singolo-carattere" class="level3" data-number="3.3.3">
-<h3 data-number="3.3.3" class="anchored" data-anchor-id="char-un-singolo-carattere"><span class="header-section-number">3.3.3</span> char: un singolo carattere</h3>
+<section id="char-un-singolo-carattere" class="level3">
+<h3 class="anchored" data-anchor-id="char-un-singolo-carattere">char: un singolo carattere</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> iniziale <span class="op">=</span> <span class="ch">'A'</span><span class="op">;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> risposta <span class="op">=</span> <span class="ch">'s'</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Contiene un singolo carattere. Si scrive sempre tra <strong>apici singoli</strong> <code>' '</code> — non tra virgolette. Occupa 1 byte.</p>
@@ -568,8 +587,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="tabella-riassuntiva" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="tabella-riassuntiva"><span class="header-section-number">3.4</span> Tabella riassuntiva</h2>
+<section id="tabella-riassuntiva" class="level2">
+<h2 class="anchored" data-anchor-id="tabella-riassuntiva">Tabella riassuntiva</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -603,8 +622,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <hr>
 </section>
-<section id="le-costanti" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="le-costanti"><span class="header-section-number">3.5</span> Le costanti</h2>
+<section id="le-costanti" class="level2">
+<h2 class="anchored" data-anchor-id="le-costanti">Le costanti</h2>
 <p>A volte hai un valore che non deve mai cambiare — per esempio il numero di giorni in una settimana o il valore del pi greco. In quel caso usi una <strong>costante</strong>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define PI </span><span class="fl">3.14159</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#define GIORNI_SETTIMANA </span><span class="dv">7</span></span>
@@ -612,8 +631,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>#define</code> non è una variabile — è una sostituzione: ogni volta che il compilatore trova <code>PI</code> nel codice, lo sostituisce con <code>3.14159</code>. Per convenzione i nomi delle costanti si scrivono in maiuscolo.</p>
 <hr>
 </section>
-<section id="i-nomi-delle-variabili" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="i-nomi-delle-variabili"><span class="header-section-number">3.6</span> I nomi delle variabili</h2>
+<section id="i-nomi-delle-variabili" class="level2">
+<h2 class="anchored" data-anchor-id="i-nomi-delle-variabili">I nomi delle variabili</h2>
 <p>Puoi chiamare le variabili come vuoi, ma ci sono delle regole:</p>
 <p><strong>Regole obbligatorie:</strong> - può contenere lettere, cifre e underscore <code>_</code> - non può iniziare con una cifra - non può essere una parola riservata del C (<code>int</code>, <code>if</code>, <code>while</code>…)</p>
 <p><strong>Convenzioni (buone abitudini):</strong> - usa nomi significativi: <code>eta</code> è meglio di <code>x</code>, <code>punteggioGiocatore</code> è meglio di <code>pg</code> - usa il camelCase per nomi composti: <code>punteggioTotale</code>, <code>nomeUtente</code> - evita nomi di una sola lettera (tranne <code>i</code>, <code>j</code>, <code>k</code> nei cicli)</p>
@@ -625,8 +644,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="dt">int</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>               <span class="co">/* ERRORE — int è una parola riservata */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="stampare-le-variabili-con-printf" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="stampare-le-variabili-con-printf"><span class="header-section-number">3.7</span> Stampare le variabili con printf</h2>
+<section id="stampare-le-variabili-con-printf" class="level2">
+<h2 class="anchored" data-anchor-id="stampare-le-variabili-con-printf">Stampare le variabili con printf</h2>
 <p>Per stampare una variabile con <code>printf</code> devi usare un <strong>segnaposto</strong> — un codice che indica il tipo della variabile.</p>
 <table class="caption-top table">
 <thead>
@@ -674,8 +693,8 @@ Voto: A</code></pre>
 <p>I segnaposto vengono sostituiti nell’ordine in cui compaiono — il primo <code>%d</code> con il primo valore, il secondo con il secondo, e così via.</p>
 <hr>
 </section>
-<section id="leggere-le-variabili-con-scanf" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="leggere-le-variabili-con-scanf"><span class="header-section-number">3.8</span> Leggere le variabili con scanf</h2>
+<section id="leggere-le-variabili-con-scanf" class="level2">
+<h2 class="anchored" data-anchor-id="leggere-le-variabili-con-scanf">Leggere le variabili con scanf</h2>
 <p>Per leggere un valore inserito dall’utente si usa <code>scanf</code>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> eta<span class="op">;</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"Inserisci la tua età: "</span><span class="op">);</span></span>
@@ -706,8 +725,8 @@ Voto: A</code></pre>
 </div>
 <hr>
 </section>
-<section id="esempio-completo" class="level2" data-number="3.9">
-<h2 data-number="3.9" class="anchored" data-anchor-id="esempio-completo"><span class="header-section-number">3.9</span> Esempio completo</h2>
+<section id="esempio-completo" class="level2">
+<h2 class="anchored" data-anchor-id="esempio-completo">Esempio completo</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
@@ -736,8 +755,8 @@ Voto: A</code></pre>
 <span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="schema-mentale" class="level2" data-number="3.10">
-<h2 data-number="3.10" class="anchored" data-anchor-id="schema-mentale"><span class="header-section-number">3.10</span> Schema mentale</h2>
+<section id="schema-mentale" class="level2">
+<h2 class="anchored" data-anchor-id="schema-mentale">Schema mentale</h2>
 <p>Quando dichiari una variabile, chiediti sempre tre cose:</p>
 <pre><code>1. Che tipo di dato devo memorizzare?
    → numero intero?    usa int
@@ -752,8 +771,8 @@ Voto: A</code></pre>
    → lo leggo    → dichiara, poi usa scanf</code></pre>
 <hr>
 </section>
-<section id="esercizi" class="level2" data-number="3.11">
-<h2 data-number="3.11" class="anchored" data-anchor-id="esercizi"><span class="header-section-number">3.11</span> Esercizi</h2>
+<section id="esercizi" class="level2">
+<h2 class="anchored" data-anchor-id="esercizi">Esercizi</h2>
 <p><strong>Esercizio 1</strong> Scrivi un programma che: - dichiara una variabile <code>int</code> per l’anno di nascita e una <code>double</code> per la media scolastica - legge entrambi i valori dall’utente - stampa: <code>"Sei nato nel ANNO e hai una media di MEDIA"</code></p>
 <p><strong>Esercizio 2</strong> Scrivi un programma che legge due numeri interi e stampa la loro somma, differenza, prodotto e quoziente.</p>
 <p><strong>Esercizio 3</strong> Scrivi un programma che legge un carattere e stampa il suo valore numerico ASCII.</p>
@@ -761,6 +780,7 @@ Voto: A</code></pre>
 <p><em>Suggerimento: puoi stampare un <code>char</code> sia con <code>%c</code> (come carattere) sia con <code>%d</code> (come numero).</em></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -837,7 +857,7 @@ Voto: A</code></pre>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/luisalealirizzi\.github\.io\/learning_stack\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1164,18 +1184,6 @@ Voto: A</code></pre>
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../docs/c/01_introduzione.html" class="pagination-link" aria-label="Introduzione al linguaggio C">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduzione al linguaggio C</span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../docs/c/03_operatori.html" class="pagination-link" aria-label="Operatori">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Operatori</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

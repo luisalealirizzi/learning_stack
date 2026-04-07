@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12&nbsp; Guida al piano di indirizzamento IP – Learning Stack</title>
+<title>guida_pianondirizzamento – Learning Stack</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,7 +33,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../docs/c/stringhe/03_tipi_caratteri.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -43,13 +42,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-1f9e6d70b8b583c31478a0530d9dad38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-bf48ec02367bdbf5a16ab0867e90c56e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -75,143 +74,366 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Learning Stack</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../pdfs/Learning-Stack-—-C.pdf"> <i class="bi bi-file-pdf" role="img">
+</i> 
+<span class="menu-text">PDF C</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../pdfs/Learning-Stack-—-Java.pdf"> <i class="bi bi-file-pdf" role="img">
+</i> 
+<span class="menu-text">PDF Java</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/reti/guida_pianondirizzamento.html">Reti</a></li><li class="breadcrumb-item"><a href="../../docs/reti/guida_pianondirizzamento.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Guida al piano di indirizzamento IP</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Learning Stack</a> 
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Learning Stack</span></span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Diagrammi di flusso</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">C</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fondamenti</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/diagrammi_flusso/01_algoritmi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Perché servono gli algoritmi?</span></span></a>
+  <a href="../../docs/c/01_introduzione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduzione al linguaggio C</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/diagrammi_flusso/02_dal_testo_allo_schema.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dal testo allo schema (prima dei simboli)</span></span></a>
+  <a href="../../docs/c/02_variabili_tipi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Variabili e tipi</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/diagrammi_flusso/03_simboli.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">I simboli dei diagrammi di flusso</span></span></a>
+  <a href="../../docs/c/03_operatori.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Operatori</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/diagrammi_flusso/05_esempi_diagrammi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Esempi di diagrammi di flusso</span></span></a>
+  <a href="../../docs/c/04_input_output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Input e output</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/diagrammi_flusso/06_flowgorithm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduzione a Flowgorithm</span></span></a>
+  <a href="../../docs/c/05_selezione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Selezione</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/diagrammi_flusso/07_costruire_un_diagramma.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Costruire un diagramma passo passo</span></span></a>
+  <a href="../../docs/c/06_iterazione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Iterazione</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Variabili e controlli con Flowgorithm</span></span></a>
+  <a href="../../docs/c/07_funzioni.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Funzioni</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/c/08_boolean.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Il tipo booleano</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Linguaggio C</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Strutture dati</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/c/stringhe/01_input_stringhe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stringhe in input in C</span></span></a>
+  <a href="../../docs/c/09_array.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Array</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/c/stringhe/02_scorrimento.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Scorrimento di una stringa in C</span></span></a>
+  <a href="../../docs/c/10_matrici.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrici</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/c/stringhe/03_tipi_caratteri.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Riconoscere i tipi di carattere in C</span></span></a>
+  <a href="../../docs/c/11_stringhe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stringhe</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Reti</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Puntatori</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/reti/guida_pianondirizzamento.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Guida al piano di indirizzamento IP</span></span></a>
+  <a href="../../docs/c/12_puntatori.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Puntatori</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Java</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Introduzione</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/01_introduzione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduzione a Java</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/02_tipi_e_stringhe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tipi, stringhe e input</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">OOP</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/03_paradigmi_e_oggetti.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Paradigmi e oggetti</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/04_creare_una_classe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Creare una classe</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/05_incapsulamento_adt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Incapsulamento e ADT</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/06_ereditarieta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ereditarietà</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/07_polimorfismo_upcasting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Polimorfismo, upcasting e downcasting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/08_classi_astratte_interfacce.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Classi astratte e interfacce</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">Eccezioni</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/09_eccezioni.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Eccezioni</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Collections e Stream</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/10_collections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Java Collections</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/11_list_set_queue.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">List, Set e Queue</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/12_stream_pipeline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stream e pipeline</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text">Stringhe avanzate</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/13_stringhe_avanzate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stringhe avanzate</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
+ <span class="menu-text">Gestione file</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/14_path_files_log.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Path, Files e Log</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/15_buffer_scrittura.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Buffer e scrittura</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text">Qualità del codice</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/16_testing_junit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Testing con JUnit</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/17_solid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">17_solid.html</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/java/18_design_pattern.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">18_design_pattern.html</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
     </ul>
@@ -221,65 +443,54 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#passo-1-calcolare-gli-host-necessari" id="toc-passo-1-calcolare-gli-host-necessari" class="nav-link active" data-scroll-target="#passo-1-calcolare-gli-host-necessari"><span class="header-section-number">12.1</span> PASSO 1: Calcolare gli host necessari</a></li>
-  <li><a href="#passo-2-definire-lindirizzo-di-rete" id="toc-passo-2-definire-lindirizzo-di-rete" class="nav-link" data-scroll-target="#passo-2-definire-lindirizzo-di-rete"><span class="header-section-number">12.2</span> PASSO 2: Definire l’indirizzo di rete</a>
+  <li><a href="#guida-al-piano-di-indirizzamento-ip" id="toc-guida-al-piano-di-indirizzamento-ip" class="nav-link active" data-scroll-target="#guida-al-piano-di-indirizzamento-ip">Guida al piano di indirizzamento IP</a>
   <ul class="collapse">
-  <li><a href="#scelta-dello-spazio-privato-e-del-prefisso" id="toc-scelta-dello-spazio-privato-e-del-prefisso" class="nav-link" data-scroll-target="#scelta-dello-spazio-privato-e-del-prefisso"><span class="header-section-number">12.2.1</span> Scelta dello spazio privato e del prefisso</a></li>
-  <li><a href="#regole-importanti" id="toc-regole-importanti" class="nav-link" data-scroll-target="#regole-importanti"><span class="header-section-number">12.2.2</span> Regole importanti</a></li>
-  <li><a href="#esempi" id="toc-esempi" class="nav-link" data-scroll-target="#esempi"><span class="header-section-number">12.2.3</span> Esempi</a></li>
-  <li><a href="#calcolo-del-prefisso" id="toc-calcolo-del-prefisso" class="nav-link" data-scroll-target="#calcolo-del-prefisso"><span class="header-section-number">12.2.4</span> Calcolo del prefisso</a></li>
-  </ul></li>
-  <li><a href="#passo-3-scegliere-il-blocco-giusto" id="toc-passo-3-scegliere-il-blocco-giusto" class="nav-link" data-scroll-target="#passo-3-scegliere-il-blocco-giusto"><span class="header-section-number">12.3</span> PASSO 3: Scegliere il blocco giusto</a>
+  <li><a href="#passo-1-calcolare-gli-host-necessari" id="toc-passo-1-calcolare-gli-host-necessari" class="nav-link" data-scroll-target="#passo-1-calcolare-gli-host-necessari">PASSO 1: Calcolare gli host necessari</a></li>
+  <li><a href="#passo-2-definire-lindirizzo-di-rete" id="toc-passo-2-definire-lindirizzo-di-rete" class="nav-link" data-scroll-target="#passo-2-definire-lindirizzo-di-rete">PASSO 2: Definire l’indirizzo di rete</a>
   <ul class="collapse">
-  <li><a href="#tabella-utile" id="toc-tabella-utile" class="nav-link" data-scroll-target="#tabella-utile"><span class="header-section-number">12.3.1</span> Tabella utile</a></li>
+  <li><a href="#scelta-dello-spazio-privato-e-del-prefisso" id="toc-scelta-dello-spazio-privato-e-del-prefisso" class="nav-link" data-scroll-target="#scelta-dello-spazio-privato-e-del-prefisso">Scelta dello spazio privato e del prefisso</a></li>
+  <li><a href="#regole-importanti" id="toc-regole-importanti" class="nav-link" data-scroll-target="#regole-importanti">Regole importanti</a></li>
+  <li><a href="#esempi" id="toc-esempi" class="nav-link" data-scroll-target="#esempi">Esempi</a></li>
+  <li><a href="#calcolo-del-prefisso" id="toc-calcolo-del-prefisso" class="nav-link" data-scroll-target="#calcolo-del-prefisso">Calcolo del prefisso</a></li>
   </ul></li>
-  <li><a href="#passo-4-ordinare-le-subnet" id="toc-passo-4-ordinare-le-subnet" class="nav-link" data-scroll-target="#passo-4-ordinare-le-subnet"><span class="header-section-number">12.4</span> PASSO 4: Ordinare le subnet</a></li>
-  <li><a href="#passo-5-capire-il-salto" id="toc-passo-5-capire-il-salto" class="nav-link" data-scroll-target="#passo-5-capire-il-salto"><span class="header-section-number">12.5</span> PASSO 5: Capire il salto</a></li>
-  <li><a href="#passo-6-assegnare-le-subnet" id="toc-passo-6-assegnare-le-subnet" class="nav-link" data-scroll-target="#passo-6-assegnare-le-subnet"><span class="header-section-number">12.6</span> PASSO 6: Assegnare le subnet</a>
+  <li><a href="#passo-3-scegliere-il-blocco-giusto" id="toc-passo-3-scegliere-il-blocco-giusto" class="nav-link" data-scroll-target="#passo-3-scegliere-il-blocco-giusto">PASSO 3: Scegliere il blocco giusto</a>
   <ul class="collapse">
-  <li><a href="#regole" id="toc-regole" class="nav-link" data-scroll-target="#regole"><span class="header-section-number">12.6.1</span> Regole</a></li>
-  <li><a href="#esempio" id="toc-esempio" class="nav-link" data-scroll-target="#esempio"><span class="header-section-number">12.6.2</span> Esempio</a></li>
+  <li><a href="#tabella-utile" id="toc-tabella-utile" class="nav-link" data-scroll-target="#tabella-utile">Tabella utile</a></li>
   </ul></li>
-  <li><a href="#passo-7-passare-alla-subnet-successiva" id="toc-passo-7-passare-alla-subnet-successiva" class="nav-link" data-scroll-target="#passo-7-passare-alla-subnet-successiva"><span class="header-section-number">12.7</span> PASSO 7: Passare alla subnet successiva</a></li>
-  <li><a href="#passo-8-ripetere" id="toc-passo-8-ripetere" class="nav-link" data-scroll-target="#passo-8-ripetere"><span class="header-section-number">12.8</span> PASSO 8: Ripetere</a></li>
-  <li><a href="#passo-9-controllo-finale" id="toc-passo-9-controllo-finale" class="nav-link" data-scroll-target="#passo-9-controllo-finale"><span class="header-section-number">12.9</span> PASSO 9: Controllo finale</a></li>
-  <li><a href="#casi-particolari" id="toc-casi-particolari" class="nav-link" data-scroll-target="#casi-particolari"><span class="header-section-number">12.10</span> CASI PARTICOLARI</a>
+  <li><a href="#passo-4-ordinare-le-subnet" id="toc-passo-4-ordinare-le-subnet" class="nav-link" data-scroll-target="#passo-4-ordinare-le-subnet">PASSO 4: Ordinare le subnet</a></li>
+  <li><a href="#passo-5-capire-il-salto" id="toc-passo-5-capire-il-salto" class="nav-link" data-scroll-target="#passo-5-capire-il-salto">PASSO 5: Capire il salto</a></li>
+  <li><a href="#passo-6-assegnare-le-subnet" id="toc-passo-6-assegnare-le-subnet" class="nav-link" data-scroll-target="#passo-6-assegnare-le-subnet">PASSO 6: Assegnare le subnet</a>
   <ul class="collapse">
-  <li><a href="#una-sola-subnet" id="toc-una-sola-subnet" class="nav-link" data-scroll-target="#una-sola-subnet"><span class="header-section-number">12.10.1</span> Una sola subnet</a></li>
-  <li><a href="#subnet-tutte-uguali" id="toc-subnet-tutte-uguali" class="nav-link" data-scroll-target="#subnet-tutte-uguali"><span class="header-section-number">12.10.2</span> Subnet tutte uguali</a></li>
-  <li><a href="#subnet-diverse-caso-più-comune" id="toc-subnet-diverse-caso-più-comune" class="nav-link" data-scroll-target="#subnet-diverse-caso-più-comune"><span class="header-section-number">12.10.3</span> Subnet diverse (caso più comune)</a></li>
+  <li><a href="#regole" id="toc-regole" class="nav-link" data-scroll-target="#regole">Regole</a></li>
+  <li><a href="#esempio" id="toc-esempio" class="nav-link" data-scroll-target="#esempio">Esempio</a></li>
   </ul></li>
-  <li><a href="#strategia-antipanico" id="toc-strategia-antipanico" class="nav-link" data-scroll-target="#strategia-antipanico"><span class="header-section-number">12.11</span> STRATEGIA ANTIPANICO</a></li>
+  <li><a href="#passo-7-passare-alla-subnet-successiva" id="toc-passo-7-passare-alla-subnet-successiva" class="nav-link" data-scroll-target="#passo-7-passare-alla-subnet-successiva">PASSO 7: Passare alla subnet successiva</a></li>
+  <li><a href="#passo-8-ripetere" id="toc-passo-8-ripetere" class="nav-link" data-scroll-target="#passo-8-ripetere">PASSO 8: Ripetere</a></li>
+  <li><a href="#passo-9-controllo-finale" id="toc-passo-9-controllo-finale" class="nav-link" data-scroll-target="#passo-9-controllo-finale">PASSO 9: Controllo finale</a></li>
+  <li><a href="#casi-particolari" id="toc-casi-particolari" class="nav-link" data-scroll-target="#casi-particolari">CASI PARTICOLARI</a>
+  <ul class="collapse">
+  <li><a href="#una-sola-subnet" id="toc-una-sola-subnet" class="nav-link" data-scroll-target="#una-sola-subnet">Una sola subnet</a></li>
+  <li><a href="#subnet-tutte-uguali" id="toc-subnet-tutte-uguali" class="nav-link" data-scroll-target="#subnet-tutte-uguali">Subnet tutte uguali</a></li>
+  <li><a href="#subnet-diverse-caso-più-comune" id="toc-subnet-diverse-caso-più-comune" class="nav-link" data-scroll-target="#subnet-diverse-caso-più-comune">Subnet diverse (caso più comune)</a></li>
+  </ul></li>
+  <li><a href="#strategia-antipanico" id="toc-strategia-antipanico" class="nav-link" data-scroll-target="#strategia-antipanico">STRATEGIA ANTIPANICO</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/reti/guida_pianondirizzamento.html">Reti</a></li><li class="breadcrumb-item"><a href="../../docs/reti/guida_pianondirizzamento.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Guida al piano di indirizzamento IP</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Guida al piano di indirizzamento IP</span></h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="passo-1-calcolare-gli-host-necessari" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="passo-1-calcolare-gli-host-necessari"><span class="header-section-number">12.1</span> PASSO 1: Calcolare gli host necessari</h2>
+<section id="guida-al-piano-di-indirizzamento-ip" class="level1">
+<h1>Guida al piano di indirizzamento IP</h1>
+<section id="passo-1-calcolare-gli-host-necessari" class="level2">
+<h2 class="anchored" data-anchor-id="passo-1-calcolare-gli-host-necessari">PASSO 1: Calcolare gli host necessari</h2>
 <p>Per ogni rete:</p>
 <ul>
 <li>Prendi gli host richiesti<br>
@@ -292,11 +503,11 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 </section>
-<section id="passo-2-definire-lindirizzo-di-rete" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="passo-2-definire-lindirizzo-di-rete"><span class="header-section-number">12.2</span> PASSO 2: Definire l’indirizzo di rete</h2>
+<section id="passo-2-definire-lindirizzo-di-rete" class="level2">
+<h2 class="anchored" data-anchor-id="passo-2-definire-lindirizzo-di-rete">PASSO 2: Definire l’indirizzo di rete</h2>
 <p>Devi scegliere la rete iniziale solo se la traccia NON la fornisce.</p>
-<section id="scelta-dello-spazio-privato-e-del-prefisso" class="level3" data-number="12.2.1">
-<h3 data-number="12.2.1" class="anchored" data-anchor-id="scelta-dello-spazio-privato-e-del-prefisso"><span class="header-section-number">12.2.1</span> Scelta dello spazio privato e del prefisso</h3>
+<section id="scelta-dello-spazio-privato-e-del-prefisso" class="level3">
+<h3 class="anchored" data-anchor-id="scelta-dello-spazio-privato-e-del-prefisso">Scelta dello spazio privato e del prefisso</h3>
 <p>Quando la rete non è specificata, si deve scegliere uno spazio di indirizzamento privato tra:</p>
 <ul>
 <li>192.168.x.x<br>
@@ -322,8 +533,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>cambia il tipo di rete, non la dimensione</p>
 </section>
-<section id="regole-importanti" class="level3" data-number="12.2.2">
-<h3 data-number="12.2.2" class="anchored" data-anchor-id="regole-importanti"><span class="header-section-number">12.2.2</span> Regole importanti</h3>
+<section id="regole-importanti" class="level3">
+<h3 class="anchored" data-anchor-id="regole-importanti">Regole importanti</h3>
 <ul>
 <li>lo spazio (192 / 172 / 10) è una scelta progettuale<br>
 </li>
@@ -331,13 +542,13 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>Scegli una rete privata coerente con il contesto.</p>
 </section>
-<section id="esempi" class="level3" data-number="12.2.3">
-<h3 data-number="12.2.3" class="anchored" data-anchor-id="esempi"><span class="header-section-number">12.2.3</span> Esempi</h3>
+<section id="esempi" class="level3">
+<h3 class="anchored" data-anchor-id="esempi">Esempi</h3>
 <p>Rete: 192.168.0.0/25 Host disponibili: 126 (adatta per scuole o uffici con meno di 126 host) Rete: 172.16.0.0/25 Host disponibili: 126 (adatta per medie imprese possibilimente in più sedi con meno di 126 host) Rete: 10.0.0.0/25 Host disponibili: 126 (adatta per grandi aziende o reti diffuse ma con meno di 126 host)</p>
 <p>Rete: 192.168.0.0/20 Host disponibili: 4094 (adatta per scuole o uffici con meno di 4094 host) Rete: 172.16.0.0/20 Host disponibili: 4094 (adatta per medie imprese possibilimente in più sedi con meno di 4094 host) Rete: 10.0.0.0/20 Host disponibili: 4094 (adatta per grandi aziende o reti diffuse ma con meno di 4094 host)</p>
 </section>
-<section id="calcolo-del-prefisso" class="level3" data-number="12.2.4">
-<h3 data-number="12.2.4" class="anchored" data-anchor-id="calcolo-del-prefisso"><span class="header-section-number">12.2.4</span> Calcolo del prefisso</h3>
+<section id="calcolo-del-prefisso" class="level3">
+<h3 class="anchored" data-anchor-id="calcolo-del-prefisso">Calcolo del prefisso</h3>
 <p>Trova la prima potenza di 2 ≥ (host + 2)</p>
 <p>Esempio:</p>
 <ul>
@@ -349,8 +560,8 @@ ul.task-list li input[type="checkbox"] {
 <p>32 - 7 = 25 -&gt; prefisso = /25</p>
 </section>
 </section>
-<section id="passo-3-scegliere-il-blocco-giusto" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="passo-3-scegliere-il-blocco-giusto"><span class="header-section-number">12.3</span> PASSO 3: Scegliere il blocco giusto</h2>
+<section id="passo-3-scegliere-il-blocco-giusto" class="level2">
+<h2 class="anchored" data-anchor-id="passo-3-scegliere-il-blocco-giusto">PASSO 3: Scegliere il blocco giusto</h2>
 <p>Per trovare il blocco:</p>
 <ul>
 <li>prendi il numero di host<br>
@@ -364,8 +575,8 @@ ul.task-list li input[type="checkbox"] {
 <li>sottrai da 32 → ottieni il prefisso</li>
 </ul>
 <hr>
-<section id="tabella-utile" class="level3" data-number="12.3.1">
-<h3 data-number="12.3.1" class="anchored" data-anchor-id="tabella-utile"><span class="header-section-number">12.3.1</span> Tabella utile</h3>
+<section id="tabella-utile" class="level3">
+<h3 class="anchored" data-anchor-id="tabella-utile">Tabella utile</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -414,8 +625,8 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </section>
 </section>
-<section id="passo-4-ordinare-le-subnet" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="passo-4-ordinare-le-subnet"><span class="header-section-number">12.4</span> PASSO 4: Ordinare le subnet</h2>
+<section id="passo-4-ordinare-le-subnet" class="level2">
+<h2 class="anchored" data-anchor-id="passo-4-ordinare-le-subnet">PASSO 4: Ordinare le subnet</h2>
 <p>Se ci sono più reti: ordina dalla più grande alla più piccola</p>
 <p>Esempio:</p>
 <ul>
@@ -428,8 +639,8 @@ ul.task-list li input[type="checkbox"] {
 <li>poi /28</li>
 </ul>
 </section>
-<section id="passo-5-capire-il-salto" class="level2" data-number="12.5">
-<h2 data-number="12.5" class="anchored" data-anchor-id="passo-5-capire-il-salto"><span class="header-section-number">12.5</span> PASSO 5: Capire il salto</h2>
+<section id="passo-5-capire-il-salto" class="level2">
+<h2 class="anchored" data-anchor-id="passo-5-capire-il-salto">PASSO 5: Capire il salto</h2>
 <p>Il salto serve per passare da una subnet alla successiva.</p>
 <table class="caption-top table">
 <thead>
@@ -462,8 +673,8 @@ ul.task-list li input[type="checkbox"] {
 <p>salto = 64</p>
 <p>rete successiva = 192.168.0.64</p>
 </section>
-<section id="passo-6-assegnare-le-subnet" class="level2" data-number="12.6">
-<h2 data-number="12.6" class="anchored" data-anchor-id="passo-6-assegnare-le-subnet"><span class="header-section-number">12.6</span> PASSO 6: Assegnare le subnet</h2>
+<section id="passo-6-assegnare-le-subnet" class="level2">
+<h2 class="anchored" data-anchor-id="passo-6-assegnare-le-subnet">PASSO 6: Assegnare le subnet</h2>
 <p>Per ogni subnet:</p>
 <ul>
 <li>scrivi la rete<br>
@@ -472,8 +683,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
 <li>trova gli host</li>
 </ul>
-<section id="regole" class="level3" data-number="12.6.1">
-<h3 data-number="12.6.1" class="anchored" data-anchor-id="regole"><span class="header-section-number">12.6.1</span> Regole</h3>
+<section id="regole" class="level3">
+<h3 class="anchored" data-anchor-id="regole">Regole</h3>
 <ul>
 <li>rete = primo indirizzo<br>
 </li>
@@ -484,8 +695,8 @@ ul.task-list li input[type="checkbox"] {
 <li>ultimo host = broadcast - 1</li>
 </ul>
 </section>
-<section id="esempio" class="level3" data-number="12.6.2">
-<h3 data-number="12.6.2" class="anchored" data-anchor-id="esempio"><span class="header-section-number">12.6.2</span> Esempio</h3>
+<section id="esempio" class="level3">
+<h3 class="anchored" data-anchor-id="esempio">Esempio</h3>
 <p>Rete: 192.168.0.0/26</p>
 <ul>
 <li>rete: 192.168.0.0<br>
@@ -498,21 +709,21 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
-<section id="passo-7-passare-alla-subnet-successiva" class="level2" data-number="12.7">
-<h2 data-number="12.7" class="anchored" data-anchor-id="passo-7-passare-alla-subnet-successiva"><span class="header-section-number">12.7</span> PASSO 7: Passare alla subnet successiva</h2>
+<section id="passo-7-passare-alla-subnet-successiva" class="level2">
+<h2 class="anchored" data-anchor-id="passo-7-passare-alla-subnet-successiva">PASSO 7: Passare alla subnet successiva</h2>
 <p>Usa il salto.</p>
 <p>Esempio:</p>
 <p>192.168.0.0 + 64 = 192.168.0.64 -&gt; questa è la nuova rete</p>
 </section>
-<section id="passo-8-ripetere" class="level2" data-number="12.8">
-<h2 data-number="12.8" class="anchored" data-anchor-id="passo-8-ripetere"><span class="header-section-number">12.8</span> PASSO 8: Ripetere</h2>
+<section id="passo-8-ripetere" class="level2">
+<h2 class="anchored" data-anchor-id="passo-8-ripetere">PASSO 8: Ripetere</h2>
 <p>Ripeti: - assegna subnet<br>
 - calcola broadcast<br>
 - vai avanti con il salto</p>
 <p>fino a completare tutte le subnet</p>
 </section>
-<section id="passo-9-controllo-finale" class="level2" data-number="12.9">
-<h2 data-number="12.9" class="anchored" data-anchor-id="passo-9-controllo-finale"><span class="header-section-number">12.9</span> PASSO 9: Controllo finale</h2>
+<section id="passo-9-controllo-finale" class="level2">
+<h2 class="anchored" data-anchor-id="passo-9-controllo-finale">PASSO 9: Controllo finale</h2>
 <p>Controlla sempre:</p>
 <ul>
 <li>✔ ogni subnet ha abbastanza host<br>
@@ -524,10 +735,10 @@ ul.task-list li input[type="checkbox"] {
 <li>✔ non hai saltato indirizzi</li>
 </ul>
 </section>
-<section id="casi-particolari" class="level2" data-number="12.10">
-<h2 data-number="12.10" class="anchored" data-anchor-id="casi-particolari"><span class="header-section-number">12.10</span> CASI PARTICOLARI</h2>
-<section id="una-sola-subnet" class="level3" data-number="12.10.1">
-<h3 data-number="12.10.1" class="anchored" data-anchor-id="una-sola-subnet"><span class="header-section-number">12.10.1</span> Una sola subnet</h3>
+<section id="casi-particolari" class="level2">
+<h2 class="anchored" data-anchor-id="casi-particolari">CASI PARTICOLARI</h2>
+<section id="una-sola-subnet" class="level3">
+<h3 class="anchored" data-anchor-id="una-sola-subnet">Una sola subnet</h3>
 <p>Fai solo:</p>
 <ul>
 <li>passo 1<br>
@@ -537,14 +748,14 @@ ul.task-list li input[type="checkbox"] {
 <li>calcoli rete, host, broadcast</li>
 </ul>
 </section>
-<section id="subnet-tutte-uguali" class="level3" data-number="12.10.2">
-<h3 data-number="12.10.2" class="anchored" data-anchor-id="subnet-tutte-uguali"><span class="header-section-number">12.10.2</span> Subnet tutte uguali</h3>
+<section id="subnet-tutte-uguali" class="level3">
+<h3 class="anchored" data-anchor-id="subnet-tutte-uguali">Subnet tutte uguali</h3>
 <ul>
 <li>usa sempre lo stesso prefisso</li>
 </ul>
 </section>
-<section id="subnet-diverse-caso-più-comune" class="level3" data-number="12.10.3">
-<h3 data-number="12.10.3" class="anchored" data-anchor-id="subnet-diverse-caso-più-comune"><span class="header-section-number">12.10.3</span> Subnet diverse (caso più comune)</h3>
+<section id="subnet-diverse-caso-più-comune" class="level3">
+<h3 class="anchored" data-anchor-id="subnet-diverse-caso-più-comune">Subnet diverse (caso più comune)</h3>
 <ul>
 <li>usa VLSM<br>
 </li>
@@ -554,8 +765,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
-<section id="strategia-antipanico" class="level2" data-number="12.11">
-<h2 data-number="12.11" class="anchored" data-anchor-id="strategia-antipanico"><span class="header-section-number">12.11</span> STRATEGIA ANTIPANICO</h2>
+<section id="strategia-antipanico" class="level2">
+<h2 class="anchored" data-anchor-id="strategia-antipanico">STRATEGIA ANTIPANICO</h2>
 <p>Se ti blocchi:</p>
 <ul>
 <li>conta gli host<br>
@@ -570,6 +781,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -646,7 +858,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/luisalealirizzi\.github\.io\/learning_stack\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -973,15 +1185,6 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../docs/c/stringhe/03_tipi_caratteri.html" class="pagination-link" aria-label="Riconoscere i tipi di carattere in C">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Riconoscere i tipi di carattere in C</span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
