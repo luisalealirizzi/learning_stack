@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>dal_testo_allo_schema – Learning Stack: materiale didattico</title>
+<title>sql_base – Learning Stack: materiale didattico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -112,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/08_algebra.html">Query</a></li><li class="breadcrumb-item"><a href="../../docs/database/09_sql_base.html">SQL: il linguaggio dei database</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -444,13 +479,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
  <span class="menu-text">Database</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
@@ -517,13 +552,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true">
  <span class="menu-text">Query</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/database/08_algebra.html" class="sidebar-item-text sidebar-link">
@@ -532,7 +567,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/database/09_sql_base.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/database/09_sql_base.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">SQL: il linguaggio dei database</span></a>
   </div>
 </li>
@@ -591,65 +626,364 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dal-testo-allo-schema-prima-dei-simboli" id="toc-dal-testo-allo-schema-prima-dei-simboli" class="nav-link active" data-scroll-target="#dal-testo-allo-schema-prima-dei-simboli">Dal testo allo schema (prima dei simboli)</a>
+  <li><a href="#sql-il-linguaggio-dei-database" id="toc-sql-il-linguaggio-dei-database" class="nav-link active" data-scroll-target="#sql-il-linguaggio-dei-database">SQL: il linguaggio dei database</a>
   <ul class="collapse">
-  <li><a href="#perché-usare-uno-schema" id="toc-perché-usare-uno-schema" class="nav-link" data-scroll-target="#perché-usare-uno-schema">Perché usare uno schema</a>
+  <li><a href="#cosè-sql" id="toc-cosè-sql" class="nav-link" data-scroll-target="#cosè-sql">Cos’è SQL</a></li>
+  <li><a href="#le-tre-famiglie-di-comandi" id="toc-le-tre-famiglie-di-comandi" class="nav-link" data-scroll-target="#le-tre-famiglie-di-comandi">Le tre famiglie di comandi</a></li>
+  <li><a href="#ddl-costruire-la-struttura" id="toc-ddl-costruire-la-struttura" class="nav-link" data-scroll-target="#ddl-costruire-la-struttura">DDL: costruire la struttura</a>
   <ul class="collapse">
-  <li><a href="#collegare-i-passi" id="toc-collegare-i-passi" class="nav-link" data-scroll-target="#collegare-i-passi">collegare i passi</a></li>
-  <li><a href="#metodo-da-seguire" id="toc-metodo-da-seguire" class="nav-link" data-scroll-target="#metodo-da-seguire">Metodo da seguire</a></li>
+  <li><a href="#create-table" id="toc-create-table" class="nav-link" data-scroll-target="#create-table">CREATE TABLE</a></li>
+  <li><a href="#chiavi-esterne-con-foreign-key" id="toc-chiavi-esterne-con-foreign-key" class="nav-link" data-scroll-target="#chiavi-esterne-con-foreign-key">Chiavi esterne con FOREIGN KEY</a></li>
+  <li><a href="#vincoli-check-e-default" id="toc-vincoli-check-e-default" class="nav-link" data-scroll-target="#vincoli-check-e-default">Vincoli CHECK e DEFAULT</a></li>
+  <li><a href="#alter-table" id="toc-alter-table" class="nav-link" data-scroll-target="#alter-table">ALTER TABLE</a></li>
+  <li><a href="#drop-table" id="toc-drop-table" class="nav-link" data-scroll-target="#drop-table">DROP TABLE</a></li>
   </ul></li>
-  <li><a href="#in-sintesi" id="toc-in-sintesi" class="nav-link" data-scroll-target="#in-sintesi">In sintesi</a></li>
+  <li><a href="#dml-lavorare-sui-dati" id="toc-dml-lavorare-sui-dati" class="nav-link" data-scroll-target="#dml-lavorare-sui-dati">DML: lavorare sui dati</a>
+  <ul class="collapse">
+  <li><a href="#insert" id="toc-insert" class="nav-link" data-scroll-target="#insert">INSERT</a></li>
+  <li><a href="#update" id="toc-update" class="nav-link" data-scroll-target="#update">UPDATE</a></li>
+  <li><a href="#delete" id="toc-delete" class="nav-link" data-scroll-target="#delete">DELETE</a></li>
+  </ul></li>
+  <li><a href="#dql-interrogare-i-dati" id="toc-dql-interrogare-i-dati" class="nav-link" data-scroll-target="#dql-interrogare-i-dati">DQL: interrogare i dati</a>
+  <ul class="collapse">
+  <li><a href="#struttura-base-di-select" id="toc-struttura-base-di-select" class="nav-link" data-scroll-target="#struttura-base-di-select">Struttura base di SELECT</a></li>
+  <li><a href="#selezionare-tutte-le-colonne" id="toc-selezionare-tutte-le-colonne" class="nav-link" data-scroll-target="#selezionare-tutte-le-colonne">Selezionare tutte le colonne</a></li>
+  <li><a href="#selezionare-colonne-specifiche" id="toc-selezionare-colonne-specifiche" class="nav-link" data-scroll-target="#selezionare-colonne-specifiche">Selezionare colonne specifiche</a></li>
+  <li><a href="#filtrare-con-where" id="toc-filtrare-con-where" class="nav-link" data-scroll-target="#filtrare-con-where">Filtrare con WHERE</a></li>
+  <li><a href="#ordinare-i-risultati-con-order-by" id="toc-ordinare-i-risultati-con-order-by" class="nav-link" data-scroll-target="#ordinare-i-risultati-con-order-by">Ordinare i risultati con ORDER BY</a></li>
+  <li><a href="#alias-con-as" id="toc-alias-con-as" class="nav-link" data-scroll-target="#alias-con-as">Alias con AS</a></li>
+  </ul></li>
+  <li><a href="#schema-mentale" id="toc-schema-mentale" class="nav-link" data-scroll-target="#schema-mentale">Schema mentale</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/08_algebra.html">Query</a></li><li class="breadcrumb-item"><a href="../../docs/database/09_sql_base.html">SQL: il linguaggio dei database</a></li></ol></nav></header>
 
 
 
 
-<section id="dal-testo-allo-schema-prima-dei-simboli" class="level1">
-<h1>Dal testo allo schema (prima dei simboli)</h1>
-<p>Finora abbiamo scritto algoritmi come sequenze di istruzioni.</p>
-<p>Esempio:</p>
-<pre class="text"><code>INIZIO
-osserva il semaforo
-se il semaforo è verde
-    attraversa
-altrimenti
-    aspetta
-FINE</code></pre>
-<p>Questo funziona, ma può diventare difficile da leggere quando gli algoritmi diventano più lunghi.</p>
-<p>Per questo motivo si usano i diagrammi di flusso.</p>
-<section id="perché-usare-uno-schema" class="level2">
-<h2 class="anchored" data-anchor-id="perché-usare-uno-schema">Perché usare uno schema</h2>
-<p>Uno schema aiuta a vedere subito la struttura del problema, capire cosa succede prima e dopo, individuare le scelte (decisioni) ed evitare errori di logica</p>
-<p>In altre parole: trasformiamo un testo in qualcosa di visivo.</p>
-<section id="collegare-i-passi" class="level3">
-<h3 class="anchored" data-anchor-id="collegare-i-passi">collegare i passi</h3>
-<p>Un diagramma di flusso è, prima di tutto, una serie di passi collegati tra loro. Possiamo iniziare senza simboli, usando solo frecce e parole.</p>
-<p>Esempio</p>
-<p>Testo:</p>
-<p>Se il semaforo è verde attraversa, altrimenti aspetta.</p>
-<p>Schema:</p>
-<p>INIZIO ↓ osserva semaforo ↓ se è verde? ↓ sì ↓ no attraversa aspetta ↓ ↓ FINE</p>
-<p>Non abbiamo ancora usato simboli ufficiali, ma si capisce già tutto.</p>
-<p>Nello schema ci sono già gli elementi fondamentali:</p>
-<p>un punto di partenza (INIZIO) una sequenza di azioni una decisione (una domanda) più possibili strade una fine (FINE)</p>
-<p>Anche senza simboli, la logica è già completa.</p>
-<p>Uno schema deve essere sempre: leggibile dall’alto verso il basso, chiaro nei collegamenti, senza salti logici</p>
+<section id="sql-il-linguaggio-dei-database" class="level1">
+<h1>SQL: il linguaggio dei database</h1>
+<p>L’algebra relazionale descrive <em>cosa</em> si può fare con i dati in modo matematico e astratto. SQL è il linguaggio con cui queste operazioni vengono eseguite concretamente nei database. Questo capitolo copre le basi: cos’è SQL, come è organizzato, e i comandi fondamentali per definire e manipolare i dati.</p>
+<hr>
+<section id="cosè-sql" class="level2">
+<h2 class="anchored" data-anchor-id="cosè-sql">Cos’è SQL</h2>
+<p><strong>SQL</strong> (<em>Structured Query Language</em>) è il linguaggio standard per definire, modificare e interrogare i dati nei database relazionali. Nasce negli anni ’70 nei laboratori IBM durante il progetto <em>System R</em>, inizialmente sotto il nome di SEQUEL (<em>Structured English Query Language</em>). Nel 1986 viene adottato come standard internazionale.</p>
+<p>La caratteristica più importante di SQL è che è un linguaggio <strong>dichiarativo</strong>: l’utente descrive <em>cosa</em> vuole ottenere, non <em>come</em> il sistema deve trovarlo. Sarà il DBMS a scegliere il modo più efficiente per eseguire l’operazione.</p>
+<p>Questo è un cambio di prospettiva rispetto alla programmazione tradizionale. In C o Java si scrive un algoritmo che attraversa i dati passo per passo. In SQL si formula una richiesta:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- In un linguaggio imperativo: ciclo, confronto, raccolta risultati</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- In SQL: si descrive il risultato voluto</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> nome, cognome <span class="kw">FROM</span> studenti <span class="kw">WHERE</span> voto <span class="op">&gt;=</span> <span class="dv">6</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>SQL e i DBMS
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pur essendo standardizzato, SQL ha piccole differenze tra MySQL, MariaDB, PostgreSQL, Oracle e altri DBMS. In questo corso usiamo MySQL/MariaDB. La struttura fondamentale del linguaggio è identica in tutti.</p>
+</div>
+</div>
+<hr>
 </section>
-<section id="metodo-da-seguire" class="level3">
-<h3 class="anchored" data-anchor-id="metodo-da-seguire">Metodo da seguire</h3>
-<p>Quando devi trasformare un testo in schema:</p>
-<p>individua i passi principali mettili in ordine trova le decisioni (domande) disegna i collegamenti (frecce)</p>
-<p>Solo dopo aver fatto questo, ha senso usare i simboli.</p>
+<section id="le-tre-famiglie-di-comandi" class="level2">
+<h2 class="anchored" data-anchor-id="le-tre-famiglie-di-comandi">Le tre famiglie di comandi</h2>
+<p>SQL si divide in tre categorie principali, ognuna con uno scopo preciso.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Categoria</th>
+<th>Nome completo</th>
+<th>Scopo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>DDL</strong></td>
+<td>Data Definition Language</td>
+<td>definire la struttura del database</td>
+</tr>
+<tr class="even">
+<td><strong>DML</strong></td>
+<td>Data Manipulation Language</td>
+<td>inserire, modificare, cancellare dati</td>
+</tr>
+<tr class="odd">
+<td><strong>DQL</strong></td>
+<td>Data Query Language</td>
+<td>interrogare e leggere i dati</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="ddl-costruire-la-struttura" class="level2">
+<h2 class="anchored" data-anchor-id="ddl-costruire-la-struttura">DDL: costruire la struttura</h2>
+<p>Il DDL serve a definire lo <strong>schema</strong> del database: quali tabelle esistono, quali colonne contengono, quali chiavi e vincoli devono essere rispettati. I comandi DDL cambiano la struttura, non i dati.</p>
+<p>I tre comandi principali sono <code>CREATE</code>, <code>ALTER</code> e <code>DROP</code>.</p>
+<section id="create-table" class="level3">
+<h3 class="anchored" data-anchor-id="create-table">CREATE TABLE</h3>
+<p>Crea una nuova tabella. Si specifica il nome di ogni colonna, il tipo di dato e gli eventuali vincoli.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> studente (</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    idStudente  <span class="dt">INT</span>           <span class="kw">NOT</span> <span class="kw">NULL</span> AUTO_INCREMENT,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    matricola   <span class="dt">CHAR</span>(<span class="dv">6</span>)       <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">UNIQUE</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    nome        <span class="dt">VARCHAR</span>(<span class="dv">50</span>)   <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    cognome     <span class="dt">VARCHAR</span>(<span class="dv">50</span>)   <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    dataNascita <span class="dt">DATE</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (idStudente)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Cosa succede qui: - <code>AUTO_INCREMENT</code> genera automaticamente un nuovo valore intero per ogni riga inserita - <code>NOT NULL</code> impedisce che il campo venga lasciato vuoto - <code>UNIQUE</code> garantisce che due studenti non abbiano la stessa matricola - <code>PRIMARY KEY</code> dichiara la chiave primaria della tabella</p>
+</section>
+<section id="chiavi-esterne-con-foreign-key" class="level3">
+<h3 class="anchored" data-anchor-id="chiavi-esterne-con-foreign-key">Chiavi esterne con FOREIGN KEY</h3>
+<p>Per collegare due tabelle si dichiara una chiave esterna:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> iscrizione (</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    idIscrizione  <span class="dt">INT</span>  <span class="kw">NOT</span> <span class="kw">NULL</span> AUTO_INCREMENT,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    dataIscrizione <span class="dt">DATE</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    idStudente    <span class="dt">INT</span>  <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    idCorso       <span class="dt">INT</span>  <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (idIscrizione),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (idStudente) <span class="kw">REFERENCES</span> studente(idStudente),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (idCorso)    <span class="kw">REFERENCES</span> corso(idCorso)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Il DBMS garantisce che ogni <code>idStudente</code> inserito in <code>iscrizione</code> esista realmente nella tabella <code>studente</code>. Se si prova a inserire un riferimento a uno studente inesistente, l’operazione viene rifiutata.</p>
+</section>
+<section id="vincoli-check-e-default" class="level3">
+<h3 class="anchored" data-anchor-id="vincoli-check-e-default">Vincoli CHECK e DEFAULT</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> esame (</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    idEsame  <span class="dt">INT</span>          <span class="kw">NOT</span> <span class="kw">NULL</span> AUTO_INCREMENT,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    voto     <span class="dt">DECIMAL</span>(<span class="dv">4</span>,<span class="dv">1</span>) <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">CHECK</span> (voto <span class="op">&gt;=</span> <span class="dv">0</span> <span class="kw">AND</span> voto <span class="op">&lt;=</span> <span class="dv">10</span>),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    stato    <span class="dt">VARCHAR</span>(<span class="dv">10</span>)  <span class="kw">DEFAULT</span> <span class="st">'in attesa'</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (idEsame)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>CHECK</code> impone una condizione sul valore: il DBMS la verifica a ogni inserimento o modifica</li>
+<li><code>DEFAULT</code> assegna un valore predefinito se non viene specificato nulla</li>
+</ul>
+</section>
+<section id="alter-table" class="level3">
+<h3 class="anchored" data-anchor-id="alter-table">ALTER TABLE</h3>
+<p>Modifica la struttura di una tabella esistente: aggiunge o rimuove colonne, modifica tipi di dato, aggiunge vincoli.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Aggiungere una colonna</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> studente <span class="kw">ADD</span> email <span class="dt">VARCHAR</span>(<span class="dv">100</span>) <span class="kw">UNIQUE</span>;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Modificare il tipo di una colonna</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> studente <span class="kw">MODIFY</span> nome <span class="dt">VARCHAR</span>(<span class="dv">100</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>;</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">-- Rimuovere una colonna</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> studente <span class="kw">DROP</span> <span class="kw">COLUMN</span> email;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="drop-table" class="level3">
+<h3 class="anchored" data-anchor-id="drop-table">DROP TABLE</h3>
+<p>Elimina una tabella e tutti i dati che contiene. È un’operazione irreversibile.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> iscrizione;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>DROP è permanente
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un <code>DROP TABLE</code> non chiede conferma e non è annullabile. Prima di eseguirlo in un database di produzione, assicurarsi di avere un backup.</p>
+</div>
+</div>
+<hr>
 </section>
 </section>
-<section id="in-sintesi" class="level2">
-<h2 class="anchored" data-anchor-id="in-sintesi">In sintesi</h2>
-<p>Un diagramma di flusso è: un algoritmo reso visivo, fatto di passi collegati e con possibili scelte</p>
+<section id="dml-lavorare-sui-dati" class="level2">
+<h2 class="anchored" data-anchor-id="dml-lavorare-sui-dati">DML: lavorare sui dati</h2>
+<p>Il DML serve a modificare il <strong>contenuto</strong> delle tabelle: inserire nuovi record, aggiornare quelli esistenti, cancellare quelli non più necessari. I comandi DML rispettano sempre i vincoli definiti con il DDL.</p>
+<section id="insert" class="level3">
+<h3 class="anchored" data-anchor-id="insert">INSERT</h3>
+<p>Inserisce una o più righe in una tabella.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Inserimento con tutti i campi nell'ordine della tabella</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> studente (matricola, nome, cognome, dataNascita)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span> (<span class="st">'S00123'</span>, <span class="st">'Luca'</span>, <span class="st">'Rossi'</span>, <span class="st">'2006-03-14'</span>);</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">-- Inserimento multiplo</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> studente (matricola, nome, cognome)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span> (<span class="st">'S00124'</span>, <span class="st">'Anna'</span>, <span class="st">'Bianchi'</span>),</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>       (<span class="st">'S00125'</span>, <span class="st">'Marco'</span>, <span class="st">'Verdi'</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Se si tenta di inserire un record con una chiave primaria già esistente, o con una chiave esterna che non ha corrispondenza, il DBMS rifiuta l’operazione.</p>
+</section>
+<section id="update" class="level3">
+<h3 class="anchored" data-anchor-id="update">UPDATE</h3>
+<p>Modifica i valori di uno o più campi in righe esistenti.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Aggiornare un singolo record</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> studente</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SET</span> email <span class="op">=</span> <span class="st">'luca.rossi@scuola.it'</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> idStudente <span class="op">=</span> <span class="dv">1</span>;</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">-- Aggiornare più record contemporaneamente</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> esame</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="kw">SET</span> stato <span class="op">=</span> <span class="st">'completato'</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> dataEsame <span class="op">&lt;</span> <span class="st">'2025-01-01'</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>UPDATE senza WHERE aggiorna tutto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un <code>UPDATE</code> senza clausola <code>WHERE</code> modifica <strong>tutte</strong> le righe della tabella. È uno degli errori più comuni e potenzialmente più distruttivi. Prima di eseguire un UPDATE, verificare sempre la condizione con un SELECT.</p>
+</div>
+</div>
+</section>
+<section id="delete" class="level3">
+<h3 class="anchored" data-anchor-id="delete">DELETE</h3>
+<p>Elimina righe da una tabella.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Eliminare un record specifico</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">DELETE</span> <span class="kw">FROM</span> studente</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> idStudente <span class="op">=</span> <span class="dv">5</span>;</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">-- Eliminare tutti i record che soddisfano una condizione</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">DELETE</span> <span class="kw">FROM</span> iscrizione</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> dataIscrizione <span class="op">&lt;</span> <span class="st">'2020-01-01'</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Come per UPDATE, un <code>DELETE</code> senza <code>WHERE</code> elimina tutte le righe della tabella.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>SQL injection
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un rischio storico del DML è la <strong>SQL injection</strong>: quando l’input dell’utente viene inserito direttamente in una query SQL senza controlli, un utente malintenzionato può inserire istruzioni SQL che il database esegue. La difesa principale è usare query parametrizzate nei programmi che interagiscono con il database. Il fumetto xkcd 327 (<em>“Little Bobby Tables”</em>) è diventato l’illustrazione classica di questo problema.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="dql-interrogare-i-dati" class="level2">
+<h2 class="anchored" data-anchor-id="dql-interrogare-i-dati">DQL: interrogare i dati</h2>
+<p>Il DQL serve a <strong>leggere</strong> i dati. Non modifica nulla nel database: produce un risultato sotto forma di tabella temporanea. Il comando fondamentale è <code>SELECT</code>.</p>
+<section id="struttura-base-di-select" class="level3">
+<h3 class="anchored" data-anchor-id="struttura-base-di-select">Struttura base di SELECT</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> colonne</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   tabella</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>  condizione;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Il risultato è sempre una tabella. Anche se il risultato è vuoto (nessuna riga soddisfa la condizione), è comunque una tabella, con le colonne specificate e zero righe.</p>
+</section>
+<section id="selezionare-tutte-le-colonne" class="level3">
+<h3 class="anchored" data-anchor-id="selezionare-tutte-le-colonne">Selezionare tutte le colonne</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> studente;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>L’asterisco <code>*</code> seleziona tutte le colonne. Utile in fase di esplorazione, ma da evitare nei programmi: se la struttura della tabella cambia, la query potrebbe restituire colonne inaspettate.</p>
+</section>
+<section id="selezionare-colonne-specifiche" class="level3">
+<h3 class="anchored" data-anchor-id="selezionare-colonne-specifiche">Selezionare colonne specifiche</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> nome, cognome <span class="kw">FROM</span> studente;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Corrisponde alla <strong>proiezione</strong> dell’algebra relazionale: si scelgono solo le colonne rilevanti.</p>
+</section>
+<section id="filtrare-con-where" class="level3">
+<h3 class="anchored" data-anchor-id="filtrare-con-where">Filtrare con WHERE</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> nome, cognome</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   studente</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>  cognome <span class="op">=</span> <span class="st">'Rossi'</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La clausola <code>WHERE</code> filtra le righe in base a una condizione. Corrisponde alla <strong>selezione</strong> dell’algebra relazionale.</p>
+<p>Gli operatori disponibili nella condizione:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Operatore</th>
+<th>Significato</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>=</code></td>
+<td>uguale</td>
+</tr>
+<tr class="even">
+<td><code>&lt;&gt;</code> o <code>!=</code></td>
+<td>diverso</td>
+</tr>
+<tr class="odd">
+<td><code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></td>
+<td>confronto numerico</td>
+</tr>
+<tr class="even">
+<td><code>AND</code>, <code>OR</code>, <code>NOT</code></td>
+<td>operatori logici</td>
+</tr>
+<tr class="odd">
+<td><code>BETWEEN a AND b</code></td>
+<td>intervallo incluso</td>
+</tr>
+<tr class="even">
+<td><code>LIKE 'pattern'</code></td>
+<td>confronto su testo con caratteri jolly</td>
+</tr>
+<tr class="odd">
+<td><code>IN (v1, v2, ...)</code></td>
+<td>valore in un insieme</td>
+</tr>
+<tr class="even">
+<td><code>IS NULL</code></td>
+<td>valore assente</td>
+</tr>
+</tbody>
+</table>
+<p>Esempi:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Studenti nati dopo il 2005</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> nome, cognome</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   studente</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>  dataNascita <span class="op">&gt;</span> <span class="st">'2005-12-31'</span>;</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">-- Studenti con cognome che inizia per R</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> nome, cognome</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   studente</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>  cognome <span class="kw">LIKE</span> <span class="st">'R%'</span>;</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co">-- Esami con voto tra 6 e 8</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   esame</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>  voto <span class="kw">BETWEEN</span> <span class="dv">6</span> <span class="kw">AND</span> <span class="dv">8</span>;</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co">-- Studenti senza email registrata</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> nome, cognome</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   studente</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>  email <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="ordinare-i-risultati-con-order-by" class="level3">
+<h3 class="anchored" data-anchor-id="ordinare-i-risultati-con-order-by">Ordinare i risultati con ORDER BY</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> nome, cognome, dataNascita</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   studente</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> cognome <span class="kw">ASC</span>, nome <span class="kw">ASC</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>ASC</code> ordina in modo crescente (default), <code>DESC</code> in modo decrescente. Si possono specificare più colonne di ordinamento.</p>
+</section>
+<section id="alias-con-as" class="level3">
+<h3 class="anchored" data-anchor-id="alias-con-as">Alias con AS</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> nome <span class="kw">AS</span> <span class="st">'Nome studente'</span>, cognome <span class="kw">AS</span> <span class="st">'Cognome'</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   studente;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>AS</code> assegna un nome alternativo a una colonna nel risultato. Utile per rendere più leggibili i risultati e obbligatorio quando si usano espressioni o funzioni.</p>
+<hr>
+</section>
+</section>
+<section id="schema-mentale" class="level2">
+<h2 class="anchored" data-anchor-id="schema-mentale">Schema mentale</h2>
+<p><strong>Qual è la differenza tra DDL e DML?</strong> Il DDL definisce la struttura del database (tabelle, colonne, chiavi, vincoli). Il DML lavora sui dati: inserisce, modifica e cancella record. Il DDL cambia lo schema, il DML cambia l’istanza.</p>
+<p><strong>Perché SQL è detto dichiarativo?</strong> Perché si descrive il risultato voluto, non la procedura per ottenerlo. È il DBMS a decidere come eseguire la query nel modo più efficiente.</p>
+<p><strong>Cosa succede se si esegue un UPDATE o DELETE senza WHERE?</strong> L’operazione viene applicata a tutte le righe della tabella. È uno degli errori più pericolosi: verificare sempre la condizione con un SELECT prima di modificare o cancellare.</p>
+<p><strong>Cosa garantisce FOREIGN KEY?</strong> Che ogni valore inserito come chiave esterna corrisponda a un valore esistente nella tabella collegata. Il DBMS rifiuta inserimenti o modifiche che violerebbero questa regola.</p>
+<p><strong>Qual è il collegamento tra SELECT/WHERE e l’algebra relazionale?</strong> <code>SELECT colonne</code> corrisponde alla proiezione (π). <code>WHERE condizione</code> corrisponde alla selezione (σ). Una query SQL combina entrambe le operazioni in un’unica istruzione.</p>
 
 
 </section>

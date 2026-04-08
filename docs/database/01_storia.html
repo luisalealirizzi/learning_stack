@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>dal_testo_allo_schema – Learning Stack: materiale didattico</title>
+<title>storia – Learning Stack: materiale didattico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -112,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/01_storia.html">Introduzione</a></li><li class="breadcrumb-item"><a href="../../docs/database/01_storia.html">Archivi, dati e società</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -444,25 +444,25 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
  <span class="menu-text">Database</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true">
  <span class="menu-text">Introduzione</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/database/01_storia.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/database/01_storia.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Archivi, dati e società</span></a>
   </div>
 </li>
@@ -591,65 +591,191 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dal-testo-allo-schema-prima-dei-simboli" id="toc-dal-testo-allo-schema-prima-dei-simboli" class="nav-link active" data-scroll-target="#dal-testo-allo-schema-prima-dei-simboli">Dal testo allo schema (prima dei simboli)</a>
+  <li><a href="#archivi-dati-e-società" id="toc-archivi-dati-e-società" class="nav-link active" data-scroll-target="#archivi-dati-e-società">Archivi, dati e società</a>
   <ul class="collapse">
-  <li><a href="#perché-usare-uno-schema" id="toc-perché-usare-uno-schema" class="nav-link" data-scroll-target="#perché-usare-uno-schema">Perché usare uno schema</a>
-  <ul class="collapse">
-  <li><a href="#collegare-i-passi" id="toc-collegare-i-passi" class="nav-link" data-scroll-target="#collegare-i-passi">collegare i passi</a></li>
-  <li><a href="#metodo-da-seguire" id="toc-metodo-da-seguire" class="nav-link" data-scroll-target="#metodo-da-seguire">Metodo da seguire</a></li>
-  </ul></li>
-  <li><a href="#in-sintesi" id="toc-in-sintesi" class="nav-link" data-scroll-target="#in-sintesi">In sintesi</a></li>
+  <li><a href="#prima-dei-computer-archivi-fisici" id="toc-prima-dei-computer-archivi-fisici" class="nav-link" data-scroll-target="#prima-dei-computer-archivi-fisici">Prima dei computer: archivi fisici</a></li>
+  <li><a href="#il-sistema-sabre-quando-i-dati-diventano-infrastruttura" id="toc-il-sistema-sabre-quando-i-dati-diventano-infrastruttura" class="nav-link" data-scroll-target="#il-sistema-sabre-quando-i-dati-diventano-infrastruttura">Il sistema SABRE: quando i dati diventano infrastruttura</a></li>
+  <li><a href="#da-archivio-a-modello-edgar-f.-codd-e-le-regole-del-modello-relazionale" id="toc-da-archivio-a-modello-edgar-f.-codd-e-le-regole-del-modello-relazionale" class="nav-link" data-scroll-target="#da-archivio-a-modello-edgar-f.-codd-e-le-regole-del-modello-relazionale">Da archivio a modello: Edgar F. Codd e le regole del modello relazionale</a></li>
+  <li><a href="#cosè-un-database" id="toc-cosè-un-database" class="nav-link" data-scroll-target="#cosè-un-database">Cos’è un database</a></li>
+  <li><a href="#il-ruolo-sociale-dei-dati" id="toc-il-ruolo-sociale-dei-dati" class="nav-link" data-scroll-target="#il-ruolo-sociale-dei-dati">Il ruolo sociale dei dati</a></li>
+  <li><a href="#schema-mentale" id="toc-schema-mentale" class="nav-link" data-scroll-target="#schema-mentale">Schema mentale</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/01_storia.html">Introduzione</a></li><li class="breadcrumb-item"><a href="../../docs/database/01_storia.html">Archivi, dati e società</a></li></ol></nav></header>
 
 
 
 
-<section id="dal-testo-allo-schema-prima-dei-simboli" class="level1">
-<h1>Dal testo allo schema (prima dei simboli)</h1>
-<p>Finora abbiamo scritto algoritmi come sequenze di istruzioni.</p>
-<p>Esempio:</p>
-<pre class="text"><code>INIZIO
-osserva il semaforo
-se il semaforo è verde
-    attraversa
-altrimenti
-    aspetta
-FINE</code></pre>
-<p>Questo funziona, ma può diventare difficile da leggere quando gli algoritmi diventano più lunghi.</p>
-<p>Per questo motivo si usano i diagrammi di flusso.</p>
-<section id="perché-usare-uno-schema" class="level2">
-<h2 class="anchored" data-anchor-id="perché-usare-uno-schema">Perché usare uno schema</h2>
-<p>Uno schema aiuta a vedere subito la struttura del problema, capire cosa succede prima e dopo, individuare le scelte (decisioni) ed evitare errori di logica</p>
-<p>In altre parole: trasformiamo un testo in qualcosa di visivo.</p>
-<section id="collegare-i-passi" class="level3">
-<h3 class="anchored" data-anchor-id="collegare-i-passi">collegare i passi</h3>
-<p>Un diagramma di flusso è, prima di tutto, una serie di passi collegati tra loro. Possiamo iniziare senza simboli, usando solo frecce e parole.</p>
-<p>Esempio</p>
-<p>Testo:</p>
-<p>Se il semaforo è verde attraversa, altrimenti aspetta.</p>
-<p>Schema:</p>
-<p>INIZIO ↓ osserva semaforo ↓ se è verde? ↓ sì ↓ no attraversa aspetta ↓ ↓ FINE</p>
-<p>Non abbiamo ancora usato simboli ufficiali, ma si capisce già tutto.</p>
-<p>Nello schema ci sono già gli elementi fondamentali:</p>
-<p>un punto di partenza (INIZIO) una sequenza di azioni una decisione (una domanda) più possibili strade una fine (FINE)</p>
-<p>Anche senza simboli, la logica è già completa.</p>
-<p>Uno schema deve essere sempre: leggibile dall’alto verso il basso, chiaro nei collegamenti, senza salti logici</p>
+<section id="archivi-dati-e-società" class="level1">
+<h1>Archivi, dati e società</h1>
+<p>Prima di scrivere una sola riga di SQL, vale la pena chiedersi da dove vengono i database. Non sono nati per i siti web o per le app. Sono nati per risolvere un problema molto più antico: come si conserva, si organizza e si recupera la memoria di un’istituzione.</p>
+<hr>
+<section id="prima-dei-computer-archivi-fisici" class="level2">
+<h2 class="anchored" data-anchor-id="prima-dei-computer-archivi-fisici">Prima dei computer: archivi fisici</h2>
+<p>Per secoli, la memoria delle organizzazioni è stata fatta di carta. Registri, schedari, archivi a cassetti. Una biblioteca conservava migliaia di schede cartacee, una per ogni libro. Un ospedale teneva cartelle cliniche in faldoni ordinati per cognome. Una banca registrava i conti su libri mastri.</p>
+<p>Questi sistemi funzionavano, ma avevano limiti chiari:</p>
+<ul>
+<li>cercare un dato richiedeva tempo e personale</li>
+<li>aggiornare le informazioni significava correggere a mano ogni copia</li>
+<li>perdere un archivio fisico significava perdere la memoria di anni di attività</li>
+</ul>
+<p>Quando arrivano i computer negli anni ’50, la prima cosa che si prova a fare è trasferire questi archivi su supporti digitali. Non per inventare qualcosa di nuovo, ma per fare la stessa cosa più velocemente.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Da dove vengono i primi database
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I primi grandi archivi digitali non nascono per scopi scientifici o commerciali generici. Nascono per gestire dati pubblici e industriali reali: anagrafi, ferrovie, compagnie aeree, eserciti, banche, sistemi fiscali.</p>
+</div>
+</div>
+<hr>
 </section>
-<section id="metodo-da-seguire" class="level3">
-<h3 class="anchored" data-anchor-id="metodo-da-seguire">Metodo da seguire</h3>
-<p>Quando devi trasformare un testo in schema:</p>
-<p>individua i passi principali mettili in ordine trova le decisioni (domande) disegna i collegamenti (frecce)</p>
-<p>Solo dopo aver fatto questo, ha senso usare i simboli.</p>
+<section id="il-sistema-sabre-quando-i-dati-diventano-infrastruttura" class="level2">
+<h2 class="anchored" data-anchor-id="il-sistema-sabre-quando-i-dati-diventano-infrastruttura">Il sistema SABRE: quando i dati diventano infrastruttura</h2>
+<p>Un esempio storico chiarisce meglio di ogni definizione astratta cosa significa gestire dati su scala reale.</p>
+<p>Negli anni ’50, American Airlines gestisce le prenotazioni dei voli con telefonate, fogli di carta e tabelle scritte a mano. Con l’esplosione dei voli commerciali, questo sistema sta collassando: troppi dati, troppi errori, tempi troppo lunghi.</p>
+<p>Nel 1959, American Airlines e IBM iniziano a sviluppare insieme <strong>SABRE</strong> (<em>Semi-Automatic Business Research Environment</em>): uno dei primi sistemi di gestione dati in tempo reale della storia.</p>
+<p>SABRE deve essere in grado di:</p>
+<ul>
+<li>memorizzare lo stato di tutti i posti su tutti i voli</li>
+<li>aggiornare i dati in tempo reale quando qualcuno prenota o cancella</li>
+<li>rispondere alle richieste di più agenti contemporaneamente, senza errori</li>
+<li>garantire che due agenti non vendano lo stesso posto allo stesso passeggero</li>
+</ul>
+<p>Questi non sono problemi banali. Sono esattamente i problemi che i moderni sistemi di database risolvono ancora oggi: <strong>coerenza, concorrenza, affidabilità, recupero dopo errori</strong>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Il punto chiave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>SABRE non nasce per “fare tecnologia”. Nasce per rispondere a un’esigenza concreta: gestire milioni di prenotazioni senza errori e senza perdere dati. Questa è ancora oggi la ragione per cui esistono i database.</p>
+</div>
+</div>
+<hr>
 </section>
+<section id="da-archivio-a-modello-edgar-f.-codd-e-le-regole-del-modello-relazionale" class="level2">
+<h2 class="anchored" data-anchor-id="da-archivio-a-modello-edgar-f.-codd-e-le-regole-del-modello-relazionale">Da archivio a modello: Edgar F. Codd e le regole del modello relazionale</h2>
+<p>Negli anni ’60 e ’70, i database esistono, ma ognuno funziona in modo diverso. I dati sono organizzati in strutture fisiche (gerarchie, reti), e chi interroga il database deve sapere esattamente come i dati sono memorizzati su disco. Cambiare la struttura fisica significa riscrivere tutti i programmi che usano quei dati.</p>
+<p>Nel 1970, Edgar F. Codd, un ricercatore di IBM, pubblica un articolo che cambia tutto: <em>A Relational Model of Data for Large Shared Data Banks</em>.</p>
+<p>L’idea centrale è semplice ma radicale:</p>
+<blockquote class="blockquote">
+<p>I dati devono essere rappresentati come <strong>relazioni matematiche</strong> (tabelle), e devono poter essere interrogati con operazioni formali, indipendentemente da come sono fisicamente memorizzati.</p>
+</blockquote>
+<p>Questo significa separare due cose che prima erano mescolate:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Prima di Codd</th>
+<th>Dopo Codd</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>L’utente deve sapere come i dati sono salvati su disco</td>
+<td>L’utente descrive <em>cosa</em> vuole, non <em>come</em> ottenerlo</td>
+</tr>
+<tr class="even">
+<td>Cambiare la struttura fisica rompe i programmi</td>
+<td>La struttura logica è indipendente da quella fisica</td>
+</tr>
+<tr class="odd">
+<td>Ogni DBMS ha il suo linguaggio proprietario</td>
+<td>Si può definire un linguaggio standard (SQL)</td>
+</tr>
+</tbody>
+</table>
+<p>Codd formalizza queste idee nelle cosiddette <strong>12 regole di Codd</strong>, un insieme di criteri che un sistema deve rispettare per essere considerato un vero database relazionale. In pratica, quasi tutti i DBMS moderni le rispettano almeno in parte.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>L’idea che cambia tutto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Codd non inventa solo una tecnica. Inventa un modo di pensare ai dati. Separare il <em>modello logico</em> (come i dati sono organizzati) dalla <em>struttura fisica</em> (come sono salvati su disco) è ancora oggi il fondamento di ogni database relazionale.</p>
+</div>
+</div>
+<hr>
 </section>
-<section id="in-sintesi" class="level2">
-<h2 class="anchored" data-anchor-id="in-sintesi">In sintesi</h2>
-<p>Un diagramma di flusso è: un algoritmo reso visivo, fatto di passi collegati e con possibili scelte</p>
+<section id="cosè-un-database" class="level2">
+<h2 class="anchored" data-anchor-id="cosè-un-database">Cos’è un database</h2>
+<p>Un <strong>database</strong> è una raccolta organizzata di dati, strutturata in modo da permettere l’inserimento, la ricerca, la modifica e la cancellazione delle informazioni in modo efficiente e affidabile.</p>
+<p>La parola chiave è <em>organizzata</em>. Un file di testo con migliaia di righe contiene dati, ma non è un database. Un foglio Excel può contenere dati strutturati, ma non è un database. Un database è una struttura progettata esplicitamente per:</p>
+<ul>
+<li>rappresentare la realtà in modo coerente</li>
+<li>rispondere a domande (query) sui dati</li>
+<li>garantire che i dati rimangano corretti nel tempo</li>
+<li>permettere a più utenti di lavorare contemporaneamente</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Database e DBMS non sono la stessa cosa
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Il <strong>database</strong> è l’insieme dei dati. Il <strong>DBMS</strong> (<em>DataBase Management System</em>) è il software che gestisce il database: controlla gli accessi, esegue le query, garantisce l’integrità dei dati. MySQL, PostgreSQL, MariaDB, SQLite sono DBMS, non database.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="il-ruolo-sociale-dei-dati" class="level2">
+<h2 class="anchored" data-anchor-id="il-ruolo-sociale-dei-dati">Il ruolo sociale dei dati</h2>
+<p>Un database non è solo uno strumento tecnico. È una struttura che decide come la realtà viene rappresentata, organizzata e interrogata.</p>
+<p>Ogni scuola conserva i voti degli studenti in un database. Ogni ospedale archivia le cartelle cliniche. Ogni comune gestisce l’anagrafe. Ogni banca registra i movimenti dei conti. Questi dati non sono solo numeri: sono la memoria ufficiale di istituzioni che hanno effetti reali sulla vita delle persone.</p>
+<p>Questo significa che chi progetta un database fa scelte che non sono solo tecniche:</p>
+<ul>
+<li>quali dati raccogliere e quali no</li>
+<li>chi può accedere a quali informazioni</li>
+<li>per quanto tempo i dati vengono conservati</li>
+<li>cosa succede se i dati sono sbagliati o vengono persi</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Dati sbagliati, conseguenze reali
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Se il database di una scuola registra un voto in modo errato, uno studente può perdere un’opportunità. Se il database di un ospedale contiene un’allergia non aggiornata, le conseguenze possono essere gravi. La correttezza dei dati non è un problema solo tecnico.</p>
+</div>
+</div>
+<p>Torneremo su questi temi nel capitolo dedicato a dati, diritti e responsabilità. Per ora, tieni presente che ogni scelta tecnica nella progettazione di un database ha una dimensione etica e sociale.</p>
+<hr>
+</section>
+<section id="schema-mentale" class="level2">
+<h2 class="anchored" data-anchor-id="schema-mentale">Schema mentale</h2>
+<p>Prima di proseguire, fermati un momento e rispondi mentalmente a queste domande.</p>
+<p><strong>Perché i database non nascono per i siti web?</strong> Perché i problemi di gestione dei dati su scala esistevano decenni prima di internet. I primi sistemi nascono per gestire prenotazioni, anagrafi, conti bancari.</p>
+<p><strong>Cosa cambia con il modello relazionale di Codd?</strong> Si separa il modello logico dei dati dalla struttura fisica. L’utente descrive cosa vuole, non come i dati sono memorizzati.</p>
+<p><strong>Qual è la differenza tra database e DBMS?</strong> Il database è l’insieme dei dati. Il DBMS è il software che lo gestisce.</p>
+<p><strong>Perché la progettazione di un database ha una dimensione etica?</strong> Perché i dati rappresentano persone reali e hanno effetti reali. Chi progetta decide cosa si raccoglie, chi può accedere e per quanto tempo.</p>
 
 
 </section>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>dal_testo_allo_schema – Learning Stack: materiale didattico</title>
+<title>trigger_viste_sp – Learning Stack: materiale didattico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -112,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/12_trigger_viste_sp.html">Avanzato</a></li><li class="breadcrumb-item"><a href="../../docs/database/12_trigger_viste_sp.html">Trigger, viste e stored procedure</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -444,13 +479,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
  <span class="menu-text">Database</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
@@ -552,16 +587,16 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="true">
  <span class="menu-text">Avanzato</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/database/12_trigger_viste_sp.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/database/12_trigger_viste_sp.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Trigger, viste e stored procedure</span></a>
   </div>
 </li>
@@ -591,65 +626,355 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dal-testo-allo-schema-prima-dei-simboli" id="toc-dal-testo-allo-schema-prima-dei-simboli" class="nav-link active" data-scroll-target="#dal-testo-allo-schema-prima-dei-simboli">Dal testo allo schema (prima dei simboli)</a>
+  <li><a href="#trigger-viste-e-stored-procedure" id="toc-trigger-viste-e-stored-procedure" class="nav-link active" data-scroll-target="#trigger-viste-e-stored-procedure">Trigger, viste e stored procedure</a>
   <ul class="collapse">
-  <li><a href="#perché-usare-uno-schema" id="toc-perché-usare-uno-schema" class="nav-link" data-scroll-target="#perché-usare-uno-schema">Perché usare uno schema</a>
+  <li><a href="#viste" id="toc-viste" class="nav-link" data-scroll-target="#viste">Viste</a>
   <ul class="collapse">
-  <li><a href="#collegare-i-passi" id="toc-collegare-i-passi" class="nav-link" data-scroll-target="#collegare-i-passi">collegare i passi</a></li>
-  <li><a href="#metodo-da-seguire" id="toc-metodo-da-seguire" class="nav-link" data-scroll-target="#metodo-da-seguire">Metodo da seguire</a></li>
+  <li><a href="#a-cosa-servono-le-viste" id="toc-a-cosa-servono-le-viste" class="nav-link" data-scroll-target="#a-cosa-servono-le-viste">A cosa servono le viste</a></li>
   </ul></li>
-  <li><a href="#in-sintesi" id="toc-in-sintesi" class="nav-link" data-scroll-target="#in-sintesi">In sintesi</a></li>
+  <li><a href="#trigger" id="toc-trigger" class="nav-link" data-scroll-target="#trigger">Trigger</a>
+  <ul class="collapse">
+  <li><a href="#struttura-di-un-trigger" id="toc-struttura-di-un-trigger" class="nav-link" data-scroll-target="#struttura-di-un-trigger">Struttura di un trigger</a></li>
+  <li><a href="#esempio-1-validazione" id="toc-esempio-1-validazione" class="nav-link" data-scroll-target="#esempio-1-validazione">Esempio 1: validazione</a></li>
+  <li><a href="#esempio-2-log-automatico" id="toc-esempio-2-log-automatico" class="nav-link" data-scroll-target="#esempio-2-log-automatico">Esempio 2: log automatico</a></li>
+  <li><a href="#esempio-3-aggiornamento-automatico" id="toc-esempio-3-aggiornamento-automatico" class="nav-link" data-scroll-target="#esempio-3-aggiornamento-automatico">Esempio 3: aggiornamento automatico</a></li>
+  <li><a href="#visualizzare-ed-eliminare-i-trigger" id="toc-visualizzare-ed-eliminare-i-trigger" class="nav-link" data-scroll-target="#visualizzare-ed-eliminare-i-trigger">Visualizzare ed eliminare i trigger</a></li>
+  </ul></li>
+  <li><a href="#stored-procedure" id="toc-stored-procedure" class="nav-link" data-scroll-target="#stored-procedure">Stored procedure</a>
+  <ul class="collapse">
+  <li><a href="#struttura-di-una-stored-procedure" id="toc-struttura-di-una-stored-procedure" class="nav-link" data-scroll-target="#struttura-di-una-stored-procedure">Struttura di una stored procedure</a></li>
+  <li><a href="#esempio-1-procedura-senza-parametri" id="toc-esempio-1-procedura-senza-parametri" class="nav-link" data-scroll-target="#esempio-1-procedura-senza-parametri">Esempio 1: procedura senza parametri</a></li>
+  <li><a href="#esempio-2-procedura-con-parametro-in" id="toc-esempio-2-procedura-con-parametro-in" class="nav-link" data-scroll-target="#esempio-2-procedura-con-parametro-in">Esempio 2: procedura con parametro IN</a></li>
+  <li><a href="#esempio-3-procedura-con-parametro-out" id="toc-esempio-3-procedura-con-parametro-out" class="nav-link" data-scroll-target="#esempio-3-procedura-con-parametro-out">Esempio 3: procedura con parametro OUT</a></li>
+  <li><a href="#visualizzare-ed-eliminare-le-stored-procedure" id="toc-visualizzare-ed-eliminare-le-stored-procedure" class="nav-link" data-scroll-target="#visualizzare-ed-eliminare-le-stored-procedure">Visualizzare ed eliminare le stored procedure</a></li>
+  </ul></li>
+  <li><a href="#confronto-tra-i-tre-strumenti" id="toc-confronto-tra-i-tre-strumenti" class="nav-link" data-scroll-target="#confronto-tra-i-tre-strumenti">Confronto tra i tre strumenti</a></li>
+  <li><a href="#schema-mentale" id="toc-schema-mentale" class="nav-link" data-scroll-target="#schema-mentale">Schema mentale</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/12_trigger_viste_sp.html">Avanzato</a></li><li class="breadcrumb-item"><a href="../../docs/database/12_trigger_viste_sp.html">Trigger, viste e stored procedure</a></li></ol></nav></header>
 
 
 
 
-<section id="dal-testo-allo-schema-prima-dei-simboli" class="level1">
-<h1>Dal testo allo schema (prima dei simboli)</h1>
-<p>Finora abbiamo scritto algoritmi come sequenze di istruzioni.</p>
-<p>Esempio:</p>
-<pre class="text"><code>INIZIO
-osserva il semaforo
-se il semaforo è verde
-    attraversa
-altrimenti
-    aspetta
-FINE</code></pre>
-<p>Questo funziona, ma può diventare difficile da leggere quando gli algoritmi diventano più lunghi.</p>
-<p>Per questo motivo si usano i diagrammi di flusso.</p>
-<section id="perché-usare-uno-schema" class="level2">
-<h2 class="anchored" data-anchor-id="perché-usare-uno-schema">Perché usare uno schema</h2>
-<p>Uno schema aiuta a vedere subito la struttura del problema, capire cosa succede prima e dopo, individuare le scelte (decisioni) ed evitare errori di logica</p>
-<p>In altre parole: trasformiamo un testo in qualcosa di visivo.</p>
-<section id="collegare-i-passi" class="level3">
-<h3 class="anchored" data-anchor-id="collegare-i-passi">collegare i passi</h3>
-<p>Un diagramma di flusso è, prima di tutto, una serie di passi collegati tra loro. Possiamo iniziare senza simboli, usando solo frecce e parole.</p>
-<p>Esempio</p>
-<p>Testo:</p>
-<p>Se il semaforo è verde attraversa, altrimenti aspetta.</p>
-<p>Schema:</p>
-<p>INIZIO ↓ osserva semaforo ↓ se è verde? ↓ sì ↓ no attraversa aspetta ↓ ↓ FINE</p>
-<p>Non abbiamo ancora usato simboli ufficiali, ma si capisce già tutto.</p>
-<p>Nello schema ci sono già gli elementi fondamentali:</p>
-<p>un punto di partenza (INIZIO) una sequenza di azioni una decisione (una domanda) più possibili strade una fine (FINE)</p>
-<p>Anche senza simboli, la logica è già completa.</p>
-<p>Uno schema deve essere sempre: leggibile dall’alto verso il basso, chiaro nei collegamenti, senza salti logici</p>
+<section id="trigger-viste-e-stored-procedure" class="level1">
+<h1>Trigger, viste e stored procedure</h1>
+<p>Fino a questo punto abbiamo usato SQL in modo interattivo: scriviamo una query, il DBMS la esegue, otteniamo un risultato. Esistono però tre strumenti che permettono di spostare logica e automazione <em>dentro</em> il database stesso: le <strong>viste</strong>, i <strong>trigger</strong> e le <strong>stored procedure</strong>. Ognuno risponde a un’esigenza diversa.</p>
+<hr>
+<section id="viste" class="level2">
+<h2 class="anchored" data-anchor-id="viste">Viste</h2>
+<p>Una <strong>vista</strong> è una query salvata con un nome. Si comporta come una tabella: si può interrogare con SELECT, filtrare, unire ad altre tabelle. Ma non contiene dati propri: ogni volta che viene interrogata, il DBMS esegue la query sottostante e restituisce i dati aggiornati.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Definizione della vista</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">VIEW</span> voti_per_studente <span class="kw">AS</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> s.nome, s.cognome, m.nome <span class="kw">AS</span> materia, v.valore, v.<span class="kw">data</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   studente s</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> voto v    <span class="kw">ON</span> s.idStudente <span class="op">=</span> v.idStudente</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> materia m <span class="kw">ON</span> v.idMateria  <span class="op">=</span> m.idMateria;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">-- Uso della vista: si interroga come una tabella normale</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> nome, cognome, materia, valore</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   voti_per_studente</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>  valore <span class="op">&lt;</span> <span class="dv">6</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> cognome;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">-- Eliminare una vista</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">VIEW</span> voti_per_studente;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="a-cosa-servono-le-viste" class="level3">
+<h3 class="anchored" data-anchor-id="a-cosa-servono-le-viste">A cosa servono le viste</h3>
+<p><strong>Semplificazione</strong>: una JOIN complessa su tre tabelle può essere incapsulata in una vista. Chi la usa scrive una SELECT semplice senza conoscere la struttura sottostante.</p>
+<p><strong>Sicurezza e controllo degli accessi</strong>: una vista può esporre solo alcune colonne o alcune righe. Un utente può avere il permesso di interrogare la vista ma non di accedere direttamente alle tabelle originali.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Vista che mostra solo i dati anagrafici, senza voti</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">VIEW</span> anagrafica_studenti <span class="kw">AS</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> idStudente, nome, cognome, classe</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   studente;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">-- Il docente vede solo i voti della propria classe</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">VIEW</span> voti_5a <span class="kw">AS</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> s.nome, s.cognome, m.nome <span class="kw">AS</span> materia, v.valore</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   studente s</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> voto v    <span class="kw">ON</span> s.idStudente <span class="op">=</span> v.idStudente</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> materia m <span class="kw">ON</span> v.idMateria  <span class="op">=</span> m.idMateria</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>  s.classe <span class="op">=</span> <span class="st">'5A'</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Astrazione</strong>: se la struttura delle tabelle cambia, si aggiorna la vista. Le applicazioni che la usano non devono essere modificate.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Vista vs tabella
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una tabella occupa spazio fisico su disco. Una vista no: è solo una query salvata. Il vantaggio è che mostra sempre i dati aggiornati. Lo svantaggio è che se la query sottostante è complessa, viene rieseguita ogni volta che la vista viene interrogata.</p>
+</div>
+</div>
+<hr>
 </section>
-<section id="metodo-da-seguire" class="level3">
-<h3 class="anchored" data-anchor-id="metodo-da-seguire">Metodo da seguire</h3>
-<p>Quando devi trasformare un testo in schema:</p>
-<p>individua i passi principali mettili in ordine trova le decisioni (domande) disegna i collegamenti (frecce)</p>
-<p>Solo dopo aver fatto questo, ha senso usare i simboli.</p>
+</section>
+<section id="trigger" class="level2">
+<h2 class="anchored" data-anchor-id="trigger">Trigger</h2>
+<p>Un <strong>trigger</strong> è un blocco di codice SQL che il DBMS esegue automaticamente in risposta a un evento su una tabella: un inserimento, una modifica o una cancellazione.</p>
+<p>Non viene chiamato dall’utente: scatta da solo quando si verifica la condizione specificata.</p>
+<section id="struttura-di-un-trigger" class="level3">
+<h3 class="anchored" data-anchor-id="struttura-di-un-trigger">Struttura di un trigger</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TRIGGER</span> nome_trigger</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    { <span class="kw">BEFORE</span> | <span class="kw">AFTER</span> }</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    { <span class="kw">INSERT</span> | <span class="kw">UPDATE</span> | <span class="kw">DELETE</span> }</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ON</span> nome_tabella</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">FOR</span> <span class="kw">EACH</span> <span class="kw">ROW</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="cf">BEGIN</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">-- istruzioni SQL</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="cf">END</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>BEFORE</code>: il trigger si esegue prima dell’operazione</li>
+<li><code>AFTER</code>: il trigger si esegue dopo l’operazione</li>
+<li><code>FOR EACH ROW</code>: il trigger si esegue una volta per ogni riga coinvolta</li>
+</ul>
+<p>All’interno del trigger si usano due riferimenti speciali: - <code>NEW</code>: la riga con i nuovi valori (disponibile in INSERT e UPDATE) - <code>OLD</code>: la riga con i vecchi valori (disponibile in UPDATE e DELETE)</p>
+</section>
+<section id="esempio-1-validazione" class="level3">
+<h3 class="anchored" data-anchor-id="esempio-1-validazione">Esempio 1: validazione</h3>
+<p>Impedire l’inserimento di un voto fuori dall’intervallo ammesso, aggiungendo un controllo più esplicito rispetto al vincolo CHECK.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>DELIMITER $$</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TRIGGER</span> controlla_voto</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">BEFORE</span> <span class="kw">INSERT</span> <span class="kw">ON</span> voto</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">FOR</span> <span class="kw">EACH</span> <span class="kw">ROW</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">BEGIN</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">IF</span> <span class="kw">NEW</span>.valore <span class="op">&lt;</span> <span class="dv">0</span> <span class="kw">OR</span> <span class="kw">NEW</span>.valore <span class="op">&gt;</span> <span class="dv">10</span> <span class="cf">THEN</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        SIGNAL SQLSTATE <span class="st">'45000'</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">SET</span> MESSAGE_TEXT <span class="op">=</span> <span class="st">'Il voto deve essere compreso tra 0 e 10'</span>;</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">END</span> <span class="cf">IF</span>;</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>END$$</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>DELIMITER ;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>SIGNAL SQLSTATE '45000'</code> genera un errore che interrompe l’operazione e restituisce il messaggio all’applicazione.</p>
+</section>
+<section id="esempio-2-log-automatico" class="level3">
+<h3 class="anchored" data-anchor-id="esempio-2-log-automatico">Esempio 2: log automatico</h3>
+<p>Registrare automaticamente ogni modifica a un voto in una tabella di log.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> log_voti (</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    idLog       <span class="dt">INT</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span> AUTO_INCREMENT,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    idVoto      <span class="dt">INT</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    vecchioValore <span class="dt">DECIMAL</span>(<span class="dv">4</span>,<span class="dv">1</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    nuovoValore   <span class="dt">DECIMAL</span>(<span class="dv">4</span>,<span class="dv">1</span>),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    dataModifica  DATETIME <span class="kw">DEFAULT</span> NOW()</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>DELIMITER $$</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TRIGGER</span> log_modifica_voto</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="kw">AFTER</span> <span class="kw">UPDATE</span> <span class="kw">ON</span> voto</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="cf">FOR</span> <span class="kw">EACH</span> <span class="kw">ROW</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="cf">BEGIN</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INSERT</span> <span class="kw">INTO</span> log_voti (idVoto, vecchioValore, nuovoValore)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">VALUES</span> (<span class="kw">OLD</span>.idVoto, <span class="kw">OLD</span>.valore, <span class="kw">NEW</span>.valore);</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>END$$</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>DELIMITER $$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ogni volta che un voto viene modificato, il trigger inserisce automaticamente una riga in <code>log_voti</code> con i valori prima e dopo la modifica.</p>
+</section>
+<section id="esempio-3-aggiornamento-automatico" class="level3">
+<h3 class="anchored" data-anchor-id="esempio-3-aggiornamento-automatico">Esempio 3: aggiornamento automatico</h3>
+<p>Quando si cancella uno studente, impostare automaticamente a NULL il suo riferimento in un’altra tabella (alternativa al CASCADE).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>DELIMITER $$</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TRIGGER</span> dopo_cancellazione_studente</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">AFTER</span> <span class="kw">DELETE</span> <span class="kw">ON</span> studente</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="cf">FOR</span> <span class="kw">EACH</span> <span class="kw">ROW</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="cf">BEGIN</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">UPDATE</span> progetto</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SET</span>    idStudente <span class="op">=</span> <span class="kw">NULL</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span>  idStudente <span class="op">=</span> <span class="kw">OLD</span>.idStudente;</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>END$$</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>DELIMITER ;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Trigger e debugging
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I trigger sono invisibili a chi esegue una query: scattano in automatico. Se un trigger contiene un errore o produce effetti inattesi, può essere difficile capire perché un’operazione fallisce o perché i dati cambiano in modo inaspettato. Documentare i trigger è essenziale.</p>
+</div>
+</div>
+</section>
+<section id="visualizzare-ed-eliminare-i-trigger" class="level3">
+<h3 class="anchored" data-anchor-id="visualizzare-ed-eliminare-i-trigger">Visualizzare ed eliminare i trigger</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Vedere i trigger definiti nel database</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>SHOW <span class="kw">TRIGGERS</span>;</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Eliminare un trigger</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TRIGGER</span> log_modifica_voto;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
 </section>
 </section>
-<section id="in-sintesi" class="level2">
-<h2 class="anchored" data-anchor-id="in-sintesi">In sintesi</h2>
-<p>Un diagramma di flusso è: un algoritmo reso visivo, fatto di passi collegati e con possibili scelte</p>
+<section id="stored-procedure" class="level2">
+<h2 class="anchored" data-anchor-id="stored-procedure">Stored procedure</h2>
+<p>Una <strong>stored procedure</strong> è un blocco di codice SQL con un nome, salvato nel database e richiamabile come una funzione. Può ricevere parametri in input, eseguire operazioni complesse (query, inserimenti, aggiornamenti, controlli) e restituire risultati.</p>
+<p>A differenza dei trigger, una stored procedure viene chiamata esplicitamente dall’utente o dall’applicazione.</p>
+<section id="struttura-di-una-stored-procedure" class="level3">
+<h3 class="anchored" data-anchor-id="struttura-di-una-stored-procedure">Struttura di una stored procedure</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>DELIMITER $$</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">PROCEDURE</span> nome_procedura (</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">IN</span>  parametro1 TIPO,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">OUT</span> parametro2 TIPO</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="cf">BEGIN</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">-- istruzioni SQL</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>END$$</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>DELIMITER ;</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">-- Chiamata della procedura</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="kw">CALL</span> nome_procedura(valore1, @variabile_output);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>I parametri possono essere: - <code>IN</code>: valore passato alla procedura (sola lettura) - <code>OUT</code>: valore restituito dalla procedura - <code>INOUT</code>: valore passato e poi modificato dalla procedura</p>
+</section>
+<section id="esempio-1-procedura-senza-parametri" class="level3">
+<h3 class="anchored" data-anchor-id="esempio-1-procedura-senza-parametri">Esempio 1: procedura senza parametri</h3>
+<p>Calcola e mostra la media voti per ogni classe.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>DELIMITER $$</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">PROCEDURE</span> media_per_classe()</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="cf">BEGIN</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> s.classe, <span class="fu">ROUND</span>(<span class="fu">AVG</span>(v.valore), <span class="dv">2</span>) <span class="kw">AS</span> media</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span>   studente s</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INNER</span> <span class="kw">JOIN</span> voto v <span class="kw">ON</span> s.idStudente <span class="op">=</span> v.idStudente</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> s.classe</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> s.classe;</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>END$$</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>DELIMITER ;</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">-- Chiamata</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="kw">CALL</span> media_per_classe();</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="esempio-2-procedura-con-parametro-in" class="level3">
+<h3 class="anchored" data-anchor-id="esempio-2-procedura-con-parametro-in">Esempio 2: procedura con parametro IN</h3>
+<p>Restituisce tutti i voti di uno studente dato il suo id.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>DELIMITER $$</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">PROCEDURE</span> voti_studente(<span class="kw">IN</span> p_idStudente <span class="dt">INT</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="cf">BEGIN</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> m.nome <span class="kw">AS</span> materia, v.valore, v.<span class="kw">data</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span>   voto v</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INNER</span> <span class="kw">JOIN</span> materia m <span class="kw">ON</span> v.idMateria <span class="op">=</span> m.idMateria</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span>  v.idStudente <span class="op">=</span> p_idStudente</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> v.<span class="kw">data</span>;</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>END$$</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>DELIMITER ;</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">-- Chiamata</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="kw">CALL</span> voti_studente(<span class="dv">3</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="esempio-3-procedura-con-parametro-out" class="level3">
+<h3 class="anchored" data-anchor-id="esempio-3-procedura-con-parametro-out">Esempio 3: procedura con parametro OUT</h3>
+<p>Calcola la media dei voti di uno studente e la restituisce come parametro.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>DELIMITER $$</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">PROCEDURE</span> media_studente(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">IN</span>  p_idStudente <span class="dt">INT</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">OUT</span> p_media      <span class="dt">DECIMAL</span>(<span class="dv">4</span>,<span class="dv">2</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="cf">BEGIN</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="fu">AVG</span>(valore)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">INTO</span>   p_media</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span>   voto</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span>  idStudente <span class="op">=</span> p_idStudente;</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>END$$</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>DELIMITER ;</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co">-- Chiamata</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="kw">CALL</span> media_studente(<span class="dv">3</span>, @risultato);</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> @risultato <span class="kw">AS</span> media;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Quando usare una stored procedure
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le stored procedure sono utili quando la stessa sequenza di operazioni viene eseguita spesso, quando si vuole centralizzare la logica nel database invece che nell’applicazione, e quando si vuole limitare l’accesso diretto alle tabelle (l’applicazione chiama la procedura, non interroga le tabelle direttamente).</p>
+</div>
+</div>
+</section>
+<section id="visualizzare-ed-eliminare-le-stored-procedure" class="level3">
+<h3 class="anchored" data-anchor-id="visualizzare-ed-eliminare-le-stored-procedure">Visualizzare ed eliminare le stored procedure</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Vedere le procedure definite nel database</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>SHOW <span class="kw">PROCEDURE</span> STATUS <span class="kw">WHERE</span> Db <span class="op">=</span> <span class="st">'nome_database'</span>;</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Eliminare una procedura</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">PROCEDURE</span> media_studente;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="confronto-tra-i-tre-strumenti" class="level2">
+<h2 class="anchored" data-anchor-id="confronto-tra-i-tre-strumenti">Confronto tra i tre strumenti</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Vista</th>
+<th>Trigger</th>
+<th>Stored procedure</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Quando si attiva</td>
+<td>alla SELECT</td>
+<td>automaticamente su INSERT/UPDATE/DELETE</td>
+<td>chiamata esplicitamente</td>
+</tr>
+<tr class="even">
+<td>Riceve parametri</td>
+<td>no</td>
+<td>no (usa NEW/OLD)</td>
+<td>sì</td>
+</tr>
+<tr class="odd">
+<td>Modifica i dati</td>
+<td>no (di solito)</td>
+<td>sì</td>
+<td>sì</td>
+</tr>
+<tr class="even">
+<td>Uso tipico</td>
+<td>semplificare letture, controllo accessi</td>
+<td>automazioni, log, validazioni</td>
+<td>operazioni ripetute, logica complessa</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="schema-mentale" class="level2">
+<h2 class="anchored" data-anchor-id="schema-mentale">Schema mentale</h2>
+<p><strong>Qual è la differenza tra una vista e una tabella?</strong> Una tabella contiene dati fisici su disco. Una vista è una query salvata con un nome: non occupa spazio autonomo e restituisce sempre dati aggiornati al momento dell’interrogazione.</p>
+<p><strong>Quando scatta un trigger?</strong> Automaticamente, quando si verifica un evento specifico su una tabella: INSERT, UPDATE o DELETE. Non viene chiamato dall’utente: è il DBMS a eseguirlo.</p>
+<p><strong>Qual è la differenza tra BEFORE e AFTER in un trigger?</strong> <code>BEFORE</code> si esegue prima dell’operazione: può modificare i valori di NEW o interrompere l’operazione. <code>AFTER</code> si esegue dopo: non può annullare l’operazione, ma può eseguire azioni conseguenti (log, aggiornamenti in altre tabelle).</p>
+<p><strong>Qual è la differenza tra trigger e stored procedure?</strong> Il trigger scatta automaticamente in risposta a un evento. La stored procedure viene chiamata esplicitamente dall’utente o dall’applicazione, e può ricevere parametri.</p>
+<p><strong>Quando conviene usare una stored procedure invece di una query diretta?</strong> Quando la stessa logica complessa viene eseguita spesso, quando si vuole centralizzare le operazioni nel database, o quando si vuole che l’applicazione acceda ai dati solo tramite procedure controllate, senza poter interrogare direttamente le tabelle.</p>
 
 
 </section>

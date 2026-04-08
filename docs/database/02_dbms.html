@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>dal_testo_allo_schema – Learning Stack: materiale didattico</title>
+<title>dbms – Learning Stack: materiale didattico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -112,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/01_storia.html">Introduzione</a></li><li class="breadcrumb-item"><a href="../../docs/database/02_dbms.html">Il DBMS: cos’è e cosa fa</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -444,22 +444,22 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
  <span class="menu-text">Database</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true">
  <span class="menu-text">Introduzione</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/database/01_storia.html" class="sidebar-item-text sidebar-link">
@@ -468,7 +468,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/database/02_dbms.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/database/02_dbms.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Il DBMS: cos’è e cosa fa</span></a>
   </div>
 </li>
@@ -591,65 +591,167 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dal-testo-allo-schema-prima-dei-simboli" id="toc-dal-testo-allo-schema-prima-dei-simboli" class="nav-link active" data-scroll-target="#dal-testo-allo-schema-prima-dei-simboli">Dal testo allo schema (prima dei simboli)</a>
+  <li><a href="#il-dbms-cosè-e-cosa-fa" id="toc-il-dbms-cosè-e-cosa-fa" class="nav-link active" data-scroll-target="#il-dbms-cosè-e-cosa-fa">Il DBMS: cos’è e cosa fa</a>
   <ul class="collapse">
-  <li><a href="#perché-usare-uno-schema" id="toc-perché-usare-uno-schema" class="nav-link" data-scroll-target="#perché-usare-uno-schema">Perché usare uno schema</a>
+  <li><a href="#database-e-dbms-due-cose-diverse" id="toc-database-e-dbms-due-cose-diverse" class="nav-link" data-scroll-target="#database-e-dbms-due-cose-diverse">Database e DBMS: due cose diverse</a></li>
+  <li><a href="#cosa-fa-concretamente-un-dbms" id="toc-cosa-fa-concretamente-un-dbms" class="nav-link" data-scroll-target="#cosa-fa-concretamente-un-dbms">Cosa fa concretamente un DBMS</a>
   <ul class="collapse">
-  <li><a href="#collegare-i-passi" id="toc-collegare-i-passi" class="nav-link" data-scroll-target="#collegare-i-passi">collegare i passi</a></li>
-  <li><a href="#metodo-da-seguire" id="toc-metodo-da-seguire" class="nav-link" data-scroll-target="#metodo-da-seguire">Metodo da seguire</a></li>
+  <li><a href="#gestione-dei-dati" id="toc-gestione-dei-dati" class="nav-link" data-scroll-target="#gestione-dei-dati">Gestione dei dati</a></li>
+  <li><a href="#controllo-degli-accessi" id="toc-controllo-degli-accessi" class="nav-link" data-scroll-target="#controllo-degli-accessi">Controllo degli accessi</a></li>
+  <li><a href="#garanzia-dellintegrità" id="toc-garanzia-dellintegrità" class="nav-link" data-scroll-target="#garanzia-dellintegrità">Garanzia dell’integrità</a></li>
+  <li><a href="#backup-e-recovery" id="toc-backup-e-recovery" class="nav-link" data-scroll-target="#backup-e-recovery">Backup e recovery</a></li>
   </ul></li>
-  <li><a href="#in-sintesi" id="toc-in-sintesi" class="nav-link" data-scroll-target="#in-sintesi">In sintesi</a></li>
+  <li><a href="#le-transazioni" id="toc-le-transazioni" class="nav-link" data-scroll-target="#le-transazioni">Le transazioni</a></li>
+  <li><a href="#acid-le-quattro-proprietà-di-una-transazione" id="toc-acid-le-quattro-proprietà-di-una-transazione" class="nav-link" data-scroll-target="#acid-le-quattro-proprietà-di-una-transazione">ACID: le quattro proprietà di una transazione</a></li>
+  <li><a href="#il-controllo-della-concorrenza" id="toc-il-controllo-della-concorrenza" class="nav-link" data-scroll-target="#il-controllo-della-concorrenza">Il controllo della concorrenza</a></li>
+  <li><a href="#schema-mentale" id="toc-schema-mentale" class="nav-link" data-scroll-target="#schema-mentale">Schema mentale</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/01_storia.html">Introduzione</a></li><li class="breadcrumb-item"><a href="../../docs/database/02_dbms.html">Il DBMS: cos’è e cosa fa</a></li></ol></nav></header>
 
 
 
 
-<section id="dal-testo-allo-schema-prima-dei-simboli" class="level1">
-<h1>Dal testo allo schema (prima dei simboli)</h1>
-<p>Finora abbiamo scritto algoritmi come sequenze di istruzioni.</p>
-<p>Esempio:</p>
-<pre class="text"><code>INIZIO
-osserva il semaforo
-se il semaforo è verde
-    attraversa
-altrimenti
-    aspetta
-FINE</code></pre>
-<p>Questo funziona, ma può diventare difficile da leggere quando gli algoritmi diventano più lunghi.</p>
-<p>Per questo motivo si usano i diagrammi di flusso.</p>
-<section id="perché-usare-uno-schema" class="level2">
-<h2 class="anchored" data-anchor-id="perché-usare-uno-schema">Perché usare uno schema</h2>
-<p>Uno schema aiuta a vedere subito la struttura del problema, capire cosa succede prima e dopo, individuare le scelte (decisioni) ed evitare errori di logica</p>
-<p>In altre parole: trasformiamo un testo in qualcosa di visivo.</p>
-<section id="collegare-i-passi" class="level3">
-<h3 class="anchored" data-anchor-id="collegare-i-passi">collegare i passi</h3>
-<p>Un diagramma di flusso è, prima di tutto, una serie di passi collegati tra loro. Possiamo iniziare senza simboli, usando solo frecce e parole.</p>
-<p>Esempio</p>
-<p>Testo:</p>
-<p>Se il semaforo è verde attraversa, altrimenti aspetta.</p>
-<p>Schema:</p>
-<p>INIZIO ↓ osserva semaforo ↓ se è verde? ↓ sì ↓ no attraversa aspetta ↓ ↓ FINE</p>
-<p>Non abbiamo ancora usato simboli ufficiali, ma si capisce già tutto.</p>
-<p>Nello schema ci sono già gli elementi fondamentali:</p>
-<p>un punto di partenza (INIZIO) una sequenza di azioni una decisione (una domanda) più possibili strade una fine (FINE)</p>
-<p>Anche senza simboli, la logica è già completa.</p>
-<p>Uno schema deve essere sempre: leggibile dall’alto verso il basso, chiaro nei collegamenti, senza salti logici</p>
+<section id="il-dbms-cosè-e-cosa-fa" class="level1">
+<h1>Il DBMS: cos’è e cosa fa</h1>
+<p>Nel capitolo precedente abbiamo visto da dove vengono i database e perché esistono. In questo capitolo entriamo nel funzionamento del sistema che li gestisce: il <strong>DBMS</strong>.</p>
+<hr>
+<section id="database-e-dbms-due-cose-diverse" class="level2">
+<h2 class="anchored" data-anchor-id="database-e-dbms-due-cose-diverse">Database e DBMS: due cose diverse</h2>
+<p>È una distinzione che vale la pena fissare subito, perché si tende a confonderle.</p>
+<p>Un <strong>database</strong> è un insieme organizzato di dati. È il contenuto: le tabelle, i record, le informazioni memorizzate.</p>
+<p>Un <strong>DBMS</strong> (<em>DataBase Management System</em>) è il software che gestisce quel contenuto. È il sistema che permette di creare le strutture, inserire e modificare i dati, controllare chi può accedere a cosa, mantenere la coerenza delle informazioni ed eseguire le interrogazioni (query).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Un’analogia utile
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Il database è come il contenuto di una biblioteca: i libri, le schede, i documenti. Il DBMS è come il sistema di gestione della biblioteca: il catalogo, le regole di prestito, il personale che controlla gli accessi, il sistema antincendio che protegge il patrimonio.</p>
+</div>
+</div>
+<p>Senza un DBMS, i dati sarebbero solo file. Con un DBMS, diventano una memoria affidabile, condivisa e interrogabile.</p>
+<p>MySQL, MariaDB, PostgreSQL, SQLite, Oracle sono tutti DBMS. Non sono database: sono i sistemi che gestiscono i database.</p>
+<hr>
 </section>
-<section id="metodo-da-seguire" class="level3">
-<h3 class="anchored" data-anchor-id="metodo-da-seguire">Metodo da seguire</h3>
-<p>Quando devi trasformare un testo in schema:</p>
-<p>individua i passi principali mettili in ordine trova le decisioni (domande) disegna i collegamenti (frecce)</p>
-<p>Solo dopo aver fatto questo, ha senso usare i simboli.</p>
+<section id="cosa-fa-concretamente-un-dbms" class="level2">
+<h2 class="anchored" data-anchor-id="cosa-fa-concretamente-un-dbms">Cosa fa concretamente un DBMS</h2>
+<p>Le funzioni di un DBMS si possono raggruppare in quattro aree principali.</p>
+<section id="gestione-dei-dati" class="level3">
+<h3 class="anchored" data-anchor-id="gestione-dei-dati">Gestione dei dati</h3>
+<p>Il DBMS permette di creare, leggere, modificare e cancellare i dati attraverso un linguaggio standard: SQL. Gestisce la struttura delle tabelle (schema) e il loro contenuto (istanza), e si occupa di tradurre le istruzioni dell’utente in operazioni fisiche sul disco.</p>
+</section>
+<section id="controllo-degli-accessi" class="level3">
+<h3 class="anchored" data-anchor-id="controllo-degli-accessi">Controllo degli accessi</h3>
+<p>Non tutti gli utenti possono fare tutto. Il DBMS gestisce <strong>utenti</strong>, <strong>ruoli</strong> e <strong>privilegi</strong>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Privilegio</th>
+<th>Significato</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>SELECT</code></td>
+<td>leggere i dati</td>
+</tr>
+<tr class="even">
+<td><code>INSERT</code></td>
+<td>inserire nuovi record</td>
+</tr>
+<tr class="odd">
+<td><code>UPDATE</code></td>
+<td>modificare record esistenti</td>
+</tr>
+<tr class="even">
+<td><code>DELETE</code></td>
+<td>cancellare record</td>
+</tr>
+</tbody>
+</table>
+<p>Un ruolo è un insieme di privilegi che può essere assegnato a più utenti. In una scuola, ad esempio, il ruolo <em>docente</em> potrebbe includere solo <code>SELECT</code> sui voti dei propri studenti e <code>INSERT</code> per aggiungerne di nuovi.</p>
+</section>
+<section id="garanzia-dellintegrità" class="level3">
+<h3 class="anchored" data-anchor-id="garanzia-dellintegrità">Garanzia dell’integrità</h3>
+<p>Il DBMS impone automaticamente le regole che i dati devono rispettare: un campo non può essere vuoto se è dichiarato obbligatorio, una chiave esterna deve riferirsi a un record che esiste, un voto non può essere al di fuori dell’intervallo ammesso. Se un’operazione viola una di queste regole, il DBMS la rifiuta.</p>
+</section>
+<section id="backup-e-recovery" class="level3">
+<h3 class="anchored" data-anchor-id="backup-e-recovery">Backup e recovery</h3>
+<p>Un database contiene memoria ufficiale: voti, stipendi, anagrafi, cartelle cliniche. Se questa memoria viene persa o danneggiata, non è solo un problema tecnico, è un problema sociale e legale.</p>
+<p>Il <strong>backup</strong> è una copia di sicurezza del database. Il <strong>recovery</strong> è l’insieme delle procedure che permettono di ripristinare i dati dopo un guasto, un errore o un incidente. Un DBMS ben configurato può recuperare i dati anche dopo un crash improvviso del sistema.</p>
+<hr>
 </section>
 </section>
-<section id="in-sintesi" class="level2">
-<h2 class="anchored" data-anchor-id="in-sintesi">In sintesi</h2>
-<p>Un diagramma di flusso è: un algoritmo reso visivo, fatto di passi collegati e con possibili scelte</p>
+<section id="le-transazioni" class="level2">
+<h2 class="anchored" data-anchor-id="le-transazioni">Le transazioni</h2>
+<p>Una delle funzioni più importanti del DBMS è la gestione delle <strong>transazioni</strong>.</p>
+<p>Una transazione è una sequenza di operazioni che il sistema considera come un’unica azione logica. Il DBMS non valuta le singole istruzioni una per una: valuta il risultato complessivo.</p>
+<p>Una transazione può avere solo due esiti:</p>
+<ul>
+<li><strong>COMMIT</strong>: tutte le operazioni vengono confermate e rese permanenti</li>
+<li><strong>ROLLBACK</strong>: tutte le operazioni vengono annullate, come se non fossero mai avvenute</li>
+</ul>
+<p>Non esiste uno stato intermedio. O tutto, o niente.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Perché le transazioni esistono
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Nel mondo reale, molte operazioni hanno senso solo se complete. Un pagamento bancario richiede che il conto del mittente venga addebitato <em>e</em> quello del destinatario accreditato. Se solo una delle due operazioni va a buon fine, il risultato è sbagliato. La transazione garantisce che le due operazioni siano trattate come un blocco indivisibile.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="acid-le-quattro-proprietà-di-una-transazione" class="level2">
+<h2 class="anchored" data-anchor-id="acid-le-quattro-proprietà-di-una-transazione">ACID: le quattro proprietà di una transazione</h2>
+<p>Le transazioni di un DBMS affidabile devono rispettare quattro proprietà, riassunte nell’acronimo <strong>ACID</strong>.</p>
+<p><strong>Atomicità (Atomicity)</strong> La transazione è indivisibile. O viene eseguita per intero, oppure non viene eseguita per niente. Non esistono “mezze operazioni”.</p>
+<p><strong>Coerenza (Consistency)</strong> Dopo ogni transazione, il database deve rispettare tutte le regole e i vincoli definiti nello schema. Non possono comparire dati in uno stato non valido.</p>
+<p><strong>Isolamento (Isolation)</strong> Più transazioni possono essere eseguite contemporaneamente, ma non devono interferire tra loro. Ogni transazione deve comportarsi come se fosse l’unica in esecuzione, anche quando non lo è.</p>
+<p><strong>Durabilità (Durability)</strong> Una volta confermata con un COMMIT, una transazione non può andare persa, nemmeno in caso di crash o spegnimento improvviso del sistema.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>ACID non è opzionale
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un sistema che non garantisce ACID non è un DBMS affidabile. Le proprietà ACID sono il motivo per cui i dati bancari, i voti scolastici e le cartelle cliniche possono essere gestiti digitalmente senza rischi di perdita o incoerenza sistematica.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="il-controllo-della-concorrenza" class="level2">
+<h2 class="anchored" data-anchor-id="il-controllo-della-concorrenza">Il controllo della concorrenza</h2>
+<p>In un DBMS reale, più utenti lavorano contemporaneamente sugli stessi dati. Questo crea il problema della <strong>concorrenza</strong>: due operazioni che accedono agli stessi dati nello stesso momento possono entrare in conflitto.</p>
+<p>Il DBMS deve garantire che ogni utente abbia l’illusione di essere l’unico a usare il sistema, anche quando non è vero.</p>
+<p>Un esempio classico: due persone prenotano l’ultimo posto disponibile su un volo nello stesso istante. Senza controllo della concorrenza, entrambe potrebbero ricevere la conferma. Il DBMS, attraverso meccanismi di blocco (<em>lock</em>) e gestione delle transazioni, garantisce che solo una delle due riesca a completare la prenotazione.</p>
+<p>La concorrenza è anche il motivo per cui la proprietà di <strong>isolamento</strong> in ACID è così importante: non basta che ogni singola transazione sia corretta, bisogna che lo siano anche quando vengono eseguite in parallelo.</p>
+<hr>
+</section>
+<section id="schema-mentale" class="level2">
+<h2 class="anchored" data-anchor-id="schema-mentale">Schema mentale</h2>
+<p><strong>Qual è la differenza tra database e DBMS?</strong> Il database è l’insieme dei dati. Il DBMS è il software che lo gestisce: crea le strutture, esegue le query, controlla gli accessi, garantisce l’integrità.</p>
+<p><strong>Cosa significa che una transazione è atomica?</strong> Che è indivisibile: o tutte le operazioni vengono eseguite, o nessuna. Non esistono stati intermedi.</p>
+<p><strong>Cosa garantisce la proprietà di isolamento?</strong> Che transazioni parallele non si interferiscono: ogni transazione si comporta come se fosse l’unica in esecuzione.</p>
+<p><strong>Cosa succede se un DBMS va in crash durante una transazione?</strong> Il sistema usa il meccanismo di recovery per ripristinare lo stato coerente precedente al crash, annullando le transazioni incomplete e confermando quelle già committate.</p>
+<p><strong>Perché il controllo della concorrenza è necessario?</strong> Perché in un DBMS reale più utenti lavorano contemporaneamente. Senza controllo, due operazioni sugli stessi dati potrebbero produrre risultati incoerenti.</p>
 
 
 </section>

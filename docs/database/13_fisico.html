@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>dal_testo_allo_schema – Learning Stack: materiale didattico</title>
+<title>fisico – Learning Stack: materiale didattico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -112,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/12_trigger_viste_sp.html">Avanzato</a></li><li class="breadcrumb-item"><a href="../../docs/database/13_fisico.html">Progettazione fisica e prestazioni</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -444,13 +479,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
  <span class="menu-text">Database</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
@@ -552,13 +587,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="true">
  <span class="menu-text">Avanzato</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/database/12_trigger_viste_sp.html" class="sidebar-item-text sidebar-link">
@@ -567,7 +602,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/database/13_fisico.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/database/13_fisico.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Progettazione fisica e prestazioni</span></a>
   </div>
 </li>
@@ -591,65 +626,159 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dal-testo-allo-schema-prima-dei-simboli" id="toc-dal-testo-allo-schema-prima-dei-simboli" class="nav-link active" data-scroll-target="#dal-testo-allo-schema-prima-dei-simboli">Dal testo allo schema (prima dei simboli)</a>
+  <li><a href="#progettazione-fisica-e-prestazioni" id="toc-progettazione-fisica-e-prestazioni" class="nav-link active" data-scroll-target="#progettazione-fisica-e-prestazioni">Progettazione fisica e prestazioni</a>
   <ul class="collapse">
-  <li><a href="#perché-usare-uno-schema" id="toc-perché-usare-uno-schema" class="nav-link" data-scroll-target="#perché-usare-uno-schema">Perché usare uno schema</a>
+  <li><a href="#due-database-identici-comportamenti-diversi" id="toc-due-database-identici-comportamenti-diversi" class="nav-link" data-scroll-target="#due-database-identici-comportamenti-diversi">Due database identici, comportamenti diversi</a></li>
+  <li><a href="#come-i-dati-sono-organizzati-su-disco" id="toc-come-i-dati-sono-organizzati-su-disco" class="nav-link" data-scroll-target="#come-i-dati-sono-organizzati-su-disco">Come i dati sono organizzati su disco</a></li>
+  <li><a href="#indici" id="toc-indici" class="nav-link" data-scroll-target="#indici">Indici</a>
   <ul class="collapse">
-  <li><a href="#collegare-i-passi" id="toc-collegare-i-passi" class="nav-link" data-scroll-target="#collegare-i-passi">collegare i passi</a></li>
-  <li><a href="#metodo-da-seguire" id="toc-metodo-da-seguire" class="nav-link" data-scroll-target="#metodo-da-seguire">Metodo da seguire</a></li>
+  <li><a href="#indici-vantaggi-e-costi" id="toc-indici-vantaggi-e-costi" class="nav-link" data-scroll-target="#indici-vantaggi-e-costi">Indici: vantaggi e costi</a></li>
   </ul></li>
-  <li><a href="#in-sintesi" id="toc-in-sintesi" class="nav-link" data-scroll-target="#in-sintesi">In sintesi</a></li>
+  <li><a href="#partizionamento" id="toc-partizionamento" class="nav-link" data-scroll-target="#partizionamento">Partizionamento</a></li>
+  <li><a href="#prestazioni-e-compromessi" id="toc-prestazioni-e-compromessi" class="nav-link" data-scroll-target="#prestazioni-e-compromessi">Prestazioni e compromessi</a></li>
+  <li><a href="#schema-mentale" id="toc-schema-mentale" class="nav-link" data-scroll-target="#schema-mentale">Schema mentale</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/12_trigger_viste_sp.html">Avanzato</a></li><li class="breadcrumb-item"><a href="../../docs/database/13_fisico.html">Progettazione fisica e prestazioni</a></li></ol></nav></header>
 
 
 
 
-<section id="dal-testo-allo-schema-prima-dei-simboli" class="level1">
-<h1>Dal testo allo schema (prima dei simboli)</h1>
-<p>Finora abbiamo scritto algoritmi come sequenze di istruzioni.</p>
-<p>Esempio:</p>
-<pre class="text"><code>INIZIO
-osserva il semaforo
-se il semaforo è verde
-    attraversa
-altrimenti
-    aspetta
-FINE</code></pre>
-<p>Questo funziona, ma può diventare difficile da leggere quando gli algoritmi diventano più lunghi.</p>
-<p>Per questo motivo si usano i diagrammi di flusso.</p>
-<section id="perché-usare-uno-schema" class="level2">
-<h2 class="anchored" data-anchor-id="perché-usare-uno-schema">Perché usare uno schema</h2>
-<p>Uno schema aiuta a vedere subito la struttura del problema, capire cosa succede prima e dopo, individuare le scelte (decisioni) ed evitare errori di logica</p>
-<p>In altre parole: trasformiamo un testo in qualcosa di visivo.</p>
-<section id="collegare-i-passi" class="level3">
-<h3 class="anchored" data-anchor-id="collegare-i-passi">collegare i passi</h3>
-<p>Un diagramma di flusso è, prima di tutto, una serie di passi collegati tra loro. Possiamo iniziare senza simboli, usando solo frecce e parole.</p>
-<p>Esempio</p>
-<p>Testo:</p>
-<p>Se il semaforo è verde attraversa, altrimenti aspetta.</p>
-<p>Schema:</p>
-<p>INIZIO ↓ osserva semaforo ↓ se è verde? ↓ sì ↓ no attraversa aspetta ↓ ↓ FINE</p>
-<p>Non abbiamo ancora usato simboli ufficiali, ma si capisce già tutto.</p>
-<p>Nello schema ci sono già gli elementi fondamentali:</p>
-<p>un punto di partenza (INIZIO) una sequenza di azioni una decisione (una domanda) più possibili strade una fine (FINE)</p>
-<p>Anche senza simboli, la logica è già completa.</p>
-<p>Uno schema deve essere sempre: leggibile dall’alto verso il basso, chiaro nei collegamenti, senza salti logici</p>
+<section id="progettazione-fisica-e-prestazioni" class="level1">
+<h1>Progettazione fisica e prestazioni</h1>
+<p>Fino a questo punto abbiamo lavorato al livello logico: tabelle, chiavi, vincoli, query. La progettazione fisica è il livello successivo: le stesse tabelle, sullo stesso schema, possono comportarsi in modo radicalmente diverso a seconda di come vengono implementate fisicamente. Questo capitolo non insegna a ottimizzare sistemi in produzione, ma a capire perché le scelte fisiche esistono e cosa determinano.</p>
+<hr>
+<section id="due-database-identici-comportamenti-diversi" class="level2">
+<h2 class="anchored" data-anchor-id="due-database-identici-comportamenti-diversi">Due database identici, comportamenti diversi</h2>
+<p>A livello logico, due database possono essere identici: stesse tabelle, stesse chiavi, stessi vincoli. A livello fisico possono comportarsi in modo completamente diverso in termini di velocità, affidabilità e capacità di recupero dopo un errore.</p>
+<p>Questo perché ogni database, nella sua progettazione fisica, incarna una <strong>filosofia</strong>: una serie di scelte su cosa privilegiare e cosa sacrificare.</p>
+<p>Un esempio è <strong>PostgreSQL</strong>. Non nasce per essere il database più veloce: nasce con una scelta precisa, meglio perdere prestazioni che perdere dati. Per questo adotta soluzioni fisiche costose: scrive prima su un log e poi sui dati, applica controlli rigorosi sulle transazioni, mantiene meccanismi di recupero affidabili dopo i crash. Il risultato è un sistema spesso più lento in scrittura, ma molto più affidabile nel tempo.</p>
+<p><strong>MySQL</strong> fa scelte diverse a seconda del motore di storage usato. Il motore InnoDB garantisce ACID e supporto alle chiavi esterne. Il motore MyISAM, più vecchio, è più veloce in lettura ma non garantisce l’integrità referenziale.</p>
+<p>Nessuna scelta è giusta in assoluto. Ogni scelta è coerente con un contesto. Un sistema bancario ha bisogni diversi da un sito di e-commerce, che ha bisogni diversi da un sistema di log in tempo reale.</p>
+<hr>
 </section>
-<section id="metodo-da-seguire" class="level3">
-<h3 class="anchored" data-anchor-id="metodo-da-seguire">Metodo da seguire</h3>
-<p>Quando devi trasformare un testo in schema:</p>
-<p>individua i passi principali mettili in ordine trova le decisioni (domande) disegna i collegamenti (frecce)</p>
-<p>Solo dopo aver fatto questo, ha senso usare i simboli.</p>
+<section id="come-i-dati-sono-organizzati-su-disco" class="level2">
+<h2 class="anchored" data-anchor-id="come-i-dati-sono-organizzati-su-disco">Come i dati sono organizzati su disco</h2>
+<p>Un DBMS non legge i dati riga per riga ogni volta che riceve una query. I dati sono organizzati su disco in <strong>pagine</strong> (blocchi di dimensione fissa, tipicamente 8 o 16 KB). Quando il DBMS cerca un dato, carica in memoria l’intera pagina che lo contiene.</p>
+<p>Questo ha una conseguenza importante: accedere a dati vicini fisicamente sul disco è molto più veloce che accedere a dati sparsi. È uno dei motivi per cui la progettazione fisica incide sulle prestazioni anche quando lo schema logico è identico.</p>
+<p>Quando una tabella viene interrogata frequentemente su una certa colonna, il DBMS deve scorrere tutte le pagine per trovare le righe che corrispondono alla condizione. Su tabelle con milioni di righe, questo diventa lento. La soluzione sono gli <strong>indici</strong>.</p>
+<hr>
+</section>
+<section id="indici" class="level2">
+<h2 class="anchored" data-anchor-id="indici">Indici</h2>
+<p>Un <strong>indice</strong> è una struttura dati separata dalla tabella che permette al DBMS di trovare rapidamente le righe che soddisfano una condizione, senza scorrere tutta la tabella.</p>
+<p>Funziona in modo simile all’indice analitico di un libro: invece di leggere tutto il libro per trovare un argomento, si consulta l’indice che indica la pagina esatta.</p>
+<p>La struttura più usata è il <strong>B-Tree</strong> (albero bilanciato): una struttura ad albero in cui ogni nodo contiene valori della colonna indicizzata e puntatori alle pagine del disco dove si trovano le righe corrispondenti. La ricerca su un B-Tree richiede un numero di operazioni proporzionale al logaritmo del numero di righe, invece che al numero di righe stesso.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Creare un indice sulla colonna cognome della tabella studente</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">INDEX</span> idx_cognome <span class="kw">ON</span> studente(cognome);</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Creare un indice su più colonne (indice composto)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">INDEX</span> idx_classe_cognome <span class="kw">ON</span> studente(classe, cognome);</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">-- Eliminare un indice</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">INDEX</span> idx_cognome <span class="kw">ON</span> studente;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La chiave primaria ha sempre un indice creato automaticamente dal DBMS. Le chiavi esterne di solito lo hanno anch’esse, perché vengono controllate a ogni INSERT e DELETE.</p>
+<section id="indici-vantaggi-e-costi" class="level3">
+<h3 class="anchored" data-anchor-id="indici-vantaggi-e-costi">Indici: vantaggi e costi</h3>
+<p>Gli indici non sono gratuiti. Accelerano le letture (<code>SELECT</code>), ma rallentano le scritture (<code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>), perché ogni modifica ai dati richiede di aggiornare anche l’indice.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Operazione</th>
+<th>Con indice</th>
+<th>Senza indice</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SELECT con WHERE sulla colonna indicizzata</td>
+<td>molto più veloce</td>
+<td>lenta su tabelle grandi</td>
+</tr>
+<tr class="even">
+<td>INSERT / UPDATE / DELETE</td>
+<td>più lento</td>
+<td>più veloce</td>
+</tr>
+<tr class="odd">
+<td>Spazio su disco</td>
+<td>maggiore</td>
+<td>minore</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Quando creare un indice
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un indice è utile su colonne che compaiono spesso in clausole <code>WHERE</code>, <code>JOIN ON</code> o <code>ORDER BY</code>, e che hanno molti valori distinti. Non ha senso indicizzare una colonna con pochi valori possibili (come un campo booleano): il DBMS troverebbe comunque metà delle righe e l’indice non aiuterebbe.</p>
+</div>
+</div>
+<hr>
 </section>
 </section>
-<section id="in-sintesi" class="level2">
-<h2 class="anchored" data-anchor-id="in-sintesi">In sintesi</h2>
-<p>Un diagramma di flusso è: un algoritmo reso visivo, fatto di passi collegati e con possibili scelte</p>
+<section id="partizionamento" class="level2">
+<h2 class="anchored" data-anchor-id="partizionamento">Partizionamento</h2>
+<p>Il <strong>partizionamento</strong> è una tecnica che divide fisicamente una tabella grande in parti più piccole chiamate partizioni, mantenendo una vista logica unica. Chi fa una query vede sempre la stessa tabella, ma il DBMS lavora su una porzione ridotta dei dati.</p>
+<p>Esempio: una tabella <code>ordini</code> con milioni di righe può essere partizionata per anno. Una query che filtra su <code>anno = 2024</code> accede solo alla partizione di quell’anno, invece di scorrere tutta la tabella.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Esempio di partizionamento per anno in MySQL</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> ordini (</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    idOrdine <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">data</span>     <span class="dt">DATE</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    importo  <span class="dt">DECIMAL</span>(<span class="dv">10</span>,<span class="dv">2</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">PARTITION</span> <span class="kw">BY</span> <span class="kw">RANGE</span> (<span class="dt">YEAR</span>(<span class="kw">data</span>)) (</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">PARTITION</span> p2022 <span class="kw">VALUES</span> <span class="kw">LESS</span> <span class="kw">THAN</span> (<span class="dv">2023</span>),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">PARTITION</span> p2023 <span class="kw">VALUES</span> <span class="kw">LESS</span> <span class="kw">THAN</span> (<span class="dv">2024</span>),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">PARTITION</span> p2024 <span class="kw">VALUES</span> <span class="kw">LESS</span> <span class="kw">THAN</span> (<span class="dv">2025</span>),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">PARTITION</span> pFuturi <span class="kw">VALUES</span> <span class="kw">LESS</span> <span class="kw">THAN</span> <span class="kw">MAXVALUE</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Il partizionamento è utile su tabelle che crescono continuamente nel tempo (log, transazioni, eventi) e che vengono interrogate spesso su un intervallo temporale o geografico.</p>
+<hr>
+</section>
+<section id="prestazioni-e-compromessi" class="level2">
+<h2 class="anchored" data-anchor-id="prestazioni-e-compromessi">Prestazioni e compromessi</h2>
+<p>Le scelte di progettazione fisica comportano sempre dei compromessi. Non esiste una configurazione ottimale in assoluto: esiste la configurazione migliore per un determinato carico di lavoro.</p>
+<p>I tre compromessi principali sono:</p>
+<p><strong>Velocità di lettura vs velocità di scrittura</strong> Più indici accelerano le SELECT ma rallentano INSERT e UPDATE. Un sistema con molte letture e poche scritture (un sito di notizie) si configura diversamente da un sistema con molte scritture e poche letture (un sistema di logging).</p>
+<p><strong>Spazio su disco vs velocità</strong> Gli indici occupano spazio. Le copie ridondanti dei dati (a volte usate per velocizzare certe query) occupano ancora più spazio. In alcuni sistemi si accetta ridondanza controllata per guadagnare prestazioni.</p>
+<p><strong>Consistenza vs disponibilità</strong> Nei sistemi distribuiti (più server che gestiscono lo stesso database) garantire che tutti i nodi abbiano sempre gli stessi dati richiede comunicazione e coordinamento, che richiedono tempo. Alcuni sistemi rilassano la consistenza per restare sempre disponibili. Questo è uno dei temi centrali dei database NoSQL, che vedremo nel prossimo capitolo.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>La progettazione fisica non si improvvisa
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le ottimizzazioni fisiche si applicano <em>dopo</em> che lo schema logico è corretto e normalizzato, non prima. Ottimizzare uno schema mal progettato è come lubrificare un motore rotto: si può fare, ma non risolve il problema reale.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="schema-mentale" class="level2">
+<h2 class="anchored" data-anchor-id="schema-mentale">Schema mentale</h2>
+<p><strong>Perché due database con lo stesso schema logico possono avere prestazioni diverse?</strong> Perché le scelte fisiche (struttura su disco, indici, motore di storage, configurazione delle transazioni) incidono direttamente sulla velocità e sull’affidabilità, indipendentemente dallo schema.</p>
+<p><strong>Cos’è un indice e quando conviene crearlo?</strong> È una struttura dati separata che permette ricerche rapide su una colonna. Conviene sulle colonne usate frequentemente in WHERE, JOIN e ORDER BY, con molti valori distinti. Non conviene su colonne con pochi valori possibili o su tabelle con molte scritture.</p>
+<p><strong>Qual è il costo di un indice?</strong> Rallenta le scritture (ogni INSERT, UPDATE, DELETE deve aggiornare anche l’indice) e occupa spazio su disco. Il guadagno in lettura deve essere valutato rispetto a questi costi.</p>
+<p><strong>Cos’è il partizionamento e quando si usa?</strong> È la divisione fisica di una tabella grande in parti più piccole. Si usa su tabelle che crescono continuamente e che vengono interrogate spesso su un sottoinsieme dei dati (per esempio per anno o per area geografica).</p>
+<p><strong>Perché la progettazione fisica si fa dopo quella logica?</strong> Perché ottimizzare uno schema mal progettato non risolve i problemi strutturali. Prima si progetta correttamente il modello logico, poi si ottimizza il livello fisico in base al carico di lavoro reale.</p>
 
 
 </section>
