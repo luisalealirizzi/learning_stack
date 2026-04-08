@@ -81,6 +81,34 @@ website:
               - docs/java/17_solid.md
               - docs/java/18_solid_caso_uso.md
               - docs/java/19_design_pattern.md
+      - section: "Database"
+        contents:
+          - section: "Introduzione"
+            collapsed: true
+            contents:
+              - docs/database/01_storia.md
+              - docs/database/02_dbms.md
+          - section: "Modellazione"
+            collapsed: true
+            contents:
+              - docs/database/03_modello_er.md
+              - docs/database/04_er_avanzato.md
+              - docs/database/05_modello_rel.md
+              - docs/database/06_chiavi.md
+              - docs/database/07_normaliz.md
+          - section: "Query"
+            collapsed: true
+            contents:
+              - docs/database/08_algebra.md
+              - docs/database/09_sql_base.md
+              - docs/database/10_sql_avanz.md
+              - docs/database/11_query_guidate.md
+          - section: "Avanzato"
+            collapsed: true
+            contents:
+              - docs/database/12_trigger_viste_sp.md
+              - docs/database/13_fisico.md
+              - docs/database/14_nosql.md
 
 format:
   html:
