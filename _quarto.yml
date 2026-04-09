@@ -134,7 +134,7 @@ website:
               - docs/database/12_trigger_viste_sp.md
               - docs/database/13_fisico.md
               - docs/database/14_nosql.md
-            - section: "Laboratorio"
+          - section: "Laboratorio"
             collapsed: true
             contents:
               - docs/database/laboratorio/01_creazione_er.md
