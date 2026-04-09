@@ -81,32 +81,60 @@
     <lastmod>2026-04-08T17:54:19.112Z</lastmod>
   </url>
   <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/database/08_algebra.html</loc>
-    <lastmod>2026-04-08T17:50:59.669Z</lastmod>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/database/laborario/01_creazione_er.html</loc>
+    <lastmod>2026-04-09T20:02:22.330Z</lastmod>
   </url>
   <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/02_variabili_tipi.html</loc>
-    <lastmod>2026-04-04T19:17:09.211Z</lastmod>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/database/02_dbms.html</loc>
+    <lastmod>2026-04-08T17:27:28.113Z</lastmod>
   </url>
   <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/11_stringhe.html</loc>
-    <lastmod>2026-04-04T20:06:24.546Z</lastmod>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/18_ordinamento_selezione.html</loc>
+    <lastmod>2026-04-09T18:37:44.669Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/05_selezione.html</loc>
+    <lastmod>2026-04-04T19:33:48.881Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/12b_c_e_sicurezza.html</loc>
+    <lastmod>2026-04-09T18:37:44.665Z</lastmod>
   </url>
   <url>
     <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/10_matrici.html</loc>
     <lastmod>2026-04-04T19:59:13.562Z</lastmod>
   </url>
   <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/06_iterazione.html</loc>
-    <lastmod>2026-04-04T19:38:05.352Z</lastmod>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/16_struct_funzioni.html</loc>
+    <lastmod>2026-04-09T18:37:44.669Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/laboratorio/manuale.html</loc>
+    <lastmod>2026-04-09T18:37:44.697Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/14_file_scrittura.html</loc>
+    <lastmod>2026-04-09T18:37:44.669Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/03_operatori.html</loc>
+    <lastmod>2026-04-04T19:21:27.116Z</lastmod>
   </url>
   <url>
     <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/09_array.html</loc>
     <lastmod>2026-04-04T19:56:27.900Z</lastmod>
   </url>
   <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/01_introduzione.html</loc>
-    <lastmod>2026-04-04T19:12:28.861Z</lastmod>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/08_boolean.html</loc>
+    <lastmod>2026-04-04T19:46:14.037Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/22_confronto_algoritmi.html</loc>
+    <lastmod>2026-04-09T18:37:44.673Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/15_struct.html</loc>
+    <lastmod>2026-04-09T18:37:44.669Z</lastmod>
   </url>
   <url>
     <loc>https://luisalealirizzi.github.io/learning_stack/docs/diagrammi_flusso/07_costruire_un_diagramma.html</loc>
@@ -145,28 +173,56 @@
     <lastmod>2026-04-04T20:10:04.914Z</lastmod>
   </url>
   <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/08_boolean.html</loc>
-    <lastmod>2026-04-04T19:46:14.037Z</lastmod>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/17_ordinamento_scambio.html</loc>
+    <lastmod>2026-04-09T18:37:44.669Z</lastmod>
   </url>
   <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/03_operatori.html</loc>
-    <lastmod>2026-04-04T19:21:27.116Z</lastmod>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/01_introduzione.html</loc>
+    <lastmod>2026-04-04T19:12:28.861Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/19_ordinamento_inserzione.html</loc>
+    <lastmod>2026-04-09T18:37:44.673Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/20b_ricorsione.html</loc>
+    <lastmod>2026-04-09T18:37:44.673Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/20_ordinamento_avanzati.html</loc>
+    <lastmod>2026-04-09T18:37:44.673Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/06_iterazione.html</loc>
+    <lastmod>2026-04-04T19:38:05.352Z</lastmod>
   </url>
   <url>
     <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/04_input_output.html</loc>
     <lastmod>2026-04-04T19:27:25.440Z</lastmod>
   </url>
   <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/13_file_lettura.html</loc>
+    <lastmod>2026-04-09T18:37:44.669Z</lastmod>
+  </url>
+  <url>
     <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/07_funzioni.html</loc>
     <lastmod>2026-04-04T19:56:32.089Z</lastmod>
   </url>
   <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/05_selezione.html</loc>
-    <lastmod>2026-04-04T19:33:48.881Z</lastmod>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/11_stringhe.html</loc>
+    <lastmod>2026-04-04T20:06:24.546Z</lastmod>
   </url>
   <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/database/02_dbms.html</loc>
-    <lastmod>2026-04-08T17:27:28.113Z</lastmod>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/02_variabili_tipi.html</loc>
+    <lastmod>2026-04-04T19:17:09.211Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/21_ricerca.html</loc>
+    <lastmod>2026-04-09T18:37:44.673Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/database/08_algebra.html</loc>
+    <lastmod>2026-04-08T17:50:59.669Z</lastmod>
   </url>
   <url>
     <loc>https://luisalealirizzi.github.io/learning_stack/docs/database/04_er_avanzato.html</loc>
