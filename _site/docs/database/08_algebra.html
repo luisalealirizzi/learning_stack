@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>dal_testo_allo_schema – Learning Stack: materiale didattico</title>
+<title>algebra – Learning Stack: materiale didattico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -112,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/08_algebra.html">Query</a></li><li class="breadcrumb-item"><a href="../../docs/database/08_algebra.html">Algebra relazionale</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -444,13 +444,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
  <span class="menu-text">Database</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
@@ -517,16 +517,16 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true">
  <span class="menu-text">Query</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/database/08_algebra.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/database/08_algebra.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Algebra relazionale</span></a>
   </div>
 </li>
@@ -591,65 +591,298 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dal-testo-allo-schema-prima-dei-simboli" id="toc-dal-testo-allo-schema-prima-dei-simboli" class="nav-link active" data-scroll-target="#dal-testo-allo-schema-prima-dei-simboli">Dal testo allo schema (prima dei simboli)</a>
+  <li><a href="#algebra-relazionale" id="toc-algebra-relazionale" class="nav-link active" data-scroll-target="#algebra-relazionale">Algebra relazionale</a>
   <ul class="collapse">
-  <li><a href="#perché-usare-uno-schema" id="toc-perché-usare-uno-schema" class="nav-link" data-scroll-target="#perché-usare-uno-schema">Perché usare uno schema</a>
+  <li><a href="#prima-delle-query-cè-il-calcolo" id="toc-prima-delle-query-cè-il-calcolo" class="nav-link" data-scroll-target="#prima-delle-query-cè-il-calcolo">Prima delle query c’è il calcolo</a></li>
+  <li><a href="#le-operazioni-fondamentali" id="toc-le-operazioni-fondamentali" class="nav-link" data-scroll-target="#le-operazioni-fondamentali">Le operazioni fondamentali</a>
   <ul class="collapse">
-  <li><a href="#collegare-i-passi" id="toc-collegare-i-passi" class="nav-link" data-scroll-target="#collegare-i-passi">collegare i passi</a></li>
-  <li><a href="#metodo-da-seguire" id="toc-metodo-da-seguire" class="nav-link" data-scroll-target="#metodo-da-seguire">Metodo da seguire</a></li>
+  <li><a href="#selezione-σ" id="toc-selezione-σ" class="nav-link" data-scroll-target="#selezione-σ">Selezione (σ)</a></li>
+  <li><a href="#proiezione-π" id="toc-proiezione-π" class="nav-link" data-scroll-target="#proiezione-π">Proiezione (π)</a></li>
+  <li><a href="#selezione-e-proiezione-combinate" id="toc-selezione-e-proiezione-combinate" class="nav-link" data-scroll-target="#selezione-e-proiezione-combinate">Selezione e proiezione combinate</a></li>
+  <li><a href="#prodotto-cartesiano" id="toc-prodotto-cartesiano" class="nav-link" data-scroll-target="#prodotto-cartesiano">Prodotto cartesiano (×)</a></li>
+  <li><a href="#join" id="toc-join" class="nav-link" data-scroll-target="#join">Join (⨝)</a></li>
+  <li><a href="#differenza" id="toc-differenza" class="nav-link" data-scroll-target="#differenza">Differenza (−)</a></li>
   </ul></li>
-  <li><a href="#in-sintesi" id="toc-in-sintesi" class="nav-link" data-scroll-target="#in-sintesi">In sintesi</a></li>
+  <li><a href="#il-collegamento-con-sql" id="toc-il-collegamento-con-sql" class="nav-link" data-scroll-target="#il-collegamento-con-sql">Il collegamento con SQL</a></li>
+  <li><a href="#schema-mentale" id="toc-schema-mentale" class="nav-link" data-scroll-target="#schema-mentale">Schema mentale</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/08_algebra.html">Query</a></li><li class="breadcrumb-item"><a href="../../docs/database/08_algebra.html">Algebra relazionale</a></li></ol></nav></header>
 
 
 
 
-<section id="dal-testo-allo-schema-prima-dei-simboli" class="level1">
-<h1>Dal testo allo schema (prima dei simboli)</h1>
-<p>Finora abbiamo scritto algoritmi come sequenze di istruzioni.</p>
+<section id="algebra-relazionale" class="level1">
+<h1>Algebra relazionale</h1>
+<p>SQL permette di interrogare un database descrivendo <em>cosa</em> si vuole ottenere. Ma da dove viene questa idea? Prima del linguaggio c’è la teoria: l’<strong>algebra relazionale</strong> è il sistema di operazioni matematiche su cui SQL è fondato.</p>
+<hr>
+<section id="prima-delle-query-cè-il-calcolo" class="level2">
+<h2 class="anchored" data-anchor-id="prima-delle-query-cè-il-calcolo">Prima delle query c’è il calcolo</h2>
+<p>Negli anni ’30 non esistono computer. Eppure matematici come Alan Turing e Alonzo Church si pongono una domanda fondamentale: cos’è un calcolo? Non come si esegue su una macchina, ma che cosa significa calcolare.</p>
+<p>Scoprono qualcosa di decisivo: un calcolo può essere descritto come una <strong>trasformazione formale di simboli</strong>, indipendente dall’hardware che lo esegue. Il calcolo precede la macchina.</p>
+<p>Quando Edgar F. Codd affronta il problema dei dati, fa la stessa mossa concettuale. Non si chiede: come scorro i record? In che ordine leggo la memoria? Si chiede: <strong>quali trasformazioni matematiche posso applicare ai dati?</strong></p>
+<p>Nasce così l’algebra relazionale: un sistema di operazioni astratte che descrive <em>cosa</em> ottenere, non <em>come</em> ottenerlo. Selezione, proiezione, join non sono comandi procedurali. Sono operazioni matematiche applicate a insiemi di dati.</p>
+<p>Per questo l’algebra relazionale è indipendente dal linguaggio, dal DBMS e dalla struttura fisica dei dati. Prima delle query c’è il calcolo. Prima della macchina c’è l’algebra.</p>
+<hr>
+</section>
+<section id="le-operazioni-fondamentali" class="level2">
+<h2 class="anchored" data-anchor-id="le-operazioni-fondamentali">Le operazioni fondamentali</h2>
+<p>Ogni operazione dell’algebra relazionale prende una o più relazioni come input e restituisce sempre una nuova relazione come output. Questo significa che le operazioni si possono <strong>comporre</strong>: il risultato di una può diventare l’input di un’altra.</p>
+<hr>
+<section id="selezione-σ" class="level3">
+<h3 class="anchored" data-anchor-id="selezione-σ">Selezione (σ)</h3>
+<p>La <strong>selezione</strong> filtra le righe di una relazione in base a una condizione. Non modifica le colonne: agisce solo sul numero di righe.</p>
+<p>Notazione formale:</p>
+<pre><code>σ_condizione(R)</code></pre>
+<p>Esempio: dalla relazione <code>STUDENTE(idStudente, nome, voto)</code>, voglio solo gli studenti con voto maggiore o uguale a 6:</p>
+<pre><code>σ_voto &gt;= 6 (STUDENTE)</code></pre>
+<p>Il risultato è una nuova relazione con lo stesso schema di <code>STUDENTE</code>, ma solo le righe che soddisfano la condizione.</p>
+<p>Osservazioni: - la selezione non cambia lo schema della relazione - può usare operatori di confronto: <code>&gt;</code>, <code>&lt;</code>, <code>=</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>&lt;&gt;</code> - può combinare condizioni con <code>AND</code>, <code>OR</code>, <code>NOT</code></p>
+<hr>
+</section>
+<section id="proiezione-π" class="level3">
+<h3 class="anchored" data-anchor-id="proiezione-π">Proiezione (π)</h3>
+<p>La <strong>proiezione</strong> seleziona alcune colonne di una relazione. Non modifica le righe: agisce solo sull’insieme degli attributi.</p>
+<p>Notazione formale:</p>
+<pre><code>π_lista_attributi(R)</code></pre>
+<p>Esempio: dalla relazione <code>STUDENTE(idStudente, nome, cognome, voto)</code>, voglio solo nome e voto:</p>
+<pre><code>π_nome, voto (STUDENTE)</code></pre>
+<p>Il risultato è una nuova relazione con solo le colonne richieste. Se la proiezione produce righe duplicate, queste vengono eliminate: una relazione non può contenere tuple identiche.</p>
+<p>Osservazioni: - la proiezione elimina le colonne non indicate - può eliminare duplicati come effetto collaterale - l’ordine delle colonne nel risultato non è significativo nella teoria formale</p>
+<hr>
+</section>
+<section id="selezione-e-proiezione-combinate" class="level3">
+<h3 class="anchored" data-anchor-id="selezione-e-proiezione-combinate">Selezione e proiezione combinate</h3>
+<p>Le due operazioni si compongono facilmente. Per ottenere solo il nome degli studenti con voto maggiore o uguale a 6:</p>
+<pre><code>π_nome (σ_voto &gt;= 6 (STUDENTE))</code></pre>
+<p>Si legge dall’interno verso l’esterno: prima si selezionano le righe con voto &gt;= 6, poi si proietta sul solo attributo <code>nome</code>.</p>
+<hr>
+</section>
+<section id="prodotto-cartesiano" class="level3">
+<h3 class="anchored" data-anchor-id="prodotto-cartesiano">Prodotto cartesiano (×)</h3>
+<p>Il <strong>prodotto cartesiano</strong> combina ogni riga di una relazione con ogni riga di un’altra. Se R ha m righe e S ha n righe, il risultato ha m × n righe.</p>
+<p>Notazione formale:</p>
+<pre><code>R × S</code></pre>
 <p>Esempio:</p>
-<pre class="text"><code>INIZIO
-osserva il semaforo
-se il semaforo è verde
-    attraversa
-altrimenti
-    aspetta
-FINE</code></pre>
-<p>Questo funziona, ma può diventare difficile da leggere quando gli algoritmi diventano più lunghi.</p>
-<p>Per questo motivo si usano i diagrammi di flusso.</p>
-<section id="perché-usare-uno-schema" class="level2">
-<h2 class="anchored" data-anchor-id="perché-usare-uno-schema">Perché usare uno schema</h2>
-<p>Uno schema aiuta a vedere subito la struttura del problema, capire cosa succede prima e dopo, individuare le scelte (decisioni) ed evitare errori di logica</p>
-<p>In altre parole: trasformiamo un testo in qualcosa di visivo.</p>
-<section id="collegare-i-passi" class="level3">
-<h3 class="anchored" data-anchor-id="collegare-i-passi">collegare i passi</h3>
-<p>Un diagramma di flusso è, prima di tutto, una serie di passi collegati tra loro. Possiamo iniziare senza simboli, usando solo frecce e parole.</p>
-<p>Esempio</p>
-<p>Testo:</p>
-<p>Se il semaforo è verde attraversa, altrimenti aspetta.</p>
-<p>Schema:</p>
-<p>INIZIO ↓ osserva semaforo ↓ se è verde? ↓ sì ↓ no attraversa aspetta ↓ ↓ FINE</p>
-<p>Non abbiamo ancora usato simboli ufficiali, ma si capisce già tutto.</p>
-<p>Nello schema ci sono già gli elementi fondamentali:</p>
-<p>un punto di partenza (INIZIO) una sequenza di azioni una decisione (una domanda) più possibili strade una fine (FINE)</p>
-<p>Anche senza simboli, la logica è già completa.</p>
-<p>Uno schema deve essere sempre: leggibile dall’alto verso il basso, chiaro nei collegamenti, senza salti logici</p>
+<p>Relazione <code>STUDENTE</code>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>idStudente</th>
+<th>nome</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Luca</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Anna</td>
+</tr>
+</tbody>
+</table>
+<p>Relazione <code>CORSO</code>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>idCorso</th>
+<th>titolo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>Informatica</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>Matematica</td>
+</tr>
+</tbody>
+</table>
+<p><code>STUDENTE × CORSO</code>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>idStudente</th>
+<th>nome</th>
+<th>idCorso</th>
+<th>titolo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Luca</td>
+<td>A</td>
+<td>Informatica</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Luca</td>
+<td>B</td>
+<td>Matematica</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Anna</td>
+<td>A</td>
+<td>Informatica</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Anna</td>
+<td>B</td>
+<td>Matematica</td>
+</tr>
+</tbody>
+</table>
+<p>Il prodotto cartesiano genera molte tuple, la maggior parte prive di significato. Viene usato raramente da solo: il suo ruolo principale è essere la <strong>base teorica della join</strong>.</p>
+<hr>
 </section>
-<section id="metodo-da-seguire" class="level3">
-<h3 class="anchored" data-anchor-id="metodo-da-seguire">Metodo da seguire</h3>
-<p>Quando devi trasformare un testo in schema:</p>
-<p>individua i passi principali mettili in ordine trova le decisioni (domande) disegna i collegamenti (frecce)</p>
-<p>Solo dopo aver fatto questo, ha senso usare i simboli.</p>
+<section id="join" class="level3">
+<h3 class="anchored" data-anchor-id="join">Join (⨝)</h3>
+<p>La <strong>join</strong> combina due relazioni mettendo insieme le tuple che soddisfano una condizione. È l’operazione più importante dell’algebra relazionale, perché permette di ricostruire informazioni distribuite su più tabelle.</p>
+<p>Notazione formale:</p>
+<pre><code>R ⨝_condizione S</code></pre>
+<p>La join può essere vista come un prodotto cartesiano seguito da una selezione:</p>
+<pre><code>R ⨝_condizione S  =  σ_condizione (R × S)</code></pre>
+<p>Esempio: voglio sapere il nome degli studenti e i titoli dei corsi a cui sono iscritti.</p>
+<pre><code>STUDENTE(idStudente, nome)
+ISCRIZIONE(idStudente, idCorso)
+CORSO(idCorso, titolo)</code></pre>
+<pre><code>STUDENTE ⨝_STUDENTE.idStudente = ISCRIZIONE.idStudente ISCRIZIONE</code></pre>
+<p>Il risultato contiene le informazioni combinate delle due tabelle, solo per le righe in cui la condizione è soddisfatta.</p>
+<p><strong>Join naturale</strong>: se le due relazioni hanno attributi con lo stesso nome e stesso significato, si può usare la join naturale, che applica automaticamente la condizione di uguaglianza sugli attributi comuni:</p>
+<pre><code>STUDENTE ⨝ ISCRIZIONE</code></pre>
+<p>L’attributo comune (<code>idStudente</code>) compare una sola volta nel risultato.</p>
+<p>Tipi di join nell’algebra relazionale:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>Condizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Natural join</strong></td>
+<td>uguaglianza sugli attributi con lo stesso nome</td>
+</tr>
+<tr class="even">
+<td><strong>Equi-join</strong></td>
+<td>condizione di uguaglianza esplicita tra attributi</td>
+</tr>
+<tr class="odd">
+<td><strong>Theta-join</strong></td>
+<td>qualsiasi condizione di confronto</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Join e SQL
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In SQL troveremo <code>INNER JOIN</code>, <code>LEFT JOIN</code>, <code>RIGHT JOIN</code>. Questi corrispondono a varianti della join che gestiscono in modo diverso le tuple senza corrispondenza. Le vedremo nel capitolo 10.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="differenza" class="level3">
+<h3 class="anchored" data-anchor-id="differenza">Differenza (−)</h3>
+<p>La <strong>differenza</strong> restituisce le tuple presenti in una relazione ma assenti in un’altra. Si applica solo a relazioni <strong>compatibili</strong>: stesso numero di attributi, stessi domini, stesso significato.</p>
+<p>Notazione formale:</p>
+<pre><code>R − S</code></pre>
+<p>Esempio: voglio gli studenti che non hanno ancora consegnato il progetto.</p>
+<pre><code>STUDENTI_TUTTI(idStudente)  −  STUDENTI_CON_PROGETTO(idStudente)</code></pre>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>STUDENTI_TUTTI</th>
+<th></th>
+<th>STUDENTI_CON_PROGETTO</th>
+<th></th>
+<th>Risultato</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td></td>
+<td>1</td>
+<td></td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td></td>
+<td>3</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>La differenza è un’operazione insiemistica: l’ordine delle tuple non conta, e il risultato è sempre una relazione.</p>
+<hr>
 </section>
 </section>
-<section id="in-sintesi" class="level2">
-<h2 class="anchored" data-anchor-id="in-sintesi">In sintesi</h2>
-<p>Un diagramma di flusso è: un algoritmo reso visivo, fatto di passi collegati e con possibili scelte</p>
+<section id="il-collegamento-con-sql" class="level2">
+<h2 class="anchored" data-anchor-id="il-collegamento-con-sql">Il collegamento con SQL</h2>
+<p>L’algebra relazionale non è un linguaggio che si usa direttamente: è la teoria che sta sotto SQL. Ogni query SQL può essere descritta come una combinazione di operazioni relazionali.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Algebra relazionale</th>
+<th>SQL equivalente</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>σ_condizione(R)</code></td>
+<td><code>SELECT * FROM R WHERE condizione</code></td>
+</tr>
+<tr class="even">
+<td><code>π_attributi(R)</code></td>
+<td><code>SELECT attributi FROM R</code></td>
+</tr>
+<tr class="odd">
+<td><code>R ⨝ S</code></td>
+<td><code>SELECT ... FROM R JOIN S ON ...</code></td>
+</tr>
+<tr class="even">
+<td><code>R − S</code></td>
+<td><code>SELECT ... EXCEPT SELECT ...</code></td>
+</tr>
+</tbody>
+</table>
+<p>Capire l’algebra relazionale significa capire <em>perché</em> SQL funziona come funziona, non solo <em>come</em> si usa.</p>
+<hr>
+</section>
+<section id="schema-mentale" class="level2">
+<h2 class="anchored" data-anchor-id="schema-mentale">Schema mentale</h2>
+<p><strong>Qual è la differenza tra selezione e proiezione?</strong> La selezione agisce sulle righe (le filtra in base a una condizione). La proiezione agisce sulle colonne (ne seleziona un sottoinsieme). Il risultato di entrambe è sempre una relazione.</p>
+<p><strong>Perché il prodotto cartesiano è raramente utile da solo?</strong> Perché combina ogni riga con ogni altra, producendo molte tuple senza significato. Diventa utile quando viene filtrato con una condizione: in quel caso si ottiene una join.</p>
+<p><strong>Cosa si intende per relazioni compatibili nella differenza?</strong> Che hanno lo stesso numero di attributi, gli stessi domini e lo stesso significato. Non si può fare la differenza tra una relazione di studenti e una di corsi.</p>
+<p><strong>Perché la join è l’operazione più importante?</strong> Perché i dati in un database normalizzato sono distribuiti su più tabelle. La join è l’unico modo per ricostruire le informazioni collegate, senza duplicare i dati.</p>
+<p><strong>Qual è il legame tra algebra relazionale e SQL?</strong> L’algebra relazionale è la teoria su cui SQL è fondato. Ogni query SQL corrisponde a una combinazione di operazioni relazionali. Capire l’algebra aiuta a capire perché SQL si comporta come si comporta.</p>
 
 
 </section>

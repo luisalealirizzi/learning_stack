@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>dal_testo_allo_schema – Learning Stack: materiale didattico</title>
+<title>er_avanzato – Learning Stack: materiale didattico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -112,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/03_modello_er.html">Modellazione</a></li><li class="breadcrumb-item"><a href="../../docs/database/04_er_avanzato.html">Il modello ER: dalla descrizione al diagramma</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -444,13 +444,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
  <span class="menu-text">Database</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
@@ -476,13 +476,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true">
  <span class="menu-text">Modellazione</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/database/03_modello_er.html" class="sidebar-item-text sidebar-link">
@@ -491,7 +491,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/database/04_er_avanzato.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/database/04_er_avanzato.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Il modello ER: dalla descrizione al diagramma</span></a>
   </div>
 </li>
@@ -591,65 +591,171 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dal-testo-allo-schema-prima-dei-simboli" id="toc-dal-testo-allo-schema-prima-dei-simboli" class="nav-link active" data-scroll-target="#dal-testo-allo-schema-prima-dei-simboli">Dal testo allo schema (prima dei simboli)</a>
+  <li><a href="#il-modello-er-dalla-descrizione-al-diagramma" id="toc-il-modello-er-dalla-descrizione-al-diagramma" class="nav-link active" data-scroll-target="#il-modello-er-dalla-descrizione-al-diagramma">Il modello ER: dalla descrizione al diagramma</a>
   <ul class="collapse">
-  <li><a href="#perché-usare-uno-schema" id="toc-perché-usare-uno-schema" class="nav-link" data-scroll-target="#perché-usare-uno-schema">Perché usare uno schema</a>
-  <ul class="collapse">
-  <li><a href="#collegare-i-passi" id="toc-collegare-i-passi" class="nav-link" data-scroll-target="#collegare-i-passi">collegare i passi</a></li>
-  <li><a href="#metodo-da-seguire" id="toc-metodo-da-seguire" class="nav-link" data-scroll-target="#metodo-da-seguire">Metodo da seguire</a></li>
-  </ul></li>
-  <li><a href="#in-sintesi" id="toc-in-sintesi" class="nav-link" data-scroll-target="#in-sintesi">In sintesi</a></li>
+  <li><a href="#le-fasi-della-progettazione" id="toc-le-fasi-della-progettazione" class="nav-link" data-scroll-target="#le-fasi-della-progettazione">Le fasi della progettazione</a></li>
+  <li><a href="#tipi-di-attributi" id="toc-tipi-di-attributi" class="nav-link" data-scroll-target="#tipi-di-attributi">Tipi di attributi</a></li>
+  <li><a href="#identificatori" id="toc-identificatori" class="nav-link" data-scroll-target="#identificatori">Identificatori</a></li>
+  <li><a href="#leggere-una-descrizione-testuale" id="toc-leggere-una-descrizione-testuale" class="nav-link" data-scroll-target="#leggere-una-descrizione-testuale">Leggere una descrizione testuale</a></li>
+  <li><a href="#un-esempio-guidato" id="toc-un-esempio-guidato" class="nav-link" data-scroll-target="#un-esempio-guidato">Un esempio guidato</a></li>
+  <li><a href="#errori-comuni-nella-progettazione-er" id="toc-errori-comuni-nella-progettazione-er" class="nav-link" data-scroll-target="#errori-comuni-nella-progettazione-er">Errori comuni nella progettazione ER</a></li>
+  <li><a href="#schema-mentale" id="toc-schema-mentale" class="nav-link" data-scroll-target="#schema-mentale">Schema mentale</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/03_modello_er.html">Modellazione</a></li><li class="breadcrumb-item"><a href="../../docs/database/04_er_avanzato.html">Il modello ER: dalla descrizione al diagramma</a></li></ol></nav></header>
 
 
 
 
-<section id="dal-testo-allo-schema-prima-dei-simboli" class="level1">
-<h1>Dal testo allo schema (prima dei simboli)</h1>
-<p>Finora abbiamo scritto algoritmi come sequenze di istruzioni.</p>
-<p>Esempio:</p>
-<pre class="text"><code>INIZIO
-osserva il semaforo
-se il semaforo è verde
-    attraversa
-altrimenti
-    aspetta
-FINE</code></pre>
-<p>Questo funziona, ma può diventare difficile da leggere quando gli algoritmi diventano più lunghi.</p>
-<p>Per questo motivo si usano i diagrammi di flusso.</p>
-<section id="perché-usare-uno-schema" class="level2">
-<h2 class="anchored" data-anchor-id="perché-usare-uno-schema">Perché usare uno schema</h2>
-<p>Uno schema aiuta a vedere subito la struttura del problema, capire cosa succede prima e dopo, individuare le scelte (decisioni) ed evitare errori di logica</p>
-<p>In altre parole: trasformiamo un testo in qualcosa di visivo.</p>
-<section id="collegare-i-passi" class="level3">
-<h3 class="anchored" data-anchor-id="collegare-i-passi">collegare i passi</h3>
-<p>Un diagramma di flusso è, prima di tutto, una serie di passi collegati tra loro. Possiamo iniziare senza simboli, usando solo frecce e parole.</p>
-<p>Esempio</p>
-<p>Testo:</p>
-<p>Se il semaforo è verde attraversa, altrimenti aspetta.</p>
-<p>Schema:</p>
-<p>INIZIO ↓ osserva semaforo ↓ se è verde? ↓ sì ↓ no attraversa aspetta ↓ ↓ FINE</p>
-<p>Non abbiamo ancora usato simboli ufficiali, ma si capisce già tutto.</p>
-<p>Nello schema ci sono già gli elementi fondamentali:</p>
-<p>un punto di partenza (INIZIO) una sequenza di azioni una decisione (una domanda) più possibili strade una fine (FINE)</p>
-<p>Anche senza simboli, la logica è già completa.</p>
-<p>Uno schema deve essere sempre: leggibile dall’alto verso il basso, chiaro nei collegamenti, senza salti logici</p>
+<section id="il-modello-er-dalla-descrizione-al-diagramma" class="level1">
+<h1>Il modello ER: dalla descrizione al diagramma</h1>
+<p>Nel capitolo precedente abbiamo introdotto i tre elementi fondamentali del modello ER: entità, attributi e relazioni. In questo capitolo approfondiremo i dettagli che contano in fase di progettazione reale, e vedremo come passare da una descrizione in linguaggio naturale a un diagramma ER completo.</p>
+<hr>
+<section id="le-fasi-della-progettazione" class="level2">
+<h2 class="anchored" data-anchor-id="le-fasi-della-progettazione">Le fasi della progettazione</h2>
+<p>Prima di disegnare qualsiasi diagramma, vale la pena avere chiaro il percorso completo di progettazione di un database. Si articola in quattro fasi.</p>
+<p><strong>Analisi dei requisiti</strong> Si raccolgono le informazioni su cosa il database dovrà rappresentare e gestire. Di solito si parte da una descrizione in linguaggio naturale fornita dal committente. Questa fase non produce ancora nessun diagramma: produce una lista di oggetti, caratteristiche e relazioni da rappresentare.</p>
+<p><strong>Modello concettuale (ER)</strong> Si costruisce il diagramma ER. È la traduzione della realtà in un linguaggio visivo e formale, ancora indipendente dal DBMS. L’obiettivo è che il diagramma sia comprensibile anche da chi non conosce l’informatica.</p>
+<p><strong>Modello logico (relazionale)</strong> Il diagramma ER viene tradotto in tabelle relazionali. È qui che compaiono le chiavi primarie nel senso tecnico, le chiavi esterne, i tipi di dato. Lo vedremo nel capitolo 05.</p>
+<p><strong>Modello fisico</strong> Si scelgono le ottimizzazioni specifiche per il DBMS usato: indici, partizionamento, struttura su disco. Lo affronteremo nel capitolo 11.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Perché l’ordine conta
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Saltare l’analisi dei requisiti e il modello concettuale per passare direttamente alle tabelle è l’errore più comune nella progettazione di database. Un errore concettuale scoperto in fase ER si corregge in pochi minuti. Lo stesso errore scoperto dopo aver scritto centinaia di query SQL può costare ore di lavoro.</p>
+</div>
+</div>
+<hr>
 </section>
-<section id="metodo-da-seguire" class="level3">
-<h3 class="anchored" data-anchor-id="metodo-da-seguire">Metodo da seguire</h3>
-<p>Quando devi trasformare un testo in schema:</p>
-<p>individua i passi principali mettili in ordine trova le decisioni (domande) disegna i collegamenti (frecce)</p>
-<p>Solo dopo aver fatto questo, ha senso usare i simboli.</p>
+<section id="tipi-di-attributi" class="level2">
+<h2 class="anchored" data-anchor-id="tipi-di-attributi">Tipi di attributi</h2>
+<p>Nel capitolo precedente abbiamo visto gli attributi nella loro forma più semplice. In realtà ne esistono varianti che compaiono spesso nei diagrammi ER reali.</p>
+<p><strong>Attributo semplice</strong> È indivisibile: non ha senso scomporlo ulteriormente. Esempi: <code>matricola</code>, <code>voto</code>, <code>prezzo</code>.</p>
+<p><strong>Attributo composto</strong> Può essere scomposto in parti più piccole, ognuna con un significato proprio. Esempio: <code>indirizzo</code> può essere scomposto in <code>via</code>, <code>civico</code>, <code>CAP</code>, <code>città</code>. Nel diagramma ER, gli attributi composti hanno a loro volta delle ellissi figlie.</p>
+<p>La scelta tra attributo semplice e composto dipende dall’uso: se il sistema dovrà mai cercare per <code>città</code> separatamente, conviene renderlo un attributo autonomo. Se <code>indirizzo</code> viene trattato sempre come blocco unico, può restare semplice.</p>
+<p><strong>Attributo multivalore</strong> Un’entità può avere più valori per lo stesso attributo. Esempio: <code>Studente</code> può avere più <code>numeroDiTelefono</code>. Nel diagramma ER, gli attributi multivalore si indicano con una doppia ellisse.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Attributi multivalore e il modello relazionale
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Gli attributi multivalore non si traducono direttamente in una colonna nel modello relazionale. Richiedono una tabella separata. Anticipiamo qui il problema: una colonna SQL non può contenere una lista di valori, perché questo violerebbe la prima forma normale (1NF), che vedremo nel capitolo 07.</p>
+</div>
+</div>
+<p><strong>Attributo derivato</strong> È un attributo calcolabile a partire da altri dati già presenti. Esempio: <code>età</code> è derivabile da <code>dataNascita</code> e dalla data corrente. Nel diagramma ER si indica con una ellisse tratteggiata. Di solito non viene memorizzato nel database: si calcola quando serve.</p>
+<hr>
 </section>
+<section id="identificatori" class="level2">
+<h2 class="anchored" data-anchor-id="identificatori">Identificatori</h2>
+<p>Ogni entità deve avere un <strong>identificatore</strong>: un attributo (o un insieme di attributi) che permette di distinguere in modo univoco ogni istanza da tutte le altre.</p>
+<p>L’identificatore nel modello ER corrisponderà alla chiave primaria nel modello logico.</p>
+<p>Alcune regole pratiche:</p>
+<ul>
+<li>l’identificatore non deve cambiare nel tempo: il <code>nome</code> non è un buon identificatore perché due persone possono avere lo stesso nome, e un nome può cambiare</li>
+<li>per questo motivo si usano spesso identificatori artificiali: <code>matricola</code>, <code>codice</code>, <code>id</code> — valori generati dal sistema, senza significato reale ma stabili e univoci</li>
+<li>in rari casi l’identificatore è composto da più attributi: ad esempio, una tupla <code>(idStudente, idCorso)</code> può identificare un’iscrizione in modo univoco</li>
+</ul>
+<hr>
 </section>
-<section id="in-sintesi" class="level2">
-<h2 class="anchored" data-anchor-id="in-sintesi">In sintesi</h2>
-<p>Un diagramma di flusso è: un algoritmo reso visivo, fatto di passi collegati e con possibili scelte</p>
+<section id="leggere-una-descrizione-testuale" class="level2">
+<h2 class="anchored" data-anchor-id="leggere-una-descrizione-testuale">Leggere una descrizione testuale</h2>
+<p>La competenza più pratica nella progettazione ER è saper estrarre entità, attributi e relazioni da una descrizione in linguaggio naturale. Ecco alcune indicazioni operative.</p>
+<p><strong>Le entità</strong> sono spesso i sostantivi principali della descrizione: le cose di cui si vogliono memorizzare informazioni. Un buon test: “ci sono più esemplari di questa cosa?” e “ha caratteristiche proprie?”. Se la risposta è sì a entrambe, è probabilmente un’entità.</p>
+<p><strong>Gli attributi</strong> sono le caratteristiche associate a un’entità: di solito aggettivi o complementi di specificazione nel testo.</p>
+<p><strong>Le relazioni</strong> sono spesso i verbi: <em>frequenta</em>, <em>insegna</em>, <em>effettua</em>, <em>appartiene a</em>.</p>
+<p><strong>I moltiplicatori</strong> si trovano nelle frasi come “ogni studente può iscriversi a più corsi” (N lato studente) e “ogni corso può avere più studenti” (N lato corso) → cardinalità N:M.</p>
+<hr>
+</section>
+<section id="un-esempio-guidato" class="level2">
+<h2 class="anchored" data-anchor-id="un-esempio-guidato">Un esempio guidato</h2>
+<p>Partiamo da questa descrizione:</p>
+<blockquote class="blockquote">
+<p>Una biblioteca gestisce libri e soci. Ogni libro ha un codice ISBN, un titolo e un anno di pubblicazione. Ogni libro è scritto da uno o più autori. Ogni autore ha un nome e un cognome. I soci possono prendere in prestito i libri: ogni prestito registra la data di inizio e la data di restituzione prevista. Un socio può avere più prestiti attivi contemporaneamente, ma ogni copia fisica di un libro può essere in prestito a un solo socio per volta.</p>
+</blockquote>
+<p><strong>Passo 1 — Identificare le entità</strong></p>
+<p>I sostantivi principali: <code>Libro</code>, <code>Autore</code>, <code>Socio</code>. Anche <code>Prestito</code> emerge come entità perché ha attributi propri (<code>dataInizio</code>, <code>dataRestituzionePrevista</code>) e non è riducibile a un semplice collegamento.</p>
+<p><strong>Passo 2 — Definire gli attributi e gli identificatori</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Entità</th>
+<th>Attributi</th>
+<th>Identificatore</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Libro</code></td>
+<td>ISBN, titolo, annoPubblicazione</td>
+<td>ISBN</td>
+</tr>
+<tr class="even">
+<td><code>Autore</code></td>
+<td>nome, cognome</td>
+<td>id (artificiale)</td>
+</tr>
+<tr class="odd">
+<td><code>Socio</code></td>
+<td>nome, cognome, tessera</td>
+<td>tessera</td>
+</tr>
+<tr class="even">
+<td><code>Prestito</code></td>
+<td>dataInizio, dataRestituzionePrevista</td>
+<td>id (artificiale)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Passo 3 — Definire le relazioni e le cardinalità</strong></p>
+<ul>
+<li><code>Libro</code> — <em>è scritto da</em> — <code>Autore</code>: N:M (un libro ha più autori, un autore scrive più libri)</li>
+<li><code>Socio</code> — <em>effettua</em> — <code>Prestito</code>: 1:N (un socio può avere più prestiti, ogni prestito appartiene a un solo socio)</li>
+<li><code>Prestito</code> — <em>riguarda</em> — <code>Libro</code>: N:1 (ogni prestito riguarda una copia di un libro, ma un libro può avere più prestiti nel tempo)</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Una regola pratica sulla cardinalità
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Quando si è incerti sulla cardinalità, conviene chiedersi: “nel caso più generale possibile, quante istanze di A possono essere collegate a una singola istanza di B?”. Se la risposta è “più di una”, la cardinalità è N su quel lato.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="errori-comuni-nella-progettazione-er" class="level2">
+<h2 class="anchored" data-anchor-id="errori-comuni-nella-progettazione-er">Errori comuni nella progettazione ER</h2>
+<p><strong>Mettere troppo in una sola entità</strong> Creare una tabella <code>Tutto</code> con decine di colonne è l’errore più comune. Se un gruppo di attributi riguarda una cosa distinta che ha senso autonomo, probabilmente è un’entità separata.</p>
+<p><strong>Confondere relazione e attributo</strong> Se qualcosa ha attributi propri (come <code>dataInizio</code> nel prestito), non è un semplice collegamento: è un’entità o una relazione con attributi.</p>
+<p><strong>Scegliere come identificatore un attributo instabile</strong> Il nome di una persona non è un buon identificatore: può cambiare, può non essere unico. Meglio usare un codice generato dal sistema.</p>
+<p><strong>Ignorare la partecipazione</strong> Specificare solo la cardinalità massima (1:N, N:M) senza indicare se la partecipazione è obbligatoria o facoltativa porta a problemi nel modello logico. “Un corso deve avere almeno uno studente” è una regola diversa da “un corso può esistere anche senza studenti”.</p>
+<hr>
+</section>
+<section id="schema-mentale" class="level2">
+<h2 class="anchored" data-anchor-id="schema-mentale">Schema mentale</h2>
+<p><strong>Quali sono le quattro fasi della progettazione di un database?</strong> Analisi dei requisiti, modello concettuale (ER), modello logico (relazionale), modello fisico.</p>
+<p><strong>Qual è la differenza tra attributo composto e attributo multivalore?</strong> L’attributo composto può essere scomposto in parti (indirizzo → via, città, CAP). L’attributo multivalore ha più valori per la stessa istanza (più numeri di telefono).</p>
+<p><strong>Perché gli attributi derivati di solito non si memorizzano?</strong> Perché sono calcolabili da altri dati già presenti. Memorizzarli creerebbe ridondanza e rischio di incoerenza.</p>
+<p><strong>Come si riconosce una relazione N:M in una descrizione testuale?</strong> Quando su entrambi i lati si può rispondere “più di uno”: “uno studente frequenta più corsi” e “un corso è frequentato da più studenti”.</p>
+<p><strong>Perché un nome non è un buon identificatore?</strong> Perché può non essere univoco (due persone con lo stesso nome) e può cambiare nel tempo. Un identificatore deve essere stabile e univoco.</p>
 
 
 </section>

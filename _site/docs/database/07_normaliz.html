@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>dal_testo_allo_schema – Learning Stack: materiale didattico</title>
+<title>normaliz – Learning Stack: materiale didattico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -112,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/03_modello_er.html">Modellazione</a></li><li class="breadcrumb-item"><a href="../../docs/database/07_normaliz.html">Normalizzazione</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -444,13 +444,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
  <span class="menu-text">Database</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
@@ -476,13 +476,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true">
  <span class="menu-text">Modellazione</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/database/03_modello_er.html" class="sidebar-item-text sidebar-link">
@@ -509,7 +509,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/database/07_normaliz.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/database/07_normaliz.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Normalizzazione</span></a>
   </div>
 </li>
@@ -591,65 +591,302 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dal-testo-allo-schema-prima-dei-simboli" id="toc-dal-testo-allo-schema-prima-dei-simboli" class="nav-link active" data-scroll-target="#dal-testo-allo-schema-prima-dei-simboli">Dal testo allo schema (prima dei simboli)</a>
+  <li><a href="#normalizzazione" id="toc-normalizzazione" class="nav-link active" data-scroll-target="#normalizzazione">Normalizzazione</a>
   <ul class="collapse">
-  <li><a href="#perché-usare-uno-schema" id="toc-perché-usare-uno-schema" class="nav-link" data-scroll-target="#perché-usare-uno-schema">Perché usare uno schema</a>
+  <li><a href="#il-problema-la-ridondanza" id="toc-il-problema-la-ridondanza" class="nav-link" data-scroll-target="#il-problema-la-ridondanza">Il problema: la ridondanza</a></li>
+  <li><a href="#le-dipendenze-funzionali" id="toc-le-dipendenze-funzionali" class="nav-link" data-scroll-target="#le-dipendenze-funzionali">Le dipendenze funzionali</a></li>
+  <li><a href="#la-normalizzazione-un-percorso-a-tappe" id="toc-la-normalizzazione-un-percorso-a-tappe" class="nav-link" data-scroll-target="#la-normalizzazione-un-percorso-a-tappe">La normalizzazione: un percorso a tappe</a>
   <ul class="collapse">
-  <li><a href="#collegare-i-passi" id="toc-collegare-i-passi" class="nav-link" data-scroll-target="#collegare-i-passi">collegare i passi</a></li>
-  <li><a href="#metodo-da-seguire" id="toc-metodo-da-seguire" class="nav-link" data-scroll-target="#metodo-da-seguire">Metodo da seguire</a></li>
+  <li><a href="#prima-forma-normale-1nf" id="toc-prima-forma-normale-1nf" class="nav-link" data-scroll-target="#prima-forma-normale-1nf">Prima Forma Normale (1NF)</a></li>
+  <li><a href="#seconda-forma-normale-2nf" id="toc-seconda-forma-normale-2nf" class="nav-link" data-scroll-target="#seconda-forma-normale-2nf">Seconda Forma Normale (2NF)</a></li>
+  <li><a href="#terza-forma-normale-3nf" id="toc-terza-forma-normale-3nf" class="nav-link" data-scroll-target="#terza-forma-normale-3nf">Terza Forma Normale (3NF)</a></li>
+  <li><a href="#forma-normale-di-boyce-codd-bcnf" id="toc-forma-normale-di-boyce-codd-bcnf" class="nav-link" data-scroll-target="#forma-normale-di-boyce-codd-bcnf">Forma Normale di Boyce-Codd (BCNF)</a></li>
   </ul></li>
-  <li><a href="#in-sintesi" id="toc-in-sintesi" class="nav-link" data-scroll-target="#in-sintesi">In sintesi</a></li>
+  <li><a href="#il-quadro-dinsieme" id="toc-il-quadro-dinsieme" class="nav-link" data-scroll-target="#il-quadro-dinsieme">Il quadro d’insieme</a></li>
+  <li><a href="#schema-mentale" id="toc-schema-mentale" class="nav-link" data-scroll-target="#schema-mentale">Schema mentale</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/03_modello_er.html">Modellazione</a></li><li class="breadcrumb-item"><a href="../../docs/database/07_normaliz.html">Normalizzazione</a></li></ol></nav></header>
 
 
 
 
-<section id="dal-testo-allo-schema-prima-dei-simboli" class="level1">
-<h1>Dal testo allo schema (prima dei simboli)</h1>
-<p>Finora abbiamo scritto algoritmi come sequenze di istruzioni.</p>
-<p>Esempio:</p>
-<pre class="text"><code>INIZIO
-osserva il semaforo
-se il semaforo è verde
-    attraversa
-altrimenti
-    aspetta
-FINE</code></pre>
-<p>Questo funziona, ma può diventare difficile da leggere quando gli algoritmi diventano più lunghi.</p>
-<p>Per questo motivo si usano i diagrammi di flusso.</p>
-<section id="perché-usare-uno-schema" class="level2">
-<h2 class="anchored" data-anchor-id="perché-usare-uno-schema">Perché usare uno schema</h2>
-<p>Uno schema aiuta a vedere subito la struttura del problema, capire cosa succede prima e dopo, individuare le scelte (decisioni) ed evitare errori di logica</p>
-<p>In altre parole: trasformiamo un testo in qualcosa di visivo.</p>
-<section id="collegare-i-passi" class="level3">
-<h3 class="anchored" data-anchor-id="collegare-i-passi">collegare i passi</h3>
-<p>Un diagramma di flusso è, prima di tutto, una serie di passi collegati tra loro. Possiamo iniziare senza simboli, usando solo frecce e parole.</p>
-<p>Esempio</p>
-<p>Testo:</p>
-<p>Se il semaforo è verde attraversa, altrimenti aspetta.</p>
-<p>Schema:</p>
-<p>INIZIO ↓ osserva semaforo ↓ se è verde? ↓ sì ↓ no attraversa aspetta ↓ ↓ FINE</p>
-<p>Non abbiamo ancora usato simboli ufficiali, ma si capisce già tutto.</p>
-<p>Nello schema ci sono già gli elementi fondamentali:</p>
-<p>un punto di partenza (INIZIO) una sequenza di azioni una decisione (una domanda) più possibili strade una fine (FINE)</p>
-<p>Anche senza simboli, la logica è già completa.</p>
-<p>Uno schema deve essere sempre: leggibile dall’alto verso il basso, chiaro nei collegamenti, senza salti logici</p>
+<section id="normalizzazione" class="level1">
+<h1>Normalizzazione</h1>
+<p>Avere le tabelle giuste non basta. È possibile costruire un database strutturalmente corretto — con chiavi primarie, chiavi esterne e vincoli — che produce comunque problemi quando i dati vengono modificati. La <strong>normalizzazione</strong> è il processo che elimina questi problemi alla radice.</p>
+<hr>
+<section id="il-problema-la-ridondanza" class="level2">
+<h2 class="anchored" data-anchor-id="il-problema-la-ridondanza">Il problema: la ridondanza</h2>
+<p>Un database non normalizzato può contenere dati corretti, ma comportarsi in modo sbagliato quando i dati cambiano. La causa quasi sempre è la stessa: la <strong>ridondanza</strong>, cioè la stessa informazione memorizzata in più posti.</p>
+<p>Considera questa tabella:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>idIscrizione</th>
+<th>nomeStudente</th>
+<th>emailStudente</th>
+<th>nomeCorso</th>
+<th>aula</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Luca Rossi</td>
+<td>luca@scuola.it</td>
+<td>Informatica</td>
+<td>Lab3</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Luca Rossi</td>
+<td>luca@scuola.it</td>
+<td>Matematica</td>
+<td>A12</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Anna Bianchi</td>
+<td>anna@scuola.it</td>
+<td>Informatica</td>
+<td>Lab3</td>
+</tr>
+</tbody>
+</table>
+<p>Il nome e l’email di Luca Rossi compaiono due volte. L’aula del corso di Informatica compare due volte. Questo crea tre tipi di <strong>anomalie</strong>.</p>
+<p><strong>Anomalia di aggiornamento</strong>: se Luca Rossi cambia email, bisogna aggiornarla in tutte le righe che lo riguardano. Se se ne aggiorna solo una, il database diventa incoerente.</p>
+<p><strong>Anomalia di inserimento</strong>: non si può registrare un corso senza avere almeno uno studente iscritto, perché le informazioni del corso non hanno dove stare da sole.</p>
+<p><strong>Anomalia di cancellazione</strong>: se Anna Bianchi si cancella dall’unica iscrizione a Informatica, si perde anche l’informazione che Informatica si tiene in Lab3.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Anomalie e affidabilità
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le anomalie non sono errori visibili immediatamente. Il database continua a funzionare, ma i dati diventano progressivamente incoerenti. In un sistema usato da più persone, questo tipo di degrado può essere difficile da individuare e correggere.</p>
+</div>
+</div>
+<hr>
 </section>
-<section id="metodo-da-seguire" class="level3">
-<h3 class="anchored" data-anchor-id="metodo-da-seguire">Metodo da seguire</h3>
-<p>Quando devi trasformare un testo in schema:</p>
-<p>individua i passi principali mettili in ordine trova le decisioni (domande) disegna i collegamenti (frecce)</p>
-<p>Solo dopo aver fatto questo, ha senso usare i simboli.</p>
+<section id="le-dipendenze-funzionali" class="level2">
+<h2 class="anchored" data-anchor-id="le-dipendenze-funzionali">Le dipendenze funzionali</h2>
+<p>Prima di applicare la normalizzazione, occorre capire le <strong>dipendenze funzionali</strong>: le regole che descrivono cosa determina cosa in una tabella.</p>
+<p>Si scrive <code>A → B</code> e si legge <em>A determina B</em>. Significa: se due righe hanno lo stesso valore di A, devono avere lo stesso valore di B.</p>
+<p>Esempio nella tabella <code>STUDENTE(idStudente, nome, cognome, comune, CAP)</code>:</p>
+<pre><code>idStudente → nome
+idStudente → cognome
+idStudente → comune
+comune → CAP</code></pre>
+<p>L’ultima dipendenza, <code>comune → CAP</code>, dice che il CAP è determinato dal comune, non dallo studente. Questo è il segnale di un problema: <code>CAP</code> dipende da <code>comune</code>, che non è la chiave. Questa struttura genera ridondanza e anomalie.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Quando una dipendenza è violata
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La dipendenza <code>idStudente → nome</code> è violata se esistono due righe con lo stesso <code>idStudente</code> ma nomi diversi. In una tabella ben progettata, questo non dovrebbe mai accadere.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="la-normalizzazione-un-percorso-a-tappe" class="level2">
+<h2 class="anchored" data-anchor-id="la-normalizzazione-un-percorso-a-tappe">La normalizzazione: un percorso a tappe</h2>
+<p>La normalizzazione si applica attraverso una sequenza di forme normali, ognuna più restrittiva della precedente. Ogni forma normale elimina una specifica categoria di ridondanza.</p>
+<hr>
+<section id="prima-forma-normale-1nf" class="level3">
+<h3 class="anchored" data-anchor-id="prima-forma-normale-1nf">Prima Forma Normale (1NF)</h3>
+<p>Una tabella è in <strong>1NF</strong> se:</p>
+<ul>
+<li>ogni campo contiene un solo valore (valori atomici)</li>
+<li>non esistono liste o gruppi ripetuti in una colonna</li>
+<li>ogni riga è identificabile in modo univoco</li>
+</ul>
+<p><strong>Esempio NON in 1NF:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>idStudente</th>
+<th>telefoni</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>333123, 347456</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>320789</td>
+</tr>
+</tbody>
+</table>
+<p>La colonna <code>telefoni</code> contiene una lista di valori. Non è atomica: NON è 1NF.</p>
+<p><strong>Trasformazione in 1NF:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>idStudente</th>
+<th>telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>333123</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>347456</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>320789</td>
+</tr>
+</tbody>
+</table>
+<p>Ogni cella contiene un solo valore. La tabella è in 1NF. L’attributo multivalore è diventato righe separate.</p>
+<hr>
+</section>
+<section id="seconda-forma-normale-2nf" class="level3">
+<h3 class="anchored" data-anchor-id="seconda-forma-normale-2nf">Seconda Forma Normale (2NF)</h3>
+<p>Una tabella è in <strong>2NF</strong> se:</p>
+<ul>
+<li>è già in 1NF</li>
+<li>ogni attributo non chiave dipende <strong>dall’intera chiave primaria</strong>, non solo da una parte di essa</li>
+</ul>
+<p>Il problema che la 2NF elimina si chiama <strong>dipendenza parziale</strong>: un attributo che dipende solo da una parte della chiave composta.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Quando si applica la 2NF
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La 2NF è rilevante solo quando la chiave primaria è <strong>composta</strong> (formata da più attributi). Se la chiave è semplice (un solo attributo), una tabella in 1NF è automaticamente in 2NF.</p>
+</div>
+</div>
+<p><strong>Esempio NON in 2NF:</strong></p>
+<pre><code>ISCRIZIONE(idStudente, idCorso, nomeStudente, nomeCorso)
+Chiave primaria: (idStudente, idCorso)</code></pre>
+<p>Dipendenze:</p>
+<pre><code>idStudente → nomeStudente    ← dipendenza parziale
+idCorso    → nomeCorso       ← dipendenza parziale</code></pre>
+<p><code>nomeStudente</code> dipende solo da <code>idStudente</code>, non dall’intera chiave. Stessa cosa per <code>nomeCorso</code>. La tabella NON è in 2NF.</p>
+<p><strong>Trasformazione in 2NF:</strong></p>
+<pre><code>STUDENTE(idStudente, nomeStudente)
+CORSO(idCorso, nomeCorso)
+ISCRIZIONE(idStudente FK, idCorso FK)</code></pre>
+<p>Ora ogni attributo dipende dall’intera chiave della propria tabella. La tabella è in 2NF.</p>
+<hr>
+</section>
+<section id="terza-forma-normale-3nf" class="level3">
+<h3 class="anchored" data-anchor-id="terza-forma-normale-3nf">Terza Forma Normale (3NF)</h3>
+<p>Una tabella è in <strong>3NF</strong> se:</p>
+<ul>
+<li>è già in 2NF</li>
+<li>non esistono <strong>dipendenze transitive</strong> tra attributi non chiave</li>
+</ul>
+<p>Una <strong>dipendenza transitiva</strong> esiste quando un attributo non chiave determina un altro attributo non chiave:</p>
+<pre><code>A → B  e  B → C  (con B non chiave)  →  A → C è transitiva</code></pre>
+<p><strong>Esempio NON in 3NF:</strong></p>
+<pre><code>STUDENTE(idStudente, nome, comune, CAP)</code></pre>
+<p>Dipendenze:</p>
+<pre><code>idStudente → comune
+comune     → CAP</code></pre>
+<p>Quindi <code>idStudente → CAP</code> attraverso <code>comune</code>. Il <code>CAP</code> dipende dal <code>comune</code>, non direttamente dalla chiave. La tabella NON è in 3NF.</p>
+<p><strong>Trasformazione in 3NF:</strong></p>
+<pre><code>STUDENTE(idStudente, nome, comune FK)
+COMUNE(comune PK, CAP)</code></pre>
+<p>Ora ogni attributo dipende solo dalla chiave della propria tabella. La tabella è in 3NF.</p>
+<hr>
+</section>
+<section id="forma-normale-di-boyce-codd-bcnf" class="level3">
+<h3 class="anchored" data-anchor-id="forma-normale-di-boyce-codd-bcnf">Forma Normale di Boyce-Codd (BCNF)</h3>
+<p>La <strong>BCNF</strong> è una versione più restrittiva della 3NF. Una tabella è in BCNF se:</p>
+<ul>
+<li>è già in 3NF</li>
+<li>per ogni dipendenza funzionale <code>A → B</code>, A è una chiave candidata</li>
+</ul>
+<p>In pratica: solo le chiavi possono determinare altri attributi. La BCNF elimina ridondanze residue che la 3NF lascia in casi particolari con più chiavi candidate.</p>
+<p><strong>Esempio NON in BCNF:</strong></p>
+<pre><code>ORARIO(professore, corso, aula)</code></pre>
+<p>Dipendenze:</p>
+<pre><code>(professore, corso) → aula    ← chiave primaria composta
+corso → aula                  ← ma corso da solo determina aula</code></pre>
+<p><code>corso</code> determina <code>aula</code>, ma <code>corso</code> da solo non è una chiave candidata. La tabella NON è in BCNF.</p>
+<p><strong>Trasformazione in BCNF:</strong></p>
+<pre><code>CORSO_AULA(corso PK, aula)
+INSEGNA(professore, corso FK)</code></pre>
+<p>Ora ogni determinante è una chiave candidata. La tabella è in BCNF.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>La 3NF è spesso sufficiente
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In contesti reali, si arriva generalmente fino alla 3NF. La BCNF è più restrittiva ma può rendere alcune query più complesse e rendere impossibile preservare tutte le dipendenze funzionali nello schema. Non è sempre necessario spingersi fino ad essa.</p>
+</div>
+</div>
+<hr>
 </section>
 </section>
-<section id="in-sintesi" class="level2">
-<h2 class="anchored" data-anchor-id="in-sintesi">In sintesi</h2>
-<p>Un diagramma di flusso è: un algoritmo reso visivo, fatto di passi collegati e con possibili scelte</p>
+<section id="il-quadro-dinsieme" class="level2">
+<h2 class="anchored" data-anchor-id="il-quadro-dinsieme">Il quadro d’insieme</h2>
+<p>Ogni forma normale risolve un problema specifico:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Forma normale</th>
+<th>Problema eliminato</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1NF</strong></td>
+<td>valori non atomici, liste in una cella</td>
+</tr>
+<tr class="even">
+<td><strong>2NF</strong></td>
+<td>dipendenze parziali dalla chiave composta</td>
+</tr>
+<tr class="odd">
+<td><strong>3NF</strong></td>
+<td>dipendenze transitive tra attributi non chiave</td>
+</tr>
+<tr class="even">
+<td><strong>BCNF</strong></td>
+<td>determinanti che non sono chiavi candidate</td>
+</tr>
+</tbody>
+</table>
+<p>Il percorso è sempre cumulativo: per essere in 3NF bisogna essere già in 2NF, che richiede di essere già in 1NF.</p>
+<hr>
+</section>
+<section id="schema-mentale" class="level2">
+<h2 class="anchored" data-anchor-id="schema-mentale">Schema mentale</h2>
+<p><strong>Cos’è la ridondanza e perché è pericolosa?</strong> È la stessa informazione memorizzata in più posti. Genera anomalie di aggiornamento, inserimento e cancellazione: il database diventa incoerente senza che nessuno se ne accorga subito.</p>
+<p><strong>Cosa significa <code>A → B</code>?</strong> Che A determina B: se due righe hanno lo stesso valore di A, devono avere lo stesso valore di B.</p>
+<p><strong>Quando la 2NF non è rilevante?</strong> Quando la chiave primaria è semplice (un solo attributo). In quel caso una tabella in 1NF è automaticamente in 2NF.</p>
+<p><strong>Qual è la differenza tra dipendenza parziale e dipendenza transitiva?</strong> La dipendenza parziale riguarda la chiave: un attributo dipende solo da una parte della chiave composta. La dipendenza transitiva riguarda attributi non chiave: un attributo non chiave ne determina un altro.</p>
+<p><strong>Perché non si normalizza sempre fino alla BCNF?</strong> Perché può rendere alcune query più complesse e non sempre è necessaria. La 3NF è sufficiente nella maggior parte dei casi reali.</p>
 
 
 </section>

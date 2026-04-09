@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>dal_testo_allo_schema – Learning Stack: materiale didattico</title>
+<title>chiavi – Learning Stack: materiale didattico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -112,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/03_modello_er.html">Modellazione</a></li><li class="breadcrumb-item"><a href="../../docs/database/06_chiavi.html">Chiavi e vincoli: rendere i dati affidabili</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -444,13 +479,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
  <span class="menu-text">Database</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
@@ -476,13 +511,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true">
  <span class="menu-text">Modellazione</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/database/03_modello_er.html" class="sidebar-item-text sidebar-link">
@@ -503,7 +538,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/database/06_chiavi.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/database/06_chiavi.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Chiavi e vincoli: rendere i dati affidabili</span></a>
   </div>
 </li>
@@ -591,65 +626,183 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dal-testo-allo-schema-prima-dei-simboli" id="toc-dal-testo-allo-schema-prima-dei-simboli" class="nav-link active" data-scroll-target="#dal-testo-allo-schema-prima-dei-simboli">Dal testo allo schema (prima dei simboli)</a>
+  <li><a href="#chiavi-e-vincoli-rendere-i-dati-affidabili" id="toc-chiavi-e-vincoli-rendere-i-dati-affidabili" class="nav-link active" data-scroll-target="#chiavi-e-vincoli-rendere-i-dati-affidabili">Chiavi e vincoli: rendere i dati affidabili</a>
   <ul class="collapse">
-  <li><a href="#perché-usare-uno-schema" id="toc-perché-usare-uno-schema" class="nav-link" data-scroll-target="#perché-usare-uno-schema">Perché usare uno schema</a>
+  <li><a href="#unidea-prima-della-tecnica" id="toc-unidea-prima-della-tecnica" class="nav-link" data-scroll-target="#unidea-prima-della-tecnica">Un’idea prima della tecnica</a></li>
+  <li><a href="#le-chiavi-nel-modello-relazionale" id="toc-le-chiavi-nel-modello-relazionale" class="nav-link" data-scroll-target="#le-chiavi-nel-modello-relazionale">Le chiavi nel modello relazionale</a>
   <ul class="collapse">
-  <li><a href="#collegare-i-passi" id="toc-collegare-i-passi" class="nav-link" data-scroll-target="#collegare-i-passi">collegare i passi</a></li>
-  <li><a href="#metodo-da-seguire" id="toc-metodo-da-seguire" class="nav-link" data-scroll-target="#metodo-da-seguire">Metodo da seguire</a></li>
+  <li><a href="#superchiave" id="toc-superchiave" class="nav-link" data-scroll-target="#superchiave">Superchiave</a></li>
+  <li><a href="#chiave-candidata" id="toc-chiave-candidata" class="nav-link" data-scroll-target="#chiave-candidata">Chiave candidata</a></li>
+  <li><a href="#chiave-primaria" id="toc-chiave-primaria" class="nav-link" data-scroll-target="#chiave-primaria">Chiave primaria</a></li>
+  <li><a href="#chiave-esterna" id="toc-chiave-esterna" class="nav-link" data-scroll-target="#chiave-esterna">Chiave esterna</a></li>
   </ul></li>
-  <li><a href="#in-sintesi" id="toc-in-sintesi" class="nav-link" data-scroll-target="#in-sintesi">In sintesi</a></li>
+  <li><a href="#i-vincoli" id="toc-i-vincoli" class="nav-link" data-scroll-target="#i-vincoli">I vincoli</a>
+  <ul class="collapse">
+  <li><a href="#vincoli-di-dominio" id="toc-vincoli-di-dominio" class="nav-link" data-scroll-target="#vincoli-di-dominio">Vincoli di dominio</a></li>
+  <li><a href="#vincoli-referenziali" id="toc-vincoli-referenziali" class="nav-link" data-scroll-target="#vincoli-referenziali">Vincoli referenziali</a></li>
+  </ul></li>
+  <li><a href="#perché-chiavi-e-vincoli-non-sono-opzionali" id="toc-perché-chiavi-e-vincoli-non-sono-opzionali" class="nav-link" data-scroll-target="#perché-chiavi-e-vincoli-non-sono-opzionali">Perché chiavi e vincoli non sono opzionali</a></li>
+  <li><a href="#schema-mentale" id="toc-schema-mentale" class="nav-link" data-scroll-target="#schema-mentale">Schema mentale</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/03_modello_er.html">Modellazione</a></li><li class="breadcrumb-item"><a href="../../docs/database/06_chiavi.html">Chiavi e vincoli: rendere i dati affidabili</a></li></ol></nav></header>
 
 
 
 
-<section id="dal-testo-allo-schema-prima-dei-simboli" class="level1">
-<h1>Dal testo allo schema (prima dei simboli)</h1>
-<p>Finora abbiamo scritto algoritmi come sequenze di istruzioni.</p>
+<section id="chiavi-e-vincoli-rendere-i-dati-affidabili" class="level1">
+<h1>Chiavi e vincoli: rendere i dati affidabili</h1>
+<p>Nel capitolo precedente abbiamo visto come tradurre un modello ER in tabelle. Ma avere le tabelle giuste non basta: occorre che i dati al loro interno si comportino correttamente. Chiavi e vincoli sono i meccanismi con cui il DBMS lo garantisce.</p>
+<hr>
+<section id="unidea-prima-della-tecnica" class="level2">
+<h2 class="anchored" data-anchor-id="unidea-prima-della-tecnica">Un’idea prima della tecnica</h2>
+<p>Nel 1969, a pochi minuti dall’atterraggio della missione Apollo 11 sulla Luna, il computer di bordo inizia a segnalare una serie di allarmi. Un errore umano aveva attivato un radar che non doveva essere operativo in quella fase, e il carico di lavoro supera i limiti previsti.</p>
+<p>Il sistema non va in crash. Rifiuta semplicemente le operazioni non compatibili e continua a eseguire solo ciò che è ammesso in quello stato. L’atterraggio riesce.</p>
+<p>Il software era stato progettato da <strong>Margaret Hamilton</strong>, con un principio preciso:</p>
+<blockquote class="blockquote">
+<p>Non puoi impedire all’essere umano di sbagliare, ma puoi impedire al sistema di entrare in stati impossibili.</p>
+</blockquote>
+<p>Un database ben progettato funziona allo stesso modo. Le chiavi servono a riconoscere i dati senza ambiguità. I vincoli servono a bloccare operazioni che violerebbero la coerenza. Non rendono il sistema più rigido: lo rendono affidabile.</p>
+<hr>
+</section>
+<section id="le-chiavi-nel-modello-relazionale" class="level2">
+<h2 class="anchored" data-anchor-id="le-chiavi-nel-modello-relazionale">Le chiavi nel modello relazionale</h2>
+<p>Una <strong>chiave</strong> è un insieme di uno o più attributi che permette di identificare in modo univoco ogni riga di una tabella. Non tutte le chiavi sono uguali: esiste una gerarchia precisa.</p>
+<section id="superchiave" class="level3">
+<h3 class="anchored" data-anchor-id="superchiave">Superchiave</h3>
+<p>Una <strong>superchiave</strong> è qualsiasi insieme di attributi che identifica univocamente ogni riga. Può contenere attributi in più rispetto al necessario.</p>
+<p>Esempio: nella tabella <code>STUDENTE(idStudente, nome, cognome)</code>, se <code>idStudente</code> è univoco, allora anche <code>(idStudente, nome)</code> è una superchiave. Ma contiene un attributo inutile: <code>nome</code> non serve per garantire l’univocità.</p>
+</section>
+<section id="chiave-candidata" class="level3">
+<h3 class="anchored" data-anchor-id="chiave-candidata">Chiave candidata</h3>
+<p>Una <strong>chiave candidata</strong> è una superchiave <em>minimale</em>: identifica univocamente ogni riga e non contiene attributi ridondanti. Se si toglie un qualsiasi attributo, perde la proprietà di identificare in modo univoco.</p>
+<p>Una tabella può avere più chiavi candidate. Esempio: nella tabella <code>STUDENTE(idStudente, matricola, nome, cognome)</code>, sia <code>idStudente</code> sia <code>matricola</code> potrebbero essere chiavi candidate, se entrambi sono univoci.</p>
+</section>
+<section id="chiave-primaria" class="level3">
+<h3 class="anchored" data-anchor-id="chiave-primaria">Chiave primaria</h3>
+<p>La <strong>chiave primaria</strong> (PK, <em>Primary Key</em>) è la chiave candidata scelta dal progettista come identificatore ufficiale della tabella. Deve rispettare tre regole:</p>
+<ul>
+<li>il suo valore deve essere <strong>unico</strong> per ogni riga</li>
+<li>non può contenere valori <strong>NULL</strong></li>
+<li>deve essere <strong>stabile nel tempo</strong>: una volta assegnato, il valore non dovrebbe cambiare</li>
+</ul>
+<p>Per questo motivo si preferiscono chiavi artificiali generate dal sistema (<code>idStudente INT AUTO_INCREMENT</code>) rispetto a chiavi naturali come il nome o il codice fiscale, che potrebbero cambiare o richiedere correzioni.</p>
+</section>
+<section id="chiave-esterna" class="level3">
+<h3 class="anchored" data-anchor-id="chiave-esterna">Chiave esterna</h3>
+<p>Una <strong>chiave esterna</strong> (FK, <em>Foreign Key</em>) è un attributo che fa riferimento alla chiave primaria di un’altra tabella. Serve a creare e mantenere i collegamenti tra tabelle.</p>
 <p>Esempio:</p>
-<pre class="text"><code>INIZIO
-osserva il semaforo
-se il semaforo è verde
-    attraversa
-altrimenti
-    aspetta
-FINE</code></pre>
-<p>Questo funziona, ma può diventare difficile da leggere quando gli algoritmi diventano più lunghi.</p>
-<p>Per questo motivo si usano i diagrammi di flusso.</p>
-<section id="perché-usare-uno-schema" class="level2">
-<h2 class="anchored" data-anchor-id="perché-usare-uno-schema">Perché usare uno schema</h2>
-<p>Uno schema aiuta a vedere subito la struttura del problema, capire cosa succede prima e dopo, individuare le scelte (decisioni) ed evitare errori di logica</p>
-<p>In altre parole: trasformiamo un testo in qualcosa di visivo.</p>
-<section id="collegare-i-passi" class="level3">
-<h3 class="anchored" data-anchor-id="collegare-i-passi">collegare i passi</h3>
-<p>Un diagramma di flusso è, prima di tutto, una serie di passi collegati tra loro. Possiamo iniziare senza simboli, usando solo frecce e parole.</p>
-<p>Esempio</p>
-<p>Testo:</p>
-<p>Se il semaforo è verde attraversa, altrimenti aspetta.</p>
-<p>Schema:</p>
-<p>INIZIO ↓ osserva semaforo ↓ se è verde? ↓ sì ↓ no attraversa aspetta ↓ ↓ FINE</p>
-<p>Non abbiamo ancora usato simboli ufficiali, ma si capisce già tutto.</p>
-<p>Nello schema ci sono già gli elementi fondamentali:</p>
-<p>un punto di partenza (INIZIO) una sequenza di azioni una decisione (una domanda) più possibili strade una fine (FINE)</p>
-<p>Anche senza simboli, la logica è già completa.</p>
-<p>Uno schema deve essere sempre: leggibile dall’alto verso il basso, chiaro nei collegamenti, senza salti logici</p>
-</section>
-<section id="metodo-da-seguire" class="level3">
-<h3 class="anchored" data-anchor-id="metodo-da-seguire">Metodo da seguire</h3>
-<p>Quando devi trasformare un testo in schema:</p>
-<p>individua i passi principali mettili in ordine trova le decisioni (domande) disegna i collegamenti (frecce)</p>
-<p>Solo dopo aver fatto questo, ha senso usare i simboli.</p>
+<pre><code>STUDENTE(idStudente PK, nome, cognome)
+
+ISCRIZIONE(idIscrizione PK, dataIscrizione, idStudente FK)</code></pre>
+<p>La colonna <code>idStudente</code> in <code>ISCRIZIONE</code> è una chiave esterna: ogni valore che appare lì deve corrispondere a un <code>idStudente</code> esistente in <code>STUDENTE</code>. Se si prova a inserire un’iscrizione con un <code>idStudente</code> che non esiste, il DBMS rifiuta l’operazione.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Il lessico in sintesi
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Superchiave</strong>: identifica univocamente, ma può contenere attributi in più</li>
+<li><strong>Chiave candidata</strong>: superchiave minimale, senza attributi ridondanti</li>
+<li><strong>Chiave primaria</strong>: la chiave candidata scelta come identificatore ufficiale</li>
+<li><strong>Chiave esterna</strong>: collega una tabella a un’altra tramite la PK di quest’ultima</li>
+</ul>
+</div>
+</div>
+<hr>
 </section>
 </section>
-<section id="in-sintesi" class="level2">
-<h2 class="anchored" data-anchor-id="in-sintesi">In sintesi</h2>
-<p>Un diagramma di flusso è: un algoritmo reso visivo, fatto di passi collegati e con possibili scelte</p>
+<section id="i-vincoli" class="level2">
+<h2 class="anchored" data-anchor-id="i-vincoli">I vincoli</h2>
+<p>Un <strong>vincolo</strong> è una regola che il DBMS applica automaticamente per garantire la correttezza e la coerenza dei dati. Se un’operazione viola un vincolo, il DBMS la rifiuta. Non corregge: impedisce.</p>
+<p>Esistono due categorie principali.</p>
+<section id="vincoli-di-dominio" class="level3">
+<h3 class="anchored" data-anchor-id="vincoli-di-dominio">Vincoli di dominio</h3>
+<p>I vincoli di dominio controllano i valori che possono comparire in una singola colonna. I più comuni in MySQL/MariaDB:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Vincolo</th>
+<th>Effetto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>NOT NULL</code></td>
+<td>il campo non può essere lasciato vuoto</td>
+</tr>
+<tr class="even">
+<td><code>UNIQUE</code></td>
+<td>i valori nella colonna non possono ripetersi</td>
+</tr>
+<tr class="odd">
+<td><code>CHECK</code></td>
+<td>il valore deve soddisfare una condizione</td>
+</tr>
+<tr class="even">
+<td><code>DEFAULT</code></td>
+<td>se non specificato, il DBMS usa un valore predefinito</td>
+</tr>
+</tbody>
+</table>
+<p>Esempi:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>eta <span class="dt">INT</span> <span class="kw">CHECK</span> (eta <span class="op">&gt;=</span> <span class="dv">0</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>email <span class="dt">VARCHAR</span>(<span class="dv">100</span>) <span class="kw">UNIQUE</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>stato <span class="dt">VARCHAR</span>(<span class="dv">10</span>) <span class="kw">DEFAULT</span> <span class="st">'attivo'</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>voto <span class="dt">DECIMAL</span>(<span class="dv">4</span>,<span class="dv">2</span>) <span class="kw">CHECK</span> (voto <span class="op">&gt;=</span> <span class="dv">0</span> <span class="kw">AND</span> voto <span class="op">&lt;=</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="vincoli-referenziali" class="level3">
+<h3 class="anchored" data-anchor-id="vincoli-referenziali">Vincoli referenziali</h3>
+<p>I vincoli referenziali controllano la coerenza tra tabelle collegate tramite chiavi esterne. Garantiscono due cose:</p>
+<ul>
+<li>una FK deve sempre fare riferimento a una PK che esiste nella tabella collegata</li>
+<li>non possono esistere record “orfani”: righe che fanno riferimento a qualcosa che non c’è più</li>
+</ul>
+<p>Esempio: se si prova a cancellare uno studente che ha iscrizioni attive, il DBMS deve decidere cosa fare. Le opzioni principali sono:</p>
+<ul>
+<li><strong>RESTRICT</strong> (default): rifiuta la cancellazione</li>
+<li><strong>CASCADE</strong>: cancella automaticamente anche le iscrizioni collegate</li>
+<li><strong>SET NULL</strong>: imposta la FK a NULL nelle righe collegate</li>
+</ul>
+<p>La scelta dipende dalla logica del sistema: in una scuola, cancellare uno studente e perdere tutte le sue iscrizioni potrebbe essere accettabile; in un sistema bancario, non lo sarebbe mai.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Vincoli e integrità referenziale
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>L’integrità referenziale è la proprietà che garantisce che tutti i riferimenti tra tabelle siano validi. È il DBMS a mantenerla, non il programma che usa il database. Questo significa che anche un’applicazione scritta male non può corrompere i riferimenti, a patto che i vincoli siano definiti correttamente nello schema.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="perché-chiavi-e-vincoli-non-sono-opzionali" class="level2">
+<h2 class="anchored" data-anchor-id="perché-chiavi-e-vincoli-non-sono-opzionali">Perché chiavi e vincoli non sono opzionali</h2>
+<p>È tecnicamente possibile creare tabelle senza chiavi primarie e senza vincoli. Il DBMS lo permette. Ma il risultato è un database fragile: nulla impedisce di inserire dati duplicati, riferimenti a record inesistenti o valori fuori range.</p>
+<p>Chiavi e vincoli non descrivono <em>cosa</em> rappresentano i dati, ma <em>come devono comportarsi</em> all’interno del sistema. Definirli correttamente è parte integrante della progettazione, non un dettaglio da aggiungere dopo.</p>
+<p>Un sistema affidabile non corregge l’errore. Lo rende impossibile.</p>
+<hr>
+</section>
+<section id="schema-mentale" class="level2">
+<h2 class="anchored" data-anchor-id="schema-mentale">Schema mentale</h2>
+<p><strong>Qual è la differenza tra superchiave e chiave candidata?</strong> La superchiave può contenere attributi ridondanti. La chiave candidata è minimale: se si toglie un attributo, non identifica più univocamente.</p>
+<p><strong>Perché la chiave primaria non può contenere NULL?</strong> Perché deve identificare ogni riga in modo certo. Un valore NULL significa “sconosciuto”: non può essere usato come identificatore.</p>
+<p><strong>Cosa fa un vincolo referenziale quando si cancella un record collegato?</strong> Dipende dalla configurazione: può rifiutare la cancellazione (RESTRICT), propagarla alle righe collegate (CASCADE), oppure impostare la FK a NULL (SET NULL).</p>
+<p><strong>Qual è la differenza tra <code>UNIQUE</code> e chiave primaria?</strong> Entrambi garantiscono l’univocità. Ma la chiave primaria non può essere NULL e ce n’è una sola per tabella. <code>UNIQUE</code> può ammettere NULL (in alcuni DBMS) e una tabella può averne più di uno.</p>
+<p><strong>Perché si preferiscono chiavi artificiali alle chiavi naturali?</strong> Le chiavi naturali (nome, codice fiscale) possono cambiare nel tempo o risultare duplicate in casi limite. Le chiavi artificiali generate dal sistema sono stabili, univoche e non dipendono dai dati reali.</p>
 
 
 </section>

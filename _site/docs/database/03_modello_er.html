@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>dal_testo_allo_schema – Learning Stack: materiale didattico</title>
+<title>modello_er – Learning Stack: materiale didattico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -112,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/03_modello_er.html">Modellazione</a></li><li class="breadcrumb-item"><a href="../../docs/database/03_modello_er.html">Il modello ER: progettare prima di costruire</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -444,13 +444,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
  <span class="menu-text">Database</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
@@ -476,16 +476,16 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true">
  <span class="menu-text">Modellazione</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/database/03_modello_er.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/database/03_modello_er.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Il modello ER: progettare prima di costruire</span></a>
   </div>
 </li>
@@ -591,65 +591,178 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dal-testo-allo-schema-prima-dei-simboli" id="toc-dal-testo-allo-schema-prima-dei-simboli" class="nav-link active" data-scroll-target="#dal-testo-allo-schema-prima-dei-simboli">Dal testo allo schema (prima dei simboli)</a>
+  <li><a href="#il-modello-er-progettare-prima-di-costruire" id="toc-il-modello-er-progettare-prima-di-costruire" class="nav-link active" data-scroll-target="#il-modello-er-progettare-prima-di-costruire">Il modello ER: progettare prima di costruire</a>
   <ul class="collapse">
-  <li><a href="#perché-usare-uno-schema" id="toc-perché-usare-uno-schema" class="nav-link" data-scroll-target="#perché-usare-uno-schema">Perché usare uno schema</a>
+  <li><a href="#perché-serve-un-modello-concettuale" id="toc-perché-serve-un-modello-concettuale" class="nav-link" data-scroll-target="#perché-serve-un-modello-concettuale">Perché serve un modello concettuale</a></li>
+  <li><a href="#i-tre-elementi-fondamentali" id="toc-i-tre-elementi-fondamentali" class="nav-link" data-scroll-target="#i-tre-elementi-fondamentali">I tre elementi fondamentali</a>
   <ul class="collapse">
-  <li><a href="#collegare-i-passi" id="toc-collegare-i-passi" class="nav-link" data-scroll-target="#collegare-i-passi">collegare i passi</a></li>
-  <li><a href="#metodo-da-seguire" id="toc-metodo-da-seguire" class="nav-link" data-scroll-target="#metodo-da-seguire">Metodo da seguire</a></li>
+  <li><a href="#entità" id="toc-entità" class="nav-link" data-scroll-target="#entità">Entità</a></li>
+  <li><a href="#attributi" id="toc-attributi" class="nav-link" data-scroll-target="#attributi">Attributi</a></li>
+  <li><a href="#relazioni" id="toc-relazioni" class="nav-link" data-scroll-target="#relazioni">Relazioni</a></li>
   </ul></li>
-  <li><a href="#in-sintesi" id="toc-in-sintesi" class="nav-link" data-scroll-target="#in-sintesi">In sintesi</a></li>
+  <li><a href="#cardinalità-e-partecipazione" id="toc-cardinalità-e-partecipazione" class="nav-link" data-scroll-target="#cardinalità-e-partecipazione">Cardinalità e partecipazione</a></li>
+  <li><a href="#un-esempio-completo" id="toc-un-esempio-completo" class="nav-link" data-scroll-target="#un-esempio-completo">Un esempio completo</a></li>
+  <li><a href="#relazioni-ternarie" id="toc-relazioni-ternarie" class="nav-link" data-scroll-target="#relazioni-ternarie">Relazioni ternarie</a></li>
+  <li><a href="#schema-mentale" id="toc-schema-mentale" class="nav-link" data-scroll-target="#schema-mentale">Schema mentale</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/03_modello_er.html">Modellazione</a></li><li class="breadcrumb-item"><a href="../../docs/database/03_modello_er.html">Il modello ER: progettare prima di costruire</a></li></ol></nav></header>
 
 
 
 
-<section id="dal-testo-allo-schema-prima-dei-simboli" class="level1">
-<h1>Dal testo allo schema (prima dei simboli)</h1>
-<p>Finora abbiamo scritto algoritmi come sequenze di istruzioni.</p>
-<p>Esempio:</p>
-<pre class="text"><code>INIZIO
-osserva il semaforo
-se il semaforo è verde
-    attraversa
-altrimenti
-    aspetta
-FINE</code></pre>
-<p>Questo funziona, ma può diventare difficile da leggere quando gli algoritmi diventano più lunghi.</p>
-<p>Per questo motivo si usano i diagrammi di flusso.</p>
-<section id="perché-usare-uno-schema" class="level2">
-<h2 class="anchored" data-anchor-id="perché-usare-uno-schema">Perché usare uno schema</h2>
-<p>Uno schema aiuta a vedere subito la struttura del problema, capire cosa succede prima e dopo, individuare le scelte (decisioni) ed evitare errori di logica</p>
-<p>In altre parole: trasformiamo un testo in qualcosa di visivo.</p>
-<section id="collegare-i-passi" class="level3">
-<h3 class="anchored" data-anchor-id="collegare-i-passi">collegare i passi</h3>
-<p>Un diagramma di flusso è, prima di tutto, una serie di passi collegati tra loro. Possiamo iniziare senza simboli, usando solo frecce e parole.</p>
-<p>Esempio</p>
-<p>Testo:</p>
-<p>Se il semaforo è verde attraversa, altrimenti aspetta.</p>
-<p>Schema:</p>
-<p>INIZIO ↓ osserva semaforo ↓ se è verde? ↓ sì ↓ no attraversa aspetta ↓ ↓ FINE</p>
-<p>Non abbiamo ancora usato simboli ufficiali, ma si capisce già tutto.</p>
-<p>Nello schema ci sono già gli elementi fondamentali:</p>
-<p>un punto di partenza (INIZIO) una sequenza di azioni una decisione (una domanda) più possibili strade una fine (FINE)</p>
-<p>Anche senza simboli, la logica è già completa.</p>
-<p>Uno schema deve essere sempre: leggibile dall’alto verso il basso, chiaro nei collegamenti, senza salti logici</p>
+<section id="il-modello-er-progettare-prima-di-costruire" class="level1">
+<h1>Il modello ER: progettare prima di costruire</h1>
+<p>Prima di creare una sola tabella, prima di scrivere una sola riga di SQL, bisogna capire cosa si vuole rappresentare. Il <strong>modello ER</strong> è lo strumento che permette di farlo.</p>
+<hr>
+<section id="perché-serve-un-modello-concettuale" class="level2">
+<h2 class="anchored" data-anchor-id="perché-serve-un-modello-concettuale">Perché serve un modello concettuale</h2>
+<p>Quando si progetta un database per una scuola, un ospedale o un e-commerce, il primo problema non è tecnico: è concettuale. Bisogna rispondere a domande come: quali informazioni contano? Come sono collegate tra loro? Cosa cambia nel tempo e cosa rimane stabile?</p>
+<p>Rispondere direttamente in SQL sarebbe come costruire una casa senza planimetria. Si può fare, ma il risultato sarà quasi certamente sbagliato — e difficile da correggere.</p>
+<p>Il <strong>modello ER</strong> (<em>Entity-Relationship</em>) è la planimetria del database. Descrive la realtà che il sistema dovrà rappresentare, usando un linguaggio visivo e concettuale, indipendente dal DBMS che si userà poi.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Peter Chen e la nascita del modello ER
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Nel 1976, l’informatico Peter Chen pubblica un articolo destinato a cambiare per sempre il modo di progettare i database: <em>The Entity–Relationship Model — Toward a Unified View of Data</em>. Chen capisce che prima delle tabelle servono parole, e prima delle colonne servono concetti. Il modello ER introduce una grammatica condivisa per descrivere la realtà: entità, attributi, relazioni.</p>
+</div>
+</div>
+<hr>
 </section>
-<section id="metodo-da-seguire" class="level3">
-<h3 class="anchored" data-anchor-id="metodo-da-seguire">Metodo da seguire</h3>
-<p>Quando devi trasformare un testo in schema:</p>
-<p>individua i passi principali mettili in ordine trova le decisioni (domande) disegna i collegamenti (frecce)</p>
-<p>Solo dopo aver fatto questo, ha senso usare i simboli.</p>
+<section id="i-tre-elementi-fondamentali" class="level2">
+<h2 class="anchored" data-anchor-id="i-tre-elementi-fondamentali">I tre elementi fondamentali</h2>
+<p>Il modello ER si costruisce con tre elementi: entità, attributi e relazioni.</p>
+<section id="entità" class="level3">
+<h3 class="anchored" data-anchor-id="entità">Entità</h3>
+<p>Un’<strong>entità</strong> è una “cosa” del mondo reale che il sistema vuole rappresentare. Deve avere un’esistenza autonoma e caratteristiche proprie.</p>
+<p>Esempi: <code>Studente</code>, <code>Corso</code>, <code>Professore</code>, <code>Prodotto</code>, <code>Ordine</code>.</p>
+<p>Come riconoscere un’entità in una descrizione testuale: di solito è un sostantivo che indica qualcosa di cui esistono più esemplari e di cui si vogliono memorizzare informazioni.</p>
+<p>Attenzione alla distinzione tra <strong>entità</strong> e <strong>istanza</strong>: <code>Studente</code> è l’entità (il tipo), mentre <em>Mario Rossi, matricola 12345</em> è una sua istanza (un elemento concreto).</p>
+<p>Nel diagramma ER, le entità si rappresentano con un <strong>rettangolo</strong>.</p>
+</section>
+<section id="attributi" class="level3">
+<h3 class="anchored" data-anchor-id="attributi">Attributi</h3>
+<p>Gli <strong>attributi</strong> sono le caratteristiche che descrivono un’entità. Ogni attributo ha un <strong>dominio</strong>, cioè l’insieme dei valori che può assumere.</p>
+<p>Esempio: l’entità <code>Studente</code> può avere gli attributi <code>matricola</code>, <code>nome</code>, <code>cognome</code>, <code>dataNascita</code>. Il dominio di <code>dataNascita</code> è l’insieme delle date valide.</p>
+<p>Tra gli attributi, uno (o un insieme) viene scelto come <strong>identificatore</strong>: è l’attributo che permette di distinguere un’istanza da tutte le altre. La <code>matricola</code> identifica ogni studente in modo univoco.</p>
+<p>Nel diagramma ER, gli attributi si rappresentano con un <strong>ellisse</strong> collegata all’entità.</p>
+</section>
+<section id="relazioni" class="level3">
+<h3 class="anchored" data-anchor-id="relazioni">Relazioni</h3>
+<p>Una <strong>relazione</strong> è il legame logico che collega due o più entità. Non rappresenta una cosa, ma un fatto che riguarda più entità.</p>
+<p>Esempi: - <code>Studente</code> — <em>frequenta</em> — <code>Corso</code> - <code>Libro</code> — <em>è scritto da</em> — <code>Autore</code> - <code>Cliente</code> — <em>effettua</em> — <code>Ordine</code></p>
+<p>Una relazione può avere attributi propri, se il fatto che descrive ha caratteristiche proprie. Ad esempio, la relazione <em>frequenta</em> potrebbe avere l’attributo <code>annoScolastico</code>.</p>
+<p>Nel diagramma ER, le relazioni si rappresentano con un <strong>rombo</strong>.</p>
+<hr>
 </section>
 </section>
-<section id="in-sintesi" class="level2">
-<h2 class="anchored" data-anchor-id="in-sintesi">In sintesi</h2>
-<p>Un diagramma di flusso è: un algoritmo reso visivo, fatto di passi collegati e con possibili scelte</p>
+<section id="cardinalità-e-partecipazione" class="level2">
+<h2 class="anchored" data-anchor-id="cardinalità-e-partecipazione">Cardinalità e partecipazione</h2>
+<p>Non basta sapere che due entità sono collegate: bisogna specificare <em>quante</em> istanze di ciascuna entità possono partecipare alla relazione. Questo si chiama <strong>cardinalità</strong>.</p>
+<p>Le cardinalità principali sono tre:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Cardinalità</th>
+<th>Significato</th>
+<th>Esempio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1:1</strong></td>
+<td>ogni istanza di A è collegata a una sola di B, e viceversa</td>
+<td>ogni studente ha un solo libretto, ogni libretto appartiene a uno studente</td>
+</tr>
+<tr class="even">
+<td><strong>1:N</strong></td>
+<td>ogni istanza di A è collegata a molte di B, ma ogni B è collegata a una sola A</td>
+<td>un corso ha molti studenti, ogni studente appartiene a una sola classe</td>
+</tr>
+<tr class="odd">
+<td><strong>N:M</strong></td>
+<td>ogni istanza di A è collegata a molte di B, e viceversa</td>
+<td>uno studente frequenta molti corsi, un corso è frequentato da molti studenti</td>
+</tr>
+</tbody>
+</table>
+<p>Accanto alla cardinalità, si specifica anche la <strong>partecipazione</strong>: indica se la presenza in una relazione è obbligatoria o facoltativa.</p>
+<p>La cardinalità completa si scrive nella forma <code>min..max</code>:</p>
+<ul>
+<li><code>0..1</code> — partecipazione facoltativa, al massimo una</li>
+<li><code>1..1</code> — partecipazione obbligatoria, esattamente una</li>
+<li><code>0..N</code> — partecipazione facoltativa, molte possibili</li>
+<li><code>1..N</code> — partecipazione obbligatoria, almeno una</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Come leggere la cardinalità
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Nella relazione <code>Studente — frequenta — Corso</code>, se la cardinalità è <code>Studente: 0..N</code> e <code>Corso: 1..N</code>, significa: uno studente può anche non frequentare alcun corso (0 è il minimo), ma un corso deve avere almeno uno studente (1 è il minimo).</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="un-esempio-completo" class="level2">
+<h2 class="anchored" data-anchor-id="un-esempio-completo">Un esempio completo</h2>
+<p>Supponiamo di dover progettare il database di una scuola. La descrizione iniziale è:</p>
+<blockquote class="blockquote">
+<p>La scuola ha studenti e corsi. Ogni studente può essere iscritto a più corsi. Ogni corso è tenuto da un professore. Ogni studente ha una matricola, un nome e un cognome. Ogni corso ha un codice e un titolo.</p>
+</blockquote>
+<p>Dal testo si estraggono:</p>
+<p><strong>Entità:</strong> <code>Studente</code>, <code>Corso</code>, <code>Professore</code></p>
+<p><strong>Attributi:</strong> - <code>Studente</code>: matricola <em>(identificatore)</em>, nome, cognome - <code>Corso</code>: codice <em>(identificatore)</em>, titolo - <code>Professore</code>: id <em>(identificatore)</em>, nome, cognome</p>
+<p><strong>Relazioni:</strong> - <code>Studente</code> — <em>è iscritto a</em> — <code>Corso</code> → cardinalità N:M (uno studente si iscrive a molti corsi, un corso ha molti studenti) - <code>Corso</code> — <em>è tenuto da</em> — <code>Professore</code> → cardinalità N:1 (un corso ha un professore, un professore può tenere più corsi)</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Il modello ER non è ancora il database
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Il diagramma ER descrive la realtà in modo concettuale. Non contiene ancora tabelle, chiavi primarie nel senso SQL del termine, o tipi di dato. La traduzione in struttura relazionale avviene nel passo successivo: il modello logico, che vedremo nel capitolo 05.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="relazioni-ternarie" class="level2">
+<h2 class="anchored" data-anchor-id="relazioni-ternarie">Relazioni ternarie</h2>
+<p>La maggior parte delle relazioni collega due entità (relazioni binarie). In alcuni casi, però, un fatto riguarda tre entità contemporaneamente: si parla allora di <strong>relazione ternaria</strong>.</p>
+<p>Una relazione ternaria non può essere spezzata in due relazioni binarie senza perdere significato.</p>
+<p>Esempio: uno studente sostiene un esame con uno specifico docente. La relazione <em>sostiene</em> collega <code>Studente</code>, <code>Esame</code> e <code>Docente</code> contemporaneamente. Sapere che uno studente ha sostenuto un esame, e che un docente ha tenuto quell’esame, non dice ancora <em>chi ha valutato chi</em>: serve la relazione ternaria.</p>
+<p>Nel modello logico, una relazione ternaria diventa una tabella con le chiavi delle tre entità coinvolte — lo vedremo nel capitolo 05.</p>
+<hr>
+</section>
+<section id="schema-mentale" class="level2">
+<h2 class="anchored" data-anchor-id="schema-mentale">Schema mentale</h2>
+<p><strong>Cos’è un’entità e come si riconosce?</strong> È una “cosa” del mondo reale con esistenza autonoma e caratteristiche proprie. Di solito è un sostantivo di cui esistono più esemplari (Studente, Corso, Prodotto).</p>
+<p><strong>Qual è la differenza tra entità e istanza?</strong> L’entità è il tipo (Studente), l’istanza è l’elemento concreto (Mario Rossi, matricola 12345).</p>
+<p><strong>Cosa indica la cardinalità N:M?</strong> Che ogni istanza di un’entità può essere collegata a molte istanze dell’altra, e viceversa. Richiede una gestione speciale nel modello logico.</p>
+<p><strong>Cosa significa partecipazione obbligatoria?</strong> Che il valore minimo della cardinalità è 1: ogni istanza deve partecipare alla relazione. Se il minimo è 0, la partecipazione è facoltativa.</p>
+<p><strong>Perché si usa il modello ER prima di costruire le tabelle?</strong> Perché permette di capire e rappresentare la realtà in modo condiviso, prima di fare scelte tecniche. Un errore concettuale nel modello ER si propaga in tutto il database.</p>
 
 
 </section>

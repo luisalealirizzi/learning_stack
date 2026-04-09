@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>dal_testo_allo_schema – Learning Stack: materiale didattico</title>
+<title>sql_avanz – Learning Stack: materiale didattico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -112,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/08_algebra.html">Query</a></li><li class="breadcrumb-item"><a href="../../docs/database/10_sql_avanz.html">SQL avanzato: JOIN, GROUP BY e viste</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -444,13 +479,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
  <span class="menu-text">Database</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
@@ -517,13 +552,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true">
  <span class="menu-text">Query</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/database/08_algebra.html" class="sidebar-item-text sidebar-link">
@@ -538,7 +573,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/database/10_sql_avanz.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/database/10_sql_avanz.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">SQL avanzato: JOIN, GROUP BY e viste</span></a>
   </div>
 </li>
@@ -591,65 +626,289 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dal-testo-allo-schema-prima-dei-simboli" id="toc-dal-testo-allo-schema-prima-dei-simboli" class="nav-link active" data-scroll-target="#dal-testo-allo-schema-prima-dei-simboli">Dal testo allo schema (prima dei simboli)</a>
+  <li><a href="#sql-avanzato-join-group-by-e-viste" id="toc-sql-avanzato-join-group-by-e-viste" class="nav-link active" data-scroll-target="#sql-avanzato-join-group-by-e-viste">SQL avanzato: JOIN, GROUP BY e viste</a>
   <ul class="collapse">
-  <li><a href="#perché-usare-uno-schema" id="toc-perché-usare-uno-schema" class="nav-link" data-scroll-target="#perché-usare-uno-schema">Perché usare uno schema</a>
+  <li><a href="#join-interrogare-più-tabelle-insieme" id="toc-join-interrogare-più-tabelle-insieme" class="nav-link" data-scroll-target="#join-interrogare-più-tabelle-insieme">JOIN: interrogare più tabelle insieme</a>
   <ul class="collapse">
-  <li><a href="#collegare-i-passi" id="toc-collegare-i-passi" class="nav-link" data-scroll-target="#collegare-i-passi">collegare i passi</a></li>
-  <li><a href="#metodo-da-seguire" id="toc-metodo-da-seguire" class="nav-link" data-scroll-target="#metodo-da-seguire">Metodo da seguire</a></li>
+  <li><a href="#inner-join" id="toc-inner-join" class="nav-link" data-scroll-target="#inner-join">INNER JOIN</a></li>
+  <li><a href="#left-join" id="toc-left-join" class="nav-link" data-scroll-target="#left-join">LEFT JOIN</a></li>
+  <li><a href="#right-join" id="toc-right-join" class="nav-link" data-scroll-target="#right-join">RIGHT JOIN</a></li>
+  <li><a href="#riepilogo-visivo" id="toc-riepilogo-visivo" class="nav-link" data-scroll-target="#riepilogo-visivo">Riepilogo visivo</a></li>
   </ul></li>
-  <li><a href="#in-sintesi" id="toc-in-sintesi" class="nav-link" data-scroll-target="#in-sintesi">In sintesi</a></li>
+  <li><a href="#funzioni-aggregative" id="toc-funzioni-aggregative" class="nav-link" data-scroll-target="#funzioni-aggregative">Funzioni aggregative</a></li>
+  <li><a href="#group-by-aggregare-per-gruppi" id="toc-group-by-aggregare-per-gruppi" class="nav-link" data-scroll-target="#group-by-aggregare-per-gruppi">GROUP BY: aggregare per gruppi</a>
+  <ul class="collapse">
+  <li><a href="#having-filtrare-i-gruppi" id="toc-having-filtrare-i-gruppi" class="nav-link" data-scroll-target="#having-filtrare-i-gruppi">HAVING: filtrare i gruppi</a></li>
+  </ul></li>
+  <li><a href="#lordine-delle-clausole-in-una-query-completa" id="toc-lordine-delle-clausole-in-una-query-completa" class="nav-link" data-scroll-target="#lordine-delle-clausole-in-una-query-completa">L’ordine delle clausole in una query completa</a></li>
+  <li><a href="#le-viste" id="toc-le-viste" class="nav-link" data-scroll-target="#le-viste">Le viste</a></li>
+  <li><a href="#schema-mentale" id="toc-schema-mentale" class="nav-link" data-scroll-target="#schema-mentale">Schema mentale</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/08_algebra.html">Query</a></li><li class="breadcrumb-item"><a href="../../docs/database/10_sql_avanz.html">SQL avanzato: JOIN, GROUP BY e viste</a></li></ol></nav></header>
 
 
 
 
-<section id="dal-testo-allo-schema-prima-dei-simboli" class="level1">
-<h1>Dal testo allo schema (prima dei simboli)</h1>
-<p>Finora abbiamo scritto algoritmi come sequenze di istruzioni.</p>
-<p>Esempio:</p>
-<pre class="text"><code>INIZIO
-osserva il semaforo
-se il semaforo è verde
-    attraversa
-altrimenti
-    aspetta
-FINE</code></pre>
-<p>Questo funziona, ma può diventare difficile da leggere quando gli algoritmi diventano più lunghi.</p>
-<p>Per questo motivo si usano i diagrammi di flusso.</p>
-<section id="perché-usare-uno-schema" class="level2">
-<h2 class="anchored" data-anchor-id="perché-usare-uno-schema">Perché usare uno schema</h2>
-<p>Uno schema aiuta a vedere subito la struttura del problema, capire cosa succede prima e dopo, individuare le scelte (decisioni) ed evitare errori di logica</p>
-<p>In altre parole: trasformiamo un testo in qualcosa di visivo.</p>
-<section id="collegare-i-passi" class="level3">
-<h3 class="anchored" data-anchor-id="collegare-i-passi">collegare i passi</h3>
-<p>Un diagramma di flusso è, prima di tutto, una serie di passi collegati tra loro. Possiamo iniziare senza simboli, usando solo frecce e parole.</p>
-<p>Esempio</p>
-<p>Testo:</p>
-<p>Se il semaforo è verde attraversa, altrimenti aspetta.</p>
-<p>Schema:</p>
-<p>INIZIO ↓ osserva semaforo ↓ se è verde? ↓ sì ↓ no attraversa aspetta ↓ ↓ FINE</p>
-<p>Non abbiamo ancora usato simboli ufficiali, ma si capisce già tutto.</p>
-<p>Nello schema ci sono già gli elementi fondamentali:</p>
-<p>un punto di partenza (INIZIO) una sequenza di azioni una decisione (una domanda) più possibili strade una fine (FINE)</p>
-<p>Anche senza simboli, la logica è già completa.</p>
-<p>Uno schema deve essere sempre: leggibile dall’alto verso il basso, chiaro nei collegamenti, senza salti logici</p>
+<section id="sql-avanzato-join-group-by-e-viste" class="level1">
+<h1>SQL avanzato: JOIN, GROUP BY e viste</h1>
+<p>Nel capitolo precedente abbiamo visto come costruire e interrogare una singola tabella. Ma un database normalizzato distribuisce le informazioni su più tabelle collegate. In questo capitolo vediamo come ricombinarle, come aggregare i risultati e come costruire viste che semplificano le interrogazioni ricorrenti.</p>
+<hr>
+<section id="join-interrogare-più-tabelle-insieme" class="level2">
+<h2 class="anchored" data-anchor-id="join-interrogare-più-tabelle-insieme">JOIN: interrogare più tabelle insieme</h2>
+<p>La <strong>JOIN</strong> è la clausola SQL che combina righe provenienti da due o più tabelle, in base a una condizione di collegamento. Corrisponde alla join dell’algebra relazionale vista nel capitolo 08.</p>
+<p>La condizione di collegamento si basa quasi sempre su una chiave primaria e la corrispondente chiave esterna. È esattamente il collegamento che abbiamo definito con <code>FOREIGN KEY</code> nello schema.</p>
+<p>Partiamo da queste tabelle:</p>
+<pre><code>studente(idStudente, nome, cognome)
+corso(idCorso, titolo, idProfessore)
+iscrizione(idIscrizione, idStudente FK, idCorso FK, dataIscrizione)</code></pre>
+<section id="inner-join" class="level3">
+<h3 class="anchored" data-anchor-id="inner-join">INNER JOIN</h3>
+<p>L’<strong>INNER JOIN</strong> restituisce solo le righe che hanno una corrispondenza in entrambe le tabelle. Le righe senza corrispondenza vengono escluse da entrambi i lati.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> s.nome, s.cognome, c.titolo</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   studente s</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> iscrizione i <span class="kw">ON</span> s.idStudente <span class="op">=</span> i.idStudente</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> corso c      <span class="kw">ON</span> i.idCorso    <span class="op">=</span> c.idCorso;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Questo restituisce il nome e cognome di ogni studente insieme al titolo del corso a cui è iscritto. Gli studenti senza iscrizioni e i corsi senza iscritti non compaiono nel risultato.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Alias di tabella
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>studente s</code> assegna l’alias <code>s</code> alla tabella <code>studente</code>. Serve a scrivere <code>s.nome</code> invece di <code>studente.nome</code>: indispensabile quando le stesse colonne compaiono in più tabelle, e utile per rendere la query più leggibile.</p>
+</div>
+</div>
 </section>
-<section id="metodo-da-seguire" class="level3">
-<h3 class="anchored" data-anchor-id="metodo-da-seguire">Metodo da seguire</h3>
-<p>Quando devi trasformare un testo in schema:</p>
-<p>individua i passi principali mettili in ordine trova le decisioni (domande) disegna i collegamenti (frecce)</p>
-<p>Solo dopo aver fatto questo, ha senso usare i simboli.</p>
+<section id="left-join" class="level3">
+<h3 class="anchored" data-anchor-id="left-join">LEFT JOIN</h3>
+<p>Il <strong>LEFT JOIN</strong> restituisce tutte le righe della tabella di sinistra, anche quelle senza corrispondenza nella tabella di destra. Per le righe senza corrispondenza, le colonne della tabella di destra sono <code>NULL</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> s.nome, s.cognome, c.titolo</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   studente s</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> iscrizione i <span class="kw">ON</span> s.idStudente <span class="op">=</span> i.idStudente</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> corso c      <span class="kw">ON</span> i.idCorso    <span class="op">=</span> c.idCorso;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Questo restituisce tutti gli studenti, inclusi quelli che non hanno nessuna iscrizione. Per questi ultimi, <code>c.titolo</code> sarà <code>NULL</code>.</p>
+<p>Uso tipico: trovare le righe “orfane”, cioè quelle senza corrispondenza.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Studenti che non sono iscritti ad alcun corso</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> s.nome, s.cognome</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   studente s</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> iscrizione i <span class="kw">ON</span> s.idStudente <span class="op">=</span> i.idStudente</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>  i.idStudente <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="right-join" class="level3">
+<h3 class="anchored" data-anchor-id="right-join">RIGHT JOIN</h3>
+<p>Il <strong>RIGHT JOIN</strong> è simmetrico al LEFT JOIN: restituisce tutte le righe della tabella di destra, anche quelle senza corrispondenza a sinistra. Meno usato in pratica, perché si può sempre riscrivere come LEFT JOIN invertendo l’ordine delle tabelle.</p>
+</section>
+<section id="riepilogo-visivo" class="level3">
+<h3 class="anchored" data-anchor-id="riepilogo-visivo">Riepilogo visivo</h3>
+<p>Immagina due insiemi sovrapposti: le righe della tabella A a sinistra, le righe della tabella B a destra, le righe con corrispondenza al centro.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>Restituisce</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>INNER JOIN</code></td>
+<td>solo le righe al centro (corrispondenza in entrambe)</td>
+</tr>
+<tr class="even">
+<td><code>LEFT JOIN</code></td>
+<td>tutte le righe di A, con NULL dove non c’è corrispondenza in B</td>
+</tr>
+<tr class="odd">
+<td><code>RIGHT JOIN</code></td>
+<td>tutte le righe di B, con NULL dove non c’è corrispondenza in A</td>
+</tr>
+</tbody>
+</table>
+<hr>
 </section>
 </section>
-<section id="in-sintesi" class="level2">
-<h2 class="anchored" data-anchor-id="in-sintesi">In sintesi</h2>
-<p>Un diagramma di flusso è: un algoritmo reso visivo, fatto di passi collegati e con possibili scelte</p>
+<section id="funzioni-aggregative" class="level2">
+<h2 class="anchored" data-anchor-id="funzioni-aggregative">Funzioni aggregative</h2>
+<p>Le <strong>funzioni aggregative</strong> elaborano un insieme di righe e producono un singolo valore riassuntivo. Non restituiscono ogni singola riga: sintetizzano i dati.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Funzione</th>
+<th>Risultato</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>COUNT(*)</code></td>
+<td>numero di righe</td>
+</tr>
+<tr class="even">
+<td><code>COUNT(colonna)</code></td>
+<td>numero di righe con valore non NULL</td>
+</tr>
+<tr class="odd">
+<td><code>SUM(colonna)</code></td>
+<td>somma dei valori</td>
+</tr>
+<tr class="even">
+<td><code>AVG(colonna)</code></td>
+<td>media dei valori</td>
+</tr>
+<tr class="odd">
+<td><code>MIN(colonna)</code></td>
+<td>valore minimo</td>
+</tr>
+<tr class="even">
+<td><code>MAX(colonna)</code></td>
+<td>valore massimo</td>
+</tr>
+</tbody>
+</table>
+<p>Esempi:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Quanti studenti ci sono nel database?</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> totale_studenti</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> studente;</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">-- Voto medio di tutti gli esami</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">AVG</span>(voto) <span class="kw">AS</span> media_voti</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> esame;</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">-- Voto più alto e più basso registrati</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">MAX</span>(voto) <span class="kw">AS</span> voto_massimo,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>       <span class="fu">MIN</span>(voto) <span class="kw">AS</span> voto_minimo</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> esame;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="group-by-aggregare-per-gruppi" class="level2">
+<h2 class="anchored" data-anchor-id="group-by-aggregare-per-gruppi">GROUP BY: aggregare per gruppi</h2>
+<p>Le funzioni aggregative applicate all’intera tabella producono un solo valore. Con <strong>GROUP BY</strong> si suddivide prima la tabella in gruppi, e poi si calcola il valore aggregato per ciascun gruppo.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> idCorso, <span class="fu">AVG</span>(voto) <span class="kw">AS</span> media_voto</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   esame</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> idCorso;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Questo restituisce una riga per ogni corso, con la media dei voti degli esami di quel corso.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>La regola del GROUP BY
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Nella clausola <code>SELECT</code>, quando si usa <code>GROUP BY</code>, si possono mettere solo due tipi di elementi: le colonne che compaiono nel <code>GROUP BY</code>, e funzioni aggregative. Qualsiasi altra colonna genererebbe ambiguità (quale valore mostrare tra le tante righe del gruppo?).</p>
+</div>
+</div>
+<p>Esempio più articolato — nome del corso e numero di iscritti, solo per i corsi con più di 5 iscritti:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> c.titolo, <span class="fu">COUNT</span>(i.idStudente) <span class="kw">AS</span> num_iscritti</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   corso c</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> iscrizione i <span class="kw">ON</span> c.idCorso <span class="op">=</span> i.idCorso</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> c.idCorso, c.titolo</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span> <span class="fu">COUNT</span>(i.idStudente) <span class="op">&gt;</span> <span class="dv">5</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> num_iscritti <span class="kw">DESC</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="having-filtrare-i-gruppi" class="level3">
+<h3 class="anchored" data-anchor-id="having-filtrare-i-gruppi">HAVING: filtrare i gruppi</h3>
+<p><strong>HAVING</strong> è il filtro che si applica <em>dopo</em> il raggruppamento. Si usa per selezionare solo i gruppi che soddisfano una condizione aggregata.</p>
+<p>La distinzione fondamentale:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Clausola</th>
+<th>Quando si applica</th>
+<th>Cosa filtra</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>WHERE</code></td>
+<td>prima del raggruppamento</td>
+<td>singole righe</td>
+</tr>
+<tr class="even">
+<td><code>HAVING</code></td>
+<td>dopo il raggruppamento</td>
+<td>gruppi aggregati</td>
+</tr>
+</tbody>
+</table>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- WHERE: esclude le righe prima di raggruppare</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- HAVING: esclude i gruppi dopo aver calcolato l'aggregato</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> idCorso, <span class="fu">AVG</span>(voto) <span class="kw">AS</span> media</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   esame</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>  voto <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>          <span class="co">-- escludo esami senza voto</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> idCorso</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span> <span class="fu">AVG</span>(voto) <span class="op">&gt;</span> <span class="dv">7</span>;            <span class="co">-- tengo solo i corsi con media &gt; 7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="lordine-delle-clausole-in-una-query-completa" class="level2">
+<h2 class="anchored" data-anchor-id="lordine-delle-clausole-in-una-query-completa">L’ordine delle clausole in una query completa</h2>
+<p>Una query SQL completa segue un ordine preciso di clausole. Il DBMS le elabora in un ordine diverso da come sono scritte:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>   colonne o aggregazioni          <span class="co">-- 5. cosa mostrare</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>     tabella                         <span class="co">-- 1. da dove</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span>     altra_tabella <span class="kw">ON</span> condizione     <span class="co">-- 2. come collegare</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>    condizione_riga                 <span class="co">-- 3. filtrare le righe</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> colonne                         <span class="co">-- 4. raggruppare</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span>   condizione_gruppo               <span class="co">-- 5. filtrare i gruppi</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> colonna                         <span class="co">-- 6. ordinare</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span>    n;                              <span class="co">-- 7. limitare i risultati</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Non tutte le clausole sono obbligatorie: l’unica sempre presente è <code>SELECT ... FROM ...</code>. Le altre si aggiungono secondo necessità.</p>
+<hr>
+</section>
+<section id="le-viste" class="level2">
+<h2 class="anchored" data-anchor-id="le-viste">Le viste</h2>
+<p>Una <strong>vista</strong> è una tabella virtuale definita da una query. Non contiene dati propri: ogni volta che viene interrogata, il DBMS esegue la query sottostante e restituisce il risultato.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Creazione di una vista</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">VIEW</span> voti_studenti <span class="kw">AS</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> s.nome, s.cognome, c.titolo, e.voto</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   studente s</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> esame e    <span class="kw">ON</span> s.idStudente <span class="op">=</span> e.idStudente</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> corso c    <span class="kw">ON</span> e.idCorso    <span class="op">=</span> c.idCorso;</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">-- Uso della vista: si interroga come una tabella normale</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> nome, cognome, voto</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   voti_studenti</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>  voto <span class="op">&gt;=</span> <span class="dv">6</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Le viste servono a tre scopi principali.</p>
+<p><strong>Semplificazione</strong>: una query complessa con più JOIN può essere incapsulata in una vista. Chi la usa non deve conoscere la struttura sottostante.</p>
+<p><strong>Sicurezza</strong>: una vista può esporre solo alcune colonne o alcune righe di una tabella. Un utente può avere accesso alla vista ma non alle tabelle originali. In una scuola, il docente può avere accesso a una vista che mostra solo i voti della propria classe.</p>
+<p><strong>Astrazione</strong>: se la struttura delle tabelle cambia, basta aggiornare la vista. Le applicazioni che usano la vista non devono essere modificate.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Eliminare una vista</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">VIEW</span> voti_studenti;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Vista vs tabella
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una tabella occupa spazio fisico sul disco. Una vista no: è solo una query salvata con un nome. Il vantaggio è la freschezza dei dati: una vista mostra sempre il contenuto attuale delle tabelle sottostanti, non una copia.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="schema-mentale" class="level2">
+<h2 class="anchored" data-anchor-id="schema-mentale">Schema mentale</h2>
+<p><strong>Qual è la differenza tra INNER JOIN e LEFT JOIN?</strong> L’INNER JOIN restituisce solo le righe con corrispondenza in entrambe le tabelle. Il LEFT JOIN restituisce tutte le righe della tabella di sinistra, mettendo NULL dove non c’è corrispondenza a destra.</p>
+<p><strong>Quando si usa HAVING invece di WHERE?</strong> WHERE filtra le singole righe prima del raggruppamento. HAVING filtra i gruppi dopo che le funzioni aggregative sono state calcolate. Non si può usare un’aggregazione come <code>AVG(voto)</code> dentro un WHERE.</p>
+<p><strong>Cosa si può mettere nel SELECT quando si usa GROUP BY?</strong> Solo le colonne presenti nel GROUP BY e le funzioni aggregative. Qualsiasi altra colonna è ambigua: il DBMS non saprebbe quale valore scegliere tra le righe del gruppo.</p>
+<p><strong>Qual è la differenza tra una vista e una tabella?</strong> Una tabella contiene dati fisici memorizzati su disco. Una vista è una query salvata con un nome: ogni volta che viene interrogata, il DBMS esegue la query e restituisce i dati aggiornati. Non occupa spazio autonomo.</p>
+<p><strong>Perché le viste sono utili per la sicurezza?</strong> Perché permettono di esporre solo una parte delle informazioni presenti nelle tabelle. Un utente può avere accesso alla vista senza avere accesso diretto alle tabelle sottostanti.</p>
 
 
 </section>

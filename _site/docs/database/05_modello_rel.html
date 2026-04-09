@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>dal_testo_allo_schema – Learning Stack: materiale didattico</title>
+<title>modello_rel – Learning Stack: materiale didattico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -112,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/03_modello_er.html">Modellazione</a></li><li class="breadcrumb-item"><a href="../../docs/database/05_modello_rel.html">Dal modello ER al modello relazionale</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -444,13 +444,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
  <span class="menu-text">Database</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
@@ -476,13 +476,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true">
  <span class="menu-text">Modellazione</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/database/03_modello_er.html" class="sidebar-item-text sidebar-link">
@@ -497,7 +497,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/database/05_modello_rel.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/database/05_modello_rel.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Dal modello ER al modello relazionale</span></a>
   </div>
 </li>
@@ -591,65 +591,234 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dal-testo-allo-schema-prima-dei-simboli" id="toc-dal-testo-allo-schema-prima-dei-simboli" class="nav-link active" data-scroll-target="#dal-testo-allo-schema-prima-dei-simboli">Dal testo allo schema (prima dei simboli)</a>
+  <li><a href="#dal-modello-er-al-modello-relazionale" id="toc-dal-modello-er-al-modello-relazionale" class="nav-link active" data-scroll-target="#dal-modello-er-al-modello-relazionale">Dal modello ER al modello relazionale</a>
   <ul class="collapse">
-  <li><a href="#perché-usare-uno-schema" id="toc-perché-usare-uno-schema" class="nav-link" data-scroll-target="#perché-usare-uno-schema">Perché usare uno schema</a>
+  <li><a href="#la-tabella-relazionale" id="toc-la-tabella-relazionale" class="nav-link" data-scroll-target="#la-tabella-relazionale">La tabella relazionale</a></li>
+  <li><a href="#schema-e-istanza" id="toc-schema-e-istanza" class="nav-link" data-scroll-target="#schema-e-istanza">Schema e istanza</a></li>
+  <li><a href="#domini-e-tipi-di-dato" id="toc-domini-e-tipi-di-dato" class="nav-link" data-scroll-target="#domini-e-tipi-di-dato">Domini e tipi di dato</a></li>
+  <li><a href="#le-regole-di-traduzione-daller-al-relazionale" id="toc-le-regole-di-traduzione-daller-al-relazionale" class="nav-link" data-scroll-target="#le-regole-di-traduzione-daller-al-relazionale">Le regole di traduzione dall’ER al relazionale</a>
   <ul class="collapse">
-  <li><a href="#collegare-i-passi" id="toc-collegare-i-passi" class="nav-link" data-scroll-target="#collegare-i-passi">collegare i passi</a></li>
-  <li><a href="#metodo-da-seguire" id="toc-metodo-da-seguire" class="nav-link" data-scroll-target="#metodo-da-seguire">Metodo da seguire</a></li>
+  <li><a href="#regola-1-ogni-entità-diventa-una-tabella" id="toc-regola-1-ogni-entità-diventa-una-tabella" class="nav-link" data-scroll-target="#regola-1-ogni-entità-diventa-una-tabella">Regola 1 — Ogni entità diventa una tabella</a></li>
+  <li><a href="#regola-2-le-relazioni-1n-diventano-chiavi-esterne" id="toc-regola-2-le-relazioni-1n-diventano-chiavi-esterne" class="nav-link" data-scroll-target="#regola-2-le-relazioni-1n-diventano-chiavi-esterne">Regola 2 — Le relazioni 1:N diventano chiavi esterne</a></li>
+  <li><a href="#regola-3-le-relazioni-nm-diventano-tabelle-ponte" id="toc-regola-3-le-relazioni-nm-diventano-tabelle-ponte" class="nav-link" data-scroll-target="#regola-3-le-relazioni-nm-diventano-tabelle-ponte">Regola 3 — Le relazioni N:M diventano tabelle ponte</a></li>
+  <li><a href="#regola-4-le-relazioni-ternarie-diventano-tabelle-ponte-a-tre-chiavi" id="toc-regola-4-le-relazioni-ternarie-diventano-tabelle-ponte-a-tre-chiavi" class="nav-link" data-scroll-target="#regola-4-le-relazioni-ternarie-diventano-tabelle-ponte-a-tre-chiavi">Regola 4 — Le relazioni ternarie diventano tabelle ponte a tre chiavi</a></li>
   </ul></li>
-  <li><a href="#in-sintesi" id="toc-in-sintesi" class="nav-link" data-scroll-target="#in-sintesi">In sintesi</a></li>
+  <li><a href="#un-esempio-completo" id="toc-un-esempio-completo" class="nav-link" data-scroll-target="#un-esempio-completo">Un esempio completo</a></li>
+  <li><a href="#schema-mentale" id="toc-schema-mentale" class="nav-link" data-scroll-target="#schema-mentale">Schema mentale</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/03_modello_er.html">Modellazione</a></li><li class="breadcrumb-item"><a href="../../docs/database/05_modello_rel.html">Dal modello ER al modello relazionale</a></li></ol></nav></header>
 
 
 
 
-<section id="dal-testo-allo-schema-prima-dei-simboli" class="level1">
-<h1>Dal testo allo schema (prima dei simboli)</h1>
-<p>Finora abbiamo scritto algoritmi come sequenze di istruzioni.</p>
+<section id="dal-modello-er-al-modello-relazionale" class="level1">
+<h1>Dal modello ER al modello relazionale</h1>
+<p>Il modello ER descrive la realtà in modo concettuale: entità, attributi, relazioni. Il modello relazionale traduce quella descrizione in una struttura che un DBMS può gestire concretamente: tabelle, colonne, chiavi. Questo capitolo copre il passaggio tra i due livelli.</p>
+<hr>
+<section id="la-tabella-relazionale" class="level2">
+<h2 class="anchored" data-anchor-id="la-tabella-relazionale">La tabella relazionale</h2>
+<p>L’unità fondamentale del modello relazionale è la <strong>tabella</strong>, chiamata anche <strong>relazione</strong> nella teoria formale.</p>
+<p>Una tabella è una struttura che rappresenta un insieme di elementi dello stesso tipo. È composta da:</p>
+<ul>
+<li><strong>colonne</strong> (o attributi): descrivono le proprietà degli elementi</li>
+<li><strong>righe</strong> (o tuple): rappresentano i singoli elementi concreti</li>
+<li>un <strong>dominio</strong> per ogni colonna: indica i valori ammissibili (numero intero, testo, data…)</li>
+<li>una <strong>chiave primaria</strong>: identifica in modo univoco ogni riga</li>
+</ul>
 <p>Esempio:</p>
-<pre class="text"><code>INIZIO
-osserva il semaforo
-se il semaforo è verde
-    attraversa
-altrimenti
-    aspetta
-FINE</code></pre>
-<p>Questo funziona, ma può diventare difficile da leggere quando gli algoritmi diventano più lunghi.</p>
-<p>Per questo motivo si usano i diagrammi di flusso.</p>
-<section id="perché-usare-uno-schema" class="level2">
-<h2 class="anchored" data-anchor-id="perché-usare-uno-schema">Perché usare uno schema</h2>
-<p>Uno schema aiuta a vedere subito la struttura del problema, capire cosa succede prima e dopo, individuare le scelte (decisioni) ed evitare errori di logica</p>
-<p>In altre parole: trasformiamo un testo in qualcosa di visivo.</p>
-<section id="collegare-i-passi" class="level3">
-<h3 class="anchored" data-anchor-id="collegare-i-passi">collegare i passi</h3>
-<p>Un diagramma di flusso è, prima di tutto, una serie di passi collegati tra loro. Possiamo iniziare senza simboli, usando solo frecce e parole.</p>
-<p>Esempio</p>
-<p>Testo:</p>
-<p>Se il semaforo è verde attraversa, altrimenti aspetta.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>idStudente (PK)</th>
+<th>nome</th>
+<th>cognome</th>
+<th>dataNascita</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Luca</td>
+<td>Rossi</td>
+<td>2006-03-14</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Anna</td>
+<td>Bianchi</td>
+<td>2005-11-27</td>
+</tr>
+</tbody>
+</table>
+<p>Ogni riga è uno studente preciso. Ogni colonna è una caratteristica comune a tutti gli studenti. La chiave primaria <code>idStudente</code> garantisce che non esistano due righe identiche e che ogni studente sia identificabile con certezza.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Tabella e relazione: stesso concetto, termini diversi
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Nella teoria formale si usa il termine <em>relazione</em>. Nei DBMS e nella pratica si usa <em>tabella</em>. Il concetto è lo stesso. In questo corso useremo prevalentemente <em>tabella</em>, ricorrendo a <em>relazione</em> solo quando si parla di algebra relazionale o di teoria.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="schema-e-istanza" class="level2">
+<h2 class="anchored" data-anchor-id="schema-e-istanza">Schema e istanza</h2>
+<p>Nel modello relazionale occorre distinguere sempre tra due livelli.</p>
+<p>Lo <strong>schema</strong> è la struttura del database: i nomi delle tabelle, le colonne, i tipi di dato, le chiavi e i vincoli. Lo schema cambia raramente: viene definito in fase di progettazione e modificato solo quando cambiano i requisiti del sistema.</p>
+<p>L’<strong>istanza</strong> è il contenuto reale del database in un dato momento: le righe presenti nelle tabelle, i valori concreti dei campi. L’istanza cambia continuamente a ogni inserimento, modifica o cancellazione.</p>
+<p>Esempio con la tabella <code>STUDENTE</code>:</p>
 <p>Schema:</p>
-<p>INIZIO ↓ osserva semaforo ↓ se è verde? ↓ sì ↓ no attraversa aspetta ↓ ↓ FINE</p>
-<p>Non abbiamo ancora usato simboli ufficiali, ma si capisce già tutto.</p>
-<p>Nello schema ci sono già gli elementi fondamentali:</p>
-<p>un punto di partenza (INIZIO) una sequenza di azioni una decisione (una domanda) più possibili strade una fine (FINE)</p>
-<p>Anche senza simboli, la logica è già completa.</p>
-<p>Uno schema deve essere sempre: leggibile dall’alto verso il basso, chiaro nei collegamenti, senza salti logici</p>
+<pre><code>STUDENTE(idStudente INT, nome VARCHAR(50), cognome VARCHAR(50), dataNascita DATE)</code></pre>
+<p>Istanza (in un certo momento):</p>
+<pre><code>(1, 'Luca', 'Rossi', '2006-03-14')
+(2, 'Anna', 'Bianchi', '2005-11-27')</code></pre>
+<p>Domani potrebbe esserci una terza riga, o la seconda potrebbe essere stata modificata. Lo schema resta invariato.</p>
+<hr>
 </section>
-<section id="metodo-da-seguire" class="level3">
-<h3 class="anchored" data-anchor-id="metodo-da-seguire">Metodo da seguire</h3>
-<p>Quando devi trasformare un testo in schema:</p>
-<p>individua i passi principali mettili in ordine trova le decisioni (domande) disegna i collegamenti (frecce)</p>
-<p>Solo dopo aver fatto questo, ha senso usare i simboli.</p>
+<section id="domini-e-tipi-di-dato" class="level2">
+<h2 class="anchored" data-anchor-id="domini-e-tipi-di-dato">Domini e tipi di dato</h2>
+<p>Ogni colonna di una tabella deve avere un <strong>tipo di dato</strong>, che definisce quali valori possono essere memorizzati in quel campo e come il DBMS li gestisce.</p>
+<p>I tipi principali in MySQL/MariaDB:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>Utilizzo tipico</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>INT</code></td>
+<td>numeri interi (id, anni, quantità)</td>
+</tr>
+<tr class="even">
+<td><code>DECIMAL(a,b)</code></td>
+<td>numeri con virgola precisi (prezzi, voti)</td>
+</tr>
+<tr class="odd">
+<td><code>CHAR(n)</code></td>
+<td>testo a lunghezza fissa (CAP, codici provincia)</td>
+</tr>
+<tr class="even">
+<td><code>VARCHAR(n)</code></td>
+<td>testo a lunghezza variabile (nomi, descrizioni)</td>
+</tr>
+<tr class="odd">
+<td><code>DATE</code></td>
+<td>date nel formato YYYY-MM-DD</td>
+</tr>
+<tr class="even">
+<td><code>DATETIME</code></td>
+<td>data e ora</td>
+</tr>
+<tr class="odd">
+<td><code>BOOLEAN</code></td>
+<td>vero/falso</td>
+</tr>
+</tbody>
+</table>
+<p>Due distinzioni che tornano spesso nelle domande:</p>
+<p><strong><code>CHAR</code> vs <code>VARCHAR</code></strong>: <code>CHAR(n)</code> occupa sempre esattamente n caratteri, anche se il valore è più corto. <code>VARCHAR(n)</code> occupa solo lo spazio necessario, fino a un massimo di n caratteri. <code>CHAR</code> è preferibile per campi sempre della stessa lunghezza (CAP: sempre 5 caratteri). <code>VARCHAR</code> è preferibile per campi di lunghezza variabile (cognome: da 2 a 50 caratteri).</p>
+<p><strong><code>DECIMAL</code> vs <code>FLOAT</code></strong>: per valori che devono essere precisi, come prezzi o importi bancari, si usa <code>DECIMAL(a,b)</code> dove <code>a</code> è il numero totale di cifre e <code>b</code> quante sono dopo la virgola. <code>FLOAT</code> può introdurre piccoli errori di arrotondamento, inaccettabili in contesti finanziari.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Scegliere il tipo giusto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Il tipo di dato non è solo una formalità tecnica. Scegliere <code>INT</code> per un campo che potrebbe contenere lettere, o <code>FLOAT</code> per un prezzo, sono errori progettuali che possono causare problemi difficili da correggere in seguito. Il tipo di dato è parte della progettazione, non una scelta da fare in fretta.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="le-regole-di-traduzione-daller-al-relazionale" class="level2">
+<h2 class="anchored" data-anchor-id="le-regole-di-traduzione-daller-al-relazionale">Le regole di traduzione dall’ER al relazionale</h2>
+<p>Il passaggio dal modello ER al modello logico segue regole precise e applicabili in modo sistematico.</p>
+<section id="regola-1-ogni-entità-diventa-una-tabella" class="level3">
+<h3 class="anchored" data-anchor-id="regola-1-ogni-entità-diventa-una-tabella">Regola 1 — Ogni entità diventa una tabella</h3>
+<p>Gli attributi dell’entità diventano le colonne della tabella. L’identificatore dell’entità diventa la chiave primaria.</p>
+<pre><code>Entità: STUDENTE (matricola, nome, cognome)
+→ Tabella: STUDENTE(matricola PK, nome, cognome)</code></pre>
+</section>
+<section id="regola-2-le-relazioni-1n-diventano-chiavi-esterne" class="level3">
+<h3 class="anchored" data-anchor-id="regola-2-le-relazioni-1n-diventano-chiavi-esterne">Regola 2 — Le relazioni 1:N diventano chiavi esterne</h3>
+<p>Nella relazione 1:N, la chiave primaria dell’entità sul lato “1” viene aggiunta come colonna (chiave esterna) nella tabella dell’entità sul lato “N”.</p>
+<p>Esempio: <code>CORSO</code> <em>è tenuto da</em> <code>PROFESSORE</code>, cardinalità N:1 (molti corsi per un professore).</p>
+<pre><code>PROFESSORE(idProfessore PK, nome, cognome)
+CORSO(idCorso PK, titolo, idProfessore FK)</code></pre>
+<p>La colonna <code>idProfessore</code> in <code>CORSO</code> è una chiave esterna che punta a <code>PROFESSORE</code>. Il DBMS garantisce che non si possa inserire un corso con un <code>idProfessore</code> che non esiste in <code>PROFESSORE</code>.</p>
+</section>
+<section id="regola-3-le-relazioni-nm-diventano-tabelle-ponte" class="level3">
+<h3 class="anchored" data-anchor-id="regola-3-le-relazioni-nm-diventano-tabelle-ponte">Regola 3 — Le relazioni N:M diventano tabelle ponte</h3>
+<p>Una relazione N:M non può essere rappresentata con una semplice chiave esterna. Serve una <strong>tabella ponte</strong>: una nuova tabella che contiene le chiavi primarie delle due entità collegate.</p>
+<p>Esempio: <code>STUDENTE</code> <em>frequenta</em> <code>CORSO</code>, cardinalità N:M.</p>
+<pre><code>STUDENTE(idStudente PK, nome, cognome)
+CORSO(idCorso PK, titolo)
+FREQUENTA(idStudente FK, idCorso FK)</code></pre>
+<p>La tabella <code>FREQUENTA</code> è la tabella ponte. La sua chiave primaria è composta dall’unione delle due chiavi esterne: <code>(idStudente, idCorso)</code>. Se la relazione ha attributi propri (per esempio <code>annoScolastico</code>), questi diventano colonne aggiuntive della tabella ponte.</p>
+</section>
+<section id="regola-4-le-relazioni-ternarie-diventano-tabelle-ponte-a-tre-chiavi" class="level3">
+<h3 class="anchored" data-anchor-id="regola-4-le-relazioni-ternarie-diventano-tabelle-ponte-a-tre-chiavi">Regola 4 — Le relazioni ternarie diventano tabelle ponte a tre chiavi</h3>
+<p>Una relazione ternaria si traduce in una tabella che contiene le chiavi primarie di tutte e tre le entità coinvolte.</p>
+<p>Esempio: <code>STUDENTE</code> <em>sostiene</em> <code>ESAME</code> con <code>DOCENTE</code>.</p>
+<pre><code>STUDENTE(idStudente PK, nome)
+ESAME(idEsame PK, materia)
+DOCENTE(idDocente PK, nome)
+SOSTIENE(idStudente FK, idEsame FK, idDocente FK, data, voto)</code></pre>
+<p>La chiave primaria di <code>SOSTIENE</code> è <code>(idStudente, idEsame, idDocente)</code>.</p>
+<hr>
 </section>
 </section>
-<section id="in-sintesi" class="level2">
-<h2 class="anchored" data-anchor-id="in-sintesi">In sintesi</h2>
-<p>Un diagramma di flusso è: un algoritmo reso visivo, fatto di passi collegati e con possibili scelte</p>
+<section id="un-esempio-completo" class="level2">
+<h2 class="anchored" data-anchor-id="un-esempio-completo">Un esempio completo</h2>
+<p>Riprendiamo il modello ER della biblioteca dal capitolo precedente e traduciamolo in tabelle.</p>
+<p><strong>Modello ER (riepilogo):</strong> - Entità: <code>Libro</code> (ISBN, titolo, annoPubblicazione), <code>Autore</code> (id, nome, cognome), <code>Socio</code> (tessera, nome, cognome), <code>Prestito</code> (id, dataInizio, dataRestituzionePrevista) - Relazioni: <code>Libro</code> — <em>scritto da</em> — <code>Autore</code> (N:M), <code>Socio</code> — <em>effettua</em> — <code>Prestito</code> (1:N), <code>Prestito</code> — <em>riguarda</em> — <code>Libro</code> (N:1)</p>
+<p><strong>Modello logico:</strong></p>
+<pre><code>LIBRO(ISBN PK, titolo, annoPubblicazione)
+
+AUTORE(idAutore PK, nome, cognome)
+
+SCRIVE(ISBN FK, idAutore FK)          ← tabella ponte per N:M
+
+SOCIO(tessera PK, nome, cognome)
+
+PRESTITO(idPrestito PK, dataInizio, dataRestituzionePrevista,
+         tessera FK, ISBN FK)</code></pre>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>La relazione N:M richiede sempre una tabella ponte
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Non si può mettere una lista di ID in una singola colonna. Il modello relazionale non lo permette: ogni cella deve contenere un solo valore (questo è il principio della prima forma normale, che vedremo nel capitolo 07). La tabella ponte è l’unico modo corretto per rappresentare una relazione N:M.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="schema-mentale" class="level2">
+<h2 class="anchored" data-anchor-id="schema-mentale">Schema mentale</h2>
+<p><strong>Qual è la differenza tra schema e istanza?</strong> Lo schema è la struttura (tabelle, colonne, tipi, vincoli): cambia raramente. L’istanza è il contenuto reale in un dato momento: cambia a ogni operazione sui dati.</p>
+<p><strong>Quando si usa <code>CHAR</code> e quando <code>VARCHAR</code>?</strong> <code>CHAR(n)</code> per valori sempre della stessa lunghezza (CAP, codici). <code>VARCHAR(n)</code> per testo di lunghezza variabile (nomi, descrizioni).</p>
+<p><strong>Come si traduce una relazione 1:N nel modello logico?</strong> La chiave primaria dell’entità sul lato “1” diventa chiave esterna nella tabella dell’entità sul lato “N”.</p>
+<p><strong>Perché le relazioni N:M richiedono una tabella ponte?</strong> Perché non si può memorizzare una lista di valori in una singola colonna. La tabella ponte è l’unica rappresentazione corretta nel modello relazionale.</p>
+<p><strong>Cosa contiene la tabella ponte di una relazione ternaria?</strong> Le chiavi primarie di tutte e tre le entità coinvolte, più gli eventuali attributi propri della relazione.</p>
 
 
 </section>
