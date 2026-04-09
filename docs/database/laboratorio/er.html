@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Editor Diagrammi ER</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #f5f4f0;
+  --surface: #ffffff;
+  --border: #d8d6cf;
+  --border-light: #e8e6df;
+  --text: #1a1a18;
+  --text-muted: #7a7870;
+  --accent: #2a5caa;
+  --accent-light: #e8eef8;
+  --danger: #c0392b;
+  --node-stroke: #1a1a18;
+  --node-fill: #ffffff;
+  --grid-color: #dddbd3;
+  --snap-color: #b8b5ac;
+  --font-ui: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --radius: 6px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+body { font-family: var(--font-ui); background: var(--bg); color: var(--text); display: flex; flex-direction: column; }
+
+header {
+  display: flex; align-items: center; gap: 16px;
+  padding: 0 20px; height: 48px;
+  background: var(--surface); border-bottom: 1px solid var(--border); flex-shrink: 0;
+}
+.logo { font-family: var(--font-mono); font-size: 14px; font-weight: 500; letter-spacing: -0.02em; }
+.logo span { color: var(--accent); }
+.header-sep { flex: 1; }
+.header-info { font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); }
+
+#toolbar {
+  display: flex; align-items: center; gap: 4px; flex-wrap: wrap;
+  padding: 6px 14px; background: var(--surface);
+  border-bottom: 1px solid var(--border-light); flex-shrink: 0;
+}
+.tool-group { display: flex; gap: 3px; align-items: center; }
+.tool-sep { width: 1px; height: 26px; background: var(--border-light); margin: 0 5px; }
+.tb-btn {
+  display: flex; align-items: center; gap: 5px;
+  padding: 4px 10px; border-radius: var(--radius);
+  border: 1px solid transparent; background: transparent;
+  color: var(--text-muted); font-family: var(--font-ui); font-size: 12.5px;
+  cursor: pointer; white-space: nowrap; transition: all 0.1s;
+}
+.tb-btn:hover { background: var(--bg); color: var(--text); border-color: var(--border-light); }
+.tb-btn.active { background: var(--accent-light); color: var(--accent); border-color: #c0d0ea; }
+.tb-btn.danger { color: var(--danger); }
+.tb-btn.danger:hover { background: #fdf0ee; border-color: #f0c4be; }
+.tb-icon { font-size: 13px; line-height: 1; }
+.shape-ent { display:inline-block; width:16px; height:11px; border:1.5px solid currentColor; border-radius:1px; }
+.shape-weak { display:inline-block; width:16px; height:11px; border:1.5px solid currentColor; border-radius:1px; outline: 1.5px solid currentColor; outline-offset: -3px; }
+.shape-rel { display:inline-block; width:13px; height:13px; transform:rotate(45deg); border:1.5px solid currentColor; vertical-align:-2px; }
+.shape-dot { display:inline-block; width:7px; height:7px; border-radius:50%; border:1.5px solid currentColor; }
+.shape-dot-filled { display:inline-block; width:7px; height:7px; border-radius:50%; background:currentColor; }
+
+#canvas-container { flex: 1; position: relative; overflow: hidden; }
+svg#canvas { width: 100%; height: 100%; display: block; }
+
+.entity-rect { fill: var(--node-fill); stroke: var(--node-stroke); stroke-width: 1.5; }
+.entity-rect-weak-outer { fill: var(--node-fill); stroke: var(--node-stroke); stroke-width: 1.5; }
+.entity-rect-weak-inner { fill: none; stroke: var(--node-stroke); stroke-width: 1; }
+.relation-poly { fill: var(--node-fill); stroke: var(--node-stroke); stroke-width: 1.5; }
+.attr-circle { fill: var(--node-fill); stroke: var(--node-stroke); stroke-width: 1.5; }
+.attr-circle-key { fill: var(--node-stroke); stroke: var(--node-stroke); stroke-width: 1.5; }
+.node-text { font-family: var(--font-ui); fill: var(--text); font-size: 13px; pointer-events: none; user-select: none; }
+.attr-text { font-family: var(--font-ui); fill: var(--text); font-size: 12px; pointer-events: none; user-select: none; }
+.edge-line { stroke: var(--text-muted); stroke-width: 1.2; fill: none; pointer-events: none; }
+.edge-line.sel-edge { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 5 3; }
+.edge-card { font-family: var(--font-mono); fill: var(--accent); font-size: 11px; pointer-events: none; user-select: none; font-weight: 500; }
+.edge-hit { stroke: transparent; stroke-width: 14; fill: none; cursor: pointer; }
+.sel-ring { fill: none; stroke: var(--accent); stroke-width: 2; stroke-dasharray: 5 3; pointer-events: none; }
+.connect-highlight { opacity: 0.5; }
+
+#statusbar {
+  display: flex; align-items: center; gap: 16px;
+  padding: 0 14px; height: 26px; background: var(--surface);
+  border-top: 1px solid var(--border-light); flex-shrink: 0;
+  font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);
+}
+#status-mode { color: var(--accent); font-weight: 500; }
+#status-hint { flex: 1; }
+
+#ctx-menu {
+  position: fixed; display: none; background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08); z-index: 100; min-width: 180px; overflow: hidden;
+}
+#ctx-menu button {
+  display: block; width: 100%; text-align: left;
+  padding: 7px 14px; font-size: 13px; font-family: var(--font-ui);
+  color: var(--text); background: none; border: none; cursor: pointer;
+}
+#ctx-menu button:hover { background: var(--bg); }
+#ctx-menu .ctx-danger { color: var(--danger); }
+#ctx-menu .ctx-sep { height: 1px; background: var(--border-light); margin: 3px 0; }
+
+#card-popup {
+  position: fixed; display: none;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  z-index: 100; padding: 12px 14px; min-width: 210px;
+}
+#card-popup p { font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.04em; }
+#card-popup label { font-size: 12px; color: var(--text-muted); display: block; margin-bottom: 3px; }
+#card-popup select {
+  width: 100%; font-size: 13px; font-family: var(--font-ui);
+  border: 1px solid var(--border); border-radius: 4px; padding: 4px 6px;
+  background: var(--surface); color: var(--text); margin-bottom: 8px; outline: none;
+}
+#card-popup .popup-row { display: flex; gap: 6px; justify-content: flex-end; margin-top: 4px; }
+#card-popup button { padding: 4px 12px; font-size: 12px; font-family: var(--font-ui); border-radius: 4px; cursor: pointer; }
+.btn-primary { background: var(--accent); color: #fff; border: none; }
+.btn-secondary { background: none; border: 1px solid var(--border); color: var(--text-muted); }
+
+#label-input {
+  position: fixed; display: none; font-size: 13px; font-family: var(--font-ui);
+  text-align: center; border: 2px solid var(--accent); border-radius: 4px;
+  padding: 2px 6px; background: var(--surface); color: var(--text);
+  z-index: 50; width: 110px; outline: none;
+}
+
+#legend {
+  position: absolute; bottom: 12px; right: 12px;
+  background: var(--surface); border: 1px solid var(--border-light);
+  border-radius: var(--radius); padding: 10px 14px;
+  font-size: 11px; font-family: var(--font-mono); color: var(--text-muted);
+  pointer-events: none;
+}
+#legend h4 { font-size: 10px; font-weight: 500; color: var(--text); margin-bottom: 7px; text-transform: uppercase; letter-spacing: 0.05em; }
+.leg-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+.leg-ent { width: 22px; height: 13px; border: 1.5px solid var(--node-stroke); border-radius: 1px; background: var(--node-fill); display:inline-block; flex-shrink:0; }
+.leg-weak { width: 22px; height: 13px; border: 1.5px solid var(--node-stroke); border-radius: 1px; background: var(--node-fill); display:inline-block; flex-shrink:0; box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 3.5px var(--node-stroke); }
+.leg-rel { width: 13px; height: 13px; transform: rotate(45deg); border: 1.5px solid var(--node-stroke); background: var(--node-fill); display: inline-block; flex-shrink:0; }
+.leg-attr { width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid var(--node-stroke); background: var(--node-fill); display: inline-block; flex-shrink:0; }
+.leg-key { width: 8px; height: 8px; border-radius: 50%; background: var(--node-stroke); display: inline-block; flex-shrink:0; }
+.leg-card { color: var(--accent); font-weight: 500; font-size: 11px; flex-shrink:0; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">ER <span>//</span> editor</div>
+  <div class="header-sep"></div>
+  <div class="header-info">Doppio clic = rinomina &nbsp;·&nbsp; Tasto destro = opzioni &nbsp;·&nbsp; Clic su linea = cardinalità &nbsp;·&nbsp; Canc = elimina</div>
+</header>
+
+<div id="toolbar">
+  <div class="tool-group">
+    <button class="tb-btn active" id="btn-select" onclick="setMode('select')" title="Seleziona (S)">
+      <span class="tb-icon">↖</span> Seleziona
+    </button>
+  </div>
+  <div class="tool-sep"></div>
+  <div class="tool-group">
+    <button class="tb-btn" id="btn-entity" onclick="setMode('entity')" title="Entità (E)">
+      <span class="shape-ent"></span> Entità
+    </button>
+    <button class="tb-btn" id="btn-weak" onclick="setMode('weak')" title="Entità debole (W)">
+      <span class="shape-weak"></span> Entità debole
+    </button>
+    <button class="tb-btn" id="btn-relation" onclick="setMode('relation')" title="Relazione (R)">
+      <span class="shape-rel"></span> Relazione
+    </button>
+    <button class="tb-btn" id="btn-attr" onclick="setMode('attr')" title="Attributo (A)">
+      <span class="shape-dot"></span> Attributo
+    </button>
+    <button class="tb-btn" id="btn-key" onclick="setMode('key')" title="Attr. chiave (K)">
+      <span class="shape-dot-filled"></span> Attr. chiave
+    </button>
+  </div>
+  <div class="tool-sep"></div>
+  <div class="tool-group">
+    <button class="tb-btn" id="btn-connect" onclick="setMode('connect')" title="Collega (C)">
+      <span class="tb-icon">—</span> Collega
+    </button>
+  </div>
+  <div class="tool-sep"></div>
+  <div class="tool-group">
+    <button class="tb-btn" onclick="exportPNG()" title="Esporta PNG">
+      <span class="tb-icon">↓</span> PNG
+    </button>
+    <button class="tb-btn" onclick="saveJSON()" title="Salva diagramma come file JSON">
+      <span class="tb-icon">💾</span> Salva
+    </button>
+    <button class="tb-btn" onclick="document.getElementById('file-input').click()" title="Carica diagramma da file JSON">
+      <span class="tb-icon">📂</span> Carica
+    </button>
+    <input type="file" id="file-input" accept=".json" style="display:none" onchange="loadJSON(event)"/>
+  </div>
+  <div class="tool-sep"></div>
+  <div class="tool-group">
+    <button class="tb-btn danger" onclick="clearAll()">
+      <span class="tb-icon">✕</span> Cancella tutto
+    </button>
+  </div>
+</div>
+
+<div id="canvas-container">
+  <svg id="canvas" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="grid-minor" width="20" height="20" patternUnits="userSpaceOnUse">
+        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="var(--grid-color)" stroke-width="0.5"/>
+      </pattern>
+      <pattern id="grid-major" width="100" height="100" patternUnits="userSpaceOnUse">
+        <rect width="100" height="100" fill="url(#grid-minor)"/>
+        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="var(--snap-color)" stroke-width="0.8"/>
+      </pattern>
+    </defs>
+    <rect id="grid-bg" width="100%" height="100%" fill="url(#grid-major)"/>
+    <g id="edges-layer"></g>
+    <g id="nodes-layer"></g>
+    <g id="cards-layer"></g>
+  </svg>
+
+  <input id="label-input" type="text"/>
+
+  <div id="ctx-menu">
+    <button onclick="ctxRename()">✎ Rinomina</button>
+    <button id="ctx-key-btn" onclick="ctxToggleKey()">◉ Rendi chiave</button>
+    <button id="ctx-weak-btn" onclick="ctxToggleWeak()">⬜ Rendi debole</button>
+    <div class="ctx-sep"></div>
+    <button onclick="ctxDelete()" class="ctx-danger">✕ Elimina</button>
+  </div>
+
+  <div id="card-popup">
+    <p>Cardinalità connessione</p>
+    <label>Lato sinistro / origine</label>
+    <select id="card-left">
+      <option value="">— nessuna —</option>
+      <option value="1">1</option>
+      <option value="N">N</option>
+      <option value="M">M</option>
+      <option value="(0,1)">(0,1)</option>
+      <option value="(1,1)">(1,1)</option>
+      <option value="(0,N)">(0,N)</option>
+      <option value="(1,N)">(1,N)</option>
+    </select>
+    <label>Lato destro / destinazione</label>
+    <select id="card-right">
+      <option value="">— nessuna —</option>
+      <option value="1">1</option>
+      <option value="N">N</option>
+      <option value="M">M</option>
+      <option value="(0,1)">(0,1)</option>
+      <option value="(1,1)">(1,1)</option>
+      <option value="(0,N)">(0,N)</option>
+      <option value="(1,N)">(1,N)</option>
+    </select>
+    <div class="popup-row">
+      <button class="btn-secondary" onclick="closeCardPopup()">Annulla</button>
+      <button class="btn-primary" onclick="applyCardinality()">Applica</button>
+    </div>
+  </div>
+
+  <div id="legend">
+    <h4>Legenda</h4>
+    <div class="leg-row"><span class="leg-ent"></span> Entità</div>
+    <div class="leg-row"><span class="leg-weak"></span> Entità debole</div>
+    <div class="leg-row"><span style="display:inline-block;width:22px;text-align:center"><span class="leg-rel"></span></span> Relazione</div>
+    <div class="leg-row"><span class="leg-attr"></span> Attributo</div>
+    <div class="leg-row"><span class="leg-key"></span> Attr. chiave</div>
+    <div class="leg-row"><span class="leg-card">(1,N)</span> Cardinalità</div>
+  </div>
+</div>
+
+<div id="statusbar">
+  <span id="status-mode">SELEZIONA</span>
+  <span id="status-hint">Clicca per selezionare · Trascina per spostare · Clic su linea per aggiungere cardinalità</span>
+  <span id="status-counts"></span>
+</div>
+
+<script>
+const svg = document.getElementById('canvas');
+const NL = document.getElementById('nodes-layer');
+const EL = document.getElementById('edges-layer');
+const CL = document.getElementById('cards-layer');
+const labelInput = document.getElementById('label-input');
+const ctxMenu = document.getElementById('ctx-menu');
+const cardPopup = document.getElementById('card-popup');
+const statusMode = document.getElementById('status-mode');
+const statusHint = document.getElementById('status-hint');
+const statusCounts = document.getElementById('status-counts');
+
+const R = 4;
+let mode = 'select', nodes = [], edges = [];
+let selectedId = null, selectedEdgeId = null, connectFrom = null;
+let dragging = null, dragOff = {x:0,y:0};
+let ctxTarget = null, cardTarget = null, idN = 1;
+
+const MODE_INFO = {
+  select:   { label:'SELEZIONA',     hint:'Clicca nodo per selezionare · Clic su linea per cardinalità · Trascina per spostare · Doppio clic per rinominare' },
+  entity:   { label:'ENTITÀ',        hint:'Clicca sulla tela per aggiungere un\'entità' },
+  weak:     { label:'ENTITÀ DEBOLE', hint:'Clicca sulla tela per aggiungere un\'entità debole (doppio bordo)' },
+  relation: { label:'RELAZIONE',     hint:'Clicca sulla tela per aggiungere una relazione (rombo)' },
+  attr:     { label:'ATTRIBUTO',     hint:'Clicca sulla tela per aggiungere un attributo (pallino vuoto)' },
+  key:      { label:'ATTR. CHIAVE',  hint:'Clicca sulla tela per aggiungere un attributo chiave (pallino pieno, sottolineato)' },
+  connect:  { label:'COLLEGA',       hint:'Clicca il primo elemento, poi il secondo per unirli con una linea' },
+};
+const KEY_SHORTCUTS = { s:'select', e:'entity', w:'weak', r:'relation', a:'attr', k:'key', c:'connect' };
+
+function setMode(m) {
+  mode = m; connectFrom = null;
+  document.querySelectorAll('.tb-btn').forEach(b => b.classList.remove('active'));
+  (document.getElementById('btn-'+m)||document.getElementById('btn-select')).classList.add('active');
+  document.querySelectorAll('.connect-highlight').forEach(el => { el.style.opacity='1'; el.classList.remove('connect-highlight'); });
+  const info = MODE_INFO[m]||MODE_INFO.select;
+  statusMode.textContent = info.label;
+  statusHint.textContent = info.hint;
+  svg.style.cursor = m==='select' ? 'default' : 'crosshair';
+  deselectEdge();
+}
+
+function updateCounts() {
+  const ents = nodes.filter(n=>n.type==='entity'||n.type==='weak').length;
+  const rels = nodes.filter(n=>n.type==='relation').length;
+  const attrs = nodes.filter(n=>n.type==='attr'||n.type==='key').length;
+  statusCounts.textContent = `Entità: ${ents} · Relazioni: ${rels} · Attributi: ${attrs} · Connessioni: ${edges.length}`;
+}
+
+function svgPt(e) {
+  const r = svg.getBoundingClientRect();
+  return { x: e.clientX - r.left, y: e.clientY - r.top };
+}
+function snap(v) { return Math.round(v/10)*10; }
+
+function addNode(type, x, y, label) {
+  const id = 'n'+idN++;
+  const defaults = { entity:'Entità', weak:'Entità debole', relation:'Relazione', attr:'Attributo', key:'Attributo' };
+  const node = { id, type, x:snap(x), y:snap(y), label: label||defaults[type]||'Nodo' };
+  nodes.push(node); renderNode(node); updateCounts(); return node;
+}
+
+function attrTextPos(node) {
+  const connected = edges
+    .filter(e=>e.from===node.id||e.to===node.id)
+    .map(e=>nodes.find(n=>n.id===(e.from===node.id?e.to:e.from)))
+    .filter(Boolean);
+  let dx=1, dy=0;
+  if (connected.length) {
+    let ax=0, ay=0;
+    connected.forEach(c=>{ ax+=node.x-c.x; ay+=node.y-c.y; });
+    const len=Math.sqrt(ax*ax+ay*ay)||1;
+    dx=ax/len; dy=ay/len;
+  }
+  const gap = R+6;
+  const tx = dx*gap, ty = dy*gap;
+  let anchor = 'start';
+  if (dx < -0.3) anchor = 'end';
+  else if (Math.abs(dx)<=0.3) anchor = 'middle';
+  return { tx, ty, anchor };
+}
+
+function renderNode(node) {
+  document.getElementById(node.id)?.remove();
+  const g = document.createElementNS('http://www.w3.org/2000/svg','g');
+  g.setAttribute('id', node.id);
+  g.setAttribute('transform', `translate(${node.x},${node.y})`);
+  g.style.cursor = 'pointer';
+
+  if (node.type === 'entity') {
+    g.appendChild(mkRect(-50,-20,100,40,2,'entity-rect'));
+    g.appendChild(mkTxt(node.label,'middle',0,0,13,false,'node-text'));
+
+  } else if (node.type === 'weak') {
+    g.appendChild(mkRect(-50,-20,100,40,2,'entity-rect-weak-outer'));
+    g.appendChild(mkRect(-43,-13,86,26,1,'entity-rect-weak-inner'));
+    g.appendChild(mkTxt(node.label,'middle',0,0,13,false,'node-text'));
+
+  } else if (node.type === 'relation') {
+    const p = document.createElementNS('http://www.w3.org/2000/svg','polygon');
+    p.setAttribute('class','relation-poly');
+    p.setAttribute('points','0,-26 56,0 0,26 -56,0');
+    g.appendChild(p);
+    g.appendChild(mkTxt(node.label,'middle',0,0,13,false,'node-text'));
+
+  } else {
+    const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('class', node.type==='key'?'attr-circle-key':'attr-circle');
+    c.setAttribute('r', R);
+    g.appendChild(c);
+    const hit = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    hit.setAttribute('r',14); hit.setAttribute('fill','transparent'); hit.setAttribute('stroke','none');
+    g.appendChild(hit);
+    const {tx,ty,anchor} = attrTextPos(node);
+    g.appendChild(mkTxt(node.label, anchor, tx, ty, 12, node.type==='key', 'attr-text'));
+  }
+
+  g.addEventListener('mousedown', e=>onNMD(e,node.id));
+  g.addEventListener('dblclick', e=>startEdit(node.id,e));
+  g.addEventListener('contextmenu', e=>showCtx(e,node.id));
+  NL.appendChild(g);
+}
+
+function mkRect(x,y,w,h,rx,cls) {
+  const r = document.createElementNS('http://www.w3.org/2000/svg','rect');
+  r.setAttribute('class',cls); r.setAttribute('x',x); r.setAttribute('y',y);
+  r.setAttribute('width',w); r.setAttribute('height',h); r.setAttribute('rx',rx);
+  return r;
+}
+function mkTxt(label, anchor, x, y, size, underline, cls) {
+  const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+  t.setAttribute('text-anchor', anchor); t.setAttribute('dominant-baseline','central');
+  t.setAttribute('x', x); t.setAttribute('y', y); t.setAttribute('font-size', size);
+  t.setAttribute('class', cls||'node-text');
+  if (underline) t.setAttribute('text-decoration','underline');
+  t.textContent = label; return t;
+}
+
+// ---- EDGES ----
+function renderEdge(edge) {
+  ['e_','eh_','ecl_','ecr_'].forEach(p => document.getElementById(p+edge.id)?.remove());
+
+  const a=nodes.find(n=>n.id===edge.from), b=nodes.find(n=>n.id===edge.to);
+  if (!a||!b) return;
+
+  const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+  line.setAttribute('id','e_'+edge.id);
+  line.setAttribute('class','edge-line'+(selectedEdgeId===edge.id?' sel-edge':''));
+  line.setAttribute('x1',a.x); line.setAttribute('y1',a.y);
+  line.setAttribute('x2',b.x); line.setAttribute('y2',b.y);
+  EL.appendChild(line);
+
+  const hit = document.createElementNS('http://www.w3.org/2000/svg','line');
+  hit.setAttribute('id','eh_'+edge.id);
+  hit.setAttribute('class','edge-hit');
+  hit.setAttribute('x1',a.x); hit.setAttribute('y1',a.y);
+  hit.setAttribute('x2',b.x); hit.setAttribute('y2',b.y);
+  const isAttr = a.type==='attr'||a.type==='key'||b.type==='attr'||b.type==='key';
+  hit.addEventListener('click', ev=>{ ev.stopPropagation(); if(mode==='select'&&!isAttr) openCardPopup(ev,edge.id); });
+  if (isAttr) hit.style.cursor='default';
+  EL.appendChild(hit);
+
+  if (edge.cardLeft || edge.cardRight) {
+    const dx=b.x-a.x, dy=b.y-a.y;
+    const len=Math.sqrt(dx*dx+dy*dy)||1;
+    const nx=-dy/len*10, ny=dx/len*10;
+    // offset from node centre to its border along the line direction
+    const edgeOf = (node) => {
+      if (node.type==='entity'||node.type==='weak') {
+        // rectangle: find intersection with border
+        const adx=Math.abs(dx/len), ady=Math.abs(dy/len);
+        return adx>0&&ady>0 ? Math.min(50/adx,20/ady) : (adx>ady?50:20);
+      } else if (node.type==='relation') {
+        // diamond: |dx|/56 + |dy|/26 = 1 scaled
+        const adx=Math.abs(dx/len), ady=Math.abs(dy/len);
+        const t = 1/(adx/56+ady/26+0.001);
+        return t;
+      }
+      return 14; // attr
+    };
+    const gapFromBorder = 14; // px past the node border
+    const offA = edgeOf(a) + gapFromBorder;
+    const offB = edgeOf(b) + gapFromBorder;
+    if (edge.cardLeft)  CL.appendChild(mkCardLabel('ecl_'+edge.id, a.x+dx/len*offA+nx, a.y+dy/len*offA+ny, edge.cardLeft));
+    if (edge.cardRight) CL.appendChild(mkCardLabel('ecr_'+edge.id, b.x-dx/len*offB+nx, b.y-dy/len*offB+ny, edge.cardRight));
+  }
+}
+
+function mkCardLabel(id, x, y, text) {
+  const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+  t.setAttribute('id',id); t.setAttribute('class','edge-card');
+  t.setAttribute('x',x); t.setAttribute('y',y);
+  t.setAttribute('text-anchor','middle'); t.setAttribute('dominant-baseline','central');
+  t.textContent = text; return t;
+}
+
+function openCardPopup(e, edgeId) {
+  deselectEdge();
+  selectedEdgeId = edgeId;
+  renderEdge(edges.find(ed=>ed.id===edgeId));
+  const edge = edges.find(ed=>ed.id===edgeId);
+  document.getElementById('card-left').value = edge.cardLeft||'';
+  document.getElementById('card-right').value = edge.cardRight||'';
+  cardTarget = edgeId;
+  cardPopup.style.display = 'block';
+  cardPopup.style.left = Math.min(e.clientX, window.innerWidth-220)+'px';
+  cardPopup.style.top = Math.min(e.clientY, window.innerHeight-200)+'px';
+}
+
+function deselectEdge() {
+  if (selectedEdgeId) {
+    const old = selectedEdgeId; selectedEdgeId = null;
+    const ed = edges.find(e=>e.id===old);
+    if (ed) renderEdge(ed);
+  }
+}
+function closeCardPopup() { cardPopup.style.display='none'; deselectEdge(); cardTarget=null; }
+function applyCardinality() {
+  const edge = edges.find(e=>e.id===cardTarget);
+  if (edge) {
+    edge.cardLeft = document.getElementById('card-left').value;
+    edge.cardRight = document.getElementById('card-right').value;
+    renderEdge(edge);
+  }
+  closeCardPopup();
+}
+
+function refreshConnected(nodeId) {
+  edges.filter(e=>e.from===nodeId||e.to===nodeId).forEach(e=>{
+    renderEdge(e);
+    [e.from,e.to].forEach(id=>{
+      const n=nodes.find(x=>x.id===id);
+      if (n&&(n.type==='attr'||n.type==='key')) renderNode(n);
+    });
+  });
+}
+
+// ---- NODE INTERACTION ----
+function onNMD(e,id) {
+  e.stopPropagation(); if (e.button===2) return;
+  hideCtx(); closeCardPopup(); deselectEdge();
+
+  if (mode==='connect') {
+    if (!connectFrom) {
+      connectFrom=id;
+      document.getElementById(id).classList.add('connect-highlight');
+      statusHint.textContent='Ora clicca il secondo elemento da collegare';
+    } else if (connectFrom!==id) {
+      const exists=edges.some(e=>(e.from===connectFrom&&e.to===id)||(e.from===id&&e.to===connectFrom));
+      if (!exists) {
+        const eid='ed'+idN++;
+        const edge={id:eid,from:connectFrom,to:id,cardLeft:'',cardRight:''};
+        edges.push(edge); renderEdge(edge);
+        [connectFrom,id].forEach(nid=>{ const n=nodes.find(x=>x.id===nid); if(n&&(n.type==='attr'||n.type==='key')) renderNode(n); });
+        updateCounts();
+      }
+      document.querySelectorAll('.connect-highlight').forEach(el=>{ el.style.opacity='1'; el.classList.remove('connect-highlight'); });
+      connectFrom=null; statusHint.textContent=MODE_INFO.connect.hint;
+    }
+    return;
+  }
+  if (mode==='select') {
+    selectNode(id);
+    const p=svgPt(e), node=nodes.find(n=>n.id===id);
+    dragging=id; dragOff={x:p.x-node.x, y:p.y-node.y};
+  }
+}
+
+function selectNode(id) {
+  document.querySelectorAll('.sel-ring').forEach(el=>el.remove());
+  selectedId=id; if (!id) return;
+  const node=nodes.find(n=>n.id===id); if (!node) return;
+  const g=document.getElementById(id); if (!g) return;
+  const ring=document.createElementNS('http://www.w3.org/2000/svg','ellipse');
+  ring.setAttribute('class','sel-ring');
+  if (node.type==='entity'||node.type==='weak') { ring.setAttribute('rx',60); ring.setAttribute('ry',30); }
+  else if (node.type==='relation') { ring.setAttribute('rx',64); ring.setAttribute('ry',34); }
+  else { ring.setAttribute('rx',16); ring.setAttribute('ry',16); }
+  g.insertBefore(ring,g.firstChild);
+}
+
+svg.addEventListener('mousedown', e=>{
+  if (e.button===2) return;
+  hideCtx(); closeCardPopup();
+  const p=svgPt(e);
+  if (mode==='entity')   { addNode('entity',p.x,p.y); return; }
+  if (mode==='weak')     { addNode('weak',p.x,p.y); return; }
+  if (mode==='relation') { addNode('relation',p.x,p.y); return; }
+  if (mode==='attr')     { addNode('attr',p.x,p.y); return; }
+  if (mode==='key')      { addNode('key',p.x,p.y); return; }
+  if (mode==='select')   { selectNode(null); deselectEdge(); }
+});
+
+svg.addEventListener('mousemove', e=>{
+  if (!dragging) return;
+  const p=svgPt(e), node=nodes.find(n=>n.id===dragging);
+  if (!node) return;
+  node.x=snap(p.x-dragOff.x); node.y=snap(p.y-dragOff.y);
+  document.getElementById(dragging).setAttribute('transform',`translate(${node.x},${node.y})`);
+  refreshConnected(dragging); selectNode(dragging);
+});
+svg.addEventListener('mouseup',()=>{ dragging=null; });
+svg.addEventListener('mouseleave',()=>{ dragging=null; });
+
+document.addEventListener('keydown', e=>{
+  if (e.target===labelInput || e.target.tagName==='SELECT') return;
+  const k=e.key.toLowerCase();
+  if (KEY_SHORTCUTS[k]) { setMode(KEY_SHORTCUTS[k]); return; }
+  if (e.key==='Delete'||e.key==='Backspace') {
+    if (selectedId) deleteNode(selectedId);
+    else if (selectedEdgeId) { deleteEdge(selectedEdgeId); closeCardPopup(); }
+  }
+});
+
+// ---- EDIT LABEL ----
+function startEdit(id,e) {
+  if (e) e.stopPropagation();
+  const node=nodes.find(n=>n.id===id); if (!node) return;
+  const sr=svg.getBoundingClientRect();
+  labelInput.style.display='block';
+  labelInput.style.left=(node.x+sr.left-55)+'px';
+  labelInput.style.top=(node.y+sr.top-14)+'px';
+  labelInput.value=node.label; labelInput.dataset.nodeId=id;
+  labelInput.focus(); labelInput.select();
+}
+labelInput.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key==='Escape') finishEdit(); });
+labelInput.addEventListener('blur',finishEdit);
+function finishEdit() {
+  const id=labelInput.dataset.nodeId; if (!id) return;
+  const node=nodes.find(n=>n.id===id);
+  if (node) { node.label=labelInput.value.trim()||node.label; renderNode(node); }
+  labelInput.style.display='none'; labelInput.dataset.nodeId='';
+}
+
+// ---- CONTEXT MENU ----
+function showCtx(e,id) {
+  e.preventDefault(); e.stopPropagation(); ctxTarget=id;
+  const node=nodes.find(n=>n.id===id);
+  const kb=document.getElementById('ctx-key-btn');
+  const wb=document.getElementById('ctx-weak-btn');
+  kb.style.display = (node&&(node.type==='attr'||node.type==='key')) ? 'block' : 'none';
+  if (kb.style.display==='block') kb.textContent = node.type==='key' ? '○ Rimuovi chiave' : '◉ Rendi chiave';
+  wb.style.display = (node&&(node.type==='entity'||node.type==='weak')) ? 'block' : 'none';
+  if (wb.style.display==='block') wb.textContent = node.type==='weak' ? '⬛ Rendi normale' : '⬜ Rendi debole';
+  ctxMenu.style.display='block';
+  ctxMenu.style.left=Math.min(e.clientX, window.innerWidth-190)+'px';
+  ctxMenu.style.top=Math.min(e.clientY, window.innerHeight-160)+'px';
+}
+function hideCtx() { ctxMenu.style.display='none'; ctxTarget=null; }
+document.addEventListener('click', ()=>hideCtx());
+
+function ctxRename() { startEdit(ctxTarget); hideCtx(); }
+function ctxToggleKey() {
+  const node=nodes.find(n=>n.id===ctxTarget); if (!node) return;
+  node.type=node.type==='key'?'attr':'key'; renderNode(node); hideCtx();
+}
+function ctxToggleWeak() {
+  const node=nodes.find(n=>n.id===ctxTarget); if (!node) return;
+  node.type=node.type==='weak'?'entity':'weak'; renderNode(node); hideCtx();
+}
+function ctxDelete() { deleteNode(ctxTarget); hideCtx(); }
+
+function deleteNode(id) {
+  if (!id) return;
+  nodes=nodes.filter(n=>n.id!==id);
+  document.getElementById(id)?.remove();
+  edges=edges.filter(e=>{
+    if (e.from===id||e.to===id) {
+      ['e_','eh_','ecl_','ecr_'].forEach(p=>document.getElementById(p+e.id)?.remove());
+      return false;
+    }
+    return true;
+  });
+  if (selectedId===id) { selectedId=null; document.querySelectorAll('.sel-ring').forEach(el=>el.remove()); }
+  updateCounts();
+}
+function deleteEdge(id) {
+  edges=edges.filter(e=>{
+    if (e.id!==id) return true;
+    ['e_','eh_','ecl_','ecr_'].forEach(p=>document.getElementById(p+e.id)?.remove());
+    return false;
+  });
+  selectedEdgeId=null; updateCounts();
+}
+function clearAll() {
+  if (!confirm('Cancellare tutto il diagramma?')) return;
+  nodes=[]; edges=[]; NL.innerHTML=''; EL.innerHTML='';
+  selectedId=null; selectedEdgeId=null; connectFrom=null; updateCounts();
+}
+
+// ---- SAVE / LOAD ----
+function saveJSON() {
+  const data = JSON.stringify({ nodes, edges }, null, 2);
+  const blob = new Blob([data], {type:'application/json'});
+  const a = document.createElement('a');
+  a.download='diagramma-er.json'; a.href=URL.createObjectURL(blob); a.click();
+}
+function loadJSON(event) {
+  const file=event.target.files[0]; if (!file) return;
+  const reader=new FileReader();
+  reader.onload=function(e) {
+    try {
+      const data=JSON.parse(e.target.result);
+      if (!data.nodes||!data.edges) throw new Error('Formato non valido');
+      nodes=[]; edges=[]; NL.innerHTML=''; EL.innerHTML='';
+      selectedId=null; selectedEdgeId=null; connectFrom=null;
+      const allIds=[...data.nodes.map(n=>n.id),...data.edges.map(e=>e.id)];
+      idN=Math.max(0,...allIds.map(id=>parseInt(id.replace(/\D/g,''))||0))+1;
+      data.nodes.forEach(n=>{ nodes.push(n); renderNode(n); });
+      data.edges.forEach(ed=>{ edges.push(ed); renderEdge(ed); });
+      nodes.filter(n=>n.type==='attr'||n.type==='key').forEach(renderNode);
+      updateCounts();
+    } catch(err) { alert('Errore nel caricamento: '+err.message); }
+    event.target.value='';
+  };
+  reader.readAsText(file);
+}
+
+// ---- PNG EXPORT ----
+function exportPNG() {
+  if (nodes.length===0) { alert('Il diagramma è vuoto!'); return; }
+  let minX=Infinity,minY=Infinity,maxX=-Infinity,maxY=-Infinity;
+  nodes.forEach(n=>{
+    const pad=(n.type==='entity'||n.type==='weak')?65:n.type==='relation'?70:40;
+    minX=Math.min(minX,n.x-pad); minY=Math.min(minY,n.y-pad);
+    maxX=Math.max(maxX,n.x+pad); maxY=Math.max(maxY,n.y+pad);
+  });
+  const m=50; minX-=m; minY-=m; maxX+=m; maxY+=m;
+  const W=maxX-minX, H=maxY-minY;
+  const clone=svg.cloneNode(true);
+  clone.setAttribute('viewBox',`${minX} ${minY} ${W} ${H}`);
+  clone.setAttribute('width',W*2); clone.setAttribute('height',H*2);
+  const bg=document.createElementNS('http://www.w3.org/2000/svg','rect');
+  bg.setAttribute('x',minX); bg.setAttribute('y',minY);
+  bg.setAttribute('width',W); bg.setAttribute('height',H); bg.setAttribute('fill','#ffffff');
+  clone.insertBefore(bg,clone.firstChild);
+  clone.querySelector('#grid-bg')?.setAttribute('fill','#ffffff');
+  clone.querySelectorAll('.entity-rect,.entity-rect-weak-outer').forEach(el=>{ el.setAttribute('fill','#ffffff'); el.setAttribute('stroke','#1a1a18'); });
+  clone.querySelectorAll('.entity-rect-weak-inner').forEach(el=>{ el.setAttribute('fill','none'); el.setAttribute('stroke','#1a1a18'); });
+  clone.querySelectorAll('.relation-poly').forEach(el=>{ el.setAttribute('fill','#ffffff'); el.setAttribute('stroke','#1a1a18'); });
+  clone.querySelectorAll('.attr-circle').forEach(el=>{ el.setAttribute('fill','#ffffff'); el.setAttribute('stroke','#1a1a18'); });
+  clone.querySelectorAll('.attr-circle-key').forEach(el=>{ el.setAttribute('fill','#1a1a18'); el.setAttribute('stroke','#1a1a18'); });
+  clone.querySelectorAll('.node-text,.attr-text').forEach(el=>{ el.setAttribute('fill','#1a1a18'); el.setAttribute('font-family','Arial,sans-serif'); });
+  clone.querySelectorAll('.edge-card').forEach(el=>{ el.setAttribute('fill','#2a5caa'); el.setAttribute('font-family','Arial,sans-serif'); });
+  clone.querySelectorAll('.edge-line').forEach(el=>{ el.setAttribute('stroke','#7a7870'); el.removeAttribute('class'); });
+  clone.querySelectorAll('.edge-hit,.sel-ring,.sel-edge').forEach(el=>el.remove());
+  const svgStr=new XMLSerializer().serializeToString(clone);
+  const url=URL.createObjectURL(new Blob([svgStr],{type:'image/svg+xml;charset=utf-8'}));
+  const img=new Image();
+  img.onload=function(){
+    const c=document.createElement('canvas'); c.width=W*2; c.height=H*2;
+    const ctx=c.getContext('2d'); ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,W*2,H*2); ctx.drawImage(img,0,0);
+    URL.revokeObjectURL(url);
+    const a=document.createElement('a'); a.download='diagramma-er.png'; a.href=c.toDataURL('image/png'); a.click();
+  };
+  img.src=url;
+}
+
+// ---- ESEMPIO DI PARTENZA ----
+const museo   = addNode('entity',  180, 230, 'Museo');
+const opera   = addNode('entity',  430, 230, 'Opera');
+const artista = addNode('entity',  680, 230, 'Artista');
+const poster  = addNode('weak',    430, 390, 'Manifesto');
+const r1      = addNode('relation',305, 230, 'espone');
+const r2      = addNode('relation',555, 230, 'crea');
+const r3      = addNode('relation',430, 310, 'promuove');
+
+const a1 = addNode('key',  180, 130, 'idMuseo');
+const a2 = addNode('attr',  80, 200, 'nome');
+const a3 = addNode('attr',  80, 265, 'città');
+const a4 = addNode('key',  430, 130, 'idOpera');
+const a5 = addNode('attr', 340, 130, 'anno');
+const a6 = addNode('attr', 520, 130, 'titolo');
+const a7 = addNode('key',  680, 130, 'idArtista');
+const a8 = addNode('attr', 775, 200, 'nome');
+const a9 = addNode('attr', 775, 265, 'nascita');
+
+[
+  [museo,r1,'(1,N)','(0,N)'],[r1,opera,null,null],
+  [opera,r2,'(0,N)',null],[r2,artista,null,'(1,N)'],
+  [opera,r3,null,null],[r3,poster,null,null],
+  [a1,museo],[a2,museo],[a3,museo],
+  [a4,opera],[a5,opera],[a6,opera],
+  [a7,artista],[a8,artista],[a9,artista],
+].forEach(([a,b,cl,cr])=>{
+  const eid='ed'+idN++;
+  const edge={id:eid,from:a.id,to:b.id,cardLeft:cl||'',cardRight:cr||''};
+  edges.push(edge); renderEdge(edge);
+});
+nodes.filter(n=>n.type==='attr'||n.type==='key').forEach(renderNode);
+updateCounts();
+setMode('select');
+</script>
+</body>
+</html>
