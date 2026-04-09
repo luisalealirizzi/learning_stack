@@ -63,7 +63,7 @@ website:
           - section: "Laboratorio"
             collapsed: true
             contents:
-              - docs/c/laboratorio/manuale_c.md
+              - docs/c/laboratorio/manuale.md
       - section: "Java"
         contents:
           - section: "Introduzione"
