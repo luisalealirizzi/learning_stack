@@ -6,7 +6,7 @@
 
 ## Perché il C è centrale nella sicurezza
 
-Il C e il linguaggio piu vicino alla macchina tra quelli ad alto livello. Questa vicinanza e la sua forza — ma e anche la fonte delle sue vulnerabilita piu pericolose.
+Il C è il linguaggio più vicino alla macchina tra quelli ad alto livello. Questa vicinanza è la sua forza — ma è anche la fonte delle sue vulnerabilità più pericolose.
 
 In C il programmatore ha il controllo diretto della memoria: decide dove allocare i dati, come accedervi, quando liberarli. Nessun altro linguaggio moderno ti dà questo controllo. Ma questo significa anche che se sbagli, le conseguenze possono essere gravi e sfruttabili da un attaccante.
 
@@ -18,9 +18,9 @@ Chi lavora in cybersecurity deve conoscere il C per due motivi:
 
 ## Idea chiave: il buffer overflow
 
-Un **buffer overflow** e una delle vulnerabilita piu antiche e piu sfruttate nella storia della sicurezza informatica. Nasce da un errore semplice: scrivere piu dati di quanti un array possa contenere.
+Un **buffer overflow** è una delle vulnerabilità più antiche e più sfruttate nella storia della sicurezza informatica. Nasce da un errore semplice: scrivere più dati di quanti un array possa contenere.
 
-Hai gia visto questo concetto quando abbiamo parlato degli array, abbiamo detto che accedere oltre i limiti è un errore. Il buffer overflow è esattamente questo errore, sfruttato intenzionalmente da un attaccante.
+Hai già visto questo concetto quando abbiamo parlato degli array, abbiamo detto che accedere oltre i limiti è un errore. Il buffer overflow è esattamente questo errore, sfruttato intenzionalmente da un attaccante.
 
 ---
 
@@ -45,7 +45,7 @@ int main() {
 }
 ```
 
-`gets` legge caratteri dalla tastiera e li scrive in `nome` senza mai controllare quanti ne arrivano. Se l'utente scrive 50 caratteri invece di 10, i 40 caratteri in eccesso vengono scritti **oltre i confini dell'array**  in zone di memoria che appartengono ad altre variabili o al sistema.
+`gets` legge caratteri dalla tastiera e li scrive in `nome` senza mai controllare quanti ne arrivano. Se l'utente scrive 50 caratteri invece di 10, i 40 caratteri in eccesso vengono scritti **oltre i confini dell'array** in zone di memoria che appartengono ad altre variabili o al sistema.
 
 ### Cosa succede in memoria
 
@@ -62,11 +62,11 @@ STACK FRAME di leggiNome():
 └─────────────────────┘
 ```
 
-Se l'attaccante scrive abbastanza dati da raggiungere l'**indirizzo di ritorno** e lo sovrascrive con un indirizzo scelto da lui, il programma continuera l'esecuzione da quel punto eseguendo codice arbitrario.
+Se l'attaccante scrive abbastanza dati da raggiungere l'**indirizzo di ritorno** e lo sovrascrive con un indirizzo scelto da lui, il programma continuerà l'esecuzione da quel punto eseguendo codice arbitrario.
 
 ::: {.callout-important}
 ## gets è stata rimossa dal C moderno
-La funzione `gets` è cosi pericolosa che è stata rimossa dallo standard C11. Il compilatore moderno ti avvisa quando la usi. Non usarla mai: usa sempre `fgets` con il limite di dimensione.
+La funzione `gets` è così pericolosa che è stata rimossa dallo standard C11. Il compilatore moderno ti avvisa quando la usi. Non usarla mai: usa sempre `fgets` con il limite di dimensione.
 
 ```c
 gets(nome);                          /* PERICOLOSO — mai usare */
@@ -116,18 +116,20 @@ MEMORIA LOCALE:
 └─────────────┘
 ```
 
-Se l'utente inserisce una stringa piu lunga di 8 caratteri, `scanf` continua a scrivere oltre `password` sovrascrivendo `autorizzato`. Se `autorizzato` diventa diverso da 0, la condizione `if (autorizzato)` è vera e l'accesso è consentito anche senza la password corretta.
+Se l'utente inserisce una stringa più lunga di 8 caratteri, `scanf` continua a scrivere oltre `password` sovrascrivendo `autorizzato`. Se `autorizzato` diventa diverso da 0, la condizione `if (autorizzato)` è vera e l'accesso è consentito anche senza la password corretta.
+
+> **Prova tu**: cosa succede se inserisci esattamente 9 caratteri come password (uno in più della dimensione dell'array)? E se ne inserisci 20? Prova a immaginare, byte per byte, cosa finisce scritto in `autorizzato` prima ancora che il programma controlli la condizione.
 
 ::: {.callout-note}
-## Questo e solo a scopo didattico
-L'esempio mostra il principio. Nella realtà moderna i sistemi operativi hanno protezioni come ASLR (Address Space Layout Randomization) e stack canaries che rendono questi attacchi molto piu difficili ma non impossibili.
+## Questo è solo a scopo didattico
+L'esempio mostra il principio. Nella realtà moderna i sistemi operativi hanno protezioni come ASLR (Address Space Layout Randomization) e stack canaries che rendono questi attacchi molto più difficili ma non impossibili.
 :::
 
 ---
 
-## Blocco 3: Altre vulnerabilita legate al C
+## Blocco 3: Altre vulnerabilità legate al C
 
-Il buffer overflow è la piu famosa, ma non e l'unica.
+Il buffer overflow è la più famosa, ma non è l'unica.
 
 ### Format string attack
 
@@ -143,9 +145,11 @@ printf("%s", input); /* sicuro */
 
 Se l'utente inserisce `"%x %x %x"`, `printf` interpreta quei segnaposto e legge dati dallo stack — rivelando indirizzi di memoria o valori di variabili.
 
+> **Prova tu**: nella prima riga di `printf` qui sopra, cosa succederebbe se un utente inserisse `%s%s%s%s` invece di un nome normale? `printf` andrebbe a cercare degli argomenti che non esistono: da dove pensi che li leggerebbe?
+
 ### Use-after-free
 
-Usare memoria dopo averla liberata: un errore tipico con `malloc` e `free` che puo portare a comportamenti imprevedibili e sfruttabili.
+Usare memoria dopo averla liberata: un errore tipico con `malloc` e `free` che può portare a comportamenti imprevedibili e sfruttabili.
 
 ### Integer overflow
 
@@ -156,11 +160,13 @@ a = a + 1;                     /* diventa 0 — overflow */
 
 Se questo valore viene usato come dimensione di un buffer, il buffer viene allocato troppo piccolo e i dati in eccesso sovrascrivono memoria.
 
+> **Prova tu**: se una funzione calcola `dimensione = numero_elementi * sizeof(int)` e `numero_elementi` è un valore molto grande fornito dall'utente, cosa può succedere al valore di `dimensione` prima ancora che venga chiamata `malloc`?
+
 ---
 
 ## Blocco 4: Come si difende un programmatore
 
-Conoscere le vulnerabilita serve per evitarle. Ecco le regole pratiche:
+Conoscere le vulnerabilità serve per evitarle. Ecco le regole pratiche:
 
 **Usa sempre funzioni con limite di dimensione**
 ```c
@@ -210,20 +216,20 @@ Ricerca di vulnerabilità in software esistente: molti programmi critici sono sc
 I penetration tester scrivono exploit in C quando devono interagire direttamente con la memoria di un processo target.
 
 **Reverse engineering**
-Analizzare un programma senza il codice sorgente. Il codice compilato viene tradotto in assembly, chi conosce il C capisce molto piu facilmente cosa sta succedendo.
+Analizzare un programma senza il codice sorgente. Il codice compilato viene tradotto in assembly, chi conosce il C capisce molto più facilmente cosa sta succedendo.
 
 **Sviluppo di malware e antivirus**
-Molti malware sono scritti in C perchè producono eseguibili piccoli e veloci. I ricercatori che li analizzano devono capire C.
+Molti malware sono scritti in C perché producono eseguibili piccoli e veloci. I ricercatori che li analizzano devono capire C.
 
 **Sicurezza embedded e IoT**
-Router, telecamere, sistemi industriali girano quasi sempre su C. Le vulnerabilita IoT sono una delle aree più attive della ricerca in sicurezza.
+Router, telecamere, sistemi industriali girano quasi sempre su C. Le vulnerabilità IoT sono una delle aree più attive della ricerca in sicurezza.
 
 ---
 
 ## Schema mentale
 
 ```
-Perche il C è pericoloso?
+Perché il C è pericoloso?
     → il programmatore gestisce la memoria direttamente
     → nessun controllo automatico sui limiti degli array
 
@@ -237,7 +243,7 @@ Come si previene?
     → valida sempre l'input
     → controlla gli indici prima di accedere agli array
 
-Perche studiarlo?
+Perché studiarlo?
     → capire gli attacchi per difendersi
     → base per vulnerability research e penetration testing
 ```
@@ -250,5 +256,5 @@ Se questo argomento ti interessa, ecco da dove partire:
 
 - **Progetto**: prova a compilare il codice vulnerabile di questo capitolo con `gcc -fsanitize=address` e osserva cosa rileva
 - **Strumento**: installa `valgrind` e analizza un tuo programma C
-- **Percorso**: piattaforme come **picoCTF** e **HackTheBox** hanno sfide che partono esattamente da queste vulnerabilita
-- **Lettura**: cerca "smashing the stack for fun and profit" — l'articolo storico del 1996 che ha cambiato la sicurezza informatica
+- **Percorso**: piattaforme come **picoCTF** e **HackTheBox** hanno sfide che partono esattamente da queste vulnerabilità
+- **Lettura**: cerca "smashing the stack for fun and profit", l'articolo storico del 1996 che ha cambiato la sicurezza informatica

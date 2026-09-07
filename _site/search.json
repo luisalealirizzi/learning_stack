@@ -2696,105 +2696,195 @@
     "href": "docs/c/laboratorio/manuale.html",
     "title": "Manuale sintetico — Linguaggio C",
     "section": "",
-    "text": "#include &lt;stdio.h&gt;\n\nint main() {\n    /* codice */\n    return 0;\n}\nLibrerie comuni: &lt;stdio.h&gt; &lt;string.h&gt; &lt;math.h&gt; &lt;stdlib.h&gt; &lt;time.h&gt; &lt;stdbool.h&gt;\n\n\n\n\nint n = 5;\ndouble x = 3.14;\nchar c = 'A';\nbool b = true;          /* richiede &lt;stdbool.h&gt; */\n\n#define MAX 100         /* costante */\n\n\n\n\nprintf(\"Testo\\n\");\nprintf(\"Intero: %d, Decimale: %.2f, Char: %c\\n\", n, x, c);\n\nscanf(\"%d\", &n);\nscanf(\"%lf\", &x);\nscanf(\" %c\", &c);       /* spazio prima di %c */\n\nchar s[100];\nfgets(s, sizeof(s), stdin);                  /* legge riga intera */\ns[strcspn(s, \"\\n\")] = '\\0';                  /* rimuove newline */\n\n\n\nTipo\nprintf\nscanf\n\n\n\n\nint\n%d\n%d\n\n\ndouble\n%.2f\n%lf\n\n\nchar\n%c\n%c\n\n\nstringa\n%s\n%s\n\n\n\n\n\n\n\n/* Aritmetici */\n+ - * / %\n\n/* Relazionali */\n== != &lt; &gt; &lt;= &gt;=\n\n/* Logici */\n&& || !\n\n/* Assegnazione */\n= += -= *= /= %=\ni++   i--\n\n/* Casting */\n(double)a / b\n\n\n\n\nif (condizione) {\n    /* ... */\n} else if (condizione) {\n    /* ... */\n} else {\n    /* ... */\n}\n\nswitch (n) {\n    case 1: /* ... */ break;\n    case 2: /* ... */ break;\n    default: break;\n}\n\n/* Operatore ternario */\nint max = (a &gt; b) ? a : b;\n\n\n\n\n/* for — numero di ripetizioni noto */\nfor (i = 0; i &lt; n; i++) { /* ... */ }\n\n/* while — condizione */\nwhile (condizione) { /* ... */ }\n\n/* do-while — almeno una volta */\ndo { /* ... */ } while (condizione);\n\nbreak;      /* esci dal ciclo */\ncontinue;   /* prossima iterazione */\n\n\n\n\n/* Prototipo — va prima del main */\nint somma(int a, int b);\nvoid stampa(int n);\n\n/* Definizione — va dopo il main */\nint somma(int a, int b) {\n    return a + b;\n}\n\nvoid stampa(int n) {\n    printf(\"%d\\n\", n);\n}\n\n/* Funzione con puntatore — modifica la variabile originale */\nvoid raddoppia(int *p) {\n    *p = (*p) * 2;\n}\n/* Chiamata: raddoppia(&x); */\n\n\n\n\n#define N 5\nint v[N] = {1, 2, 3, 4, 5};\n\n/* Lettura */\nfor (i = 0; i &lt; N; i++)\n    scanf(\"%d\", &v[i]);\n\n/* Stampa */\nfor (i = 0; i &lt; N; i++)\n    printf(\"%d \", v[i]);\n\n/* Passare a una funzione */\nvoid funzione(int v[], int n) { /* ... */ }\n/* Chiamata: funzione(v, N); */\n\n/* Matrice */\nint m[3][4];\nfor (i = 0; i &lt; 3; i++)\n    for (j = 0; j &lt; 4; j++)\n        m[i][j] = 0;\n\n/* Passare matrice a funzione */\nvoid f(int m[][4], int righe) { /* ... */ }\n\n\n\n\nchar s[100];\n\n/* Scorrere */\nint i = 0;\nwhile (s[i] != '\\0') {\n    /* lavoro su s[i] */\n    i++;\n}\n\n/* Riconoscere caratteri */\ns[i] &gt;= 'A' && s[i] &lt;= 'Z'   /* maiuscola */\ns[i] &gt;= 'a' && s[i] &lt;= 'z'   /* minuscola */\ns[i] &gt;= '0' && s[i] &lt;= '9'   /* cifra */\ns[i] - '0'                    /* cifra -&gt; numero */\n\n/* Funzioni (richiedono &lt;string.h&gt;) */\nstrlen(s)           /* lunghezza */\nstrcpy(dst, src)    /* copia */\nstrcmp(s1, s2)      /* confronto — 0 se uguali */\nstrstr(s1, s2)      /* cerca s2 in s1 */\nstrcspn(s, \"\\n\")    /* posizione del \\n */\n\n\n\n\nint x = 10;\nint *p = &x;      /* p punta a x */\n*p = 20;          /* modifica x tramite p */\n\nprintf(\"%d\\n\", *p);    /* valore puntato */\nprintf(\"%p\\n\", p);     /* indirizzo */\n\n/* Array e puntatori */\nint v[5] = {1,2,3,4,5};\nint *p = v;            /* p punta al primo elemento */\n*(v + i) == v[i]       /* equivalenti */\n\n\n\n\ntypedef struct {\n    char nome[50];\n    int eta;\n    double media;\n} Studente;\n\nStudente s;\nstrcpy(s.nome, \"Mario\");\ns.eta = 20;\ns.media = 8.5;\n\n/* Array di struct */\nStudente classe[30];\nclasse[0].eta = 18;\n\n/* Passare a funzione */\nvoid stampa(Studente s) { printf(\"%s\\n\", s.nome); }\n\n\n\n\n/* Lettura */\nFILE *f = fopen(\"dati.txt\", \"r\");\nif (f == NULL) { printf(\"Errore\\n\"); return 1; }\n\nint n;\nwhile (fscanf(f, \"%d\", &n) == 1) { /* ... */ }   /* parola per parola */\n\nchar riga[200];\nwhile (fgets(riga, sizeof(riga), f) != NULL) { /* ... */ }   /* riga per riga */\n\nfclose(f);\n\n/* Scrittura */\nFILE *f = fopen(\"output.txt\", \"w\");    /* sovrascrive */\nFILE *f = fopen(\"log.txt\",    \"a\");    /* aggiunge in fondo */\nfprintf(f, \"Valore: %d\\n\", n);\nfclose(f);\n\n\n\n\n#include &lt;stdlib.h&gt;\n#include &lt;time.h&gt;\n\nsrand(time(NULL));              /* inizializza — una volta sola nel main */\nint r = rand() % 10;           /* numero tra 0 e 9 */\nint r = rand() % 10 + 1;       /* numero tra 1 e 10 */\nint r = rand() % (max - min + 1) + min;   /* tra min e max */\n\n\n\n\ngcc programma.c -o programma     # compila\n./programma                       # esegui\ngcc programma.c -o programma -lm  # con libreria math.h"
+    "text": "#include &lt;stdio.h&gt;\n\nint main() {\n    /* codice */\n    return 0;\n}\nLibrerie comuni: &lt;stdio.h&gt; &lt;string.h&gt; &lt;math.h&gt; &lt;stdlib.h&gt; &lt;time.h&gt; &lt;stdbool.h&gt;\n\n\n\n\nint n = 5;\ndouble x = 3.14;\nchar c = 'A';\nbool b = true;          /* richiede &lt;stdbool.h&gt; */\n\n#define MAX 100         /* costante */\n\n\n\n\nprintf(\"Testo\\n\");\nprintf(\"Intero: %d, Decimale: %.2f, Char: %c\\n\", n, x, c);\n\nscanf(\"%d\", &n);\nscanf(\"%lf\", &x);\nscanf(\" %c\", &c);       /* spazio prima di %c */\n\nchar s[100];\nfgets(s, sizeof(s), stdin);                  /* legge riga intera */\ns[strcspn(s, \"\\n\")] = '\\0';                  /* rimuove newline */\n\n\n\nTipo\nprintf\nscanf\n\n\n\n\nint\n%d\n%d\n\n\ndouble\n%.2f\n%lf\n\n\nchar\n%c\n%c\n\n\nstringa\n%s\n%s\n\n\n\n\n\n\n\n/* Aritmetici */\n+ - * / %\n\n/* Relazionali */\n== != &lt; &gt; &lt;= &gt;=\n\n/* Logici */\n&& || !\n\n/* Assegnazione */\n= += -= *= /= %=\ni++   i--\n\n/* Casting */\n(double)a / b\n\n\n\n\nif (condizione) {\n    /* ... */\n} else if (condizione) {\n    /* ... */\n} else {\n    /* ... */\n}\n\nswitch (n) {\n    case 1: /* ... */ break;\n    case 2: /* ... */ break;\n    default: break;\n}\n\n/* Operatore ternario */\nint max = (a &gt; b) ? a : b;\n\n\n\n\n/* for — numero di ripetizioni noto */\nfor (i = 0; i &lt; n; i++) { /* ... */ }\n\n/* while — condizione */\nwhile (condizione) { /* ... */ }\n\n/* do-while — almeno una volta */\ndo { /* ... */ } while (condizione);\n\nbreak;      /* esci dal ciclo */\ncontinue;   /* prossima iterazione */\n\n\n\n\n/* Prototipo — va prima del main */\nint somma(int a, int b);\nvoid stampa(int n);\n\n/* Definizione — va dopo il main */\nint somma(int a, int b) {\n    return a + b;\n}\n\nvoid stampa(int n) {\n    printf(\"%d\\n\", n);\n}\n\n/* Funzione con puntatore — modifica la variabile originale */\nvoid raddoppia(int *p) {\n    *p = (*p) * 2;\n}\n/* Chiamata: raddoppia(&x); */\n\n\n\n\n#define N 5\nint v[N] = {1, 2, 3, 4, 5};\n\n/* Lettura */\nfor (i = 0; i &lt; N; i++)\n    scanf(\"%d\", &v[i]);\n\n/* Stampa */\nfor (i = 0; i &lt; N; i++)\n    printf(\"%d \", v[i]);\n\n/* Passare a una funzione */\nvoid funzione(int v[], int n) { /* ... */ }\n/* Chiamata: funzione(v, N); */\n\n/* Matrice */\nint m[3][4];\nfor (i = 0; i &lt; 3; i++)\n    for (j = 0; j &lt; 4; j++)\n        m[i][j] = 0;\n\n/* Passare matrice a funzione */\nvoid f(int m[][4], int righe) { /* ... */ }\n\n\n\n\nchar s[100];\n\n/* Scorrere */\nint i = 0;\nwhile (s[i] != '\\0') {\n    /* lavoro su s[i] */\n    i++;\n}\n\n/* Riconoscere caratteri */\ns[i] &gt;= 'A' && s[i] &lt;= 'Z'   /* maiuscola */\ns[i] &gt;= 'a' && s[i] &lt;= 'z'   /* minuscola */\ns[i] &gt;= '0' && s[i] &lt;= '9'   /* cifra */\ns[i] - '0'                    /* cifra -&gt; numero */\n\n/* Funzioni (richiedono &lt;string.h&gt;) */\nstrlen(s)           /* lunghezza */\nstrcpy(dst, src)    /* copia */\nstrcmp(s1, s2)      /* confronto — 0 se uguali */\nstrstr(s1, s2)      /* cerca s2 in s1 */\nstrcspn(s, \"\\n\")    /* posizione del \\n */\n\n\n\n\nint x = 10;\nint *p = &x;      /* p punta a x */\n*p = 20;          /* modifica x tramite p */\n\nprintf(\"%d\\n\", *p);    /* valore puntato */\nprintf(\"%p\\n\", p);     /* indirizzo */\n\n/* Array e puntatori */\nint v[5] = {1,2,3,4,5};\nint *p = v;            /* p punta al primo elemento */\n*(v + i) == v[i]       /* equivalenti */\n\n\n\n\ntypedef struct {\n    char nome[50];\n    int eta;\n    double media;\n} Studente;\n\nStudente s;\nstrcpy(s.nome, \"Mario\");\ns.eta = 20;\ns.media = 8.5;\n\n/* Array di struct */\nStudente classe[30];\nclasse[0].eta = 18;\n\n/* Passare a funzione */\nvoid stampa(Studente s) { printf(\"%s\\n\", s.nome); }\n\n\n\n\n/* Lettura */\nFILE *f = fopen(\"dati.txt\", \"r\");\nif (f == NULL) { printf(\"Errore\\n\"); return 1; }\n\nint n;\nwhile (fscanf(f, \"%d\", &n) == 1) { /* ... */ }   /* parola per parola */\n\nchar riga[200];\nwhile (fgets(riga, sizeof(riga), f) != NULL) { /* ... */ }   /* riga per riga */\n\nfclose(f);\n\n/* Scrittura */\nFILE *f = fopen(\"output.txt\", \"w\");    /* sovrascrive */\nFILE *f = fopen(\"log.txt\",    \"a\");    /* aggiunge in fondo */\nfprintf(f, \"Valore: %d\\n\", n);\nfclose(f);\n\n\n\n\n#include &lt;stdlib.h&gt;\n#include &lt;time.h&gt;\n\nsrand(time(NULL));              /* inizializza — una volta sola nel main */\nint r = rand() % 10;           /* numero tra 0 e 9 */\nint r = rand() % 10 + 1;       /* numero tra 1 e 10 */\nint r = rand() % (max - min + 1) + min;   /* tra min e max */\n\n\n\n\ngcc programma.c -o programma     # compila\n./programma                       # esegui\ngcc programma.c -o programma -lm  # con libreria math.h",
+    "crumbs": [
+      "PDF C",
+      "C",
+      "Laboratorio",
+      "Manuale sintetico — Linguaggio C"
+    ]
   },
   {
     "objectID": "docs/c/laboratorio/manuale.html#struttura-base",
     "href": "docs/c/laboratorio/manuale.html#struttura-base",
     "title": "Manuale sintetico — Linguaggio C",
     "section": "",
-    "text": "#include &lt;stdio.h&gt;\n\nint main() {\n    /* codice */\n    return 0;\n}\nLibrerie comuni: &lt;stdio.h&gt; &lt;string.h&gt; &lt;math.h&gt; &lt;stdlib.h&gt; &lt;time.h&gt; &lt;stdbool.h&gt;"
+    "text": "#include &lt;stdio.h&gt;\n\nint main() {\n    /* codice */\n    return 0;\n}\nLibrerie comuni: &lt;stdio.h&gt; &lt;string.h&gt; &lt;math.h&gt; &lt;stdlib.h&gt; &lt;time.h&gt; &lt;stdbool.h&gt;",
+    "crumbs": [
+      "PDF C",
+      "C",
+      "Laboratorio",
+      "Manuale sintetico — Linguaggio C"
+    ]
   },
   {
     "objectID": "docs/c/laboratorio/manuale.html#tipi-e-variabili",
     "href": "docs/c/laboratorio/manuale.html#tipi-e-variabili",
     "title": "Manuale sintetico — Linguaggio C",
     "section": "",
-    "text": "int n = 5;\ndouble x = 3.14;\nchar c = 'A';\nbool b = true;          /* richiede &lt;stdbool.h&gt; */\n\n#define MAX 100         /* costante */"
+    "text": "int n = 5;\ndouble x = 3.14;\nchar c = 'A';\nbool b = true;          /* richiede &lt;stdbool.h&gt; */\n\n#define MAX 100         /* costante */",
+    "crumbs": [
+      "PDF C",
+      "C",
+      "Laboratorio",
+      "Manuale sintetico — Linguaggio C"
+    ]
   },
   {
     "objectID": "docs/c/laboratorio/manuale.html#input-e-output",
     "href": "docs/c/laboratorio/manuale.html#input-e-output",
     "title": "Manuale sintetico — Linguaggio C",
     "section": "",
-    "text": "printf(\"Testo\\n\");\nprintf(\"Intero: %d, Decimale: %.2f, Char: %c\\n\", n, x, c);\n\nscanf(\"%d\", &n);\nscanf(\"%lf\", &x);\nscanf(\" %c\", &c);       /* spazio prima di %c */\n\nchar s[100];\nfgets(s, sizeof(s), stdin);                  /* legge riga intera */\ns[strcspn(s, \"\\n\")] = '\\0';                  /* rimuove newline */\n\n\n\nTipo\nprintf\nscanf\n\n\n\n\nint\n%d\n%d\n\n\ndouble\n%.2f\n%lf\n\n\nchar\n%c\n%c\n\n\nstringa\n%s\n%s"
+    "text": "printf(\"Testo\\n\");\nprintf(\"Intero: %d, Decimale: %.2f, Char: %c\\n\", n, x, c);\n\nscanf(\"%d\", &n);\nscanf(\"%lf\", &x);\nscanf(\" %c\", &c);       /* spazio prima di %c */\n\nchar s[100];\nfgets(s, sizeof(s), stdin);                  /* legge riga intera */\ns[strcspn(s, \"\\n\")] = '\\0';                  /* rimuove newline */\n\n\n\nTipo\nprintf\nscanf\n\n\n\n\nint\n%d\n%d\n\n\ndouble\n%.2f\n%lf\n\n\nchar\n%c\n%c\n\n\nstringa\n%s\n%s",
+    "crumbs": [
+      "PDF C",
+      "C",
+      "Laboratorio",
+      "Manuale sintetico — Linguaggio C"
+    ]
   },
   {
     "objectID": "docs/c/laboratorio/manuale.html#operatori",
     "href": "docs/c/laboratorio/manuale.html#operatori",
     "title": "Manuale sintetico — Linguaggio C",
     "section": "",
-    "text": "/* Aritmetici */\n+ - * / %\n\n/* Relazionali */\n== != &lt; &gt; &lt;= &gt;=\n\n/* Logici */\n&& || !\n\n/* Assegnazione */\n= += -= *= /= %=\ni++   i--\n\n/* Casting */\n(double)a / b"
+    "text": "/* Aritmetici */\n+ - * / %\n\n/* Relazionali */\n== != &lt; &gt; &lt;= &gt;=\n\n/* Logici */\n&& || !\n\n/* Assegnazione */\n= += -= *= /= %=\ni++   i--\n\n/* Casting */\n(double)a / b",
+    "crumbs": [
+      "PDF C",
+      "C",
+      "Laboratorio",
+      "Manuale sintetico — Linguaggio C"
+    ]
   },
   {
     "objectID": "docs/c/laboratorio/manuale.html#selezione",
     "href": "docs/c/laboratorio/manuale.html#selezione",
     "title": "Manuale sintetico — Linguaggio C",
     "section": "",
-    "text": "if (condizione) {\n    /* ... */\n} else if (condizione) {\n    /* ... */\n} else {\n    /* ... */\n}\n\nswitch (n) {\n    case 1: /* ... */ break;\n    case 2: /* ... */ break;\n    default: break;\n}\n\n/* Operatore ternario */\nint max = (a &gt; b) ? a : b;"
+    "text": "if (condizione) {\n    /* ... */\n} else if (condizione) {\n    /* ... */\n} else {\n    /* ... */\n}\n\nswitch (n) {\n    case 1: /* ... */ break;\n    case 2: /* ... */ break;\n    default: break;\n}\n\n/* Operatore ternario */\nint max = (a &gt; b) ? a : b;",
+    "crumbs": [
+      "PDF C",
+      "C",
+      "Laboratorio",
+      "Manuale sintetico — Linguaggio C"
+    ]
   },
   {
     "objectID": "docs/c/laboratorio/manuale.html#cicli",
     "href": "docs/c/laboratorio/manuale.html#cicli",
     "title": "Manuale sintetico — Linguaggio C",
     "section": "",
-    "text": "/* for — numero di ripetizioni noto */\nfor (i = 0; i &lt; n; i++) { /* ... */ }\n\n/* while — condizione */\nwhile (condizione) { /* ... */ }\n\n/* do-while — almeno una volta */\ndo { /* ... */ } while (condizione);\n\nbreak;      /* esci dal ciclo */\ncontinue;   /* prossima iterazione */"
+    "text": "/* for — numero di ripetizioni noto */\nfor (i = 0; i &lt; n; i++) { /* ... */ }\n\n/* while — condizione */\nwhile (condizione) { /* ... */ }\n\n/* do-while — almeno una volta */\ndo { /* ... */ } while (condizione);\n\nbreak;      /* esci dal ciclo */\ncontinue;   /* prossima iterazione */",
+    "crumbs": [
+      "PDF C",
+      "C",
+      "Laboratorio",
+      "Manuale sintetico — Linguaggio C"
+    ]
   },
   {
     "objectID": "docs/c/laboratorio/manuale.html#funzioni",
     "href": "docs/c/laboratorio/manuale.html#funzioni",
     "title": "Manuale sintetico — Linguaggio C",
     "section": "",
-    "text": "/* Prototipo — va prima del main */\nint somma(int a, int b);\nvoid stampa(int n);\n\n/* Definizione — va dopo il main */\nint somma(int a, int b) {\n    return a + b;\n}\n\nvoid stampa(int n) {\n    printf(\"%d\\n\", n);\n}\n\n/* Funzione con puntatore — modifica la variabile originale */\nvoid raddoppia(int *p) {\n    *p = (*p) * 2;\n}\n/* Chiamata: raddoppia(&x); */"
+    "text": "/* Prototipo — va prima del main */\nint somma(int a, int b);\nvoid stampa(int n);\n\n/* Definizione — va dopo il main */\nint somma(int a, int b) {\n    return a + b;\n}\n\nvoid stampa(int n) {\n    printf(\"%d\\n\", n);\n}\n\n/* Funzione con puntatore — modifica la variabile originale */\nvoid raddoppia(int *p) {\n    *p = (*p) * 2;\n}\n/* Chiamata: raddoppia(&x); */",
+    "crumbs": [
+      "PDF C",
+      "C",
+      "Laboratorio",
+      "Manuale sintetico — Linguaggio C"
+    ]
   },
   {
     "objectID": "docs/c/laboratorio/manuale.html#array",
     "href": "docs/c/laboratorio/manuale.html#array",
     "title": "Manuale sintetico — Linguaggio C",
     "section": "",
-    "text": "#define N 5\nint v[N] = {1, 2, 3, 4, 5};\n\n/* Lettura */\nfor (i = 0; i &lt; N; i++)\n    scanf(\"%d\", &v[i]);\n\n/* Stampa */\nfor (i = 0; i &lt; N; i++)\n    printf(\"%d \", v[i]);\n\n/* Passare a una funzione */\nvoid funzione(int v[], int n) { /* ... */ }\n/* Chiamata: funzione(v, N); */\n\n/* Matrice */\nint m[3][4];\nfor (i = 0; i &lt; 3; i++)\n    for (j = 0; j &lt; 4; j++)\n        m[i][j] = 0;\n\n/* Passare matrice a funzione */\nvoid f(int m[][4], int righe) { /* ... */ }"
+    "text": "#define N 5\nint v[N] = {1, 2, 3, 4, 5};\n\n/* Lettura */\nfor (i = 0; i &lt; N; i++)\n    scanf(\"%d\", &v[i]);\n\n/* Stampa */\nfor (i = 0; i &lt; N; i++)\n    printf(\"%d \", v[i]);\n\n/* Passare a una funzione */\nvoid funzione(int v[], int n) { /* ... */ }\n/* Chiamata: funzione(v, N); */\n\n/* Matrice */\nint m[3][4];\nfor (i = 0; i &lt; 3; i++)\n    for (j = 0; j &lt; 4; j++)\n        m[i][j] = 0;\n\n/* Passare matrice a funzione */\nvoid f(int m[][4], int righe) { /* ... */ }",
+    "crumbs": [
+      "PDF C",
+      "C",
+      "Laboratorio",
+      "Manuale sintetico — Linguaggio C"
+    ]
   },
   {
     "objectID": "docs/c/laboratorio/manuale.html#stringhe",
     "href": "docs/c/laboratorio/manuale.html#stringhe",
     "title": "Manuale sintetico — Linguaggio C",
     "section": "",
-    "text": "char s[100];\n\n/* Scorrere */\nint i = 0;\nwhile (s[i] != '\\0') {\n    /* lavoro su s[i] */\n    i++;\n}\n\n/* Riconoscere caratteri */\ns[i] &gt;= 'A' && s[i] &lt;= 'Z'   /* maiuscola */\ns[i] &gt;= 'a' && s[i] &lt;= 'z'   /* minuscola */\ns[i] &gt;= '0' && s[i] &lt;= '9'   /* cifra */\ns[i] - '0'                    /* cifra -&gt; numero */\n\n/* Funzioni (richiedono &lt;string.h&gt;) */\nstrlen(s)           /* lunghezza */\nstrcpy(dst, src)    /* copia */\nstrcmp(s1, s2)      /* confronto — 0 se uguali */\nstrstr(s1, s2)      /* cerca s2 in s1 */\nstrcspn(s, \"\\n\")    /* posizione del \\n */"
+    "text": "char s[100];\n\n/* Scorrere */\nint i = 0;\nwhile (s[i] != '\\0') {\n    /* lavoro su s[i] */\n    i++;\n}\n\n/* Riconoscere caratteri */\ns[i] &gt;= 'A' && s[i] &lt;= 'Z'   /* maiuscola */\ns[i] &gt;= 'a' && s[i] &lt;= 'z'   /* minuscola */\ns[i] &gt;= '0' && s[i] &lt;= '9'   /* cifra */\ns[i] - '0'                    /* cifra -&gt; numero */\n\n/* Funzioni (richiedono &lt;string.h&gt;) */\nstrlen(s)           /* lunghezza */\nstrcpy(dst, src)    /* copia */\nstrcmp(s1, s2)      /* confronto — 0 se uguali */\nstrstr(s1, s2)      /* cerca s2 in s1 */\nstrcspn(s, \"\\n\")    /* posizione del \\n */",
+    "crumbs": [
+      "PDF C",
+      "C",
+      "Laboratorio",
+      "Manuale sintetico — Linguaggio C"
+    ]
   },
   {
     "objectID": "docs/c/laboratorio/manuale.html#puntatori",
     "href": "docs/c/laboratorio/manuale.html#puntatori",
     "title": "Manuale sintetico — Linguaggio C",
     "section": "",
-    "text": "int x = 10;\nint *p = &x;      /* p punta a x */\n*p = 20;          /* modifica x tramite p */\n\nprintf(\"%d\\n\", *p);    /* valore puntato */\nprintf(\"%p\\n\", p);     /* indirizzo */\n\n/* Array e puntatori */\nint v[5] = {1,2,3,4,5};\nint *p = v;            /* p punta al primo elemento */\n*(v + i) == v[i]       /* equivalenti */"
+    "text": "int x = 10;\nint *p = &x;      /* p punta a x */\n*p = 20;          /* modifica x tramite p */\n\nprintf(\"%d\\n\", *p);    /* valore puntato */\nprintf(\"%p\\n\", p);     /* indirizzo */\n\n/* Array e puntatori */\nint v[5] = {1,2,3,4,5};\nint *p = v;            /* p punta al primo elemento */\n*(v + i) == v[i]       /* equivalenti */",
+    "crumbs": [
+      "PDF C",
+      "C",
+      "Laboratorio",
+      "Manuale sintetico — Linguaggio C"
+    ]
   },
   {
     "objectID": "docs/c/laboratorio/manuale.html#struct",
     "href": "docs/c/laboratorio/manuale.html#struct",
     "title": "Manuale sintetico — Linguaggio C",
     "section": "",
-    "text": "typedef struct {\n    char nome[50];\n    int eta;\n    double media;\n} Studente;\n\nStudente s;\nstrcpy(s.nome, \"Mario\");\ns.eta = 20;\ns.media = 8.5;\n\n/* Array di struct */\nStudente classe[30];\nclasse[0].eta = 18;\n\n/* Passare a funzione */\nvoid stampa(Studente s) { printf(\"%s\\n\", s.nome); }"
+    "text": "typedef struct {\n    char nome[50];\n    int eta;\n    double media;\n} Studente;\n\nStudente s;\nstrcpy(s.nome, \"Mario\");\ns.eta = 20;\ns.media = 8.5;\n\n/* Array di struct */\nStudente classe[30];\nclasse[0].eta = 18;\n\n/* Passare a funzione */\nvoid stampa(Studente s) { printf(\"%s\\n\", s.nome); }",
+    "crumbs": [
+      "PDF C",
+      "C",
+      "Laboratorio",
+      "Manuale sintetico — Linguaggio C"
+    ]
   },
   {
     "objectID": "docs/c/laboratorio/manuale.html#file",
     "href": "docs/c/laboratorio/manuale.html#file",
     "title": "Manuale sintetico — Linguaggio C",
     "section": "",
-    "text": "/* Lettura */\nFILE *f = fopen(\"dati.txt\", \"r\");\nif (f == NULL) { printf(\"Errore\\n\"); return 1; }\n\nint n;\nwhile (fscanf(f, \"%d\", &n) == 1) { /* ... */ }   /* parola per parola */\n\nchar riga[200];\nwhile (fgets(riga, sizeof(riga), f) != NULL) { /* ... */ }   /* riga per riga */\n\nfclose(f);\n\n/* Scrittura */\nFILE *f = fopen(\"output.txt\", \"w\");    /* sovrascrive */\nFILE *f = fopen(\"log.txt\",    \"a\");    /* aggiunge in fondo */\nfprintf(f, \"Valore: %d\\n\", n);\nfclose(f);"
+    "text": "/* Lettura */\nFILE *f = fopen(\"dati.txt\", \"r\");\nif (f == NULL) { printf(\"Errore\\n\"); return 1; }\n\nint n;\nwhile (fscanf(f, \"%d\", &n) == 1) { /* ... */ }   /* parola per parola */\n\nchar riga[200];\nwhile (fgets(riga, sizeof(riga), f) != NULL) { /* ... */ }   /* riga per riga */\n\nfclose(f);\n\n/* Scrittura */\nFILE *f = fopen(\"output.txt\", \"w\");    /* sovrascrive */\nFILE *f = fopen(\"log.txt\",    \"a\");    /* aggiunge in fondo */\nfprintf(f, \"Valore: %d\\n\", n);\nfclose(f);",
+    "crumbs": [
+      "PDF C",
+      "C",
+      "Laboratorio",
+      "Manuale sintetico — Linguaggio C"
+    ]
   },
   {
     "objectID": "docs/c/laboratorio/manuale.html#numeri-casuali",
     "href": "docs/c/laboratorio/manuale.html#numeri-casuali",
     "title": "Manuale sintetico — Linguaggio C",
     "section": "",
-    "text": "#include &lt;stdlib.h&gt;\n#include &lt;time.h&gt;\n\nsrand(time(NULL));              /* inizializza — una volta sola nel main */\nint r = rand() % 10;           /* numero tra 0 e 9 */\nint r = rand() % 10 + 1;       /* numero tra 1 e 10 */\nint r = rand() % (max - min + 1) + min;   /* tra min e max */"
+    "text": "#include &lt;stdlib.h&gt;\n#include &lt;time.h&gt;\n\nsrand(time(NULL));              /* inizializza — una volta sola nel main */\nint r = rand() % 10;           /* numero tra 0 e 9 */\nint r = rand() % 10 + 1;       /* numero tra 1 e 10 */\nint r = rand() % (max - min + 1) + min;   /* tra min e max */",
+    "crumbs": [
+      "PDF C",
+      "C",
+      "Laboratorio",
+      "Manuale sintetico — Linguaggio C"
+    ]
   },
   {
     "objectID": "docs/c/laboratorio/manuale.html#compilazione-ed-esecuzione",
     "href": "docs/c/laboratorio/manuale.html#compilazione-ed-esecuzione",
     "title": "Manuale sintetico — Linguaggio C",
     "section": "",
-    "text": "gcc programma.c -o programma     # compila\n./programma                       # esegui\ngcc programma.c -o programma -lm  # con libreria math.h"
+    "text": "gcc programma.c -o programma     # compila\n./programma                       # esegui\ngcc programma.c -o programma -lm  # con libreria math.h",
+    "crumbs": [
+      "PDF C",
+      "C",
+      "Laboratorio",
+      "Manuale sintetico — Linguaggio C"
+    ]
   },
   {
     "objectID": "docs/c/14_file_scrittura.html",

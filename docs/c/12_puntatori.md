@@ -21,7 +21,7 @@ Qui:
 
 ---
 
-## Blocco 1: Capire cos'è un puntatore
+## Blocco 1: Cos'è un puntatore
 
 Devi distinguere bene tre cose:
 
@@ -338,8 +338,8 @@ Puntatore e array?
 
 Dichiara una variabile `int x` e un puntatore `p`. Assegna a `x` un valore a tua scelta, fai puntare `p` a `x` e stampa: il valore di `x`, l'indirizzo di `x`, il valore di `p`, il valore puntato da `p`.
 
-Soluzione:
-
+::: {.callout-tip collapse="true"}
+## Soluzione
 ```c
 #include <stdio.h>
 
@@ -355,13 +355,14 @@ int main() {
     return 0;
 }
 ```
+:::
 
 ### Esercizio 2: Modifica tramite puntatore
 
 Dichiara `int x = 10`, usa un puntatore per modificarla a `25`, stampa il valore finale.
 
-Soluzione:
-
+::: {.callout-tip collapse="true"}
+## Soluzione
 ```c
 #include <stdio.h>
 
@@ -373,13 +374,14 @@ int main() {
     return 0;
 }
 ```
+:::
 
 ### Esercizio 3: Funzione che azzera
 
 Scrivi `void azzera(int *p)` che imposta a 0 il valore della variabile.
 
-Soluzione:
-
+::: {.callout-tip collapse="true"}
+## Soluzione
 ```c
 #include <stdio.h>
 
@@ -394,13 +396,14 @@ int main() {
     return 0;
 }
 ```
+:::
 
 ### Esercizio 4: Raddoppio
 
 Scrivi `void raddoppia(int *p)` che raddoppia il valore.
 
-Soluzione:
-
+::: {.callout-tip collapse="true"}
+## Soluzione
 ```c
 #include <stdio.h>
 
@@ -415,13 +418,14 @@ int main() {
     return 0;
 }
 ```
+:::
 
 ### Esercizio 5: Scambio di due variabili
 
 Scrivi `void scambia(int *a, int *b)`.
 
-Soluzione:
-
+::: {.callout-tip collapse="true"}
+## Soluzione
 ```c
 #include <stdio.h>
 
@@ -438,13 +442,14 @@ int main() {
     return 0;
 }
 ```
+:::
 
 ### Esercizio 6: Puntatore e array
 
 Dato `int v[5] = {10, 20, 30, 40, 50}`, stampa il primo elemento usando sia `v[0]` sia un puntatore `*p`.
 
-Soluzione:
-
+::: {.callout-tip collapse="true"}
+## Soluzione
 ```c
 #include <stdio.h>
 
@@ -458,13 +463,14 @@ int main() {
     return 0;
 }
 ```
+:::
 
 ### Esercizio 7: Scorrere un array con puntatore
 
 Stampa tutti gli elementi usando un puntatore.
 
-Soluzione:
-
+::: {.callout-tip collapse="true"}
+## Soluzione
 ```c
 #include <stdio.h>
 
@@ -481,13 +487,14 @@ int main() {
     return 0;
 }
 ```
+:::
 
 ### Esercizio 8: Somma con puntatore
 
 Scrivi `int somma(int v[], int n)` usando un puntatore internamente.
 
-Soluzione:
-
+::: {.callout-tip collapse="true"}
+## Soluzione
 ```c
 #include <stdio.h>
 
@@ -509,13 +516,14 @@ int main() {
     return 0;
 }
 ```
+:::
 
 ### Esercizio 9: Indice vs puntatore
 
 Scrivi due versioni per stampare l'array: una con `v[i]`, una con `*(v + i)`.
 
-Soluzione:
-
+::: {.callout-tip collapse="true"}
+## Soluzione
 ```c
 #include <stdio.h>
 
@@ -532,13 +540,14 @@ int main() {
     return 0;
 }
 ```
+:::
 
 ### Esercizio 10: Massimo con puntatore
 
 Scrivi `int massimo(int v[], int n)` usando un puntatore.
 
-Soluzione:
-
+::: {.callout-tip collapse="true"}
+## Soluzione
 ```c
 #include <stdio.h>
 
@@ -562,13 +571,14 @@ int main() {
     return 0;
 }
 ```
+:::
 
 ### Esercizio 11: Restituire un puntatore
 
 Scrivi `int* trovaPari(int v[], int n)` che restituisce il puntatore al primo elemento pari, `NULL` se non esiste.
 
-Soluzione:
-
+::: {.callout-tip collapse="true"}
+## Soluzione
 ```c
 #include <stdio.h>
 
@@ -597,3 +607,4 @@ int main() {
     return 0;
 }
 ```
+:::
