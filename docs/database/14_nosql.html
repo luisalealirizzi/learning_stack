@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -112,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/12_trigger_viste_sp.html">Avanzato</a></li><li class="breadcrumb-item"><a href="../../docs/database/14_nosql.html">14_nosql.html</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/12_trigger_viste_sp.html">Avanzato</a></li><li class="breadcrumb-item"><a href="../../docs/database/14_nosql.html">Big Data e NoSQL</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -693,7 +728,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/database/14_nosql.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">14_nosql.html</span></a>
+ <span class="menu-text">Big Data e NoSQL</span></a>
   </div>
 </li>
       </ul>
@@ -722,17 +757,241 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#big-data-e-nosql" id="toc-big-data-e-nosql" class="nav-link active" data-scroll-target="#big-data-e-nosql">Big Data e NoSQL</a>
+  <ul class="collapse">
+  <li><a href="#i-limiti-del-modello-relazionale-su-larga-scala" id="toc-i-limiti-del-modello-relazionale-su-larga-scala" class="nav-link" data-scroll-target="#i-limiti-del-modello-relazionale-su-larga-scala">I limiti del modello relazionale su larga scala</a></li>
+  <li><a href="#cosè-nosql" id="toc-cosè-nosql" class="nav-link" data-scroll-target="#cosè-nosql">Cos’è NoSQL</a></li>
+  <li><a href="#le-quattro-famiglie-nosql" id="toc-le-quattro-famiglie-nosql" class="nav-link" data-scroll-target="#le-quattro-famiglie-nosql">Le quattro famiglie NoSQL</a>
+  <ul class="collapse">
+  <li><a href="#documento-document-store" id="toc-documento-document-store" class="nav-link" data-scroll-target="#documento-document-store">Documento (Document store)</a></li>
+  <li><a href="#chiave-valore-key-value-store" id="toc-chiave-valore-key-value-store" class="nav-link" data-scroll-target="#chiave-valore-key-value-store">Chiave-valore (Key-value store)</a></li>
+  <li><a href="#colonnare-column-store" id="toc-colonnare-column-store" class="nav-link" data-scroll-target="#colonnare-column-store">Colonnare (Column store)</a></li>
+  <li><a href="#a-grafo-graph-database" id="toc-a-grafo-graph-database" class="nav-link" data-scroll-target="#a-grafo-graph-database">A grafo (Graph database)</a></li>
+  </ul></li>
+  <li><a href="#il-teorema-cap" id="toc-il-teorema-cap" class="nav-link" data-scroll-target="#il-teorema-cap">Il teorema CAP</a></li>
+  <li><a href="#confronto-relazionale-vs-nosql" id="toc-confronto-relazionale-vs-nosql" class="nav-link" data-scroll-target="#confronto-relazionale-vs-nosql">Confronto: relazionale vs NoSQL</a></li>
+  <li><a href="#quando-usare-cosa" id="toc-quando-usare-cosa" class="nav-link" data-scroll-target="#quando-usare-cosa">Quando usare cosa</a></li>
+  <li><a href="#schema-mentale" id="toc-schema-mentale" class="nav-link" data-scroll-target="#schema-mentale">Schema mentale</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/12_trigger_viste_sp.html">Avanzato</a></li><li class="breadcrumb-item"><a href="../../docs/database/14_nosql.html">14_nosql.html</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Database</li><li class="breadcrumb-item"><a href="../../docs/database/12_trigger_viste_sp.html">Avanzato</a></li><li class="breadcrumb-item"><a href="../../docs/database/14_nosql.html">Big Data e NoSQL</a></li></ol></nav></header>
 
 
 
 
+<section id="big-data-e-nosql" class="level1">
+<h1>Big Data e NoSQL</h1>
+<p>Il modello relazionale ha dominato la gestione dei dati per decenni, ed è ancora oggi la scelta giusta per la maggior parte delle applicazioni. Ma a partire dagli anni 2000, l’esplosione di internet, dei social network e dei sistemi distribuiti ha generato tipi di dati e volumi che il modello relazionale fatica a gestire. Da questa pressione nasce il movimento <strong>NoSQL</strong>.</p>
+<hr>
+<section id="i-limiti-del-modello-relazionale-su-larga-scala" class="level2">
+<h2 class="anchored" data-anchor-id="i-limiti-del-modello-relazionale-su-larga-scala">I limiti del modello relazionale su larga scala</h2>
+<p>Un database relazionale funziona molto bene quando:</p>
+<ul>
+<li>i dati sono strutturati e omogenei</li>
+<li>lo schema cambia raramente</li>
+<li>le operazioni richiedono coerenza forte (ACID)</li>
+<li>il volume è gestibile da un singolo server</li>
+</ul>
+<p>Quando una di queste condizioni viene meno, emergono i problemi.</p>
+<p><strong>Scalabilità verticale vs orizzontale</strong>: un database relazionale si scala verticalmente, cioè aggiungendo più potenza allo stesso server (CPU più veloce, più RAM, dischi più veloci). Questo ha un limite fisico ed economico. I sistemi web moderni preferiscono la scalabilità orizzontale: aggiungere più server. Il modello relazionale, con le sue garanzie di coerenza e i JOIN distribuiti, si adatta male a questo approccio.</p>
+<p><strong>Schema rigido</strong>: in un database relazionale ogni tabella ha uno schema fisso. Aggiungere una colonna richiede un <code>ALTER TABLE</code> che può bloccare la tabella per minuti su sistemi con milioni di righe. In contesti in cui il formato dei dati cambia continuamente (profili utente, configurazioni, log), questo rigidità diventa un problema.</p>
+<p><strong>Dati eterogenei</strong>: non tutti i dati si modellano bene come tabelle. Un post di un social network può avere zero commenti o mille, un’immagine o dieci video. Forzare questa variabilità in uno schema relazionale rigido produce tabelle sparse, piene di NULL, o gerarchie di tabelle complesse.</p>
+<hr>
+</section>
+<section id="cosè-nosql" class="level2">
+<h2 class="anchored" data-anchor-id="cosè-nosql">Cos’è NoSQL</h2>
+<p><strong>NoSQL</strong> non significa “senza SQL”: significa <strong>Not Only SQL</strong>. È una famiglia eterogenea di database nati per rispondere ai limiti descritti sopra. Non condividono un modello unico, ma alcune caratteristiche comuni:</p>
+<ul>
+<li>schema flessibile o assente</li>
+<li>progettati per la scalabilità orizzontale</li>
+<li>coerenza spesso rilassata a favore della disponibilità e delle prestazioni</li>
+<li>ottimizzati per tipi specifici di dati o di accesso</li>
+</ul>
+<p>Esistono quattro famiglie principali di database NoSQL.</p>
+<hr>
+</section>
+<section id="le-quattro-famiglie-nosql" class="level2">
+<h2 class="anchored" data-anchor-id="le-quattro-famiglie-nosql">Le quattro famiglie NoSQL</h2>
+<section id="documento-document-store" class="level3">
+<h3 class="anchored" data-anchor-id="documento-document-store">Documento (Document store)</h3>
+<p>I dati sono organizzati come <strong>documenti</strong>, tipicamente in formato JSON o BSON. Ogni documento è un’unità autonoma che può contenere strutture annidate, array e campi variabili. Non esiste uno schema fisso: due documenti nella stessa collezione possono avere campi diversi.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"u001"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"nome"</span><span class="fu">:</span> <span class="st">"Luca Rossi"</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"email"</span><span class="fu">:</span> <span class="st">"luca@example.com"</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"interessi"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"fotografia"</span><span class="ot">,</span> <span class="st">"musica"</span><span class="ot">,</span> <span class="st">"viaggi"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"indirizzo"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"città"</span><span class="fu">:</span> <span class="st">"Milano"</span><span class="fu">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"cap"</span><span class="fu">:</span> <span class="st">"20100"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Esempi di DBMS: <strong>MongoDB</strong>, CouchDB.</p>
+<p>Usato per: profili utente, cataloghi di prodotti, contenuti di CMS, configurazioni applicative.</p>
+</section>
+<section id="chiave-valore-key-value-store" class="level3">
+<h3 class="anchored" data-anchor-id="chiave-valore-key-value-store">Chiave-valore (Key-value store)</h3>
+<p>I dati sono coppie <strong>chiave: valore</strong>. La struttura è minima: si accede a un valore tramite la sua chiave, senza possibilità di query complesse sul contenuto. Sono i più veloci in lettura e scrittura.</p>
+<pre><code>"sessione:abc123" → { "userId": 42, "scadenza": "2025-12-01" }
+"cache:homepage"  → "&lt;html&gt;...&lt;/html&gt;"</code></pre>
+<p>Esempi di DBMS: <strong>Redis</strong>, DynamoDB.</p>
+<p>Usato per: cache, sessioni utente, code di messaggi, contatori in tempo reale.</p>
+</section>
+<section id="colonnare-column-store" class="level3">
+<h3 class="anchored" data-anchor-id="colonnare-column-store">Colonnare (Column store)</h3>
+<p>I dati sono organizzati per <strong>colonne</strong> invece che per righe. In un database relazionale, una riga è l’unità di memorizzazione; in un colonnare, lo è la colonna. Questo permette di leggere solo le colonne necessarie per una query, senza caricare l’intera riga, ed è molto efficiente per aggregazioni su grandi volumi.</p>
+<p>Esempi di DBMS: <strong>Apache Cassandra</strong>, HBase, Google Bigtable.</p>
+<p>Usato per: analytics, serie storiche, sistemi di log, dati IoT.</p>
+</section>
+<section id="a-grafo-graph-database" class="level3">
+<h3 class="anchored" data-anchor-id="a-grafo-graph-database">A grafo (Graph database)</h3>
+<p>I dati sono modellati come <strong>nodi</strong> (entità) e <strong>archi</strong> (relazioni tra entità). Le relazioni sono cittadini di prima classe del modello, non semplici chiavi esterne. Sono ottimizzati per navigare reti di connessioni complesse.</p>
+<p>Esempi di DBMS: <strong>Neo4j</strong>, Amazon Neptune.</p>
+<p>Usato per: social network (amici di amici), motori di raccomandazione, reti di frodi, knowledge graph.</p>
+<hr>
+</section>
+</section>
+<section id="il-teorema-cap" class="level2">
+<h2 class="anchored" data-anchor-id="il-teorema-cap">Il teorema CAP</h2>
+<p>Per capire i compromessi dei sistemi distribuiti, inclusi i NoSQL, è utile conoscere il <strong>teorema CAP</strong> (Consistency, Availability, Partition tolerance), formulato da Eric Brewer nel 2000.</p>
+<p>Il teorema afferma che un sistema distribuito non può garantire simultaneamente tutte e tre queste proprietà:</p>
+<p><strong>Coerenza (Consistency)</strong>: ogni lettura restituisce il dato più aggiornato, o un errore.</p>
+<p><strong>Disponibilità (Availability)</strong>: ogni richiesta riceve sempre una risposta, anche se potrebbe non essere il dato più aggiornato.</p>
+<p><strong>Tolleranza alle partizioni (Partition tolerance)</strong>: il sistema continua a funzionare anche se alcuni nodi della rete non riescono a comunicare tra loro.</p>
+<p>In un sistema distribuito reale, le partizioni di rete sono inevitabili. Quindi la scelta è tra coerenza e disponibilità.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sistema</th>
+<th>Sceglie</th>
+<th>Rinuncia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Database relazionale tradizionale</td>
+<td>Coerenza + Disponibilità</td>
+<td>Tolleranza alle partizioni (non è distribuito)</td>
+</tr>
+<tr class="even">
+<td>MongoDB (configurazione tipica)</td>
+<td>Disponibilità + Tolleranza</td>
+<td>Coerenza forte</td>
+</tr>
+<tr class="odd">
+<td>Cassandra</td>
+<td>Disponibilità + Tolleranza</td>
+<td>Coerenza forte</td>
+</tr>
+<tr class="even">
+<td>HBase</td>
+<td>Coerenza + Tolleranza</td>
+<td>Disponibilità</td>
+</tr>
+</tbody>
+</table>
+<p>I database NoSQL nascono spesso accettando coerenza eventuale (<em>eventual consistency</em>): i dati si propagano tra i nodi nel tempo, e per un breve periodo diversi nodi potrebbero restituire valori diversi. Per molte applicazioni (un like su un post, una visualizzazione di un video) questo è accettabile. Per un conto bancario, no.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>ACID vs BASE
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I database relazionali seguono il modello ACID (Atomicità, Coerenza, Isolamento, Durabilità). Molti NoSQL seguono invece il modello <strong>BASE</strong>: <strong>B</strong>asically <strong>A</strong>vailable (sempre disponibile), <strong>S</strong>oft state (lo stato può cambiare nel tempo), <strong>E</strong>ventually consistent (prima o poi i dati convergono). BASE non è sbagliato: è una scelta diversa, adatta a contesti diversi.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="confronto-relazionale-vs-nosql" class="level2">
+<h2 class="anchored" data-anchor-id="confronto-relazionale-vs-nosql">Confronto: relazionale vs NoSQL</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Relazionale</th>
+<th>NoSQL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Struttura dei dati</td>
+<td>tabelle con schema fisso</td>
+<td>documenti, chiavi-valore, colonne, grafi</td>
+</tr>
+<tr class="even">
+<td>Schema</td>
+<td>rigido, definito prima</td>
+<td>flessibile, può cambiare nel tempo</td>
+</tr>
+<tr class="odd">
+<td>Linguaggio</td>
+<td>SQL standard</td>
+<td>API specifiche per ogni DBMS</td>
+</tr>
+<tr class="even">
+<td>Coerenza</td>
+<td>forte (ACID)</td>
+<td>spesso eventuale (BASE)</td>
+</tr>
+<tr class="odd">
+<td>Scalabilità</td>
+<td>verticale</td>
+<td>orizzontale</td>
+</tr>
+<tr class="even">
+<td>Relazioni tra dati</td>
+<td>JOIN esplicite</td>
+<td>incorporate nei documenti o gestite dall’applicazione</td>
+</tr>
+<tr class="odd">
+<td>Ideale per</td>
+<td>dati strutturati, transazioni, coerenza critica</td>
+<td>grandi volumi, dati variabili, alta disponibilità</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="quando-usare-cosa" class="level2">
+<h2 class="anchored" data-anchor-id="quando-usare-cosa">Quando usare cosa</h2>
+<p>Non esiste una scelta universalmente migliore. La domanda giusta è: quali sono i requisiti del sistema?</p>
+<p><strong>Usa un database relazionale quando:</strong> - i dati hanno una struttura stabile e ben definita - le operazioni richiedono transazioni con coerenza forte - le relazioni tra entità sono complesse e richiedono JOIN - il volume è gestibile da un singolo server o da un cluster piccolo</p>
+<p><strong>Usa un database NoSQL quando:</strong> - i dati sono eterogenei o la struttura cambia spesso - il volume è molto grande e richiede distribuzione su più server - la disponibilità è più importante della coerenza assoluta - si tratta di un tipo di dato specifico (grafo, serie temporale, cache)</p>
+<p>In molti sistemi reali si usano entrambi: un database relazionale per i dati critici (ordini, pagamenti, utenti) e un NoSQL per i dati ad alto volume o alta variabilità (log, sessioni, raccomandazioni).</p>
+<hr>
+</section>
+<section id="schema-mentale" class="level2">
+<h2 class="anchored" data-anchor-id="schema-mentale">Schema mentale</h2>
+<p><strong>Cosa significa NoSQL?</strong> Not Only SQL: non “senza SQL” ma “non solo SQL”. È una famiglia di database con modelli diversi da quello relazionale, nati per rispondere a esigenze di scalabilità, flessibilità e volume che il modello relazionale fatica a soddisfare.</p>
+<p><strong>Quali sono le quattro famiglie NoSQL e quando si usa ciascuna?</strong> Documento (dati variabili, profili, contenuti), chiave-valore (cache, sessioni, alta velocità), colonnare (analytics, serie storiche, grandi aggregazioni), grafo (reti di connessioni, raccomandazioni, social network).</p>
+<p><strong>Cosa dice il teorema CAP?</strong> Che un sistema distribuito non può garantire simultaneamente coerenza, disponibilità e tolleranza alle partizioni. Deve scegliere due delle tre. I NoSQL scelgono quasi sempre disponibilità e tolleranza, rinunciando alla coerenza forte.</p>
+<p><strong>Qual è la differenza tra ACID e BASE?</strong> ACID garantisce coerenza forte a ogni transazione. BASE accetta che i dati siano eventualmente coerenti: per un periodo breve, nodi diversi potrebbero restituire valori diversi, ma alla fine convergeranno. BASE è adatto dove la disponibilità conta più della coerenza assoluta.</p>
+<p><strong>Quando si usano relazionale e NoSQL insieme?</strong> Spesso nei sistemi reali: il relazionale gestisce i dati critici che richiedono coerenza (ordini, pagamenti), il NoSQL gestisce i dati ad alto volume o alta variabilità (log, sessioni, raccomandazioni).</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -98,90 +98,26 @@
   </url>
   <url>
     <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/12b_c_e_sicurezza.html</loc>
-    <lastmod>2026-04-09T18:37:44.665Z</lastmod>
+    <lastmod>2026-09-07T12:08:24.343Z</lastmod>
   </url>
   <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/10_matrici.html</loc>
-    <lastmod>2026-04-04T19:59:13.562Z</lastmod>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/16b_allocazione dinamica.html</loc>
+    <lastmod>2026-09-07T12:08:24.427Z</lastmod>
   </url>
   <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/16_struct_funzioni.html</loc>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/13_file_lettura.html</loc>
     <lastmod>2026-04-09T18:37:44.669Z</lastmod>
   </url>
   <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/laboratorio/manuale.html</loc>
-    <lastmod>2026-04-09T18:37:44.697Z</lastmod>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/04_input_output.html</loc>
+    <lastmod>2026-04-04T19:27:25.440Z</lastmod>
   </url>
   <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/14_file_scrittura.html</loc>
-    <lastmod>2026-04-09T18:37:44.669Z</lastmod>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/06_iterazione.html</loc>
+    <lastmod>2026-04-04T19:38:05.352Z</lastmod>
   </url>
   <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/03_operatori.html</loc>
-    <lastmod>2026-04-04T19:21:27.116Z</lastmod>
-  </url>
-  <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/09_array.html</loc>
-    <lastmod>2026-04-04T19:56:27.900Z</lastmod>
-  </url>
-  <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/08_boolean.html</loc>
-    <lastmod>2026-04-04T19:46:14.037Z</lastmod>
-  </url>
-  <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/22_confronto_algoritmi.html</loc>
-    <lastmod>2026-04-09T18:37:44.673Z</lastmod>
-  </url>
-  <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/15_struct.html</loc>
-    <lastmod>2026-04-09T18:37:44.669Z</lastmod>
-  </url>
-  <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/diagrammi_flusso/07_costruire_un_diagramma.html</loc>
-    <lastmod>2026-03-22T17:39:44.662Z</lastmod>
-  </url>
-  <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/diagrammi_flusso/01_algoritmi.html</loc>
-    <lastmod>2026-03-22T14:22:44.310Z</lastmod>
-  </url>
-  <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/diagrammi_flusso/06_flowgorithm.html</loc>
-    <lastmod>2026-03-22T17:39:51.143Z</lastmod>
-  </url>
-  <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/diagrammi_flusso/02_dal_testo_allo_schema.html</loc>
-    <lastmod>2026-03-22T12:51:56.762Z</lastmod>
-  </url>
-  <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/index.html</loc>
-    <lastmod>2026-04-07T18:52:29.238Z</lastmod>
-  </url>
-  <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/diagrammi_flusso/05_esempi_diagrammi.html</loc>
-    <lastmod>2026-03-22T17:39:51.143Z</lastmod>
-  </url>
-  <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/diagrammi_flusso/03_simboli.html</loc>
-    <lastmod>2026-03-22T17:39:51.227Z</lastmod>
-  </url>
-  <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html</loc>
-    <lastmod>2026-03-22T18:00:44.864Z</lastmod>
-  </url>
-  <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/12_puntatori.html</loc>
-    <lastmod>2026-04-04T20:10:04.914Z</lastmod>
-  </url>
-  <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/17_ordinamento_scambio.html</loc>
-    <lastmod>2026-04-09T18:37:44.669Z</lastmod>
-  </url>
-  <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/01_introduzione.html</loc>
-    <lastmod>2026-04-04T19:12:28.861Z</lastmod>
-  </url>
-  <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/19_ordinamento_inserzione.html</loc>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/20_ordinamento_avanzati.html</loc>
     <lastmod>2026-04-09T18:37:44.673Z</lastmod>
   </url>
   <url>
@@ -189,20 +125,88 @@
     <lastmod>2026-04-09T18:37:44.673Z</lastmod>
   </url>
   <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/20_ordinamento_avanzati.html</loc>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/19_ordinamento_inserzione.html</loc>
     <lastmod>2026-04-09T18:37:44.673Z</lastmod>
   </url>
   <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/06_iterazione.html</loc>
-    <lastmod>2026-04-04T19:38:05.352Z</lastmod>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/01_introduzione.html</loc>
+    <lastmod>2026-04-04T19:12:28.861Z</lastmod>
   </url>
   <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/04_input_output.html</loc>
-    <lastmod>2026-04-04T19:27:25.440Z</lastmod>
-  </url>
-  <url>
-    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/13_file_lettura.html</loc>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/17_ordinamento_scambio.html</loc>
     <lastmod>2026-04-09T18:37:44.669Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/12_puntatori.html</loc>
+    <lastmod>2026-09-07T12:08:24.343Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/diagrammi_flusso/08_variabili_e_controlli_con_flowgorithm.html</loc>
+    <lastmod>2026-03-22T18:00:44.864Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/diagrammi_flusso/03_simboli.html</loc>
+    <lastmod>2026-03-22T17:39:51.227Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/diagrammi_flusso/05_esempi_diagrammi.html</loc>
+    <lastmod>2026-03-22T17:39:51.143Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/index.html</loc>
+    <lastmod>2026-04-07T18:52:29.238Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/diagrammi_flusso/02_dal_testo_allo_schema.html</loc>
+    <lastmod>2026-03-22T12:51:56.762Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/diagrammi_flusso/06_flowgorithm.html</loc>
+    <lastmod>2026-03-22T17:39:51.143Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/diagrammi_flusso/01_algoritmi.html</loc>
+    <lastmod>2026-03-22T14:22:44.310Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/diagrammi_flusso/07_costruire_un_diagramma.html</loc>
+    <lastmod>2026-03-22T17:39:44.662Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/15_struct.html</loc>
+    <lastmod>2026-04-09T18:37:44.669Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/22_confronto_algoritmi.html</loc>
+    <lastmod>2026-04-09T18:37:44.673Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/08_boolean.html</loc>
+    <lastmod>2026-04-04T19:46:14.037Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/09_array.html</loc>
+    <lastmod>2026-04-04T19:56:27.900Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/03_operatori.html</loc>
+    <lastmod>2026-04-04T19:21:27.116Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/14_file_scrittura.html</loc>
+    <lastmod>2026-04-09T18:37:44.669Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/laboratorio/manuale.html</loc>
+    <lastmod>2026-04-09T18:37:44.697Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/16_struct_funzioni.html</loc>
+    <lastmod>2026-04-09T18:37:44.669Z</lastmod>
+  </url>
+  <url>
+    <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/10_matrici.html</loc>
+    <lastmod>2026-04-04T19:59:13.562Z</lastmod>
   </url>
   <url>
     <loc>https://luisalealirizzi.github.io/learning_stack/docs/c/07_funzioni.html</loc>
@@ -242,7 +246,7 @@
   </url>
   <url>
     <loc>https://luisalealirizzi.github.io/learning_stack/docs/database/14_nosql.html</loc>
-    <lastmod>2026-04-08T18:18:34.462Z</lastmod>
+    <lastmod>2026-09-07T12:08:24.463Z</lastmod>
   </url>
   <url>
     <loc>https://luisalealirizzi.github.io/learning_stack/docs/database/01_storia.html</loc>
