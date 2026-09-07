@@ -41,7 +41,6 @@ website:
               - docs/c/12_puntatori.md
               - docs/c/12b_c_e_sicurezza.md
           - section: "File"
-            collapsed: true
             contents:
               - docs/c/13_file.md
               - docs/c/14_file_scrittura.md
@@ -50,6 +49,7 @@ website:
             contents:
               - docs/c/15_struct.md
               - docs/c/16_struct_funzioni.md
+              - docs/c/16b_allocazione dinamica.md
           - section: "Algoritmi"
             collapsed: true
             contents:
@@ -57,9 +57,12 @@ website:
               - docs/c/18_ordinamento_selezione.md
               - docs/c/19_ordinamento_inserzione.md
               - docs/c/20_ordinamento_avanzati.md
-              - docs/c/20b_ricorsione.md
               - docs/c/21_ricerca.md
               - docs/c/22_confronto_algoritmi.md
+          - section: "Ricorsione"
+            collapsed: true
+            contents:
+              - docs/c/20b_ricorsione.md
           - section: "Laboratorio"
             collapsed: true
             contents:

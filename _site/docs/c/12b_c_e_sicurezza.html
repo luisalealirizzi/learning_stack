@@ -728,7 +728,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/database/14_nosql.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">14_nosql.html</span></a>
+ <span class="menu-text">Big Data e NoSQL</span></a>
   </div>
 </li>
       </ul>
@@ -771,7 +771,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#cosa-succede-in-memoria" id="toc-cosa-succede-in-memoria" class="nav-link" data-scroll-target="#cosa-succede-in-memoria">Cosa succede in memoria</a></li>
   </ul></li>
   <li><a href="#blocco-2-un-esempio-concreto-e-didattico" id="toc-blocco-2-un-esempio-concreto-e-didattico" class="nav-link" data-scroll-target="#blocco-2-un-esempio-concreto-e-didattico">Blocco 2: Un esempio concreto e didattico</a></li>
-  <li><a href="#blocco-3-altre-vulnerabilita-legate-al-c" id="toc-blocco-3-altre-vulnerabilita-legate-al-c" class="nav-link" data-scroll-target="#blocco-3-altre-vulnerabilita-legate-al-c">Blocco 3: Altre vulnerabilita legate al C</a>
+  <li><a href="#blocco-3-altre-vulnerabilità-legate-al-c" id="toc-blocco-3-altre-vulnerabilità-legate-al-c" class="nav-link" data-scroll-target="#blocco-3-altre-vulnerabilità-legate-al-c">Blocco 3: Altre vulnerabilità legate al C</a>
   <ul class="collapse">
   <li><a href="#format-string-attack" id="toc-format-string-attack" class="nav-link" data-scroll-target="#format-string-attack">Format string attack</a></li>
   <li><a href="#use-after-free" id="toc-use-after-free" class="nav-link" data-scroll-target="#use-after-free">Use-after-free</a></li>
@@ -797,15 +797,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="perché-il-c-è-centrale-nella-sicurezza" class="level2">
 <h2 class="anchored" data-anchor-id="perché-il-c-è-centrale-nella-sicurezza">Perché il C è centrale nella sicurezza</h2>
-<p>Il C e il linguaggio piu vicino alla macchina tra quelli ad alto livello. Questa vicinanza e la sua forza — ma e anche la fonte delle sue vulnerabilita piu pericolose.</p>
+<p>Il C è il linguaggio più vicino alla macchina tra quelli ad alto livello. Questa vicinanza è la sua forza — ma è anche la fonte delle sue vulnerabilità più pericolose.</p>
 <p>In C il programmatore ha il controllo diretto della memoria: decide dove allocare i dati, come accedervi, quando liberarli. Nessun altro linguaggio moderno ti dà questo controllo. Ma questo significa anche che se sbagli, le conseguenze possono essere gravi e sfruttabili da un attaccante.</p>
 <p>Chi lavora in cybersecurity deve conoscere il C per due motivi: - capire <strong>come funzionano gli attacchi</strong> a basso livello - saper <strong>leggere e analizzare</strong> codice vulnerabile</p>
 <hr>
 </section>
 <section id="idea-chiave-il-buffer-overflow" class="level2">
 <h2 class="anchored" data-anchor-id="idea-chiave-il-buffer-overflow">Idea chiave: il buffer overflow</h2>
-<p>Un <strong>buffer overflow</strong> e una delle vulnerabilita piu antiche e piu sfruttate nella storia della sicurezza informatica. Nasce da un errore semplice: scrivere piu dati di quanti un array possa contenere.</p>
-<p>Hai gia visto questo concetto quando abbiamo parlato degli array, abbiamo detto che accedere oltre i limiti è un errore. Il buffer overflow è esattamente questo errore, sfruttato intenzionalmente da un attaccante.</p>
+<p>Un <strong>buffer overflow</strong> è una delle vulnerabilità più antiche e più sfruttate nella storia della sicurezza informatica. Nasce da un errore semplice: scrivere più dati di quanti un array possa contenere.</p>
+<p>Hai già visto questo concetto quando abbiamo parlato degli array, abbiamo detto che accedere oltre i limiti è un errore. Il buffer overflow è esattamente questo errore, sfruttato intenzionalmente da un attaccante.</p>
 <hr>
 </section>
 <section id="blocco-1-come-funziona-un-buffer-overflow" class="level2">
@@ -837,7 +837,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ├─────────────────────┤
 │ indirizzo di ritorno│  ← se sovrascritto, il programma va dove vuole l'attaccante
 └─────────────────────┘</code></pre>
-<p>Se l’attaccante scrive abbastanza dati da raggiungere l’<strong>indirizzo di ritorno</strong> e lo sovrascrive con un indirizzo scelto da lui, il programma continuera l’esecuzione da quel punto eseguendo codice arbitrario.</p>
+<p>Se l’attaccante scrive abbastanza dati da raggiungere l’<strong>indirizzo di ritorno</strong> e lo sovrascrive con un indirizzo scelto da lui, il programma continuerà l’esecuzione da quel punto eseguendo codice arbitrario.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -848,7 +848,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La funzione <code>gets</code> è cosi pericolosa che è stata rimossa dallo standard C11. Il compilatore moderno ti avvisa quando la usi. Non usarla mai: usa sempre <code>fgets</code> con il limite di dimensione.</p>
+<p>La funzione <code>gets</code> è così pericolosa che è stata rimossa dallo standard C11. Il compilatore moderno ti avvisa quando la usi. Non usarla mai: usa sempre <code>fgets</code> con il limite di dimensione.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>gets<span class="op">(</span>nome<span class="op">);</span>                          <span class="co">/* PERICOLOSO — mai usare */</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>fgets<span class="op">(</span>nome<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>nome<span class="op">),</span> stdin<span class="op">);</span>    <span class="co">/* sicuro */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -888,25 +888,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ├─────────────┤
 │ autorizzato │  ← subito dopo in memoria
 └─────────────┘</code></pre>
-<p>Se l’utente inserisce una stringa piu lunga di 8 caratteri, <code>scanf</code> continua a scrivere oltre <code>password</code> sovrascrivendo <code>autorizzato</code>. Se <code>autorizzato</code> diventa diverso da 0, la condizione <code>if (autorizzato)</code> è vera e l’accesso è consentito anche senza la password corretta.</p>
+<p>Se l’utente inserisce una stringa più lunga di 8 caratteri, <code>scanf</code> continua a scrivere oltre <code>password</code> sovrascrivendo <code>autorizzato</code>. Se <code>autorizzato</code> diventa diverso da 0, la condizione <code>if (autorizzato)</code> è vera e l’accesso è consentito anche senza la password corretta.</p>
+<blockquote class="blockquote">
+<p><strong>Prova tu</strong>: cosa succede se inserisci esattamente 9 caratteri come password (uno in più della dimensione dell’array)? E se ne inserisci 20? Prova a immaginare, byte per byte, cosa finisce scritto in <code>autorizzato</code> prima ancora che il programma controlli la condizione.</p>
+</blockquote>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Questo e solo a scopo didattico
+<span class="screen-reader-only">Note</span>Questo è solo a scopo didattico
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>L’esempio mostra il principio. Nella realtà moderna i sistemi operativi hanno protezioni come ASLR (Address Space Layout Randomization) e stack canaries che rendono questi attacchi molto piu difficili ma non impossibili.</p>
+<p>L’esempio mostra il principio. Nella realtà moderna i sistemi operativi hanno protezioni come ASLR (Address Space Layout Randomization) e stack canaries che rendono questi attacchi molto più difficili ma non impossibili.</p>
 </div>
 </div>
 <hr>
 </section>
-<section id="blocco-3-altre-vulnerabilita-legate-al-c" class="level2">
-<h2 class="anchored" data-anchor-id="blocco-3-altre-vulnerabilita-legate-al-c">Blocco 3: Altre vulnerabilita legate al C</h2>
-<p>Il buffer overflow è la piu famosa, ma non e l’unica.</p>
+<section id="blocco-3-altre-vulnerabilità-legate-al-c" class="level2">
+<h2 class="anchored" data-anchor-id="blocco-3-altre-vulnerabilità-legate-al-c">Blocco 3: Altre vulnerabilità legate al C</h2>
+<p>Il buffer overflow è la più famosa, ma non è l’unica.</p>
 <section id="format-string-attack" class="level3">
 <h3 class="anchored" data-anchor-id="format-string-attack">Format string attack</h3>
 <p><code>printf</code> con una stringa controllata dall’utente è pericolosa:</p>
@@ -916,22 +919,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span>input<span class="op">);</span>       <span class="co">/* PERICOLOSO */</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%s</span><span class="st">"</span><span class="op">,</span> input<span class="op">);</span> <span class="co">/* sicuro */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Se l’utente inserisce <code>"%x %x %x"</code>, <code>printf</code> interpreta quei segnaposto e legge dati dallo stack — rivelando indirizzi di memoria o valori di variabili.</p>
+<blockquote class="blockquote">
+<p><strong>Prova tu</strong>: nella prima riga di <code>printf</code> qui sopra, cosa succederebbe se un utente inserisse <code>%s%s%s%s</code> invece di un nome normale? <code>printf</code> andrebbe a cercare degli argomenti che non esistono: da dove pensi che li leggerebbe?</p>
+</blockquote>
 </section>
 <section id="use-after-free" class="level3">
 <h3 class="anchored" data-anchor-id="use-after-free">Use-after-free</h3>
-<p>Usare memoria dopo averla liberata: un errore tipico con <code>malloc</code> e <code>free</code> che puo portare a comportamenti imprevedibili e sfruttabili.</p>
+<p>Usare memoria dopo averla liberata: un errore tipico con <code>malloc</code> e <code>free</code> che può portare a comportamenti imprevedibili e sfruttabili.</p>
 </section>
 <section id="integer-overflow" class="level3">
 <h3 class="anchored" data-anchor-id="integer-overflow">Integer overflow</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">int</span> a <span class="op">=</span> <span class="dv">4294967295</span><span class="op">;</span>   <span class="co">/* valore massimo di unsigned int */</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> a <span class="op">+</span> <span class="dv">1</span><span class="op">;</span>                     <span class="co">/* diventa 0 — overflow */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Se questo valore viene usato come dimensione di un buffer, il buffer viene allocato troppo piccolo e i dati in eccesso sovrascrivono memoria.</p>
+<blockquote class="blockquote">
+<p><strong>Prova tu</strong>: se una funzione calcola <code>dimensione = numero_elementi * sizeof(int)</code> e <code>numero_elementi</code> è un valore molto grande fornito dall’utente, cosa può succedere al valore di <code>dimensione</code> prima ancora che venga chiamata <code>malloc</code>?</p>
+</blockquote>
 <hr>
 </section>
 </section>
 <section id="blocco-4-come-si-difende-un-programmatore" class="level2">
 <h2 class="anchored" data-anchor-id="blocco-4-come-si-difende-un-programmatore">Blocco 4: Come si difende un programmatore</h2>
-<p>Conoscere le vulnerabilita serve per evitarle. Ecco le regole pratiche:</p>
+<p>Conoscere le vulnerabilità serve per evitarle. Ecco le regole pratiche:</p>
 <p><strong>Usa sempre funzioni con limite di dimensione</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>gets<span class="op">(</span>s<span class="op">);</span>                          <span class="co">/* mai */</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fgets<span class="op">(</span>s<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>s<span class="op">),</span> stdin<span class="op">);</span>       <span class="co">/* sempre */</span></span>
@@ -972,14 +981,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Conoscere il C apre porte specifiche nel mondo della cybersecurity:</p>
 <p><strong>Vulnerability research</strong> Ricerca di vulnerabilità in software esistente: molti programmi critici sono scritti in C (kernel Linux, OpenSSL, browser).</p>
 <p><strong>Penetration testing</strong> I penetration tester scrivono exploit in C quando devono interagire direttamente con la memoria di un processo target.</p>
-<p><strong>Reverse engineering</strong> Analizzare un programma senza il codice sorgente. Il codice compilato viene tradotto in assembly, chi conosce il C capisce molto piu facilmente cosa sta succedendo.</p>
-<p><strong>Sviluppo di malware e antivirus</strong> Molti malware sono scritti in C perchè producono eseguibili piccoli e veloci. I ricercatori che li analizzano devono capire C.</p>
-<p><strong>Sicurezza embedded e IoT</strong> Router, telecamere, sistemi industriali girano quasi sempre su C. Le vulnerabilita IoT sono una delle aree più attive della ricerca in sicurezza.</p>
+<p><strong>Reverse engineering</strong> Analizzare un programma senza il codice sorgente. Il codice compilato viene tradotto in assembly, chi conosce il C capisce molto più facilmente cosa sta succedendo.</p>
+<p><strong>Sviluppo di malware e antivirus</strong> Molti malware sono scritti in C perché producono eseguibili piccoli e veloci. I ricercatori che li analizzano devono capire C.</p>
+<p><strong>Sicurezza embedded e IoT</strong> Router, telecamere, sistemi industriali girano quasi sempre su C. Le vulnerabilità IoT sono una delle aree più attive della ricerca in sicurezza.</p>
 <hr>
 </section>
 <section id="schema-mentale" class="level2">
 <h2 class="anchored" data-anchor-id="schema-mentale">Schema mentale</h2>
-<pre><code>Perche il C è pericoloso?
+<pre><code>Perché il C è pericoloso?
     → il programmatore gestisce la memoria direttamente
     → nessun controllo automatico sui limiti degli array
 
@@ -993,7 +1002,7 @@ Come si previene?
     → valida sempre l'input
     → controlla gli indici prima di accedere agli array
 
-Perche studiarlo?
+Perché studiarlo?
     → capire gli attacchi per difendersi
     → base per vulnerability research e penetration testing</code></pre>
 <hr>
@@ -1004,8 +1013,8 @@ Perche studiarlo?
 <ul>
 <li><strong>Progetto</strong>: prova a compilare il codice vulnerabile di questo capitolo con <code>gcc -fsanitize=address</code> e osserva cosa rileva</li>
 <li><strong>Strumento</strong>: installa <code>valgrind</code> e analizza un tuo programma C</li>
-<li><strong>Percorso</strong>: piattaforme come <strong>picoCTF</strong> e <strong>HackTheBox</strong> hanno sfide che partono esattamente da queste vulnerabilita</li>
-<li><strong>Lettura</strong>: cerca “smashing the stack for fun and profit” — l’articolo storico del 1996 che ha cambiato la sicurezza informatica</li>
+<li><strong>Percorso</strong>: piattaforme come <strong>picoCTF</strong> e <strong>HackTheBox</strong> hanno sfide che partono esattamente da queste vulnerabilità</li>
+<li><strong>Lettura</strong>: cerca “smashing the stack for fun and profit”, l’articolo storico del 1996 che ha cambiato la sicurezza informatica</li>
 </ul>
 
 
